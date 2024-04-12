@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "style/GlobalStyle.ts"]
+  "include": ["src", "src/styles/GlobalStyle.ts"]
 }
