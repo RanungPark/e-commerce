@@ -3,11 +3,13 @@ import styled from "styled-components";
 import arrowRight from "../assets/icons/wght400/arrow-right.svg";
 
 const StyleTextIconButton = styled.button`
+  ${({ theme }) => theme.flexSet()}
+  ${({ theme }) => theme.typography("Links")}
   color: ${({ theme }) => theme.colors.black};
   border: none;
   background-color: inherit;
-  ${({ theme }) => theme.flexSet()}
   gap: 4px;
+  cursor: pointer;
 
   &:hover {
     color: ${({ theme }) => theme.colors.gray};

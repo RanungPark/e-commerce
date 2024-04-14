@@ -5,9 +5,11 @@ const StyledButton = styled.button<{
   $colorType: "primary" | "secondary" | "tertiary";
 }>`
   ${({ theme }) => theme.flexSet()}
+  ${({ theme }) => theme.typography("Button")}
   padding: 16px 24px 14px 24px;
   width: 175px;
   height: 56px;
+  cursor: pointer;
   background-color: ${({ $colorType, theme }) => {
     switch ($colorType) {
       case "primary":
