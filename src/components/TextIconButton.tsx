@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import arrowRight from "../assets/icons/wght400/arrow-right.svg";
+import { ReactComponent as ArrowRight } from "../assets/icons/wght400/chevron-right.svg";
 
 const StyleTextIconButton = styled.button`
   ${({ theme }) => theme.flexSet()}
@@ -30,7 +30,7 @@ const TextIconButton = () => {
   return (
     <StyleTextIconButton>
       {"Button"}
-      <img src={arrowRight} alt="arrow right" />
+      <ArrowRight />
     </StyleTextIconButton>
   );
 };
