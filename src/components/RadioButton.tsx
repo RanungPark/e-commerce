@@ -1,16 +1,16 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyleRadioButton = styled.label`
-  ${({ theme }) => theme.typography("Body")};
+  ${({ theme }) => theme.typography('Body')};
   cursor: pointer;
 
-  & [type="radio"],
+  & [type='radio'],
   span {
     vertical-align: middle;
   }
 
-  & [type="radio"] {
+  & [type='radio'] {
     appearance: none;
     background-color: ${({ theme }) => theme.colors.lightgray};
     border: 1px solid ${({ theme }) => theme.colors.black};
@@ -23,7 +23,7 @@ const StyleRadioButton = styled.label`
 
     &:checked {
       &::before {
-        content: "";
+        content: '';
         border-radius: 50%;
         width: 14px;
         height: 14px;
@@ -41,7 +41,7 @@ const RadioButton = () => {
   return (
     <StyleRadioButton>
       <input type="radio" name="contact" value="radioButton" />
-      <span>{"Radio Button"}</span>
+      <span>{'Radio Button'}</span>
     </StyleRadioButton>
   );
 };

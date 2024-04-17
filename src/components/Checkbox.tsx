@@ -1,18 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import checkbox from "../assets/icons/wght300/check_FILL0_wght300_GRAD0_opsz24.svg";
+import React from 'react';
+import styled from 'styled-components';
+import checkbox from '../assets/icons/wght300/check_FILL0_wght300_GRAD0_opsz24.svg';
 
 const StyleCheckbox = styled.label`
-  ${({ theme }) => theme.typography("CaptionBold")};
+  ${({ theme }) => theme.typography('CaptionBold')};
   position: relative;
   cursor: pointer;
 
-  & [type="checkbox"],
+  & [type='checkbox'],
   span {
     vertical-align: text-top;
   }
 
-  & [type="checkbox"] {
+  & [type='checkbox'] {
     appearance: none;
     background-color: ${({ theme }) => theme.colors.lightgray};
     border: 1px solid ${({ theme }) => theme.colors.black};
@@ -37,7 +37,7 @@ const Checkbox = () => {
     <StyleCheckbox>
       <input type="checkbox" value="checkbox" checked />
       {check ? <img src={checkbox} alt="checkbox Icon" /> : <></>}
-      <span>{"Checkbox"}</span>
+      <span>{'Checkbox'}</span>
     </StyleCheckbox>
   );
 };
