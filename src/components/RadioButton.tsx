@@ -1,13 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyleRadioButton = styled.label`
+const StyledRadioButton = styled.label`
   ${({ theme }) => theme.typography('Body')};
+  width: auto;
+  height: auto;
+  color: ${({ theme }) => theme.colors.black};
   cursor: pointer;
 
   & [type='radio'],
-  span {
+  p {
     vertical-align: middle;
+  }
+
+  p {
+    display: inline-block;
   }
 
   & [type='radio'] {
@@ -35,14 +42,30 @@ const StyleRadioButton = styled.label`
       }
     }
   }
+
+  &:active {
+    color: ${({ theme }) => theme.colors.gray};
+
+    & [type='radio'] {
+      border: 1px solid ${({ theme }) => theme.colors.gray};
+
+      &::before {
+        background-color: ${({ theme }) => theme.colors.gray};
+      }
+    }
+  }
 `;
 
-const RadioButton = () => {
+interface IRadioButton {
+  text: string;
+}
+
+const RadioButton = ({ text }: IRadioButton) => {
   return (
-    <StyleRadioButton>
+    <StyledRadioButton>
       <input type="radio" name="contact" value="radioButton" />
-      <span>{'Radio Button'}</span>
-    </StyleRadioButton>
+      <p>{text}</p>
+    </StyledRadioButton>
   );
 };
 
