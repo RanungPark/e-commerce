@@ -1,4 +1,4 @@
-import { DefaultTheme, Typography, Weight, css } from 'styled-components';
+import { DefaultTheme, Typography, Weight } from 'styled-components';
 
 const colors = {
   white: '#ffffff',
@@ -9,13 +9,6 @@ const colors = {
   black: '#121212',
   succeess: '#32936f',
   error: '#f55f56',
-};
-
-const flexSet = (direction = 'row', just = 'center', align = 'center') => {
-  return `display: flex;
-  flex-direction: ${direction};
-  justify-content: ${just};
-  align-items: ${align};`;
 };
 
 const weightScheme: Record<Weight, number> = {
@@ -102,6 +95,5 @@ console.log(typography);
 
 export const theme: DefaultTheme = {
   colors,
-  flexSet,
   typography,
 };

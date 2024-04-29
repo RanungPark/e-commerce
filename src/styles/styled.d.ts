@@ -1,7 +1,7 @@
 import 'styled-components';
 
 declare module 'styled-components' {
-  export type IStyleName =
+  type Typography =
     | 'Heading1'
     | 'Heading2'
     | 'Heading3'
@@ -12,12 +12,14 @@ declare module 'styled-components' {
     | 'Body'
     | 'Button'
     | 'Links'
-    | 'OverLine'
+    | 'Overline'
     | 'Caption'
     | 'CaptionSmall'
     | 'CaptionBold';
 
-  export interface DefaultTheme {
+  type Weight = 'Semibold' | 'Medium' | 'Regular';
+
+  interface DefaultTheme {
     colors: {
       white: string;
       extralight: string;
@@ -28,7 +30,8 @@ declare module 'styled-components' {
       succeess: string;
       error: string;
     };
-    flexSet: (direction?: string, just?: string, align?: string) => string;
-    typography: (styleName: IStyleName) => string;
+    typography: {
+      [K in Typography]: string;
+    };
   }
 }
