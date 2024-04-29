@@ -36,14 +36,14 @@ const DescriptionPrice = styled(Description)`
   color: ${({ theme }) => theme.colors.gray};
 `;
 
-interface ICardItem {
+interface CardItemProps {
   bgImg: string;
   label: string;
   price: string;
   isDescription?: boolean;
 }
 
-const CardItem = ({ bgImg, label, price, isDescription = true }: ICardItem) => {
+const CardItem = ({ bgImg, label, price, isDescription = true }: CardItemProps) => {
   return (
     <StyledCardItem bgImg={bgImg}>
       {isDescription !== false && (

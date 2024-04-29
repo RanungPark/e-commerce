@@ -45,13 +45,13 @@ const DescriptionList = styled.ul`
   }
 `;
 
-interface IPlanCard {
+interface PlanCardProps {
   productImg: string;
   label: string;
   lists: string[];
 }
 
-const PlanCard = ({ productImg, label, lists }: IPlanCard) => {
+const PlanCard = ({ productImg, label, lists }: PlanCardProps) => {
   return (
     <StyledPlanCard>
       <Content>

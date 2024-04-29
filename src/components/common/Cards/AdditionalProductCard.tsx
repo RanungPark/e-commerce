@@ -45,7 +45,7 @@ const DescriptionPrice = styled(Description)`
   color: ${({ theme }) => theme.colors.gray};
 `;
 
-interface IAdditionalProductCard {
+interface AdditionalProductCardProps {
   productImg: string;
   label: string;
   price: string;
@@ -55,7 +55,7 @@ const AdditionalProductCard = ({
   productImg,
   label,
   price,
-}: IAdditionalProductCard) => {
+}: AdditionalProductCardProps) => {
   return (
     <StyledAdditionalProductCard>
       <img src={productImg} alt="steel vase" />

@@ -56,11 +56,11 @@ const StyledRadioButton = styled.label`
   }
 `;
 
-interface IRadioButton {
+interface RadioButtonProps {
   label: string;
 }
 
-const RadioButton = ({ label }: IRadioButton) => {
+const RadioButton = ({ label }: RadioButtonProps) => {
   return (
     <StyledRadioButton>
       <input type="radio" name="contact" value="radioButton" />

@@ -147,11 +147,12 @@ const StyledButton = styled.button<{
   }
 `;
 
-interface IButton {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   colorType?: 'primary' | 'secondary' | 'tertiary';
   arrowIcon?: 'default' | 'left' | 'right';
   isDisabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button = ({
@@ -159,9 +160,10 @@ const Button = ({
   colorType = 'primary',
   arrowIcon = 'default',
   isDisabled = false,
-}: IButton) => {
+  onClick,
+}: ButtonProps) => {
   return (
-    <StyledButton colorType={colorType} disabled={isDisabled}>
+    <StyledButton colorType={colorType} disabled={isDisabled} onClick={onClick}>
       {arrowIcon === 'left' && <West300 />}
       {label}
       {arrowIcon === 'right' && <East300 />}

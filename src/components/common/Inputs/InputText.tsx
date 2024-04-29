@@ -104,7 +104,7 @@ const TextHelperWapper = styled.div<{
   }
 `;
 
-interface IInputText {
+interface InputTextProps {
   label: string;
   placeholder: string;
   textHelper: string;
@@ -122,7 +122,7 @@ const InputText = ({
   helperState = true,
   isDisabled = false,
   inputState = 'default',
-}: IInputText) => {
+}: InputTextProps) => {
   const [inputText, setInputText] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -12,11 +12,11 @@ const StyledNavbarLink = styled.a`
   display: inline-flex;
 `;
 
-interface INavbarLink {
+interface NavbarLinkProps {
   label: string;
 }
 
-const NavbarLink = ({ label }: INavbarLink) => {
+const NavbarLink = ({ label }: NavbarLinkProps) => {
   return <StyledNavbarLink href="/">{label}</StyledNavbarLink>;
 };
 

@@ -51,11 +51,11 @@ const OptionItemWrapper = styled.li`
   }
 `;
 
-interface IInputSelect {
+interface InputSelectProps {
   options: string[];
 }
 
-const InputSelect = ({ options }: IInputSelect) => {
+const InputSelect = ({ options }: InputSelectProps) => {
   const [selectOption, setSelectOption] = useState('-Select-');
   const [isOpen, setIsOpen] = useState(false);
 

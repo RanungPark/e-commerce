@@ -30,10 +30,14 @@ const StyledStepIndicator = styled.div`
   }
 `;
 
-const StepIndicator = () => {
+interface StepIndicatorProps {
+  label: string;
+}
+
+const StepIndicator = ({ label }: StepIndicatorProps) => {
   return (
     <StyledStepIndicator>
-      <span>{'INFORMATION'}</span>
+      <span>{label}</span>
       <div>
         <ChevronRight />
       </div>

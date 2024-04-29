@@ -4,7 +4,7 @@ import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as Calendar } from '../../../assets/icons/wght400/calendar_month.svg';
 import CustomCalendarHeader, {
-  ICustomCalenderHeader,
+  CustomCalenderHeaderProps,
 } from '../CustomCalendarHeader';
 import enGB from 'date-fns/locale/en-GB';
 import { mixins } from '../../../styles/Mixin';
@@ -114,7 +114,7 @@ const DatePickerComponent = () => {
     nextMonthButtonDisabled,
     decreaseMonth,
     increaseMonth,
-  }: ICustomCalenderHeader) => {
+  }: CustomCalenderHeaderProps) => {
     return (
       <CustomCalendarHeader
         date={date}

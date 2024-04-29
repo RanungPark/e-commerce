@@ -26,12 +26,12 @@ const StyledCardCategory = styled.section`
   }
 `;
 
-interface ICardCategory {
+interface CardCategoryProps {
   label: string;
   buttonText: string;
 }
 
-const CardCategory = ({ label, buttonText }: ICardCategory) => {
+const CardCategory = ({ label, buttonText }: CardCategoryProps) => {
   return (
     <StyledCardCategory>
       <h3>{label}</h3>

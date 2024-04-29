@@ -11,7 +11,7 @@ const StyledCalendarHeader = styled.div`
   gap: 16.5px;
 `;
 
-export interface ICustomCalenderHeader {
+export interface CustomCalenderHeaderProps {
   date: Date;
   decreaseMonth(): void;
   increaseMonth(): void;
@@ -25,7 +25,7 @@ const CustomCalendarHeader = ({
   increaseMonth,
   prevMonthButtonDisabled,
   nextMonthButtonDisabled,
-}: ICustomCalenderHeader) => {
+}: CustomCalenderHeaderProps) => {
   const formatDate = (d: Date): string => {
     const date = new Date(d);
     const header = new Intl.DateTimeFormat('en-US', {

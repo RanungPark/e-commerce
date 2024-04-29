@@ -32,12 +32,12 @@ const BottomBox = styled.div`
   opacity: 0.9;
 `;
 
-interface IDropdownFAQ {
+interface DropdownFAQProps {
   label: string;
   replay: string;
 }
 
-const DropdownFAQ = ({ label, replay }: IDropdownFAQ) => {
+const DropdownFAQ = ({ label, replay }: DropdownFAQProps) => {
   const [open, setOpen] = useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {

@@ -53,11 +53,11 @@ const StyledCheckbox = styled.label`
   }
 `;
 
-interface ICheckbox {
+interface CheckboxProps {
   label: string;
 }
 
-const Checkbox = ({ label }: ICheckbox) => {
+const Checkbox = ({ label }: CheckboxProps) => {
   const [check, setCheck] = useState(true);
 
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {

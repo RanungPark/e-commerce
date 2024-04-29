@@ -15,14 +15,14 @@ const StyledNavbar = styled.nav`
   }
 `;
 
-interface INavbar {
+interface NavbarProps {
   label1st: string;
   label2ed: string;
   label3rd: string;
   label4th: string;
 }
 
-const Navbar = ({ label1st, label2ed, label3rd, label4th }: INavbar) => {
+const Navbar = ({ label1st, label2ed, label3rd, label4th }: NavbarProps) => {
   return (
     <StyledNavbar>
       <div>

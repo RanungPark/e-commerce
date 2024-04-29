@@ -20,12 +20,12 @@ const StyledBenefitBlock = styled.section`
   }
 `;
 
-interface IBenefitBlock {
+interface BenefitBlockProps {
   label: string;
   description: string;
 }
 
-const BenefitBlock = ({ label, description }: IBenefitBlock) => {
+const BenefitBlock = ({ label, description }: BenefitBlockProps) => {
   return (
     <StyledBenefitBlock>
       <h3>{label}</h3>

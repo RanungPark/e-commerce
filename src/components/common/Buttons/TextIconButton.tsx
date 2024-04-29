@@ -42,21 +42,23 @@ const StyledTextIconButton = styled.button`
   }
 `;
 
-interface ITextIconButton {
+type TextIconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   label: string;
   arrowIcon?: 'rightIcon' | 'leftIcon' | 'withText';
   textOrIcon?: 'withText' | 'onlyIcon';
   isDisabled?: boolean;
-}
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+};
 
 const TextIconButton = ({
   label,
   arrowIcon = 'rightIcon',
   textOrIcon = 'withText',
   isDisabled = false,
-}: ITextIconButton) => {
+  onClick,
+}: TextIconButtonProps) => {
   return (
-    <StyledTextIconButton disabled={isDisabled}>
+    <StyledTextIconButton disabled={isDisabled} onClick={onClick}>
       {textOrIcon === 'withText' && arrowIcon === 'withText' && <>{label}</>}
       {textOrIcon === 'onlyIcon' && (
         <>

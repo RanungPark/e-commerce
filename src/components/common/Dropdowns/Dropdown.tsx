@@ -32,12 +32,12 @@ const FrontBox = styled.div`
   }
 `;
 
-interface IDropdown {
+interface DropdownProps {
   label: string;
   isFilled?: boolean;
 }
 
-const Dropdown = ({ label, isFilled = true }: IDropdown) => {
+const Dropdown = ({ label, isFilled = true }: DropdownProps) => {
   return (
     <StyledDropdown isFiiled={isFilled}>
       <FrontBox>

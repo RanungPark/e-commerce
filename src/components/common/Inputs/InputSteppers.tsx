@@ -28,9 +28,9 @@ const PlusButton = styled(PublicButton)`
   border-left: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
-interface IInputSteppers {}
+interface InputSteppersProps {}
 //일단 하드코딩으로 숫자 대입
-const InputSteppers = ({}: IInputSteppers) => {
+const InputSteppers = ({}: InputSteppersProps) => {
   return (
     <StyledInputSteppers>
       <MinusButton>
