@@ -68,7 +68,7 @@ const weightMap: Record<Typography, number> = {
   CaptionBold: weightScheme.Medium,
 };
 
-export type RuleSet<T extends Typography> = {
+type RuleSet<T extends Typography> = {
   [key in T]: string;
 };
 
