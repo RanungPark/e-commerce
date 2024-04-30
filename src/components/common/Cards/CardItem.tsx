@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mixins } from '../../../styles/Mixin';
+import { mixins } from 'src/styles/Mixin';
+import { PickCommonProps } from 'src/@types/common';
 
-const StyledCardItem = styled.section<{ bgImg: string }>`
+const StyledCardItem = styled.section<{ productImg: string }>`
   ${mixins.flexBox()}
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   border-left: 1px solid ${({ theme }) => theme.colors.black};
   position: relative;
-  background-image: url(${({ bgImg }) => bgImg});
+  background-image: url(${({ productImg }) => productImg});
   background-size: cover;
   width: 100%;
   height: 25vw;
@@ -36,16 +37,20 @@ const DescriptionPrice = styled(Description)`
   color: ${({ theme }) => theme.colors.gray};
 `;
 
-interface CardItemProps {
-  bgImg: string;
-  label: string;
-  price: string;
-  isDescription?: boolean;
-}
+type UseCommonProps = 'productImg' | 'label' | 'price';
 
-const CardItem = ({ bgImg, label, price, isDescription = true }: CardItemProps) => {
+type CardItemProps = PickCommonProps<UseCommonProps> & {
+  isDescription?: boolean;
+};
+
+const CardItem = ({
+  productImg,
+  label,
+  price,
+  isDescription = true,
+}: CardItemProps) => {
   return (
-    <StyledCardItem bgImg={bgImg}>
+    <StyledCardItem productImg={productImg}>
       {isDescription !== false && (
         <CardItemDescription>
           <DescriptionLabel>{label}</DescriptionLabel>

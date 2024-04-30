@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import NavbarLink from './NavbarLink';
-import { mixins } from '../../../styles/Mixin';
+import { mixins } from 'src/styles/Mixin';
 
 const StyledNavbar = styled.nav`
   ${mixins.flexBox(undefined, 'space-between')};
@@ -15,12 +15,11 @@ const StyledNavbar = styled.nav`
   }
 `;
 
-interface NavbarProps {
-  label1st: string;
-  label2ed: string;
-  label3rd: string;
-  label4th: string;
-}
+type NavbarLabels = 'label1st' | 'label2ed' | 'label3rd' | 'label4th';
+
+type NavbarProps = {
+  [key in NavbarLabels]: string;
+};
 
 const Navbar = ({ label1st, label2ed, label3rd, label4th }: NavbarProps) => {
   return (

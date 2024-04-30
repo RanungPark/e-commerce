@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as ChevronRight } from '../../../assets/icons/wght400/chevron-right.svg';
-import { mixins } from '../../../styles/Mixin';
+import { ReactComponent as ChevronRight } from 'src/assets/icons/wght400/chevron-right.svg';
+import { mixins } from 'src/styles/Mixin';
+import { PickLabel } from 'src/@types/common';
 
 const StyledStepIndicator = styled.div`
   ${({ theme }) => theme.typography.Overline};
@@ -30,9 +31,7 @@ const StyledStepIndicator = styled.div`
   }
 `;
 
-interface StepIndicatorProps {
-  label: string;
-}
+type StepIndicatorProps = PickLabel;
 
 const StepIndicator = ({ label }: StepIndicatorProps) => {
   return (

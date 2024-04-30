@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { ReactComponent as Calendar } from '../../../assets/icons/wght400/calendar_month.svg';
+import { ReactComponent as Calendar } from 'src/assets/icons/wght400/calendar_month.svg';
 import CustomCalendarHeader, {
   CustomCalenderHeaderProps,
-} from '../CustomCalendarHeader';
+} from './CustomCalendarHeader';
 import enGB from 'date-fns/locale/en-GB';
-import { mixins } from '../../../styles/Mixin';
+import { mixins } from 'src/styles/Mixin';
 
 const StyledDatePicker = styled.div`
   width: 100%;

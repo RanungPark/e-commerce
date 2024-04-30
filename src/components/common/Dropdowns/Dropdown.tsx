@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as CheckFill } from '../../../assets/icons/wght300/check_FILL0_wght300_GRAD0_opsz24.svg';
-import { ReactComponent as EditSquare } from '../../../assets/icons/wght400/edit_square.svg';
-import { mixins } from '../../../styles/Mixin';
+import { ReactComponent as CheckFill } from 'src/assets/icons/wght300/check_FILL0_wght300_GRAD0_opsz24.svg';
+import { ReactComponent as EditSquare } from 'src/assets/icons/wght400/edit_square.svg';
+import { mixins } from 'src/styles/Mixin';
+import { PickLabel } from 'src/@types/common';
 
 const StyledDropdown = styled.div<{ isFiiled: boolean }>`
   ${mixins.flexBox(undefined, 'space-between')}
@@ -32,10 +33,9 @@ const FrontBox = styled.div`
   }
 `;
 
-interface DropdownProps {
-  label: string;
+type DropdownProps = PickLabel & {
   isFilled?: boolean;
-}
+};
 
 const Dropdown = ({ label, isFilled = true }: DropdownProps) => {
   return (

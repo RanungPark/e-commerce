@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../Buttons/Button';
+import { PickCommonProps } from 'src/@types/common';
 
 const StyledPlanCard = styled.section`
   color: ${({ theme }) => theme.colors.black};
@@ -45,11 +46,11 @@ const DescriptionList = styled.ul`
   }
 `;
 
-interface PlanCardProps {
-  productImg: string;
-  label: string;
+type UseCommonProps = 'productImg' | 'label';
+
+type PlanCardProps = PickCommonProps<UseCommonProps> & {
   lists: string[];
-}
+};
 
 const PlanCard = ({ productImg, label, lists }: PlanCardProps) => {
   return (

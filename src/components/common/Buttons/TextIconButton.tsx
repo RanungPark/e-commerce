@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as East300 } from '../../../assets/icons/wght300/east_wght300_opsz24.svg';
-import { ReactComponent as West300 } from '../../../assets/icons/wght300/west_300_opsz24.svg';
-import { mixins } from '../../../styles/Mixin';
+import { ReactComponent as East300 } from 'src/assets/icons/wght300/east_wght300_opsz24.svg';
+import { ReactComponent as West300 } from 'src/assets/icons/wght300/west_300_opsz24.svg';
+import { PickCommonProps } from 'src/@types/common';
+import { mixins } from 'src/styles/Mixin';
 
 const StyledTextIconButton = styled.button`
   ${mixins.flexBox()}
@@ -15,7 +16,6 @@ const StyledTextIconButton = styled.button`
   background-color: inherit;
   gap: 4px;
   position: relative;
-  cursor: pointer;
 
   &:hover {
     color: ${({ theme }) => theme.colors.gray};
@@ -42,35 +42,35 @@ const StyledTextIconButton = styled.button`
   }
 `;
 
-type TextIconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  label: string;
-  arrowIcon?: 'rightIcon' | 'leftIcon' | 'withText';
-  textOrIcon?: 'withText' | 'onlyIcon';
-  isDisabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-};
+type UseCommonProps = 'label' | 'isDisabled' | 'arrowIcon';
+
+type TextIconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+  PickCommonProps<UseCommonProps> & {
+    textOrIcon?: 'withText' | 'onlyIcon';
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  };
 
 const TextIconButton = ({
   label,
-  arrowIcon = 'rightIcon',
+  arrowIcon = 'right',
   textOrIcon = 'withText',
   isDisabled = false,
   onClick,
 }: TextIconButtonProps) => {
   return (
     <StyledTextIconButton disabled={isDisabled} onClick={onClick}>
-      {textOrIcon === 'withText' && arrowIcon === 'withText' && <>{label}</>}
+      {textOrIcon === 'withText' && arrowIcon === 'none' && <>{label}</>}
       {textOrIcon === 'onlyIcon' && (
         <>
-          {arrowIcon === 'leftIcon' && <West300 />}
-          {arrowIcon === 'rightIcon' && <East300 />}
+          {arrowIcon === 'left' && <West300 />}
+          {arrowIcon === 'right' && <East300 />}
         </>
       )}
-      {textOrIcon === 'withText' && arrowIcon !== 'withText' && (
+      {textOrIcon === 'withText' && arrowIcon !== 'none' && (
         <>
-          {arrowIcon === 'leftIcon' && <West300 />}
+          {arrowIcon === 'left' && <West300 />}
           {label}
-          {arrowIcon === 'rightIcon' && <East300 />}
+          {arrowIcon === 'right' && <East300 />}
         </>
       )}
     </StyledTextIconButton>

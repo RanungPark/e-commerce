@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as ArrowDropDown } from '../../../assets/icons/wght300/arrow_drop_down_FILL0_wght300_GRAD0_opsz24.svg';
-import { ReactComponent as ArrowDropUp } from '../../../assets/icons/wght300/arrow_drop_up_FILL0_wght300_GRAD0_opsz24.svg';
-import { mixins } from '../../../styles/Mixin';
+import { ReactComponent as ArrowDropDown } from 'src/assets/icons/wght300/arrow_drop_down_FILL0_wght300_GRAD0_opsz24.svg';
+import { ReactComponent as ArrowDropUp } from 'src/assets/icons/wght300/arrow_drop_up_FILL0_wght300_GRAD0_opsz24.svg';
+import { mixins } from 'src/styles/Mixin';
 
 const StyledInputSelect = styled.div``;
 
@@ -51,9 +51,9 @@ const OptionItemWrapper = styled.li`
   }
 `;
 
-interface InputSelectProps {
+type InputSelectProps = {
   options: string[];
-}
+};
 
 const InputSelect = ({ options }: InputSelectProps) => {
   const [selectOption, setSelectOption] = useState('-Select-');

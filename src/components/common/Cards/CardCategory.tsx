@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import TextIconButton from '../Buttons/TextIconButton';
-import { mixins } from '../../../styles/Mixin';
+import { mixins } from 'src/styles/Mixin';
+import { PickLabel } from 'src/@types/common';
 
 const StyledCardCategory = styled.section`
   ${mixins.flexBox()}
@@ -26,10 +27,9 @@ const StyledCardCategory = styled.section`
   }
 `;
 
-interface CardCategoryProps {
-  label: string;
+type CardCategoryProps = PickLabel & {
   buttonText: string;
-}
+};
 
 const CardCategory = ({ label, buttonText }: CardCategoryProps) => {
   return (

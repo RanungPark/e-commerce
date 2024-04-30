@@ -1,4 +1,5 @@
 import React from 'react';
+import { PickLabel } from 'src/@types/common';
 import styled from 'styled-components';
 
 const StyledRadioButton = styled.label`
@@ -56,9 +57,7 @@ const StyledRadioButton = styled.label`
   }
 `;
 
-interface RadioButtonProps {
-  label: string;
-}
+type RadioButtonProps = PickLabel;
 
 const RadioButton = ({ label }: RadioButtonProps) => {
   return (

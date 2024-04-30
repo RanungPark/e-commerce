@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as East300 } from '../../../assets/icons/wght300/east_wght300_opsz24.svg';
-import { ReactComponent as West300 } from '../../../assets/icons/wght300/west_300_opsz24.svg';
-import { mixins } from '../../../styles/Mixin';
+import { ReactComponent as East300 } from 'src/assets/icons/wght300/east_wght300_opsz24.svg';
+import { ReactComponent as West300 } from 'src/assets/icons/wght300/west_300_opsz24.svg';
+import { mixins } from 'src/styles/Mixin';
+import { PickCommonProps } from 'src/@types/common';
 
 const StyledButton = styled.button<{
-  colorType: 'primary' | 'secondary' | 'tertiary';
+  colorType: ColorType;
 }>`
   ${mixins.flexBox()}
   ${({ theme }) => theme.typography.Button}
@@ -13,7 +14,6 @@ const StyledButton = styled.button<{
   min-width: 175px;
   width: 100%;
   height: 56px;
-  cursor: pointer;
   gap: 8px;
   background-color: ${({ colorType, theme }) => {
     switch (colorType) {
@@ -147,18 +147,19 @@ const StyledButton = styled.button<{
   }
 `;
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
-  colorType?: 'primary' | 'secondary' | 'tertiary';
-  arrowIcon?: 'default' | 'left' | 'right';
-  isDisabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
+type ColorType = 'primary' | 'secondary' | 'tertiary';
+type UseCommonProps = 'label' | 'isDisabled' | 'arrowIcon';
+
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+  PickCommonProps<UseCommonProps> & {
+    colorType?: ColorType;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  };
 
 const Button = ({
   label,
   colorType = 'primary',
-  arrowIcon = 'default',
+  arrowIcon = 'none',
   isDisabled = false,
   onClick,
 }: ButtonProps) => {

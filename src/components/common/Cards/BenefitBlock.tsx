@@ -1,4 +1,5 @@
 import React from 'react';
+import { PickLabel } from 'src/@types/common';
 import styled from 'styled-components';
 
 const StyledBenefitBlock = styled.section`
@@ -20,10 +21,9 @@ const StyledBenefitBlock = styled.section`
   }
 `;
 
-interface BenefitBlockProps {
-  label: string;
+type BenefitBlockProps = PickLabel & {
   description: string;
-}
+};
 
 const BenefitBlock = ({ label, description }: BenefitBlockProps) => {
   return (

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { BiSolidErrorCircle } from 'react-icons/bi';
 import { BiSolidCheckCircle } from 'react-icons/bi';
-import { mixins } from '../../../styles/Mixin';
+import { mixins } from 'src/styles/Mixin';
+import { PickCommonProps } from 'src/@types/common';
 
 const StyledInputText = styled.div`
   ${({ theme }) => theme.typography.Heading6};
@@ -104,15 +105,15 @@ const TextHelperWapper = styled.div<{
   }
 `;
 
-interface InputTextProps {
-  label: string;
+type UseCommponProps = 'label' | 'isDisabled';
+
+type InputTextProps = PickCommonProps<UseCommponProps> & {
   placeholder: string;
   textHelper: string;
   labelState?: boolean;
   helperState?: boolean;
-  isDisabled?: boolean;
   inputState?: 'default' | 'success' | 'error';
-}
+};
 
 const InputText = ({
   label,

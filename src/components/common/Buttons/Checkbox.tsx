@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Check300 } from '../../../assets/icons/wght300/check_FILL0_wght300_GRAD0_opsz24.svg';
+import { ReactComponent as Check300 } from 'src/assets/icons/wght300/check_FILL0_wght300_GRAD0_opsz24.svg';
+import { PickLabel } from 'src/@types/common';
 
 const StyledCheckbox = styled.label`
   ${({ theme }) => theme.typography.CaptionBold};
@@ -53,9 +54,7 @@ const StyledCheckbox = styled.label`
   }
 `;
 
-interface CheckboxProps {
-  label: string;
-}
+type CheckboxProps = PickLabel;
 
 const Checkbox = ({ label }: CheckboxProps) => {
   const [check, setCheck] = useState(true);

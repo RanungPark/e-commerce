@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { BiPlus } from 'react-icons/bi';
 import { BiMinus } from 'react-icons/bi';
-import { mixins } from '../../../styles/Mixin';
+import { mixins } from 'src/styles/Mixin';
 
 const StyledInputSteppers = styled.div`
   ${mixins.flexBox(undefined, 'space-between')}
@@ -28,7 +28,7 @@ const PlusButton = styled(PublicButton)`
   border-left: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
-interface InputSteppersProps {}
+type InputSteppersProps = {};
 //일단 하드코딩으로 숫자 대입
 const InputSteppers = ({}: InputSteppersProps) => {
   return (

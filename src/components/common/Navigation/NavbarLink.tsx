@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mixins } from '../../../styles/Mixin';
+import { mixins } from 'src/styles/Mixin';
+import { PickLabel } from 'src/@types/common';
 
 const StyledNavbarLink = styled.a`
   ${({ theme }) => theme.typography.Links};
@@ -12,9 +13,7 @@ const StyledNavbarLink = styled.a`
   display: inline-flex;
 `;
 
-interface NavbarLinkProps {
-  label: string;
-}
+type NavbarLinkProps = PickLabel;
 
 const NavbarLink = ({ label }: NavbarLinkProps) => {
   return <StyledNavbarLink href="/">{label}</StyledNavbarLink>;

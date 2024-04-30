@@ -1,4 +1,5 @@
 import React from 'react';
+import { OmitCommonProps } from 'src/@types/common';
 import styled from 'styled-components';
 
 const StyledAdditionalProductCard = styled.div`
@@ -45,11 +46,9 @@ const DescriptionPrice = styled(Description)`
   color: ${({ theme }) => theme.colors.gray};
 `;
 
-interface AdditionalProductCardProps {
-  productImg: string;
-  label: string;
-  price: string;
-}
+type RemoveCommonProps = 'isDisabled' | 'arrowIcon';
+
+type AdditionalProductCardProps = OmitCommonProps<RemoveCommonProps>;
 
 const AdditionalProductCard = ({
   productImg,
