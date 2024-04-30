@@ -91,8 +91,6 @@ function buildTypography(): RuleSet<Typography> {
 
 const typography = buildTypography();
 
-console.log(typography);
-
 export const theme: DefaultTheme = {
   colors,
   typography,
