@@ -44,13 +44,9 @@ const App = () => {
         isDisabled={true}
       />
       <TextIconButton label="Button" />
-      <TextIconButton
-        label="Button"
-        arrowIcon="leftIcon"
-        textOrIcon="onlyIcon"
-      />
-      <TextIconButton label="Button" arrowIcon="leftIcon" />
-      <TextIconButton label="Button" arrowIcon="withText" isDisabled={true} />
+      <TextIconButton label="Button" arrowIcon="left" textOrIcon="onlyIcon" />
+      <TextIconButton label="Button" arrowIcon="left" />
+      <TextIconButton label="Button" arrowIcon="none" isDisabled={true} />
       <Checkbox label="Checkbox" />
       <Checkbox label="Checkbox" />
       <RadioButton label="Radio Button" />
@@ -77,7 +73,7 @@ const App = () => {
       />
       <CardCategory label="Fresh Flowers" buttonText="Button" />
       <CardItem
-        bgImg={snowfall}
+        productImg={snowfall}
         label="Bouquets Fresh Flowers"
         price="price 70$"
       />
@@ -99,7 +95,7 @@ const App = () => {
         label3rd="Sgin in"
         label4th="Cart"
       />
-      <StepIndicator />
+      <StepIndicator label="INFORMATION" />
     </>
   );
 };
