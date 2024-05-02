@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ReactComponent as ChevronRight } from 'src/assets/icons/wght400/chevron-right.svg';
 import { mixins } from 'src/styles/Mixin';
 import { PickLabel } from 'src/@types/common';
+import { Text } from '../Text';
 
 const StyledStepIndicator = styled.div`
   ${({ theme }) => theme.typography.Overline};
@@ -36,7 +37,9 @@ type StepIndicatorProps = PickLabel;
 const StepIndicator = ({ label }: StepIndicatorProps) => {
   return (
     <StyledStepIndicator>
-      <span>{label}</span>
+      <Text as="span" typography="Overline" color='gray'>
+        {label}
+      </Text>
       <div>
         <ChevronRight />
       </div>
