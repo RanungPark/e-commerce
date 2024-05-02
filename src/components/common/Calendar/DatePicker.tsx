@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import DatePicker, { registerLocale } from 'react-datepicker';
+import { default as DatePickerlib, registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as Calendar } from 'src/assets/icons/wght400/calendar_month.svg';
 import CustomCalendarHeader, {
@@ -105,7 +105,7 @@ const CustomInput = styled.input`
   }
 `;
 
-const DatePickerComponent = () => {
+const DatePicker = () => {
   // registerLocale('en-GB', enGB);
 
   const renderCustomHeader = ({
@@ -130,7 +130,7 @@ const DatePickerComponent = () => {
   return (
     <StyledDatePicker>
       <LabelWrapper>
-        <DatePicker
+        <DatePickerlib
           dateFormat="MM.dd.yy"
           selected={startDate}
           locale="en-GB"
@@ -144,4 +144,4 @@ const DatePickerComponent = () => {
   );
 };
 
-export default DatePickerComponent;
+export default DatePicker;
