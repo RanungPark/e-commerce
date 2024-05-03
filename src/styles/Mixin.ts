@@ -1,6 +1,11 @@
 export const mixins = {
-  flexBox: (direction = 'row',justify = 'center', align = 'center', ) => `
-    display: flex;
+  flexBox: (
+    display = 'flex',
+    direction = 'row',
+    justify = 'center',
+    align = 'center'
+  ) => `
+    display: ${display};
     flex-direction: ${direction};
     justify-content: ${justify};
     align-items: ${align};
