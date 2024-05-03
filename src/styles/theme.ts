@@ -1,4 +1,4 @@
-import { DefaultTheme, Typography, Weight } from 'styled-components';
+import { Typography, Weight } from 'src/@types/theme';
 
 const colors = {
   white: '#ffffff',
@@ -68,30 +68,28 @@ const weightMap: Record<Typography, number> = {
   CaptionBold: weightScheme.Medium,
 };
 
-type RuleSet<T extends Typography> = {
-  [key in T]: string;
-};
-
-function buildTypography(): RuleSet<Typography> {
-  const newTypography: any = {};
+function buildTypography(): Record<Typography, string> {
+  const newTypography = {} as Record<Typography, string>;
 
   for (const key in sizeMap) {
     if (sizeMap.hasOwnProperty(key)) {
-      const size = sizeMap[key as Typography];
-      const lineHeight = lineHeightMap[key as Typography];
-      const weight = weightMap[key as Typography];
-      newTypography[
-        key as Typography
-      ] = `font-size: ${size}px; font-weight: ${weight}; line-height: ${lineHeight}%;`;
+      const typeKey = key as Typography;
+      const size = sizeMap[typeKey];
+      const lineHeight = lineHeightMap[typeKey];
+      const weight = weightMap[typeKey];
+      newTypography[typeKey] =
+        `font-size: ${size}px; font-weight: ${weight}; line-height: ${lineHeight}%;`;
     }
   }
 
-  return newTypography as RuleSet<Typography>;
+  return newTypography;
 }
 
 const typography = buildTypography();
 
-export const theme: DefaultTheme = {
+export const theme = {
   colors,
   typography,
 };
+
+export type Theme = typeof theme;
