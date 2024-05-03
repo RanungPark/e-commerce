@@ -1,11 +1,13 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 const base = css`
   #root {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
   body: {
     margin: auto;
+    color: ${({ theme }) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.white};
   }
   button {
     cursor: pointer;
