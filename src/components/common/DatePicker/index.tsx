@@ -13,7 +13,7 @@ const StyledDatePicker = styled.div`
 `;
 
 const LabelWrapper = styled.label`
-  ${mixins.flexBox(undefined, undefined, 'space-between')}
+  ${mixins.flexBox({ justify: 'space-between' })}
   background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.lightgray};
   padding: 16px;
@@ -37,7 +37,7 @@ const LabelWrapper = styled.label`
 
   .react-datepicker__day-names {
     ${({ theme }) => theme.typography.CaptionBold}
-    ${mixins.flexBox()}
+    ${mixins.flexBox({})}
     gap: 8px;
     padding: 0;
     margin-top: 16px;
@@ -52,7 +52,7 @@ const LabelWrapper = styled.label`
 
   .react-datepicker__month {
     ${({ theme }) => theme.typography.CaptionBold}
-    ${mixins.flexBox(undefined, 'column')}
+    ${mixins.flexBox({ direction: 'column' })}
     margin: 24px 0 0 0;
     gap: 16px;
   }

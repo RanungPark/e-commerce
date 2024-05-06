@@ -6,7 +6,7 @@ import { BiSolidCheckCircle } from 'react-icons/bi';
 import Text from '../Text';
 
 const HelperWapper = styled.div<HelperWrapperProps>`
-  ${mixins.flexBox(undefined, undefined, 'flex-start')};
+  ${mixins.flexBox({ justify: 'flex-start' })};
   margin-top: 8px;
 
   & p {

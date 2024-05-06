@@ -6,7 +6,7 @@ import { ReactComponent as ArrowDropUp } from 'src/assets/icons/wght300/arrow_dr
 import { SelectBoxProps } from '.';
 
 const StyledLabel = styled.label<LabelWrapperProps>`
-  ${mixins.flexBox(undefined, undefined, 'space-between')}
+  ${mixins.flexBox({ justify: 'space-between' })}
   width: 100%;
   max-height: 56px;
   padding: 16px;

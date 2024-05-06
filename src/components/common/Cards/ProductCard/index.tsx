@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Button from '../../Buttons/Button';
 import { mixins } from 'src/styles/Mixin';
 import Description from './Description';
+import Buttons from '../../Buttons';
 
 const StyledPlanCard = styled.section`
   width: auto;
@@ -9,7 +9,7 @@ const StyledPlanCard = styled.section`
 `;
 
 const Content = styled.div`
-  ${mixins.flexBox()}
+  ${mixins.flexBox({})}
   width: auto;
   height: auto;
   border: 1px solid ${({ theme }) => theme.colors.lightgray};
@@ -40,7 +40,7 @@ const ProductCard = ({
         <img src={productImg} alt="three flower of classic" />
         <Description label={label} descriptions={descriptions} />
       </Content>
-      <Button label={buttonLabel}></Button>
+      <Buttons buttonType="filled" label={buttonLabel}></Buttons>
     </StyledPlanCard>
   );
 };

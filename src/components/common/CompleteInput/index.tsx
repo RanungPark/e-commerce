@@ -7,7 +7,7 @@ import Text from '../Text';
 import Icon from '../Icon';
 
 const StyledCompleteInput = styled.div<PickStyled>`
-  ${mixins.flexBox(undefined, undefined, 'space-between')}
+  ${mixins.flexBox({ justify: 'space-between' })}
   width: 100%;
   height: auto;
   padding: 0 16px 24px 0;
@@ -21,8 +21,8 @@ const StyledCompleteInput = styled.div<PickStyled>`
   }
 `;
 
-const FrontBox = styled.div`
-  ${mixins.flexBox()}
+const LeftBox = styled.div`
+  ${mixins.flexBox({})}
   gap: 4px;
 `;
 
@@ -44,13 +44,13 @@ const CompleteInput = ({
 }: OptionalFromCompleteInputProps) => {
   return (
     <StyledCompleteInput isFilled={isFilled}>
-      <FrontBox>
+      <LeftBox>
         {isFilled && <Icon as={CheckFill} fill="black" />}
         <Text as="p" typography="Subtitle">
           {label}
         </Text>
-      </FrontBox>
-      <div>{isFilled && <Icon as={EditSquare} fill="gray" />}</div>
+      </LeftBox>
+      {isFilled && <Icon as={EditSquare} fill="gray" />}
     </StyledCompleteInput>
   );
 };

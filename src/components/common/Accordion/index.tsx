@@ -13,7 +13,7 @@ const StyledAccordion = styled.div`
 `;
 
 const TopBox = styled.div`
-  ${mixins.flexBox(undefined, undefined, 'space-between')}
+  ${mixins.flexBox({ justify: 'space-between' })}
   gap: 16px;
   cursor: pointer;
 `;

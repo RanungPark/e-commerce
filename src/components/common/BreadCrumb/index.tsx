@@ -5,7 +5,7 @@ import { ReactComponent as ChevronRight } from 'src/assets/icons/wght400/chevron
 import { mixins } from 'src/styles/Mixin';
 
 const StyledBreadCrumb = styled.div`
-  ${mixins.flexBox()};
+  ${mixins.flexBox({})};
   width: auto;
   height: auto;
   cursor: pointer;

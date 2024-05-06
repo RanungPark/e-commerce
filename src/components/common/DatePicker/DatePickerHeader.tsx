@@ -6,7 +6,7 @@ import { mixins } from 'src/styles/Mixin';
 import { renderCustomHeaderProps } from '.';
 
 const StyledCalendarHeader = styled.div`
-  ${mixins.flexBox()}
+  ${mixins.flexBox({})}
   ${({ theme }) => theme.typography.Heading6};
   background-color: ${({ theme }) => theme.colors.white};
   gap: 16.5px;

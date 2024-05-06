@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Text from '../Text';
 
 const StyledOption = styled.li`
-  ${mixins.flexBox(undefined, undefined, 'start')}
+  ${mixins.flexBox({ justify: 'start' })}
   width: 100%;
   max-height: 56px;
   padding: 16px;

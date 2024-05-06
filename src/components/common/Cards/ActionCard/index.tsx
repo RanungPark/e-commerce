@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import TextIconButton from '../../Buttons/TextIconButton';
 import { mixins } from 'src/styles/Mixin';
 import Text from '../../Text';
+import Buttons from '../../Buttons';
 
 const StyledActionCard = styled.section`
-  ${mixins.flexBox()}
+  ${mixins.flexBox({})}
   width: 100%;
   height: 25vw;
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
@@ -35,7 +35,7 @@ const ActionCard = ({ label, buttonLabel }: ActionCardProps) => {
       >
         {label}
       </Text>
-      <TextIconButton label={buttonLabel}></TextIconButton>
+      <Buttons buttonType="none" label={buttonLabel}></Buttons>
     </StyledActionCard>
   );
 };

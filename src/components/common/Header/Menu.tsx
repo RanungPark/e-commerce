@@ -3,7 +3,7 @@ import { mixins } from 'src/styles/Mixin';
 import Text from '../Text';
 
 const StyledMenu = styled.a`
-  ${mixins.flexBox('inline-flex')};
+  ${mixins.flexBox({ display: 'inline-flex' })};
   width: 180px;
   height: auto;
   border-right: 1px solid ${({ theme }) => theme.colors.black};

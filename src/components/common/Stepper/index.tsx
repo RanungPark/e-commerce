@@ -5,7 +5,7 @@ import { BiMinus } from 'react-icons/bi';
 import { mixins } from 'src/styles/Mixin';
 
 const StyledStepper = styled.div`
-  ${mixins.flexBox(undefined, undefined, 'space-between')}
+  ${mixins.flexBox({ justify: 'space-between' })}
   max-width: 147px;
   height: 44px;
   border: 1px solid ${({ theme }) => theme.colors.black};
@@ -23,7 +23,7 @@ const InputWrapper = styled.input`
 `;
 
 const PublicButton = styled.button`
-  ${mixins.flexBox()}
+  ${mixins.flexBox({})}
   background-color: inherit;
   cursor: pointer;
   width: 44px;
