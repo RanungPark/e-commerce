@@ -68,24 +68,30 @@ const weightMap: Record<Typography, number> = {
   CaptionBold: weightScheme.Medium,
 };
 
-function buildTypography(): Record<Typography, string> {
-  const newTypography = {} as Record<Typography, string>;
+const buildTypographya = (typo: Typography) => {
+  return `
+    font-size: ${sizeMap[typo]}px; 
+    font-weight: ${weightMap[typo]}; 
+    line-height: ${lineHeightMap[typo]}%;
+  `;
+};
 
-  for (const key in sizeMap) {
-    if (sizeMap.hasOwnProperty(key)) {
-      const typeKey = key as Typography;
-      const size = sizeMap[typeKey];
-      const lineHeight = lineHeightMap[typeKey];
-      const weight = weightMap[typeKey];
-      newTypography[typeKey] =
-        `font-size: ${size}px; font-weight: ${weight}; line-height: ${lineHeight}%;`;
-    }
-  }
-
-  return newTypography;
-}
-
-const typography = buildTypography();
+const typography: Record<Typography, string> = {
+  Heading1: buildTypographya('Heading1'),
+  Heading2: buildTypographya('Heading2'),
+  Heading3: buildTypographya('Heading3'),
+  Heading4: buildTypographya('Heading4'),
+  Heading5: buildTypographya('Heading5'),
+  Heading6: buildTypographya('Heading6'),
+  Subtitle: buildTypographya('Subtitle'),
+  Body: buildTypographya('Body'),
+  Button: buildTypographya('Button') + `text-transform: uppercase;`,
+  Links: buildTypographya('Links'),
+  Overline: buildTypographya('Overline') + `text-transform: uppercase;`,
+  Caption: buildTypographya('Caption'),
+  CaptionSmall: buildTypographya('CaptionSmall'),
+  CaptionBold: buildTypographya('CaptionSmall'),
+};
 
 export const theme = {
   colors,
