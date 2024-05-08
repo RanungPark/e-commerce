@@ -1,4 +1,7 @@
-import { OptionalSpecifyColorProps } from 'src/@types/mixin/specifyColor';
+import {
+  OptionalButtonProps,
+  PickInputProps,
+} from 'src/@types/mixin/nodeToColor';
 import { OptionalFromFlexBoxProps } from 'src/@types/mixin/flexbox';
 import { css } from 'styled-components';
 
@@ -14,11 +17,8 @@ export const mixins = {
     justify-content: ${justify};
     align-items: ${align};
   `,
-  specifyColor: ({
-    colorAndFill,
-    bgColor,
-    borderColor,
-  }: OptionalSpecifyColorProps) => {
+
+  button: ({ colorAndFill, bgColor, borderColor }: OptionalButtonProps) => {
     return css`
       ${({ theme }) => {
         const { colors } = theme;
@@ -27,6 +27,24 @@ export const mixins = {
           background-color: ${bgColor ? colors[bgColor] : 'inherit'};
           border: ${borderColor ? `1px solid ${colors[borderColor]}` : `none`};
           & path {
+            fill: ${colors[colorAndFill]};
+          }
+        `;
+      }}
+    `;
+  },
+
+  input: ({ colorAndFill, borderColor }: PickInputProps) => {
+    return css`
+      ${({ theme }) => {
+        const { colors } = theme;
+        return css`
+          border: 1px solid ${colors[borderColor]};
+
+          & + div p {
+            color: ${colors[colorAndFill]};
+          }
+          & + div path {
             fill: ${colors[colorAndFill]};
           }
         `;
