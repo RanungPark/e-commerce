@@ -40,7 +40,7 @@ const ProductCard = ({
         <img src={productImg} alt="three flower of classic" />
         <Description label={label} descriptions={descriptions} />
       </Content>
-      <Buttons buttonType="filled" label={buttonLabel}></Buttons>
+      <Buttons buttonType="contained" label={buttonLabel}></Buttons>
     </StyledPlanCard>
   );
 };
