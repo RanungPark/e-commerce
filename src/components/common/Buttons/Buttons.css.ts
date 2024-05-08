@@ -1,6 +1,6 @@
 import { mixins } from 'src/styles/Mixin';
 import { css } from 'styled-components';
-import { PickFilledButtonProps } from '.';
+import { PickContainedButtonProps } from '.';
 import {
   PrimaryStyle,
   SecondaryStyle,
@@ -8,7 +8,7 @@ import {
 } from './FiledButton.css';
 
 export const StyledButton = {
-  filled: ({ colorType }: PickFilledButtonProps) => {
+  contained: ({ colorType }: PickContainedButtonProps) => {
     return css`
       ${mixins.flexBox({})}
       padding: 16px 24px 14px 24px;
@@ -23,39 +23,43 @@ export const StyledButton = {
   },
   none: () => {
     return css`
-      ${mixins.flexBox({})}
-      width: auto;
-      height: auto;
-      padding: 0;
-      border: none;
-      color: ${({ theme }) => theme.colors.black};
-      background-color: inherit;
-      gap: 4px;
-      position: relative;
+      ${({ theme }) => {
+        const { colors } = theme;
+        return css`
+          ${mixins.flexBox({})}
+          width: auto;
+          height: auto;
+          padding: 0;
+          border: none;
+          background-color: inherit;
+          gap: 4px;
+          position: relative;
 
-      &:hover {
-        color: ${({ theme }) => theme.colors.gray};
-      }
+          &:hover {
+            color: ${colors.gray};
+          }
 
-      &:active {
-        color: ${({ theme }) => theme.colors.black};
-      }
+          &:active {
+            color: ${colors.black};
+          }
 
-      &:disabled {
-        color: ${({ theme }) => theme.colors.lightgray};
-        cursor: not-allowed;
-      }
+          &:disabled {
+            color: ${colors.lightgray};
+            cursor: not-allowed;
+          }
 
-      &:hover::after,
-      &:active::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -2px;
-        width: 100%;
-        height: 1px;
-        background-color: ${({ theme }) => theme.colors.black};
-      }
+          &:hover::after,
+          &:active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 1px;
+            background-color: ${colors.black};
+          }
+        `;
+      }}
     `;
   },
 };

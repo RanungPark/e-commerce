@@ -7,8 +7,8 @@ import { StyledButton } from './Buttons.css';
 
 const StyledButtons = styled.button<PickStyledButtonsProps>`
   ${({ buttonType, colorType }) =>
-    buttonType === 'filled'
-      ? StyledButton.filled({ colorType })
+    buttonType === 'contained'
+      ? StyledButton.contained({ colorType })
       : StyledButton.none()}
 `;
 
@@ -18,7 +18,7 @@ interface ButtonsProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   arrowIcon: 'none' | 'left' | 'right';
   colorType: 'primary' | 'secondary' | 'tertiary';
   textOrIcon: 'withText' | 'onlyIcon';
-  buttonType: 'filled' | 'none';
+  buttonType: 'contained' | 'none';
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -29,7 +29,7 @@ type RequiredFromButtonsProps = PartialRequired<
 
 type PickStyledButtonsProps = Pick<ButtonsProps, 'buttonType' | 'colorType'>;
 
-export type PickFilledButtonProps = Pick<ButtonsProps, 'colorType'>;
+export type PickContainedButtonProps = Pick<ButtonsProps, 'colorType'>;
 
 type PickPublicComponentProps = Pick<
   ButtonsProps,
@@ -45,7 +45,7 @@ const PublicComponent = ({
   return (
     <>
       {arrowIcon === 'left' && <West300 />}
-      {buttonType === 'filled' ? (
+      {buttonType === 'contained' ? (
         <Text as="p" typography="Button">
           {label}
         </Text>

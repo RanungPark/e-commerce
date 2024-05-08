@@ -2,21 +2,21 @@ import { mixins } from 'src/styles/Mixin';
 import { css } from 'styled-components';
 
 export const PrimaryStyle = css`
-  ${mixins.specifyColor({ colorAndFill: 'white', bgColor: 'black' })};
+  ${mixins.button({ colorAndFill: 'white', bgColor: 'black' })};
 
   &:hover {
-    ${mixins.specifyColor({
+    ${mixins.button({
       colorAndFill: 'white',
       bgColor: 'darkgray',
     })};
   }
 
   &:active {
-    ${mixins.specifyColor({ colorAndFill: 'white', bgColor: 'black' })};
+    ${mixins.button({ colorAndFill: 'white', bgColor: 'black' })};
   }
 
   &:disabled {
-    ${mixins.specifyColor({
+    ${mixins.button({
       colorAndFill: 'gray',
       bgColor: 'lightgray',
     })};
@@ -25,21 +25,21 @@ export const PrimaryStyle = css`
 `;
 
 export const SecondaryStyle = css`
-  ${mixins.specifyColor({
+  ${mixins.button({
     colorAndFill: 'black',
     bgColor: 'white',
     borderColor: 'black',
   })};
 
   &:hover {
-    ${mixins.specifyColor({
+    ${mixins.button({
       colorAndFill: 'white',
       bgColor: 'black',
     })};
   }
 
   &:active {
-    ${mixins.specifyColor({
+    ${mixins.button({
       colorAndFill: 'black',
       bgColor: 'white',
       borderColor: 'black',
@@ -47,7 +47,7 @@ export const SecondaryStyle = css`
   }
 
   &:disabled {
-    ${mixins.specifyColor({
+    ${mixins.button({
       colorAndFill: 'gray',
       borderColor: 'lightgray',
     })};
@@ -56,27 +56,27 @@ export const SecondaryStyle = css`
 `;
 
 export const TertiaryyStyle = css`
-  ${mixins.specifyColor({
+  ${mixins.button({
     colorAndFill: 'white',
     borderColor: 'white',
   })};
 
   &:hover {
-    ${mixins.specifyColor({
+    ${mixins.button({
       colorAndFill: 'darkgray',
       bgColor: 'white',
     })};
   }
 
   &:active {
-    ${mixins.specifyColor({
+    ${mixins.button({
       colorAndFill: 'black',
       bgColor: 'white',
     })};
   }
 
   &:disabled {
-    ${mixins.specifyColor({
+    ${mixins.button({
       colorAndFill: 'darkgray',
       borderColor: 'lightgray',
     })};
