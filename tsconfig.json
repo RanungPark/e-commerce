@@ -15,17 +15,17 @@
     "isolatedModules": true,
     "noEmit": true,
     "baseUrl": ".",
-    "paths": {
-      "@public/*": ["public/*"],
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@constants/*": ["src/constants/*"],
-      "@context/*": ["src/context/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@pages/*": ["src/pages/*"],
-      "@styles/*": ["src/styles/*"],
-      "@utils/*": ["src/utils/*"]
-    },
+    // "paths": {
+    //   "@public/*": ["public/*"],
+    //   "@assets/*": ["src/assets/*"],
+    //   "@components/*": ["src/components/*"],
+    //   "@constants/*": ["src/constants/*"],
+    //   "@context/*": ["src/context/*"],
+    //   "@hooks/*": ["src/hooks/*"],
+    //   "@pages/*": ["src/pages/*"],
+    //   "@styles/*": ["src/styles/*"],
+    //   "@utils/*": ["src/utils/*"]
+    // },
     "removeComments": true,
     "jsx": "react-jsx"
   },
