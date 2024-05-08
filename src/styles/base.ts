@@ -16,6 +16,9 @@ const base = css`
     text-decoration: none;
     color: ${({ theme }) => theme.colors.black};
   }
+  path {
+    fill: ${({ theme }) => theme.colors.black};
+  }
 `;
 
 export default base;
