@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 const reset = css`
   html,
@@ -81,7 +81,9 @@ const reset = css`
   time,
   mark,
   audio,
-  video {
+  video,
+  input,
+  button {
     padding: 0;
     margin: 0;
     border: 0;
@@ -119,7 +121,7 @@ const reset = css`
   blockquote::after,
   q::before,
   q::after {
-    content: "";
+    content: '';
     content: none;
   }
   input {
