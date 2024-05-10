@@ -1,11 +1,15 @@
 import { mixins } from 'src/styles/Mixin';
 import { css } from 'styled-components';
-import { PickContainedButtonProps } from '.';
+import { ButtonsProps } from '.';
 import {
   PrimaryStyle,
   SecondaryStyle,
   TertiaryyStyle,
 } from './FiledButton.css';
+
+interface ButtonCSS extends ButtonsProps {}
+
+type PickContainedButtonProps = Pick<ButtonCSS, 'colorType'>;
 
 export const StyledButton = {
   contained: ({ colorType }: PickContainedButtonProps) => {
