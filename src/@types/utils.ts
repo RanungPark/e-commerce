@@ -4,11 +4,10 @@ export type PartialOptional<T, K extends keyof T> = Partial<T> & Omit<T, K>;
 
 export type PartialDelete<T, K extends keyof T> = T | Omit<T, K>;
 
-type DeleteTuple<
-  T extends any[],
-  K extends any[],
-  R extends any[] = [],
-> = T extends [infer V, ...infer A]
+type DeleteTuple<T extends any[], K extends any[]> = T extends [
+  infer V,
+  ...infer A,
+]
   ? V extends K[number]
     ? DeleteTuple<A, K>
     : [V, ...DeleteTuple<A, K>]
@@ -26,4 +25,4 @@ type ObjectPath<
       : never
   : never;
 
-  type A<T> = T extends string ? any : never
+export type SelectObject<T, K extends keyof T> = T[K];
