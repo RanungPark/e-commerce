@@ -20,9 +20,9 @@ export const StyledButton = {
       width: 100%;
       height: 56px;
       gap: 8px;
-      ${colorType === 'primary' && PrimaryStyle}
-      ${colorType === 'secondary' && SecondaryStyle}
-      ${colorType === 'tertiary' && TertiaryyStyle}
+      ${colorType === 'primary' ? PrimaryStyle : null}
+      ${colorType === 'secondary' ? SecondaryStyle : null}
+      ${colorType === 'tertiary' ? TertiaryyStyle : null}
     `;
   },
   none: () => {

@@ -77,7 +77,7 @@ function PublicButtonComponent({
         </Text>
       ) : (
         <Text as="p" typography="Links">
-          {textOrIcon === 'withText' && label}
+          {textOrIcon === 'withText' ? label : null}
         </Text>
       )}
       {rightIcon !== undefined ? <Icon as={rightIcon} /> : <></>}

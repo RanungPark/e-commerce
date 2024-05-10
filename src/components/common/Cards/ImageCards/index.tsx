@@ -23,7 +23,6 @@ type PickImageCardWrapperProps = Pick<
   'productImg' | 'cardType'
 >;
 
-
 const ImageCards = ({
   label,
   productImg,
@@ -33,8 +32,8 @@ const ImageCards = ({
 }: OptionalFromImageCardsProps) => {
   return (
     <StyledImageCards productImg={productImg} cardType={cardType}>
-      {cardType === 'sub' && <img src={productImg} alt="steel vase" />}
-      {isDescription !== false && (
+      {cardType === 'sub' ? <img src={productImg} alt="steel vase" /> : <></>}
+      {isDescription !== false ? (
         <DescriptionWrapper cardType={cardType}>
           <Text
             as="h6"
@@ -46,6 +45,8 @@ const ImageCards = ({
             {price}
           </Text>
         </DescriptionWrapper>
+      ) : (
+        <></>
       )}
     </StyledImageCards>
   );
@@ -63,11 +64,12 @@ const DescriptionWrapper = styled.div<PickDescriptionProps>`
   height: auto;
 
   ${({ cardType }) =>
-    cardType === 'main' &&
-    `
+    cardType === 'main'
+      ? `
       position: absolute;
       bottom: 24px;
-    `}
+    `
+      : null}
 
   & p {
     color: ${({ theme }) => theme.colors.gray};

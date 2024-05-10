@@ -24,7 +24,7 @@ const CheckBoxOrRadioButton = ({
         value={label}
         name="contact"
       />
-      {inputType === 'checkbox' && <Check300 />}
+      {inputType === 'checkbox' ? <Check300 /> : <></>}
       <Text
         as="p"
         typography={inputType === 'checkbox' ? 'CaptionBold' : 'Body'}

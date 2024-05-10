@@ -12,8 +12,8 @@ type PickFromHelperProps = Pick<HelperProps, 'inputState' | 'textHelper'>;
 const Helper = ({ inputState, textHelper }: PickFromHelperProps) => {
   return (
     <HelperWapper>
-      {inputState === 'success' && <BiSolidCheckCircle />}
-      {inputState === 'error' && <BiSolidErrorCircle />}
+      {inputState === 'success' ? <BiSolidCheckCircle /> : <></>}
+      {inputState === 'error' ? <BiSolidErrorCircle /> : <></>}
       <Text as="p" typography="CaptionSmall">
         {textHelper}
       </Text>

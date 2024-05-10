@@ -44,12 +44,14 @@ const Accordion = ({ label, replay }: AccordionProps) => {
         </Text>
         {open ? <NorthEast /> : <SouthEast />}
       </TopBox>
-      {open && (
+      {open ? (
         <BottomBox>
           <Text as="p" typography="Body">
             {replay}
           </Text>
         </BottomBox>
+      ) : (
+        <></>
       )}
     </StyledAccordion>
   );

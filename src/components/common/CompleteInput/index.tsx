@@ -25,12 +25,12 @@ const CompleteInput = ({
   return (
     <StyledCompleteInput isFilled={isFilled}>
       <LeftBox>
-        {isFilled && <Icon as={CheckFill} fill="black" />}
+        {isFilled ? <Icon as={CheckFill} fill="black" /> : <></>}
         <Text as="p" typography="Subtitle">
           {label}
         </Text>
       </LeftBox>
-      {isFilled && <Icon as={EditSquare} fill="gray" />}
+      {isFilled ? <Icon as={EditSquare} fill="gray" /> : <></>}
     </StyledCompleteInput>
   );
 };

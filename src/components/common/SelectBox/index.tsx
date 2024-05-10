@@ -34,7 +34,7 @@ const SelectBox = ({ options, placeholder }: SelectBoxProps) => {
         selectOption={selectOption}
         placeholder={placeholder}
       />
-      {isOpen && (
+      {isOpen ? (
         <OptionsWrapper>
           {options.map(option => (
             <Option onClick={handleClickOfLi} value={option}>
@@ -42,6 +42,8 @@ const SelectBox = ({ options, placeholder }: SelectBoxProps) => {
             </Option>
           ))}
         </OptionsWrapper>
+      ) : (
+        <></>
       )}
     </>
   );

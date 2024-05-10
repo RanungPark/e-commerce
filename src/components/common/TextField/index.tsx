@@ -77,9 +77,9 @@ const InputWrapper = styled.input<PickWrapperProps>`
     color: ${({ theme }) => theme.colors.gray};
   }
 
-  ${({ inputState }) => inputState === 'success' && SuccessStyle}
-  ${({ inputState }) => inputState === 'error' && ErrorStyle}
-  ${({ inputState }) => inputState === 'default' && DefaultStyle}
+  ${({ inputState }) => (inputState === 'success' ? SuccessStyle : null)}
+  ${({ inputState }) => (inputState === 'error' ? ErrorStyle : null)}
+  ${({ inputState }) => (inputState === 'default' ? DefaultStyle : null)}
 `;
 
 export default TextField;
