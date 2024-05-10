@@ -88,6 +88,8 @@ const reset = css`
     margin: 0;
     border: 0;
     font: inherit;
+    color: inherit;
+    background-color: inherit;
     box-sizing: border-box;
     vertical-align: baseline;
   }
