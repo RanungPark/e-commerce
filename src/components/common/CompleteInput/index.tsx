@@ -6,26 +6,6 @@ import { PartialOptional } from 'src/@types/utils';
 import Text from '../Text';
 import Icon from '../Icon';
 
-const StyledCompleteInput = styled.div<PickStyled>`
-  ${mixins.flexBox({ justify: 'space-between' })}
-  width: 100%;
-  height: auto;
-  padding: 0 16px 24px 0;
-  border-bottom: 1px solid
-    ${({ theme, isFilled }) =>
-      isFilled ? theme.colors.black : theme.colors.lightgray};
-
-  & p {
-    color: ${({ theme, isFilled }) =>
-      isFilled ? theme.colors.black : theme.colors.lightgray};
-  }
-`;
-
-const LeftBox = styled.div`
-  ${mixins.flexBox({})}
-  gap: 4px;
-`;
-
 interface CompleteInputProps {
   label: string;
   isFilled: boolean;
@@ -55,4 +35,23 @@ const CompleteInput = ({
   );
 };
 
+const StyledCompleteInput = styled.div<PickStyled>`
+  ${mixins.flexBox({ justify: 'space-between' })}
+  width: 100%;
+  height: auto;
+  padding: 0 16px 24px 0;
+  border-bottom: 1px solid
+    ${({ theme, isFilled }) =>
+      isFilled ? theme.colors.black : theme.colors.lightgray};
+
+  & p {
+    color: ${({ theme, isFilled }) =>
+      isFilled ? theme.colors.black : theme.colors.lightgray};
+  }
+`;
+
+const LeftBox = styled.div`
+  ${mixins.flexBox({})}
+  gap: 4px;
+`;
 export default CompleteInput;

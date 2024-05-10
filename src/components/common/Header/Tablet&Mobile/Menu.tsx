@@ -3,14 +3,6 @@ import { mixins } from 'src/styles/Mixin';
 import Icon from '../../Icon';
 import { PartialOptional } from 'src/@types/utils';
 
-const StyledMenu = styled.a`
-  ${mixins.flexBox({})};
-  width: auto;
-  height: auto;
-  border-right: 1px solid ${({ theme }) => theme.colors.black};
-  padding: 16px;
-`;
-
 interface MenuProps {
   as: 'button' | 'a';
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -26,5 +18,13 @@ const Menu = ({ as, icon, href = '/' }: OptionalFromMenuProps) => {
     </StyledMenu>
   );
 };
+
+const StyledMenu = styled.a`
+  ${mixins.flexBox({})};
+  width: auto;
+  height: auto;
+  border-right: 1px solid ${({ theme }) => theme.colors.black};
+  padding: 16px;
+`;
 
 export default Menu;

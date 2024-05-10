@@ -6,6 +6,51 @@ import { ReactComponent as Calendar } from 'src/assets/icons/wght400/calendar_mo
 import CustomCalendarHeader from './DatePickerHeader';
 import { mixins } from 'src/styles/Mixin';
 
+export interface renderCustomHeaderProps {
+  date: Date;
+  decreaseMonth(): void;
+  increaseMonth(): void;
+  prevMonthButtonDisabled: boolean;
+  nextMonthButtonDisabled: boolean;
+}
+
+const renderCustomHeader = ({
+  date,
+  prevMonthButtonDisabled,
+  nextMonthButtonDisabled,
+  decreaseMonth,
+  increaseMonth,
+}: renderCustomHeaderProps) => {
+  return (
+    <CustomCalendarHeader
+      date={date}
+      prevMonthButtonDisabled={prevMonthButtonDisabled}
+      nextMonthButtonDisabled={nextMonthButtonDisabled}
+      decreaseMonth={decreaseMonth}
+      increaseMonth={increaseMonth}
+    />
+  );
+};
+
+const DatePicker = () => {
+  const [startDate, setStartDate] = useState(new Date());
+  return (
+    <StyledDatePicker>
+      <LabelWrapper>
+        <DatePickerlib
+          dateFormat="MM.dd.yy"
+          selected={startDate}
+          locale="en-GB"
+          onChange={(date: Date) => setStartDate(date)}
+          customInput={<CustomInput />}
+          renderCustomHeader={renderCustomHeader}
+        />
+        <Calendar />
+      </LabelWrapper>
+    </StyledDatePicker>
+  );
+};
+
 const StyledDatePicker = styled.div`
   width: 100%;
   max-height: 56px;
@@ -98,50 +143,5 @@ const CustomInput = styled.input`
     outline: none;
   }
 `;
-
-export interface renderCustomHeaderProps {
-  date: Date;
-  decreaseMonth(): void;
-  increaseMonth(): void;
-  prevMonthButtonDisabled: boolean;
-  nextMonthButtonDisabled: boolean;
-}
-
-const renderCustomHeader = ({
-  date,
-  prevMonthButtonDisabled,
-  nextMonthButtonDisabled,
-  decreaseMonth,
-  increaseMonth,
-}: renderCustomHeaderProps) => {
-  return (
-    <CustomCalendarHeader
-      date={date}
-      prevMonthButtonDisabled={prevMonthButtonDisabled}
-      nextMonthButtonDisabled={nextMonthButtonDisabled}
-      decreaseMonth={decreaseMonth}
-      increaseMonth={increaseMonth}
-    />
-  );
-};
-
-const DatePicker = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  return (
-    <StyledDatePicker>
-      <LabelWrapper>
-        <DatePickerlib
-          dateFormat="MM.dd.yy"
-          selected={startDate}
-          locale="en-GB"
-          onChange={(date: Date) => setStartDate(date)}
-          customInput={<CustomInput />}
-          renderCustomHeader={renderCustomHeader}
-        />
-        <Calendar />
-      </LabelWrapper>
-    </StyledDatePicker>
-  );
-};
 
 export default DatePicker;

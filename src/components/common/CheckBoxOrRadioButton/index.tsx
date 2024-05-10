@@ -3,33 +3,6 @@ import { ReactComponent as Check300 } from 'src/assets/icons/wght300/check_FILL0
 import Text from '../Text';
 import { CheckBoxStyle, RadioButtonStyle } from './CheckBoxOrRadioButton.css';
 
-const StyledCheckBoxOrRadioButton = styled.label<PickCheckBoxOrRadioButtonProps>`
-  width: auto;
-  height: auto;
-  cursor: pointer;
-
-  p {
-    display: inline-block;
-  }
-
-  & input {
-    appearance: none;
-    background-color: ${({ theme }) => theme.colors.lightgray};
-    border: 1px solid ${({ theme }) => theme.colors.black};
-    width: 24px;
-    height: 24px;
-    margin-right: 12px;
-    cursor: pointer;
-  }
-
-  &:active {
-    color: ${({ theme }) => theme.colors.gray};
-  }
-
-  ${({ inputType }) =>
-    inputType === 'checkbox' ? CheckBoxStyle : RadioButtonStyle}
-`;
-
 interface CheckBoxOrRadioButtonProps {
   label: string;
   inputType: 'checkbox' | 'radio';
@@ -61,5 +34,32 @@ const CheckBoxOrRadioButton = ({
     </StyledCheckBoxOrRadioButton>
   );
 };
+
+const StyledCheckBoxOrRadioButton = styled.label<PickCheckBoxOrRadioButtonProps>`
+  width: auto;
+  height: auto;
+  cursor: pointer;
+
+  p {
+    display: inline-block;
+  }
+
+  & input {
+    appearance: none;
+    background-color: ${({ theme }) => theme.colors.lightgray};
+    border: 1px solid ${({ theme }) => theme.colors.black};
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    cursor: pointer;
+  }
+
+  &:active {
+    color: ${({ theme }) => theme.colors.gray};
+  }
+
+  ${({ inputType }) =>
+    inputType === 'checkbox' ? CheckBoxStyle : RadioButtonStyle}
+`;
 
 export default CheckBoxOrRadioButton;

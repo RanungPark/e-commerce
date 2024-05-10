@@ -3,10 +3,6 @@ import styled from 'styled-components';
 import Option from './Option';
 import Label from './Label';
 
-const OptionsWrapper = styled.ul`
-  margin-top: 8px;
-`;
-
 export interface SelectBoxProps {
   options: string[];
   placeholder: string;
@@ -50,5 +46,9 @@ const SelectBox = ({ options, placeholder }: SelectBoxProps) => {
     </>
   );
 };
+
+const OptionsWrapper = styled.ul`
+  margin-top: 8px;
+`;
 
 export default SelectBox;

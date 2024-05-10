@@ -5,11 +5,6 @@ import { BiSolidErrorCircle } from 'react-icons/bi';
 import { BiSolidCheckCircle } from 'react-icons/bi';
 import Text from '../Text';
 
-const HelperWapper = styled.div`
-  ${mixins.flexBox({ justify: 'flex-start' })};
-  margin-top: 8px;
-`;
-
 interface HelperProps extends TextFieldProps {}
 
 type PickFromHelperProps = Pick<HelperProps, 'inputState' | 'textHelper'>;
@@ -25,5 +20,10 @@ const Helper = ({ inputState, textHelper }: PickFromHelperProps) => {
     </HelperWapper>
   );
 };
+
+const HelperWapper = styled.div`
+  ${mixins.flexBox({ justify: 'flex-start' })};
+  margin-top: 8px;
+`;
 
 export default Helper;

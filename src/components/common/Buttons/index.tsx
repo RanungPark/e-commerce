@@ -1,21 +1,15 @@
-import { ReactComponent as East300 } from 'src/assets/icons/wght300/east_wght300_opsz24.svg';
-import { ReactComponent as West300 } from 'src/assets/icons/wght300/west_300_opsz24.svg';
 import Text from '../Text';
-import { PartialRequired } from 'src/@types/utils';
+import { PartialOptional, PartialRequired } from 'src/@types/utils';
 import styled from 'styled-components';
 import { StyledButton } from './Buttons.css';
+import Icon from '../Icon';
 
-const StyledButtons = styled.button<PickStyledButtonsProps>`
-  ${({ buttonType, colorType }) =>
-    buttonType === 'contained'
-      ? StyledButton.contained({ colorType })
-      : StyledButton.none()}
-`;
-
-interface ButtonsProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonsProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
+  leftIcon: React.FC<React.SVGProps<SVGSVGElement>>;
+  rightIcon: React.FC<React.SVGProps<SVGSVGElement>>;
   isDisabled: boolean;
-  arrowIcon: 'none' | 'left' | 'right';
   colorType: 'primary' | 'secondary' | 'tertiary';
   textOrIcon: 'withText' | 'onlyIcon';
   buttonType: 'contained' | 'none';
@@ -29,40 +23,21 @@ type RequiredFromButtonsProps = PartialRequired<
 
 type PickStyledButtonsProps = Pick<ButtonsProps, 'buttonType' | 'colorType'>;
 
-export type PickContainedButtonProps = Pick<ButtonsProps, 'colorType'>;
-
-type PickPublicComponentProps = Pick<
+type PickPublicButtonProps = Pick<
   ButtonsProps,
-  'label' | 'arrowIcon' | 'textOrIcon' | 'buttonType'
+  'label' | 'leftIcon' | 'rightIcon' | 'textOrIcon' | 'buttonType'
 >;
 
-const PublicComponent = ({
-  arrowIcon,
-  label,
-  textOrIcon,
-  buttonType,
-}: PickPublicComponentProps) => {
-  return (
-    <>
-      {arrowIcon === 'left' && <West300 />}
-      {buttonType === 'contained' ? (
-        <Text as="p" typography="Button">
-          {label}
-        </Text>
-      ) : (
-        <Text as="p" typography="Links">
-          {textOrIcon === 'withText' && label}
-        </Text>
-      )}
-      {arrowIcon === 'right' && <East300 />}
-    </>
-  );
-};
+type OptionalFromPublicButtonProps = PartialOptional<
+  PickPublicButtonProps,
+  'leftIcon' | 'rightIcon'
+>;
 
 const Buttons = ({
   label,
+  leftIcon,
+  rightIcon,
   colorType = 'primary',
-  arrowIcon = 'none',
   textOrIcon = 'withText',
   buttonType,
   isDisabled = false,
@@ -75,14 +50,46 @@ const Buttons = ({
       colorType={colorType}
       buttonType={buttonType}
     >
-      <PublicComponent
-        arrowIcon={arrowIcon}
+      <PublicButtonComponent
         label={label}
+        rightIcon={rightIcon}
+        leftIcon={leftIcon}
         textOrIcon={textOrIcon}
         buttonType={buttonType}
       />
     </StyledButtons>
   );
 };
+
+function PublicButtonComponent({
+  label,
+  leftIcon,
+  rightIcon,
+  textOrIcon,
+  buttonType,
+}: OptionalFromPublicButtonProps) {
+  return (
+    <>
+      {leftIcon !== undefined ? <Icon as={leftIcon} /> : <></>}
+      {buttonType === 'contained' ? (
+        <Text as="p" typography="Button">
+          {label}
+        </Text>
+      ) : (
+        <Text as="p" typography="Links">
+          {textOrIcon === 'withText' && label}
+        </Text>
+      )}
+      {rightIcon !== undefined ? <Icon as={rightIcon} /> : <></>}
+    </>
+  );
+}
+
+const StyledButtons = styled.button<PickStyledButtonsProps>`
+  ${({ buttonType, colorType }) =>
+    buttonType === 'contained'
+      ? StyledButton.contained({ colorType })
+      : StyledButton.none()}
+`;
 
 export default Buttons;

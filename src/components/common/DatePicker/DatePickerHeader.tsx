@@ -5,15 +5,6 @@ import { ReactComponent as ChevronRight } from 'src/assets/icons/wght400/chevron
 import { mixins } from 'src/styles/Mixin';
 import { renderCustomHeaderProps } from '.';
 
-const StyledCalendarHeader = styled.div`
-  ${mixins.flexBox({})}
-  ${({ theme }) => theme.typography.Heading6};
-  background-color: ${({ theme }) => theme.colors.white};
-  gap: 16.5px;
-`;
-
-
-
 const CustomCalendarHeader = ({
   date,
   decreaseMonth,
@@ -43,5 +34,12 @@ const CustomCalendarHeader = ({
     </StyledCalendarHeader>
   );
 };
+
+const StyledCalendarHeader = styled.div`
+  ${mixins.flexBox({})}
+  ${({ theme }) => theme.typography.Heading6};
+  background-color: ${({ theme }) => theme.colors.white};
+  gap: 16.5px;
+`;
 
 export default CustomCalendarHeader;

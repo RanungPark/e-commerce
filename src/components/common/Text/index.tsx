@@ -13,14 +13,6 @@ import styled from 'styled-components';
  * ```
  */
 
-const StyledText = styled.div<TextPropsPartialRequired>`
-  ${({ theme, typography }) => theme.typography[typography]};
-  color: ${({ theme, color }) => theme.colors[color!]};
-  text-align: ${({ align }) => align};
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-`;
-
 interface TextProps {
   as: keyof JSX.IntrinsicElements;
   typography: Typography;
@@ -54,5 +46,14 @@ const Text = ({
     </StyledText>
   );
 };
+
+const StyledText = styled.div<TextPropsPartialRequired>`
+  ${({ theme, typography }) => theme.typography[typography]};
+  color: ${({ theme, color }) =>
+    color !== undefined ? theme.colors[color] : 'inherit'};
+  text-align: ${({ align }) => align};
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+`;
 
 export default Text;
