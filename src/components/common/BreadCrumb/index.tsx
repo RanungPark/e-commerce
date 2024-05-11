@@ -4,6 +4,21 @@ import Icon from '../Icon';
 import { ReactComponent as ChevronRight } from 'src/assets/icons/wght400/chevron-right.svg';
 import { mixins } from 'src/styles/Mixin';
 
+interface BreadCrumbProps {
+  label: string;
+}
+
+const BreadCrumb = ({ label }: BreadCrumbProps) => {
+  return (
+    <StyledBreadCrumb>
+      <Text as="span" typography="Overline" color="gray">
+        {label}
+      </Text>
+      <Icon as={ChevronRight} fill="gray" />
+    </StyledBreadCrumb>
+  );
+};
+
 const StyledBreadCrumb = styled.div`
   ${mixins.flexBox({})};
   width: auto;
@@ -22,20 +37,5 @@ const StyledBreadCrumb = styled.div`
     fill: ${({ theme }) => theme.colors.black};
   }
 `;
-
-interface BreadCrumbProps {
-  label: string;
-}
-
-const BreadCrumb = ({ label }: BreadCrumbProps) => {
-  return (
-    <StyledBreadCrumb>
-      <Text as="span" typography="Overline" color="gray">
-        {label}
-      </Text>
-      <Icon as={ChevronRight} fill="gray" />
-    </StyledBreadCrumb>
-  );
-};
 
 export default BreadCrumb;

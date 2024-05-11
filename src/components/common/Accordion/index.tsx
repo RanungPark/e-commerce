@@ -5,24 +5,6 @@ import { ReactComponent as SouthEast } from 'src/assets/icons/wght300/south_east
 import { mixins } from 'src/styles/Mixin';
 import Text from '../Text';
 
-const StyledAccordion = styled.div`
-  width: 100%;
-  height: auto;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-  padding: 24px 0;
-`;
-
-const TopBox = styled.div`
-  ${mixins.flexBox({ justify: 'space-between' })}
-  gap: 16px;
-  cursor: pointer;
-`;
-
-const BottomBox = styled.div`
-  margin-top: 16px;
-  opacity: 0.9;
-`;
-
 interface AccordionProps {
   label: string;
   replay: string;
@@ -56,5 +38,23 @@ const Accordion = ({ label, replay }: AccordionProps) => {
     </StyledAccordion>
   );
 };
+
+const StyledAccordion = styled.div`
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+  padding: 24px 0;
+`;
+
+const TopBox = styled.div`
+  ${mixins.flexBox({ justify: 'space-between' })}
+  gap: 16px;
+  cursor: pointer;
+`;
+
+const BottomBox = styled.div`
+  margin-top: 16px;
+  opacity: 0.9;
+`;
 
 export default Accordion;
