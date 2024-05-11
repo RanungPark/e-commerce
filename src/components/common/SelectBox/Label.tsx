@@ -12,7 +12,9 @@ interface LabelProps extends SelectBoxProps {
 }
 
 type DeleteOptionFromLabelProps = PartialDelete<LabelProps, 'options'>;
+
 type LabelWrapperProps = PartialDelete<DeleteOptionFromLabelProps, 'onClick'>;
+
 type InputWrapperProps = PartialDelete<
   DeleteOptionFromLabelProps,
   'onClick' | 'isOpen'

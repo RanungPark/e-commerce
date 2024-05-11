@@ -17,7 +17,7 @@ const Description = ({ label, descriptions }: PickFromDescriptionProps) => {
       </Text>
       <DescriptionList>
         {descriptions.map(description => (
-          <Text as="li" typography="Body" width="auto" height="100%">
+          <Text as="li" typography="Body">
             {description}
           </Text>
         ))}
@@ -40,6 +40,8 @@ const StyledDescription = styled.div`
 
 const DescriptionList = styled.ul`
   & li {
+    width: auto;
+    height: 100%;
     list-style: inside;
     margin-bottom: 4px;
 

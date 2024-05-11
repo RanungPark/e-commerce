@@ -18,8 +18,6 @@ interface TextProps {
   typography: Typography;
   align: 'left' | 'right' | 'center';
   color: Color;
-  width: string;
-  height: string;
 }
 
 type TextPropsPartialRequired = PartialRequired<TextProps, 'as' | 'typography'>;
@@ -29,19 +27,10 @@ const Text = ({
   typography,
   align,
   color,
-  height,
-  width,
   children,
 }: React.PropsWithChildren<TextPropsPartialRequired>) => {
   return (
-    <StyledText
-      as={as}
-      typography={typography}
-      align={align}
-      color={color}
-      width={width}
-      height={height}
-    >
+    <StyledText as={as} typography={typography} align={align} color={color}>
       {children}
     </StyledText>
   );
@@ -52,8 +41,6 @@ const StyledText = styled.div<TextPropsPartialRequired>`
   color: ${({ theme, color }) =>
     color !== undefined ? theme.colors[color] : 'inherit'};
   text-align: ${({ align }) => align};
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
 `;
 
 export default Text;
