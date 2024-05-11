@@ -6,7 +6,7 @@ import { DefaultStyle, ErrorStyle, SuccessStyle } from './TextField.css';
 
 export interface TextFieldProps {
   label: string;
-  isDisabled: boolean;
+  disabled: boolean;
   placeholder: string;
   textHelper: string;
   labelState: boolean;
@@ -22,7 +22,7 @@ const TextField = ({
   label,
   placeholder,
   textHelper,
-  isDisabled = false,
+  disabled = false,
   inputState = 'default',
 }: RequiredFromTextField) => {
   const [inputText, setInputText] = useState('');
@@ -38,7 +38,7 @@ const TextField = ({
       <InputWrapper
         type="text"
         placeholder={placeholder}
-        disabled={isDisabled}
+        disabled={disabled}
         value={inputText}
         inputState={inputState}
         onChange={handleChange}

@@ -8,12 +8,12 @@ export interface ImageCardsProps {
   productImg: string;
   price: string;
   cardType: 'main' | 'sub';
-  isDescription: boolean;
+  description: boolean;
 }
 
 type OptionalFromImageCardsProps = PartialOptional<
   ImageCardsProps,
-  'isDescription'
+  'description'
 >;
 
 type PickDescriptionProps = Pick<ImageCardsProps, 'cardType'>;
@@ -28,12 +28,12 @@ const ImageCards = ({
   productImg,
   price,
   cardType,
-  isDescription = true,
+  description = true,
 }: OptionalFromImageCardsProps) => {
   return (
     <StyledImageCards productImg={productImg} cardType={cardType}>
       {cardType === 'sub' ? <img src={productImg} alt="steel vase" /> : <></>}
-      {isDescription !== false ? (
+      {description !== false ? (
         <DescriptionWrapper cardType={cardType}>
           <Text
             as="h6"

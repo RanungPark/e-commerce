@@ -9,7 +9,7 @@ export interface ButtonsProps
   label: string;
   leftIcon: React.FC<React.SVGProps<SVGSVGElement>>;
   rightIcon: React.FC<React.SVGProps<SVGSVGElement>>;
-  isDisabled: boolean;
+  disabled: boolean;
   colorType: 'primary' | 'secondary' | 'tertiary';
   textOrIcon: 'withText' | 'onlyIcon';
   buttonType: 'contained' | 'none';
@@ -40,12 +40,12 @@ const Buttons = ({
   colorType = 'primary',
   textOrIcon = 'withText',
   buttonType,
-  isDisabled = false,
+  disabled = false,
   onClick,
 }: RequiredFromButtonsProps) => {
   return (
     <StyledButtons
-      disabled={isDisabled}
+      disabled={disabled}
       onClick={onClick}
       colorType={colorType}
       buttonType={buttonType}
