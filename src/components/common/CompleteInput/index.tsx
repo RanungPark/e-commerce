@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ReactComponent as CheckFill } from 'src/assets/icons/wght300/check_FILL0_wght300_GRAD0_opsz24.svg';
-import { ReactComponent as EditSquare } from 'src/assets/icons/wght400/edit_square.svg';
+import { ReactComponent as Check } from 'src/assets/icons/wght300/Check.svg';
+import { ReactComponent as WEdit } from 'src/assets/icons/wght400/WEdit.svg';
 import { mixins } from 'src/styles/Mixin';
 import { PartialOptional } from 'src/@types/utils';
 import Text from '../Text';
@@ -25,12 +25,12 @@ const CompleteInput = ({
   return (
     <StyledCompleteInput isFilled={isFilled}>
       <LeftBox>
-        {isFilled ? <Icon as={CheckFill} fill="black" /> : <></>}
+        {isFilled ? <Icon as={Check} fill="black" /> : <></>}
         <Text as="p" typography="Subtitle">
           {label}
         </Text>
       </LeftBox>
-      {isFilled ? <Icon as={EditSquare} fill="gray" /> : <></>}
+      {isFilled ? <Icon as={WEdit} fill="gray" /> : <></>}
     </StyledCompleteInput>
   );
 };

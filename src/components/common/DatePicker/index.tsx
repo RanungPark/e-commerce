@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { default as DatePickerlib } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { ReactComponent as Calendar } from 'src/assets/icons/wght400/calendar_month.svg';
+import { ReactComponent as WCalendar } from 'src/assets/icons/wght400/WCalendar.svg';
 import CustomCalendarHeader from './DatePickerHeader';
 import { mixins } from 'src/styles/Mixin';
 
@@ -45,7 +45,7 @@ const DatePicker = () => {
           customInput={<CustomInput />}
           renderCustomHeader={renderCustomHeader}
         />
-        <Calendar />
+        <WCalendar />
       </LabelWrapper>
     </StyledDatePicker>
   );

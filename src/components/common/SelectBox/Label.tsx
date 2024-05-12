@@ -1,8 +1,8 @@
 import { PartialDelete } from 'src/@types/utils';
 import { mixins } from 'src/styles/Mixin';
 import styled from 'styled-components';
-import { ReactComponent as ArrowDropDown } from 'src/assets/icons/wght300/arrow_drop_down_FILL0_wght300_GRAD0_opsz24.svg';
-import { ReactComponent as ArrowDropUp } from 'src/assets/icons/wght300/arrow_drop_up_FILL0_wght300_GRAD0_opsz24.svg';
+import { ReactComponent as CaretDown } from 'src/assets/icons/wght300/CaretDown.svg';
+import { ReactComponent as CaretUp } from 'src/assets/icons/wght300/CaretUp.svg';
 import { SelectBoxProps } from '.';
 
 interface LabelProps extends SelectBoxProps {
@@ -40,7 +40,7 @@ const Label = ({
         selectOption={selectOption}
         placeholder={placeholder}
       />
-      {isOpen ? <ArrowDropUp /> : <ArrowDropDown />}
+      {isOpen ? <CaretUp /> : <CaretDown />}
     </StyledLabel>
   );
 };

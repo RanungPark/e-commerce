@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as NorthEast } from 'src/assets/icons/wght300/north_east_FILL0_wght300_GRAD0_opsz24.svg';
-import { ReactComponent as SouthEast } from 'src/assets/icons/wght300/south_east_FILL0_wght300_GRAD0_opsz24.svg';
+import { ReactComponent as ArrowTopRight } from 'src/assets/icons/wght300/ArrowTopRight.svg';
+import { ReactComponent as ArrowDownRight } from 'src/assets/icons/wght300/ArrowDownRight.svg';
 import { mixins } from 'src/styles/Mixin';
 import Text from '../Text';
 
@@ -24,7 +24,7 @@ const Accordion = ({ label, replay }: AccordionProps) => {
         <Text as="p" typography="Heading4">
           {label}
         </Text>
-        {open ? <NorthEast /> : <SouthEast />}
+        {open ? <ArrowTopRight /> : <ArrowDownRight />}
       </TopBox>
       {open ? (
         <BottomBox>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as ChevronLeft } from 'src/assets/icons/wght400/chevron-left.svg';
-import { ReactComponent as ChevronRight } from 'src/assets/icons/wght400/chevron-right.svg';
+import { ReactComponent as WChevronLeft } from 'src/assets/icons/wght400/WChevronLeft.svg';
+import { ReactComponent as WChevronRight } from 'src/assets/icons/wght400/WChevronRight.svg';
 import { mixins } from 'src/styles/Mixin';
 import { renderCustomHeaderProps } from '.';
 
@@ -22,12 +22,12 @@ const CustomCalendarHeader = ({
   };
   return (
     <StyledCalendarHeader>
-      <ChevronLeft
+      <WChevronLeft
         aria-disabled={prevMonthButtonDisabled}
         onClick={decreaseMonth}
       />
       {formatDate(date)}
-      <ChevronRight
+      <WChevronRight
         aria-disabled={nextMonthButtonDisabled}
         onClick={increaseMonth}
       />

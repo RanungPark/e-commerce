@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import NavbarLink from './Menu';
 import { mixins } from 'src/styles/Mixin';
-import { ReactComponent as Burger } from 'src/assets/icons/wght400/Menu.svg';
-import { ReactComponent as ShoppingBag } from 'src/assets/icons/wght300/shopping_bag_FILL0_wght300_GRAD0_opsz24.svg';
+import { ReactComponent as WMenu } from 'src/assets/icons/wght400/WMenu.svg';
+import { ReactComponent as ShoppingBag } from 'src/assets/icons/wght300/ShoppingBag.svg';
 
 const Header = () => {
   return (
     <StyledHeader>
       <LeftNav>
-        <NavbarLink as="button" icon={Burger}></NavbarLink>
+        <NavbarLink as="button" icon={WMenu}></NavbarLink>
       </LeftNav>
       <RightNav className="right-nav">
         <NavbarLink as="a" icon={ShoppingBag}></NavbarLink>

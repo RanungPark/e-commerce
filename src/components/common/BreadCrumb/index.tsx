@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Text from '../Text';
 import Icon from '../Icon';
-import { ReactComponent as ChevronRight } from 'src/assets/icons/wght400/chevron-right.svg';
+import { ReactComponent as WChevronRight } from 'src/assets/icons/wght400/WChevronRight.svg';
 import { mixins } from 'src/styles/Mixin';
 
 interface BreadCrumbProps {
@@ -14,7 +14,7 @@ const BreadCrumb = ({ label }: BreadCrumbProps) => {
       <Text as="span" typography="Overline" color="gray">
         {label}
       </Text>
-      <Icon as={ChevronRight} fill="gray" />
+      <Icon as={WChevronRight} fill="gray" />
     </StyledBreadCrumb>
   );
 };

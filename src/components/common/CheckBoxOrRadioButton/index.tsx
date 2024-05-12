@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as Check300 } from 'src/assets/icons/wght300/check_FILL0_wght300_GRAD0_opsz24.svg';
+import { ReactComponent as Check } from 'src/assets/icons/wght300/Check.svg';
 import Text from '../Text';
 import { CheckBoxStyle, RadioButtonStyle } from './CheckBoxOrRadioButton.css';
 
@@ -24,7 +24,7 @@ const CheckBoxOrRadioButton = ({
         value={label}
         name="contact"
       />
-      {inputType === 'checkbox' ? <Check300 /> : <></>}
+      {inputType === 'checkbox' ? <Check /> : <></>}
       <Text
         as="p"
         typography={inputType === 'checkbox' ? 'CaptionBold' : 'Body'}
