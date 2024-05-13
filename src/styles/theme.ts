@@ -41,7 +41,7 @@ const lineHeightMap: Record<Typography, number> = {
   Heading4: 120,
   Heading5: 120,
   Heading6: 120,
-  Subtitle: 120,
+  Subtitle: 140,
   Body: 140,
   Button: 120,
   Links: 120,
