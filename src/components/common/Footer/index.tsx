@@ -10,6 +10,7 @@ import { ReactComponent as Pinterest } from 'src/assets/icons/wght300/Brands/Pin
 import { ReactComponent as Facebook } from 'src/assets/icons/wght300/Brands/Facebook.svg';
 import { ReactComponent as Twitter } from 'src/assets/icons/wght300/Brands/Twitter.svg';
 import { ReactComponent as Telegram } from 'src/assets/icons/wght300/Brands/Telegram.svg';
+import { mixins } from 'src/styles/Mixin';
 
 export interface FooterData {
   remindData: {
@@ -168,9 +169,11 @@ const StyledFooter = styled.footer`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto;
+  ${mixins.border({ width: 'right' })}
 
   & > div {
-    margin: 40px;
+    ${mixins.border({ width: 'leftAndBottom' })}
+    padding: 40px;
   }
 `;
 
