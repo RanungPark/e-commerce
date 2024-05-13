@@ -18,9 +18,9 @@ const Menu = ({ label }: MenuProps) => {
 
 const StyledMenu = styled.a`
   ${mixins.flexBox({ display: 'inline-flex' })};
+  ${mixins.border({ width: 'right' })}
   width: 180px;
   height: auto;
-  border-right: 1px solid ${({ theme }) => theme.colors.black};
   padding: 24px 36px;
 `;
 

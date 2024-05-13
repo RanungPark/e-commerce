@@ -21,9 +21,9 @@ const Menu = ({ as, icon, href = '/' }: OptionalFromMenuProps) => {
 
 const StyledMenu = styled.a`
   ${mixins.flexBox({})};
+  ${mixins.border({ width: 'right' })}
   width: auto;
   height: auto;
-  border-right: 1px solid ${({ theme }) => theme.colors.black};
   padding: 16px;
 `;
 

@@ -13,8 +13,7 @@ export const StyledImageCard = {
         const { colors } = theme;
         return css`
           ${mixins.flexBox({})}
-          border-bottom: 1px solid ${colors.black};
-          border-left: 1px solid ${colors.black};
+          ${mixins.border({ width: 'leftAndBottom' })}
           position: relative;
           background-image: url(${productImg});
           background-size: cover;
