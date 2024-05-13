@@ -18,6 +18,22 @@ export const mixins = {
     align-items: ${align};
   `,
 
+  border: ({ width }: { width: 'right' | 'leftAndBottom' }) => css`
+    ${({ theme }) => {
+      const { black } = theme.colors;
+      if (width === 'right') {
+        return css`
+          border-right: 1px solid ${black};
+        `;
+      } else if (width === 'leftAndBottom') {
+        return css`
+          border-left: 1px solid ${black};
+          border-bottom: 1px solid ${black};
+        `;
+      }
+    }}
+  `,
+
   button: ({ colorAndFill, bgColor, borderColor }: OptionalButtonProps) => {
     return css`
       ${({ theme }) => {
