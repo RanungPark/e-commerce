@@ -5,30 +5,32 @@ import { ReactComponent as CaretDown } from 'src/assets/icons/wght300/CaretDown.
 import { ReactComponent as CaretUp } from 'src/assets/icons/wght300/CaretUp.svg';
 import { SelectBoxProps } from '.';
 
-interface LabelProps extends SelectBoxProps {
-  isOpen: boolean;
-  selectOption: string;
-  onClick: React.MouseEventHandler<HTMLLabelElement>;
-}
+interface LabelProps extends SelectBoxProps {}
 
-type DeleteOptionFromLabelProps = PartialDelete<LabelProps, 'options'>;
+type DeleteOptionFromLabelProps = PartialDelete<
+  LabelProps,
+  'options' | 'handleClickOfLi'
+>;
 
-type LabelWrapperProps = PartialDelete<DeleteOptionFromLabelProps, 'onClick'>;
+type LabelWrapperProps = PartialDelete<
+  DeleteOptionFromLabelProps,
+  'handleClickOfLabel'
+>;
 
 type InputWrapperProps = PartialDelete<
   DeleteOptionFromLabelProps,
-  'onClick' | 'isOpen'
+  'handleClickOfLabel' | 'isOpen'
 >;
 
 const Label = ({
   isOpen,
   selectOption,
   placeholder,
-  onClick,
+  handleClickOfLabel,
 }: DeleteOptionFromLabelProps) => {
   return (
     <StyledLabel
-      onClick={onClick}
+      onClick={handleClickOfLabel}
       placeholder={placeholder}
       isOpen={isOpen}
       selectOption={selectOption}

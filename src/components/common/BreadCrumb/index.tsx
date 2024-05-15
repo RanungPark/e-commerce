@@ -6,11 +6,12 @@ import { mixins } from 'src/styles/Mixin';
 
 interface BreadCrumbProps {
   label: string;
+  handleClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const BreadCrumb = ({ label }: BreadCrumbProps) => {
+const BreadCrumb = ({ label, handleClick }: BreadCrumbProps) => {
   return (
-    <StyledBreadCrumb>
+    <StyledBreadCrumb onClick={handleClick}>
       <Text as="span" typography="Overline" color="gray">
         {label}
       </Text>

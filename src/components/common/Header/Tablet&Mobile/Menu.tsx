@@ -4,22 +4,21 @@ import Icon from '../../Icon';
 import { PartialOptional } from 'src/@types/utils';
 
 interface MenuProps {
-  as: 'button' | 'a';
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
-  href: string;
+  handleClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-type OptionalFromMenuProps = PartialOptional<MenuProps, 'href'>;
+type OptionalFromMenuProps = PartialOptional<MenuProps, 'handleClick'>;
 
-const Menu = ({ as, icon, href = '/' }: OptionalFromMenuProps) => {
+const Menu = ({ icon, handleClick }: OptionalFromMenuProps) => {
   return (
-    <StyledMenu href={href} as={as}>
+    <StyledMenu onClick={handleClick}>
       <Icon as={icon} />
     </StyledMenu>
   );
 };
 
-const StyledMenu = styled.a`
+const StyledMenu = styled.button`
   ${mixins.flexBox({})};
   ${mixins.border({ width: 'right' })}
   width: auto;

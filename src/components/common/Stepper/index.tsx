@@ -6,31 +6,18 @@ import { mixins } from 'src/styles/Mixin';
 
 interface StepperProps {
   value: number;
+  handleMinus: React.MouseEventHandler<HTMLButtonElement>;
+  handlePlus: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Stepper = ({ value }: StepperProps) => {
-  const [inputValue, setInputValue] = useState(value);
-
-  const handleMinus = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    if (inputValue > 0) {
-      setInputValue(inputValue - 1);
-    } else {
-      return;
-    }
-  };
-  const handlePlus = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    setInputValue(inputValue + 1);
-  };
-
+const Stepper = ({ value, handleMinus, handlePlus }: StepperProps) => {
   return (
     <StyledStepper>
       <MinusButton onClick={handleMinus}>
         <BiMinus />
       </MinusButton>
       <LabelWrapper>
-        <InputWrapper type="text" readOnly value={inputValue} />
+        <InputWrapper type="text" readOnly value={value} />
       </LabelWrapper>
       <PlusButton onClick={handlePlus}>
         <BiPlus />

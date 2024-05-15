@@ -6,30 +6,24 @@ import Label from './Label';
 export interface SelectBoxProps {
   options: string[];
   placeholder: string;
+  selectOption: string;
+  isOpen: boolean;
+  handleClickOfLabel: React.MouseEventHandler<HTMLLabelElement>;
+  handleClickOfLi: React.MouseEventHandler<HTMLLIElement>;
 }
 
-const SelectBox = ({ options, placeholder }: SelectBoxProps) => {
-  const [selectOption, setSelectOption] = useState(placeholder);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleClickOfLabel = (
-    e: React.MouseEvent<HTMLLabelElement, MouseEvent>
-  ) => {
-    e.preventDefault();
-    setIsOpen(!isOpen);
-  };
-
-  const handleClickOfLi = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    e.preventDefault();
-    const selectOptionValue = e.currentTarget.getAttribute('value');
-    selectOptionValue && setSelectOption(selectOptionValue);
-    setIsOpen(!isOpen);
-  };
-
+const SelectBox = ({
+  options,
+  placeholder,
+  selectOption,
+  isOpen,
+  handleClickOfLabel,
+  handleClickOfLi,
+}: SelectBoxProps) => {
   return (
     <>
       <Label
-        onClick={handleClickOfLabel}
+        handleClickOfLabel={handleClickOfLabel}
         isOpen={isOpen}
         selectOption={selectOption}
         placeholder={placeholder}

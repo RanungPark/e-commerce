@@ -8,10 +8,10 @@ const Header = () => {
   return (
     <StyledHeader>
       <LeftNav>
-        <NavbarLink as="button" icon={WMenu}></NavbarLink>
+        <NavbarLink icon={WMenu}></NavbarLink>
       </LeftNav>
       <RightNav className="right-nav">
-        <NavbarLink as="a" icon={ShoppingBag}></NavbarLink>
+        <NavbarLink icon={ShoppingBag}></NavbarLink>
       </RightNav>
     </StyledHeader>
   );

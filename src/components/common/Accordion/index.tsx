@@ -8,25 +8,20 @@ import Text from '../Text';
 interface AccordionProps {
   label: string;
   replay: string;
+  isOpen: boolean;
+  handleClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Accordion = ({ label, replay }: AccordionProps) => {
-  const [open, setOpen] = useState(false);
-
-  const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    e.preventDefault();
-    setOpen(!open);
-  };
-
+const Accordion = ({ label, replay, isOpen, handleClick }: AccordionProps) => {
   return (
     <StyledAccordion>
       <TopBox onClick={handleClick}>
         <Text as="p" typography="Heading4">
           {label}
         </Text>
-        {open ? <ArrowTopRight /> : <ArrowDownRight />}
+        {isOpen ? <ArrowTopRight /> : <ArrowDownRight />}
       </TopBox>
-      {open ? (
+      {isOpen ? (
         <BottomBox>
           <Text as="p" typography="Body">
             {replay}

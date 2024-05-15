@@ -13,7 +13,7 @@ export interface ButtonsProps
   colorType: 'primary' | 'secondary' | 'tertiary';
   textOrIcon: 'withText' | 'onlyIcon';
   buttonType: 'contained' | 'none';
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  handleClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 type RequiredFromButtonsProps = PartialRequired<
@@ -41,12 +41,12 @@ const Buttons = ({
   textOrIcon = 'withText',
   buttonType,
   disabled = false,
-  onClick,
+  handleClick,
 }: RequiredFromButtonsProps) => {
   return (
     <StyledButtons
       disabled={disabled}
-      onClick={onClick}
+      onClick={handleClick}
       colorType={colorType}
       buttonType={buttonType}
     >
