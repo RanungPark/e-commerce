@@ -11,28 +11,7 @@ import { ReactComponent as Facebook } from 'src/assets/icons/wght300/Brands/Face
 import { ReactComponent as Twitter } from 'src/assets/icons/wght300/Brands/Twitter.svg';
 import { ReactComponent as Telegram } from 'src/assets/icons/wght300/Brands/Telegram.svg';
 import { mixins } from 'src/styles/Mixin';
-
-export interface FooterData {
-  remindData: {
-    content: string;
-    input: {
-      placeholder: string;
-    };
-    button: {
-      label: string;
-    };
-  };
-  contactData: {
-    contactInfo: { title: string; info: string }[];
-  };
-  shopAndServiceDate: {
-    shopInfos: string[];
-    serviceInfo: string[];
-  };
-  aboutdata: {
-    aboutInfos: string[];
-  };
-}
+import { FooterData } from 'src/data/footer';
 
 type RemindDataProps = SelectObject<FooterData, 'remindData'>;
 type ContactDataProps = SelectObject<FooterData, 'contactData'>;
