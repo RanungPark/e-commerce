@@ -1,5 +1,5 @@
-export const imgPath = {
-  flower: {
+export const IMG_PATH = {
+  FLOWER: {
     AutumnSymphony: '/img/flower/AutumnSymphony.jpg',
     BlazingBlassoms: '/img/flower/BlazingBlassoms.jpg',
     BlueHarmony: '/img/flower/BlueHarmony.jpg',
@@ -17,7 +17,7 @@ export const imgPath = {
     ThreeLuxe: '/img/flower/ThreeLuxe.jpg',
     ThreeSeasonal: '/img/flower/ThreeSeasonal.jpg',
   },
-  other: {
+  OTHER: {
     AromaCandels: '/img/other/AromaCandels.jpg',
     Bamboo: '/img/other/Bamboo.jpg',
     BgGrayPerson: '/img/other/BgGrayPerson.jpg',
