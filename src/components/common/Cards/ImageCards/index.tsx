@@ -32,7 +32,7 @@ const ImageCards = ({
 }: OptionalFromImageCardsProps) => {
   return (
     <StyledImageCards productImg={productImg} cardType={cardType}>
-      {cardType === 'sub' ? <img src={productImg} alt="steel vase" /> : <></>}
+      {cardType === 'sub' ? <img src={productImg} alt={productImg} /> : <></>}
       {description !== false ? (
         <DescriptionWrapper cardType={cardType}>
           <Text
