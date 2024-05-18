@@ -1,25 +1,25 @@
-import { productsList } from 'src/@types/product';
-import { imgPath } from 'src/constants/imgPath';
+import { PickFromProducts } from 'src/@types/product';
+import { IMG_PATH } from 'src/constants/imgPath';
 
-export const outerProducts: productsList[] = [
+export const outerProducts: PickFromProducts[] = [
   {
-    label: 'Rattan Grapefruit',
-    price: 'price 48$',
-    productImg: imgPath.other.RattanGrapefruit,
+    name: 'Rattan Grapefruit',
+    price: 48,
+    productImg: IMG_PATH.OTHER.RattanGrapefruit,
   },
   {
-    label: 'Lime & Matcha',
-    price: 'price 46$',
-    productImg: imgPath.other.LimeMatcha,
+    name: 'Lime & Matcha',
+    price: 46,
+    productImg: IMG_PATH.OTHER.LimeMatcha,
   },
   {
-    label: 'Cedar & Lavender',
-    price: 'price 64$',
-    productImg: imgPath.other.CedarLavender,
+    name: 'Cedar & Lavender',
+    price: 64,
+    productImg: IMG_PATH.OTHER.CedarLavender,
   },
   {
-    label: 'Ocean Mist',
-    price: 'price 58$',
-    productImg: imgPath.other.OceanMist,
+    name: 'Ocean Mist',
+    price: 58,
+    productImg: IMG_PATH.OTHER.OceanMist,
   },
 ];
