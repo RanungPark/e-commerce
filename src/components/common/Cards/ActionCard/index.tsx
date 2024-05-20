@@ -2,19 +2,40 @@ import styled from 'styled-components';
 import { mixins } from 'src/styles/Mixin';
 import Text from '../../Text';
 import Buttons from '../../Buttons';
+import { PartialOptional } from 'src/@types/utils';
 
 interface ActionCardProps {
   label: string;
   buttonLabel: string;
+  leftIcon: React.FC<React.SVGProps<SVGSVGElement>>;
+  rightIcon: React.FC<React.SVGProps<SVGSVGElement>>;
+  handleClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const ActionCard = ({ label, buttonLabel }: ActionCardProps) => {
+type OptionalrFromActionCardProps = PartialOptional<
+  ActionCardProps,
+  'leftIcon' | 'rightIcon' | 'handleClick'
+>;
+
+const ActionCard = ({
+  label,
+  buttonLabel,
+  rightIcon,
+  leftIcon,
+  handleClick,
+}: OptionalrFromActionCardProps) => {
   return (
     <StyledActionCard>
       <Text as="h3" typography="Heading3" align="center">
         {label}
       </Text>
-      <Buttons buttonType="none" label={buttonLabel}></Buttons>
+      <Buttons
+        buttonType="none"
+        label={buttonLabel}
+        rightIcon={rightIcon}
+        leftIcon={leftIcon}
+        handleClick={handleClick}
+      ></Buttons>
     </StyledActionCard>
   );
 };
@@ -23,7 +44,6 @@ const StyledActionCard = styled.section`
   ${mixins.flexBox({})}
   ${mixins.border({ width: 'leftAndBottom' })}
   width: 100%;
-  height: 25vw;
   position: relative;
   padding: 24px;
 
