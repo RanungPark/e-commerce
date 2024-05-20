@@ -23,17 +23,17 @@ interface FirstOptions {
 interface SecondOption {
   version: string;
 }
+
 interface ThirdOptions {
   endpoint: string;
+}
+interface FourthOptions {
   method: Method;
   body: Body;
 }
 
 type PartialInterceptor = Partial<Interceptor>;
-type OptionalFromThirdOptions = PartialOptional<
-  ThirdOptions,
-  'method' | 'body'
->;
+type PartialFourOptuons = Partial<FourthOptions>;
 
 type FetchUtil = ({
   onRequest,
@@ -47,9 +47,7 @@ type FetchUtil = ({
   version,
 }: SecondOption) => ({
   endpoint,
-  method,
-  body,
-}: OptionalFromThirdOptions) => Promise<Response>;
+}: ThirdOptions) => ({ method, body }: PartialFourOptuons) => Promise<Response>;
 
 export const createFetch: FetchUtil =
   ({
@@ -60,7 +58,8 @@ export const createFetch: FetchUtil =
   }) =>
   ({ baseUrl, headers }) =>
   ({ version }) =>
-  async ({ endpoint, method, body }) => {
+  ({ endpoint }) =>
+  async ({ method = 'GET', body = null }) => {
     const requestHeaders: HeadersInit = new Headers();
 
     for (const { key, value } of headers) {
