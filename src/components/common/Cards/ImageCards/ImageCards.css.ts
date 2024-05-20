@@ -9,24 +9,19 @@ type PickImageCardProps = Pick<ImageCardsCSS, 'productImg'>;
 export const StyledImageCard = {
   main: ({ productImg }: PickImageCardProps) => {
     return css`
-      ${({ theme }) => {
-        const { colors } = theme;
-        return css`
-          ${mixins.flexBox({})}
-          ${mixins.border({ width: 'leftAndBottom' })}
+      ${mixins.flexBox({})}
+      ${mixins.border({ width: 'leftAndBottom' })}
           position: relative;
-          background-image: url(${productImg});
-          background-size: cover;
-          width: 100%;
-          height: ${768 / 2}px;
-          padding: 24px;
+      background-image: url(${productImg});
+      background-size: cover;
+      width: 100%;
+      height: ${768 / 2}px;
+      padding: 24px;
 
-          & h6,
-          & p {
-            text-align: center;
-          }
-        `;
-      }}
+      & h6,
+      & p {
+        text-align: center;
+      }
     `;
   },
   sub: () => {
