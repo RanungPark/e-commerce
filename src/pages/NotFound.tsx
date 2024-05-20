@@ -21,7 +21,7 @@ const NotFound = () => {
           label="메인 페이지로 돌아가기"
           disabled={false}
           buttonType="contained"
-          onClick={goToMainPage}
+          handleClick={goToMainPage}
         />
       </StyledWrapper>
     </Layout>
