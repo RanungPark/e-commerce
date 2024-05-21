@@ -7,3 +7,8 @@ export interface Products {
 }
 
 export type PickFromProducts = Pick<Products, 'name' | 'price' | 'productImg'>;
+
+export interface Rep {
+  type: string;
+  img: string;
+}
