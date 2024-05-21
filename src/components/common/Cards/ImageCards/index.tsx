@@ -9,11 +9,12 @@ export interface ImageCardsProps {
   price: string;
   cardType: 'main' | 'sub';
   description: boolean;
+  handleClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
 type OptionalFromImageCardsProps = PartialOptional<
   ImageCardsProps,
-  'description'
+  'description' | 'label' | 'price' | 'handleClick'
 >;
 
 type PickDescriptionProps = Pick<ImageCardsProps, 'cardType'>;
@@ -29,9 +30,14 @@ const ImageCards = ({
   price,
   cardType,
   description = true,
+  handleClick,
 }: OptionalFromImageCardsProps) => {
   return (
-    <StyledImageCards productImg={productImg} cardType={cardType}>
+    <StyledImageCards
+      productImg={productImg}
+      cardType={cardType}
+      onClick={handleClick}
+    >
       {cardType === 'sub' ? <img src={productImg} alt={productImg} /> : <></>}
       {description !== false ? (
         <DescriptionWrapper cardType={cardType}>
@@ -57,6 +63,7 @@ const StyledImageCards = styled.div<PickImageCardWrapperProps>`
     cardType === 'main'
       ? StyledImageCard.main({ productImg })
       : StyledImageCard.sub()}
+  cursor: pointer;
 `;
 
 const DescriptionWrapper = styled.div<PickDescriptionProps>`
