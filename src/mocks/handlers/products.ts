@@ -1,8 +1,11 @@
 import { http, HttpResponse } from 'msw';
-import { products } from '../data/freshflowers';
+import { freshflowersRep, products } from '../data/freshflowers';
 
 export const productsHandlers = [
   http.get('/v1/freshflowers/products', () => {
-    return HttpResponse.json({ products });
+    return HttpResponse.json({
+      rep: freshflowersRep,
+      products,
+    });
   }),
 ];
