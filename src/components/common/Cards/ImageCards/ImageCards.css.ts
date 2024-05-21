@@ -11,7 +11,7 @@ export const StyledImageCard = {
     return css`
       ${mixins.flexBox({})}
       ${mixins.border({ width: 'leftAndBottom' })}
-          position: relative;
+      position: relative;
       background-image: url(${productImg});
       background-size: cover;
       width: 100%;
