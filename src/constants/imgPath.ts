@@ -3,7 +3,7 @@ export const IMG_PATH = {
     AutumnSymphony: '/img/flower/AutumnSymphony.jpg',
     BlazingBlassoms: '/img/flower/BlazingBlassoms.jpg',
     BlueHarmony: '/img/flower/BlueHarmony.jpg',
-    DawnsDelight: `/img/flower/Dawn'sDelight.jpg`,
+    DawnsDelight: `/img/flower/DawnsDelight.jpg`,
     DriedFlowers: '/img/flower/DriedFlowers.jpg',
     LivePlants: '/img/flower/LivePlants.jpg',
     MysticalMajesty: '/img/flower/MysticalMajesty.jpg',
