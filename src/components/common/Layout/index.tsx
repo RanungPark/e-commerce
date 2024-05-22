@@ -14,6 +14,7 @@ const StyledLayout = styled.main`
   grid-template-rows: auto auto;
   gap: 1px; */
   display: flex;
+  position: relative;
   flex-direction: column;
   max-width: 768px;
   min-height: 100vh;
