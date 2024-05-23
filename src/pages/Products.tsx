@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Product from 'src/components/product';
 import OuterProducts from 'src/components/product/OuterProducts';
 
-const Products = () => {
+const ProductsPage = () => {
 
   return (
     <>
@@ -12,4 +12,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductsPage;
