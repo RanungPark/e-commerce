@@ -37,9 +37,9 @@ export const DefaultStyle = css`
 `;
 
 export const SuccessStyle = css`
-  ${mixins.input({ colorAndFill: 'succeess', borderColor: 'succeess' })}
+  ${mixins.input({ colorAndFill: 'success', borderColor: 'success' })}
   &:focus {
-    color: ${({ theme }) => theme.colors.succeess};
+    color: ${({ theme }) => theme.colors.success};
   }
 `;
 

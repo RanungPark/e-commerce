@@ -1,4 +1,6 @@
-import { Typography, Weight } from 'src/@types/theme';
+import { BoxModel, Typography, Weight } from 'src/@types/theme';
+
+type transform = 'uppercase' | 'lowercase' | 'none';
 
 const colors = {
   white: '#ffffff',
@@ -7,7 +9,7 @@ const colors = {
   gray: '#808080',
   darkgray: '#424245',
   black: '#121212',
-  succeess: '#32936f',
+  success: '#32936f',
   error: '#f55f56',
 };
 
@@ -68,11 +70,29 @@ const weightMap: Record<Typography, number> = {
   CaptionBold: weightScheme.Medium,
 };
 
+const transformtMap: Record<Typography, transform> = {
+  Heading1: 'none',
+  Heading2: 'none',
+  Heading3: 'none',
+  Heading4: 'none',
+  Heading5: 'none',
+  Heading6: 'none',
+  Subtitle: 'none',
+  Body: 'none',
+  Button: 'uppercase',
+  Links: 'none',
+  Overline: 'uppercase',
+  Caption: 'none',
+  CaptionSmall: 'none',
+  CaptionBold: 'none',
+};
+
 const buildTypographya = (typo: Typography) => {
   return `
     font-size: ${sizeMap[typo]}px; 
     font-weight: ${weightMap[typo]}; 
     line-height: ${lineHeightMap[typo]}%;
+    text-transform: ${transformtMap[typo]};
   `;
 };
 
@@ -85,9 +105,9 @@ const typography: Record<Typography, string> = {
   Heading6: buildTypographya('Heading6'),
   Subtitle: buildTypographya('Subtitle'),
   Body: buildTypographya('Body'),
-  Button: buildTypographya('Button') + `text-transform: uppercase;`,
+  Button: buildTypographya('Button'),
   Links: buildTypographya('Links'),
-  Overline: buildTypographya('Overline') + `text-transform: uppercase;`,
+  Overline: buildTypographya('Overline'),
   Caption: buildTypographya('Caption'),
   CaptionSmall: buildTypographya('CaptionSmall'),
   CaptionBold: buildTypographya('CaptionSmall'),
