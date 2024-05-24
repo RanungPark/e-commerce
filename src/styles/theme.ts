@@ -1,8 +1,8 @@
-import { BoxModel, Typography, Weight } from 'src/@types/theme';
+import { Typography, Weight } from 'src/@types/theme';
 
 type transform = 'uppercase' | 'lowercase' | 'none';
 
-const colors = {
+export const colors = {
   white: '#ffffff',
   extralight: '#f5f5f7',
   lightgray: '#d2d2d7',

@@ -1,5 +1,3 @@
-import { PartialOptional } from 'src/@types/utils';
-
 interface Interceptor {
   onRequest: (config: RequestInit) => RequestInit;
   onResponse: (response: Response) => Response | PromiseLike<Response>;
@@ -88,10 +86,9 @@ export const createFetch: FetchUtil =
       return onRequestError(reason);
     }
   };
-
 /**
  * - 서버 마다 인스턴스 설정이 가능 해야한다.
  *    - 인스턴스마다 다른 헤더 값 또는 다른 설정 값들을 줄 수 있어야한다.
  * - API versioning 가능해야한다.
- * - intercept 가능
+ * - 요청을 취소 할 수 있어야 한다.
  */
