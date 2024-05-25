@@ -33,8 +33,8 @@ type LineColorKeys = keyof typeof colors;
 
 /**
  * 박스모델 전용 함수
- * 사용법 export const boxModel_1 = boxModel<1>(); 이처럼 제네릭으로 숫자를 미리 정의시
- * boxModel_1('bb_1') 매개변수에 자동완성으로 1px로 이루어진 박스모델키값이 나온다
+ * 사용법 export const boxModel_1 = boxModel<1>('bb_1'); 이처럼 제네릭으로 숫자를 미리 정의시
+ * 매개변수에 자동완성으로 1px로 이루어진 박스모델키값이 나온다
  * 반환값으로 border에경우 `border-bottom-width : 1px`이 나오며
  * 그외에 margin, padding은 8px의 배수로 이루어진 값이 나온다
  */
@@ -51,33 +51,26 @@ type BoxModeValue<
   L extends (typeof location)[LocationKeys] = (typeof location)[LocationKeys],
 > = M extends 'border' ? `${M}-${L}-width: ${V}px` : `${M}-${L}: ${V}px`;
 
-type BuildBoxModel<N extends number> = (
+// type BuildBoxModel = <N extends number>(
+//   target: BoxModeKey<N>
+// ) => BoxModeValue<N>;
+
+export const boxModel = <N extends number>(
   target: BoxModeKey<N>
-) => BoxModeValue<N>;
+): BoxModeValue<N> => {
+  const propertyKey = target[0] as ModelKeys;
+  const sideKey = target[1] as LocationKeys;
+  const value = parseInt(target.split('_')[1], 10) as N;
 
-const boxModel = <N extends number>(): BuildBoxModel<N> => {
-  return (target: BoxModeKey<N>): BoxModeValue<N> => {
-    const propertyKey = target[0] as ModelKeys;
-    const sideKey = target[1] as LocationKeys;
-    const value = parseInt(target.split('_')[1], 10) as N;
+  const property = model[propertyKey];
+  const side = location[sideKey];
 
-    const property = model[propertyKey];
-    const side = location[sideKey];
+  const calculatedValue = property === 'border' ? value : ((value * 8) as N);
 
-    const calculatedValue = property === 'border' ? value : ((value * 8) as N);
-
-    return property === 'border'
-      ? (`${property}-${side}-width: ${calculatedValue}px` as BoxModeValue<N>)
-      : (`${property}-${side}: ${calculatedValue}px` as BoxModeValue<N>);
-  };
+  return property === 'border'
+    ? (`${property}-${side}-width: ${calculatedValue}px` as BoxModeValue<N>)
+    : (`${property}-${side}: ${calculatedValue}px` as BoxModeValue<N>);
 };
-
-export const boxModel_1 = boxModel<1>();
-export const boxModel_2 = boxModel<2>();
-export const boxModel_3 = boxModel<3>();
-export const boxModel_4 = boxModel<4>();
-export const boxModel_5 = boxModel<5>();
-export const boxModel_6 = boxModel<6>();
 
 /**
  * border-`location`-style 전용 함수
@@ -143,32 +136,32 @@ export const borderColor: BuildBorderColor = target => {
  * border1('1_das_extralight') 매개변수에 자동완성으로 1px로 이루어진 border속성들만 나타나개된다
  */
 
-type BorderKey<
+type BorderFullKey<
   V extends number,
   S extends LineStyleKeys = LineStyleKeys,
   C extends LineColorKeys = LineColorKeys,
-> = `${V}_${S}_${C}`;
+> = `b_${V}_${S}_${C}`;
 
-type BorderValue<
+type BorderFullValue<
   V extends number,
   S extends
     (typeof lineStyle)[LineStyleKeys] = (typeof lineStyle)[LineStyleKeys],
   C extends (typeof colors)[LineColorKeys] = (typeof colors)[LineColorKeys],
 > = `border: ${V}px ${S} ${C}`;
 
-type BuildBorder<N extends number> = (target: BorderKey<N>) => BorderValue<N>;
+// type BuildBorderFull = <N extends number>(
+//   target: BorderFullKey<N>
+// ) => BorderFullValue<N>;
 
-const border = <N extends number>(): BuildBorder<N> => {
-  return (target: BorderKey<N>): BorderValue<N> => {
-    const value = parseInt(target.split('_')[0], 10) as N;
-    const stlyeKey = target.split('_')[1] as LineStyleKeys;
-    const colorKey = target.split('_')[2] as LineColorKeys;
+export const borderFull = <N extends number>(
+  target: BorderFullKey<N>
+): BorderFullValue<N> => {
+  const value = parseInt(target.split('_')[1], 10) as N;
+  const stlyeKey = target.split('_')[2] as LineStyleKeys;
+  const colorKey = target.split('_')[3] as LineColorKeys;
 
-    const style = lineStyle[stlyeKey];
-    const color = colors[colorKey];
+  const style = lineStyle[stlyeKey];
+  const color = colors[colorKey];
 
-    return `border: ${value}px ${style} ${color}` as BorderValue<N>;
-  };
+  return `border: ${value}px ${style} ${color}` as BorderFullValue<N>;
 };
-
-export const border_1 = border<1>();
