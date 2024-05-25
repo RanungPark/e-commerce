@@ -51,10 +51,6 @@ type BoxModeValue<
   L extends (typeof location)[LocationKeys] = (typeof location)[LocationKeys],
 > = M extends 'border' ? `${M}-${L}-width: ${V}px` : `${M}-${L}: ${V}px`;
 
-// type BuildBoxModel = <N extends number>(
-//   target: BoxModeKey<N>
-// ) => BoxModeValue<N>;
-
 export const boxModel = <N extends number>(
   target: BoxModeKey<N>
 ): BoxModeValue<N> => {
@@ -148,10 +144,6 @@ type BorderFullValue<
     (typeof lineStyle)[LineStyleKeys] = (typeof lineStyle)[LineStyleKeys],
   C extends (typeof colors)[LineColorKeys] = (typeof colors)[LineColorKeys],
 > = `border: ${V}px ${S} ${C}`;
-
-// type BuildBorderFull = <N extends number>(
-//   target: BorderFullKey<N>
-// ) => BorderFullValue<N>;
 
 export const borderFull = <N extends number>(
   target: BorderFullKey<N>
