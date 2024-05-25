@@ -132,8 +132,8 @@ export const borderColor: BuildBorderColor = target => {
 
 /**
  * border 전용 함수
- * 사용법 export const border_1 = border<1>(); 이처럼 제네릭으로 숫자를 미리 정의시
- * border1('1_das_extralight') 매개변수에 자동완성으로 1px로 이루어진 border속성들만 나타나개된다
+ * 사용법 export const border_1 = border<1>('b_1_das_extralight'); 이처럼 제네릭으로 숫자를 미리 정의시
+ * 매개변수에 자동완성으로 1px로 이루어진 border속성들만 나타나개된다
  */
 
 type BorderFullKey<
