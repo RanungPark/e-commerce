@@ -31,6 +31,22 @@ type ModelKeys = keyof typeof model;
 type LineStyleKeys = keyof typeof lineStyle;
 type LineColorKeys = keyof typeof colors;
 
+const isLocationKeys = (key: string): key is LocationKeys => {
+  return key in location;
+};
+
+const isModelKeys = (key: string): key is ModelKeys => {
+  return key in model;
+};
+
+const isLineStyleKey = (key: string): key is LineStyleKeys => {
+  return key in lineStyle;
+};
+
+const isLineColorKey = (key: string): key is LineColorKeys => {
+  return key in colors;
+};
+
 /**
  * 박스모델 전용 함수
  * 사용법 export const boxModel_1 = boxModel<1>('bb_1'); 이처럼 제네릭으로 숫자를 미리 정의시
@@ -54,9 +70,17 @@ type BoxModeValue<
 export const boxModel = <N extends number>(
   target: BoxModeKey<N>
 ): BoxModeValue<N> => {
-  const propertyKey = target[0] as ModelKeys;
-  const sideKey = target[1] as LocationKeys;
+  const propertyKey = target[0];
+  const sideKey = target[1];
   const value = parseInt(target.split('_')[1], 10) as N;
+
+  if (!isModelKeys(propertyKey)) {
+    throw new Error(`${target}에 박스모델이 존재하지 않습니다`);
+  }
+
+  if (!isLocationKeys(sideKey)) {
+    throw new Error(`${target}에 위치가 존재하지 않습니다`);
+  }
 
   const property = model[propertyKey];
   const side = location[sideKey];
@@ -64,8 +88,8 @@ export const boxModel = <N extends number>(
   const calculatedValue = property === 'border' ? value : ((value * 8) as N);
 
   return property === 'border'
-    ? (`${property}-${side}-width: ${calculatedValue}px` as BoxModeValue<N>)
-    : (`${property}-${side}: ${calculatedValue}px` as BoxModeValue<N>);
+    ? `${property}-${side}-width: ${calculatedValue}px`
+    : `${property}-${side}: ${calculatedValue}px`;
 };
 
 /**
@@ -88,13 +112,21 @@ type BorderStyleValue<
 type BuildBorderStlye = (target: BorderStyleKey) => BorderStyleValue;
 
 export const borderStyle: BuildBorderStlye = target => {
-  const sideKey = target[1] as LocationKeys;
-  const valuekey = target.split('_')[1] as LineStyleKeys;
+  const sideKey = target[1];
+  const valuekey = target.split('_')[1];
+
+  if (!isLocationKeys(sideKey)) {
+    throw new Error(`${target}에 위치가 존재하지 않습니다`);
+  }
+
+  if (!isLineStyleKey(valuekey)) {
+    throw new Error(`${target}에 style이 존재하지 않습니다`);
+  }
 
   const side = location[sideKey];
   const value = lineStyle[valuekey];
 
-  return `border-${side}-style: ${value}` as BorderStyleValue;
+  return `border-${side}-style: ${value}`;
 };
 
 /**
@@ -117,13 +149,21 @@ type BorderColorValue<
 type BuildBorderColor = (target: BorderColorKey) => BorderColorValue;
 
 export const borderColor: BuildBorderColor = target => {
-  const sideKey = target[1] as LocationKeys;
-  const valuekey = target.split('_')[1] as LineColorKeys;
+  const sideKey = target[1];
+  const valuekey = target.split('_')[1];
+
+  if (!isLocationKeys(sideKey)) {
+    throw new Error(`${target}에 위치가 존재하지 않습니다`);
+  }
+
+  if (!isLineColorKey(valuekey)) {
+    throw new Error(`${target}에 color가 존재하지 않습니다`);
+  }
 
   const side = location[sideKey];
   const value = colors[valuekey];
 
-  return `border-${side}-color: ${value}` as BorderColorValue;
+  return `border-${side}-color: ${value}`;
 };
 
 /**
@@ -148,12 +188,24 @@ type BorderFullValue<
 export const borderFull = <N extends number>(
   target: BorderFullKey<N>
 ): BorderFullValue<N> => {
-  const value = parseInt(target.split('_')[1], 10) as N;
-  const stlyeKey = target.split('_')[2] as LineStyleKeys;
-  const colorKey = target.split('_')[3] as LineColorKeys;
+  const parts = target.split('_');
+
+  const value = parseInt(parts[1], 10) as N;
+  const stlyeKey = parts[2];
+  const colorKey = parts[3];
+
+  if (!isLineStyleKey(stlyeKey)) {
+    throw new Error(`${target}에 style이 존재하지 않습니다`);
+  }
+
+  if (!isLineColorKey(colorKey)) {
+    throw new Error(`${target}에 color가 존재하지 않습니다`);
+  }
 
   const style = lineStyle[stlyeKey];
   const color = colors[colorKey];
 
-  return `border: ${value}px ${style} ${color}` as BorderFullValue<N>;
+  return `border: ${value}px ${style} ${color}`;
 };
+
+console.log(borderFull<1>('b_1_das_darkgray'));
