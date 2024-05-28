@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as ArrowTopRight } from 'src/assets/icons/wght300/ArrowTopRight.svg';
 import { ReactComponent as ArrowDownRight } from 'src/assets/icons/wght300/ArrowDownRight.svg';

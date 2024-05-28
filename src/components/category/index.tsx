@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Products, Rep } from 'src/@types/product';
-import { productV1BaseFetch } from 'src/constants/fetch';
+// import { productV1BaseFetch } from 'src/constants/fetch';
 import ImageCards from '../common/Cards/ImageCards';
 import styled from 'styled-components';
 import { mixins } from 'src/styles/Mixin';
 import { findParam } from 'src/utils/findParam';
 import Text from '../common/Text';
+import { borderLocationArgs } from 'src/styles/boxModel';
 
 const Category = () => {
   const URL_REGEXP = /\/categories\/([^/]+)/;
@@ -31,12 +32,12 @@ const Category = () => {
       goToNotFound();
     } else {
       console.log(categoryName);
-      productV1BaseFetch({ categoryName: categoryName })({})
-        .then(res => res.json())
-        .then(data => {
-          setRep(data.rep);
-          setProducts(data.products);
-        });
+      // productV1BaseFetch({ categoryName: categoryName })({})
+      //   .then(res => res.json())
+      //   .then(data => {
+      //     setRep(data.rep);
+      //     setProducts(data.products);
+      //   });
     }
   }, [location, navigate]);
 
@@ -64,8 +65,12 @@ const Category = () => {
 
 const CategoryHeader = styled.section<{ productImg: string }>`
   ${mixins.flexBox({})}
-  ${mixins.border({ width: 'leftAndBottom' })}
-  ${mixins.border({ width: 'right' })}
+  ${borderLocationArgs<1>([
+    'br_1px_sol_black',
+    'bl_1px_sol_black',
+    'bb_1px_sol_black',
+  ]).join(';')}
+ 
   background-image: linear-gradient( rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35) ),${({
     productImg,
   }) => `url(${productImg})`};

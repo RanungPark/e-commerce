@@ -1,4 +1,3 @@
-import ProductPageFlower from 'src/assets/image/flower/ProductPageFlower.jpg';
 import styled from 'styled-components';
 import Stepper from '../common/Stepper';
 import Text from '../common/Text';
