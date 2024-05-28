@@ -7,7 +7,7 @@ const location = {
   l: 'left',
 };
 
-const model = {
+const models = {
   p: 'padding',
   b: 'border',
   m: 'margin',
@@ -26,8 +26,29 @@ const lineStyle = {
   out: 'outset',
 };
 
+type Units =
+  | 'px'
+  | 'pt'
+  | 'pc'
+  | 'in'
+  | 'cm'
+  | 'mm'
+  | 'em'
+  | 'rem'
+  | '%'
+  | 'vh'
+  | 'vw'
+  | 'vmin'
+  | 'vmax'
+  | 'ch'
+  | 'ex'
+  | 'cap'
+  | 'ic'
+  | 'lh'
+  | 'rlh';
+
 type LocationKeys = keyof typeof location;
-type ModelKeys = keyof typeof model;
+type ModelKeys = keyof typeof models;
 type LineStyleKeys = keyof typeof lineStyle;
 type LineColorKeys = keyof typeof colors;
 
@@ -36,7 +57,7 @@ const isLocationKeys = (key: string): key is LocationKeys => {
 };
 
 const isModelKeys = (key: string): key is ModelKeys => {
-  return key in model;
+  return key in models;
 };
 
 const isLineStyleKey = (key: string): key is LineStyleKeys => {
@@ -45,6 +66,36 @@ const isLineStyleKey = (key: string): key is LineStyleKeys => {
 
 const isLineColorKey = (key: string): key is LineColorKeys => {
   return key in colors;
+};
+
+const isUnits = <T extends string>(key: T): key is T & Units => {
+  return true;
+};
+
+interface NumberAndUnit<N> {
+  number: N;
+  unit: Units;
+}
+
+const extractNumbersAndUnits = <N>(input: string): NumberAndUnit<N> => {
+  const regex = /(\d+)([a-zA-Z%]+)/g;
+  let matches: RegExpExecArray | null;
+  let result: NumberAndUnit<N>;
+
+  if ((matches = regex.exec(input)) !== null) {
+    if (isUnits(matches[2])) {
+      result = {
+        number: matches[1] as N,
+        unit: matches[2],
+      };
+    } else {
+      throw new Error('unit을 찾을 수 없습니다');
+    }
+  } else {
+    throw new Error('match할 수 없습니다');
+  }
+
+  return result;
 };
 
 /**
@@ -59,39 +110,47 @@ type BoxModeKey<
   V extends number,
   K1 extends ModelKeys = ModelKeys,
   K2 extends LocationKeys = LocationKeys,
-> = `${K1}${K2}_${V}`;
+  U extends Units = Units,
+> = `${K1}${K2}_${V}${U}`;
 
 type BoxModeValue<
   V extends number,
-  M extends (typeof model)[ModelKeys] = (typeof model)[ModelKeys],
+  M extends (typeof models)[ModelKeys] = (typeof models)[ModelKeys],
   L extends (typeof location)[LocationKeys] = (typeof location)[LocationKeys],
-> = M extends 'border' ? `${M}-${L}-width: ${V}px` : `${M}-${L}: ${V}px`;
+  U extends Units = Units,
+> = M extends 'border' ? `${M}-${L}-width: ${V}${U}` : `${M}-${L}: ${V}${U}`;
 
 export const boxModel = <N extends number>(
-  target: BoxModeKey<N>
-): BoxModeValue<N> => {
-  const propertyKey = target[0];
-  const sideKey = target[1];
-  const value = parseInt(target.split('_')[1], 10) as N;
+  targets: BoxModeKey<N>[]
+): BoxModeValue<N>[] => {
+  const results: BoxModeValue<N>[] = [];
 
-  if (!isModelKeys(propertyKey)) {
-    throw new Error(`${target}에 박스모델이 존재하지 않습니다`);
-  }
+  targets.forEach(target => {
+    const propertyKey = target[0];
+    const sideKey = target[1];
+    const { number, unit } = extractNumbersAndUnits<N>(target.split('_')[1]);
 
-  if (!isLocationKeys(sideKey)) {
-    throw new Error(`${target}에 위치가 존재하지 않습니다`);
-  }
+    if (!isModelKeys(propertyKey)) {
+      throw new Error(`${target}에 박스모델이 존재하지 않습니다`);
+    }
 
-  const property = model[propertyKey];
-  const side = location[sideKey];
+    if (!isLocationKeys(sideKey)) {
+      throw new Error(`${target}에 위치가 존재하지 않습니다`);
+    }
 
-  const calculatedValue = property === 'border' ? value : ((value * 8) as N);
+    const model = models[propertyKey];
+    const side = location[sideKey];
 
-  return property === 'border'
-    ? `${property}-${side}-width: ${calculatedValue}px`
-    : `${property}-${side}: ${calculatedValue}px`;
+    const result: BoxModeValue<N> =
+      model === 'border'
+        ? `${model}-${side}-width: ${number}${unit}`
+        : `${model}-${side}: ${number}${unit}`;
+
+    results.push(result);
+  });
+
+  return results;
 };
-
 /**
  * border-`location`-style 전용 함수
  * 사용법 borderStyle(bl_sol); 매개변수에 자동완성으로 `b${location}_${border-style}`이 나타나며
@@ -109,24 +168,30 @@ type BorderStyleValue<
   L extends (typeof location)[LocationKeys] = (typeof location)[LocationKeys],
 > = `border-${L}-style: ${S}`;
 
-type BuildBorderStlye = (target: BorderStyleKey) => BorderStyleValue;
+type BuildBorderStlye = (targets: BorderStyleKey[]) => BorderStyleValue[];
 
-export const borderStyle: BuildBorderStlye = target => {
-  const sideKey = target[1];
-  const valuekey = target.split('_')[1];
+export const borderStyle: BuildBorderStlye = targets => {
+  const results: BorderStyleValue[] = [];
 
-  if (!isLocationKeys(sideKey)) {
-    throw new Error(`${target}에 위치가 존재하지 않습니다`);
-  }
+  targets.forEach(target => {
+    const sideKey = target[1];
+    const styleKey = target.split('_')[1];
 
-  if (!isLineStyleKey(valuekey)) {
-    throw new Error(`${target}에 style이 존재하지 않습니다`);
-  }
+    if (!isLocationKeys(sideKey)) {
+      throw new Error(`${target}에 위치가 존재하지 않습니다`);
+    }
 
-  const side = location[sideKey];
-  const value = lineStyle[valuekey];
+    if (!isLineStyleKey(styleKey)) {
+      throw new Error(`${target}에 style이 존재하지 않습니다`);
+    }
 
-  return `border-${side}-style: ${value}`;
+    const side = location[sideKey];
+    const style = lineStyle[styleKey];
+
+    results.push(`border-${side}-style: ${style}`);
+  });
+
+  return results;
 };
 
 /**
@@ -146,24 +211,30 @@ type BorderColorValue<
   L extends (typeof location)[LocationKeys] = (typeof location)[LocationKeys],
 > = `border-${L}-color: ${C}`;
 
-type BuildBorderColor = (target: BorderColorKey) => BorderColorValue;
+type BuildBorderColor = (target: BorderColorKey[]) => BorderColorValue[];
 
-export const borderColor: BuildBorderColor = target => {
-  const sideKey = target[1];
-  const valuekey = target.split('_')[1];
+export const borderColor: BuildBorderColor = targets => {
+  const results: BorderColorValue[] = [];
 
-  if (!isLocationKeys(sideKey)) {
-    throw new Error(`${target}에 위치가 존재하지 않습니다`);
-  }
+  targets.forEach(target => {
+    const sideKey = target[1];
+    const colorKey = target.split('_')[1];
 
-  if (!isLineColorKey(valuekey)) {
-    throw new Error(`${target}에 color가 존재하지 않습니다`);
-  }
+    if (!isLocationKeys(sideKey)) {
+      throw new Error(`${target}에 위치가 존재하지 않습니다`);
+    }
 
-  const side = location[sideKey];
-  const value = colors[valuekey];
+    if (!isLineColorKey(colorKey)) {
+      throw new Error(`${target}에 color가 존재하지 않습니다`);
+    }
 
-  return `border-${side}-color: ${value}`;
+    const side = location[sideKey];
+    const color = colors[colorKey];
+
+    results.push(`border-${side}-color: ${color}`);
+  });
+
+  return results;
 };
 
 /**
@@ -172,25 +243,79 @@ export const borderColor: BuildBorderColor = target => {
  * 매개변수에 자동완성으로 1px로 이루어진 border속성들만 나타나개된다
  */
 
-type BorderFullKey<
+type BorderLocationArgsKey<
+  V extends number,
+  K2 extends LocationKeys = LocationKeys,
+  S extends LineStyleKeys = LineStyleKeys,
+  C extends LineColorKeys = LineColorKeys,
+  U extends Units = Units,
+> = `b${K2}_${V}${U}_${S}_${C}`;
+
+type BorderLocationArgsValue<
+  V extends number,
+  L extends (typeof location)[LocationKeys] = (typeof location)[LocationKeys],
+  S extends
+    (typeof lineStyle)[LineStyleKeys] = (typeof lineStyle)[LineStyleKeys],
+  C extends (typeof colors)[LineColorKeys] = (typeof colors)[LineColorKeys],
+  U extends Units = Units,
+> = `border-${L}: ${V}${U} ${S} ${C}`;
+
+export const borderLocationArgs = <N extends number>(
+  targets: BorderLocationArgsKey<N>[]
+): BorderLocationArgsValue<N>[] => {
+  const results: BorderLocationArgsValue<N>[] = [];
+
+  targets.forEach(target => {
+    const parts = target.split('_');
+
+    const sideKey = target[1];
+    const { number, unit } = extractNumbersAndUnits<N>(parts[1]);
+    const stlyeKey = parts[2];
+    const colorKey = parts[3];
+
+    if (!isLocationKeys(sideKey)) {
+      throw new Error(`${target}에 위치가 존재하지 않습니다`);
+    }
+
+    if (!isLineStyleKey(stlyeKey)) {
+      throw new Error(`${target}에 style이 존재하지 않습니다`);
+    }
+
+    if (!isLineColorKey(colorKey)) {
+      throw new Error(`${target}에 color가 존재하지 않습니다`);
+    }
+
+    const side = location[sideKey];
+    const style = lineStyle[stlyeKey];
+    const color = colors[colorKey];
+
+    results.push(`border-${side}: ${number}${unit} ${style} ${color}`);
+  });
+
+  return results;
+};
+
+type BorderAllArgsKey<
   V extends number,
   S extends LineStyleKeys = LineStyleKeys,
   C extends LineColorKeys = LineColorKeys,
-> = `b_${V}_${S}_${C}`;
+  U extends Units = Units,
+> = `b_${V}${U}_${S}_${C}`;
 
-type BorderFullValue<
+type BorderAllArgsValue<
   V extends number,
   S extends
     (typeof lineStyle)[LineStyleKeys] = (typeof lineStyle)[LineStyleKeys],
   C extends (typeof colors)[LineColorKeys] = (typeof colors)[LineColorKeys],
-> = `border: ${V}px ${S} ${C}`;
+  U extends Units = Units,
+> = `border: ${V}${U} ${S} ${C}`;
 
-export const borderFull = <N extends number>(
-  target: BorderFullKey<N>
-): BorderFullValue<N> => {
+export const borderAllArgs = <N extends number>(
+  target: BorderAllArgsKey<N>
+): BorderAllArgsValue<N> => {
   const parts = target.split('_');
 
-  const value = parseInt(parts[1], 10) as N;
+  const { number, unit } = extractNumbersAndUnits<N>(parts[1]);
   const stlyeKey = parts[2];
   const colorKey = parts[3];
 
@@ -205,7 +330,5 @@ export const borderFull = <N extends number>(
   const style = lineStyle[stlyeKey];
   const color = colors[colorKey];
 
-  return `border: ${value}px ${style} ${color}`;
+  return `border: ${number}${unit} ${style} ${color}`;
 };
-
-console.log(borderFull<1>('b_1_das_darkgray'));
