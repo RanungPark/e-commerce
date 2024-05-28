@@ -52,7 +52,8 @@ type ModelKeys = keyof typeof models;
 type LineStyleKeys = keyof typeof lineStyle;
 type LineColorKeys = keyof typeof colors;
 
-const isLocationKeys = (key: string): key is LocationKeys => {
+const isLocationKeys = (key: string | null): key is LocationKeys => {
+  if (key === null) return false;
   return key in location;
 };
 
@@ -109,16 +110,28 @@ const extractNumbersAndUnits = <N>(input: string): NumberAndUnit<N> => {
 type BoxModeKey<
   V extends number,
   K1 extends ModelKeys = ModelKeys,
-  K2 extends LocationKeys = LocationKeys,
+  K2 extends LocationKeys | undefined = LocationKeys | undefined,
   U extends Units = Units,
-> = `${K1}${K2}_${V}${U}`;
+> = K2 extends undefined
+  ? K1 extends 'b'
+    ? never
+    : `${K1}_${V}${U}`
+  : `${K1}${K2}_${V}${U}`;
 
 type BoxModeValue<
   V extends number,
   M extends (typeof models)[ModelKeys] = (typeof models)[ModelKeys],
-  L extends (typeof location)[LocationKeys] = (typeof location)[LocationKeys],
+  L extends (typeof location)[LocationKeys] | undefined =
+    | (typeof location)[LocationKeys]
+    | undefined,
   U extends Units = Units,
-> = M extends 'border' ? `${M}-${L}-width: ${V}${U}` : `${M}-${L}: ${V}${U}`;
+> = L extends undefined
+  ? M extends 'border'
+    ? never
+    : `${M}: ${V}${U}`
+  : M extends 'border'
+    ? `${M}-${L}-width: ${V}${U}`
+    : `${M}-${L}: ${V}${U}`;
 
 export const boxModel = <N extends number>(
   targets: BoxModeKey<N>[]
@@ -127,26 +140,32 @@ export const boxModel = <N extends number>(
 
   targets.forEach(target => {
     const propertyKey = target[0];
-    const sideKey = target[1];
+    const sideKey = target[1] === '_' ? null : target[1];
+
     const { number, unit } = extractNumbersAndUnits<N>(target.split('_')[1]);
 
     if (!isModelKeys(propertyKey)) {
       throw new Error(`${target}에 박스모델이 존재하지 않습니다`);
     }
 
-    if (!isLocationKeys(sideKey)) {
-      throw new Error(`${target}에 위치가 존재하지 않습니다`);
+    if (isLocationKeys(sideKey)) {
+      const model = models[propertyKey];
+      const side = location[sideKey];
+
+      const result: BoxModeValue<N> =
+        model === 'border'
+          ? `${model}-${side}-width: ${number}${unit}`
+          : `${model}-${side}: ${number}${unit}`;
+
+      results.push(result);
+    } else {
+      const model = models[propertyKey];
+
+      if (model !== 'border') {
+        const result: BoxModeValue<N> = `${model}: ${number}${unit}`;
+        results.push(result);
+      }
     }
-
-    const model = models[propertyKey];
-    const side = location[sideKey];
-
-    const result: BoxModeValue<N> =
-      model === 'border'
-        ? `${model}-${side}-width: ${number}${unit}`
-        : `${model}-${side}: ${number}${unit}`;
-
-    results.push(result);
   });
 
   return results;
