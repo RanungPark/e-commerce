@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import Stepper from '../common/Stepper';
 import Text from '../common/Text';
-import { mixins } from 'src/styles/Mixin';
+import { mixins } from '@styles/Mixin';
 import { useState } from 'react';
 import Buttons from '../common/Buttons';
-import { IMG_PATH } from 'src/constants/imgPath';
+import { IMG_PATH } from '@constants/imgPath';
 
 const Product = () => {
   const [stepperValue, setstepperValue] = useState(1);

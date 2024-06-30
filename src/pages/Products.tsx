@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
-import Product from 'src/components/product';
-import OuterProducts from 'src/components/product/OuterProducts';
+import Product from '@components/product';
+import OuterProducts from '@components/product/OuterProducts';
 
 const ProductsPage = () => {
-
   return (
     <>
       <Product />
-      <OuterProducts/>
+      <OuterProducts />
     </>
   );
 };

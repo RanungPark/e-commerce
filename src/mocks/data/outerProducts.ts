@@ -1,5 +1,5 @@
 import { PickFromProducts } from 'src/@types/product';
-import { IMG_PATH } from 'src/constants/imgPath';
+import { IMG_PATH } from '@constants/imgPath';
 
 export const outerProducts: PickFromProducts[] = [
   {

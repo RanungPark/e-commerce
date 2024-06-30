@@ -1,4 +1,4 @@
-import { mixins } from 'src/styles/Mixin';
+import { mixins } from '@styles/Mixin';
 import { css } from 'styled-components';
 import { ImageCardsProps } from '.';
 

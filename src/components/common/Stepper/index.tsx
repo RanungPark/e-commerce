@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { BiPlus } from 'react-icons/bi';
 import { BiMinus } from 'react-icons/bi';
-import { mixins } from 'src/styles/Mixin';
+import { mixins } from '@styles/Mixin';
 
 interface StepperProps {
   value: number;

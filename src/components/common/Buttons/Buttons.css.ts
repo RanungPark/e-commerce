@@ -1,11 +1,11 @@
-import { mixins } from 'src/styles/Mixin';
-import { css } from 'styled-components';
 import { ButtonsProps } from '.';
+import { css } from 'styled-components';
 import {
   PrimaryStyle,
   SecondaryStyle,
   TertiaryyStyle,
 } from './FiledButton.css';
+import { mixins } from '@styles/Mixin';
 
 interface ButtonCSS extends ButtonsProps {}
 

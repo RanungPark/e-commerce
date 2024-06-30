@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { ReactComponent as Check } from 'src/assets/icons/wght300/Check.svg';
-import { ReactComponent as WEdit } from 'src/assets/icons/wght400/WEdit.svg';
-import { mixins } from 'src/styles/Mixin';
+import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
+import { ReactComponent as WEdit } from '@assets/icons/wght400/WEdit.svg';
+import { mixins } from '@styles/Mixin';
 import { PartialOptional } from 'src/@types/utils';
 import Text from '../Text';
 import Icon from '../Icon';

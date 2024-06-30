@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom/client';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { theme } from './styles/theme';
 import { RouterProvider } from 'react-router-dom';
-import GlobalStyle from './styles/GlobalStyle';
+import { theme } from '@styles/theme';
+import GlobalStyle from '@styles/GlobalStyle';
 import router from './router';
 
 async function enableMocking() {
@@ -11,7 +11,7 @@ async function enableMocking() {
     return;
   }
 
-  const { worker } = await import('src/mocks/browser');
+  const { worker } = await import('@mocks/browser');
   return worker.start();
 }
 

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { default as DatePickerlib } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { ReactComponent as WCalendar } from 'src/assets/icons/wght400/WCalendar.svg';
+import { ReactComponent as WCalendar } from '@assets/icons/wght400/WCalendar.svg';
 import CustomCalendarHeader from './DatePickerHeader';
-import { mixins } from 'src/styles/Mixin';
+import { mixins } from '@styles/Mixin';
 
 export interface renderCustomHeaderProps {
   date: Date;

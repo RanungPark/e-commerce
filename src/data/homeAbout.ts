@@ -1,4 +1,4 @@
-import { PartialOptional } from "src/@types/utils";
+import { PartialOptional } from 'src/@types/utils';
 
 interface HomeAboutInfo {
   title: string;

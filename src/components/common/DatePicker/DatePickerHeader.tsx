@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as WChevronLeft } from 'src/assets/icons/wght400/WChevronLeft.svg';
-import { ReactComponent as WChevronRight } from 'src/assets/icons/wght400/WChevronRight.svg';
-import { mixins } from 'src/styles/Mixin';
+import { ReactComponent as WChevronLeft } from '@assets/icons/wght400/WChevronLeft.svg';
+import { ReactComponent as WChevronRight } from '@assets/icons/wght400/WChevronRight.svg';
+import { mixins } from '@styles/Mixin';
 import { renderCustomHeaderProps } from '.';
 
 const CustomCalendarHeader = ({

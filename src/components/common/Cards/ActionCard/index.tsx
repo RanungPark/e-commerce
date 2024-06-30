@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mixins } from 'src/styles/Mixin';
+import { mixins } from '@styles/Mixin';
 import Text from '../../Text';
 import Buttons from '../../Buttons';
 import { PartialOptional } from 'src/@types/utils';

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Text from '../../Text';
-import { mixins } from 'src/styles/Mixin';
+import { mixins } from '@styles/Mixin';
 
 interface BaseCardProps {
   label: string;

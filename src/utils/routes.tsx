@@ -1,9 +1,8 @@
-import { ReactNode } from 'react';
-import AboutPage from 'src/pages/About';
-import CategoryPage from 'src/pages/Categorys';
-import CheckoutPage from 'src/pages/Checkout';
-import HomePage from 'src/pages/Home';
-import ProductsPage from 'src/pages/Products';
+import AboutPage from "@pages/About";
+import CheckoutPage from "@pages/Checkout";
+import HomePage from "@pages/Home";
+import ProductsPage from "@pages/Products";
+import { ReactNode } from "react";
 
 export interface Routes {
   path: string;
@@ -12,7 +11,7 @@ export interface Routes {
 
 export const routes: Routes[] = [
   { path: '', element: <HomePage /> },
-  { path: '/categories/:categoryName', element: <CategoryPage /> },
+  // { path: '/categories/:categoryName', element: <CategoryPage /> },
   {
     path: 'categories/:categoryName/products/:productId',
     element: <ProductsPage />,

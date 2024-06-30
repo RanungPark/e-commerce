@@ -1,4 +1,4 @@
-import { mixins } from 'src/styles/Mixin';
+import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
 import { TextFieldProps } from '.';
 import { BiSolidErrorCircle } from 'react-icons/bi';

@@ -1,4 +1,4 @@
-import { IMG_PATH } from 'src/constants/imgPath';
+import { IMG_PATH } from '@constants/imgPath';
 
 interface HomeCardDatas {
   label: string;

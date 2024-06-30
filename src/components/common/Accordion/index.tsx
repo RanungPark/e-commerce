@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { ReactComponent as ArrowTopRight } from 'src/assets/icons/wght300/ArrowTopRight.svg';
-import { ReactComponent as ArrowDownRight } from 'src/assets/icons/wght300/ArrowDownRight.svg';
-import { mixins } from 'src/styles/Mixin';
+import { ReactComponent as ArrowTopRight } from '@assets/icons/wght300/ArrowTopRight.svg';
+import { ReactComponent as ArrowDownRight } from '@assets/icons/wght300/ArrowDownRight.svg';
 import Text from '../Text';
+import styled from 'styled-components';
+import { mixins } from '@styles/Mixin';
 
 interface AccordionProps {
   label: string;

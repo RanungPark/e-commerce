@@ -1,6 +1,6 @@
 import React from 'react';
-import Home from 'src/components/home';
-import About from 'src/components/home/About';
+import Home from '@components/home';
+import About from '@components/home/About';
 
 const HomePage = () => {
   return (

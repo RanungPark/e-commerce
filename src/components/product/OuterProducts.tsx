@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ImageCards from '../common/Cards/ImageCards';
 import Text from '../common/Text';
-import { mixins } from 'src/styles/Mixin';
+import { mixins } from '@styles/Mixin';
 import { useEffect, useState } from 'react';
 import { PickFromProducts } from 'src/@types/product';
 

@@ -1,8 +1,8 @@
 import { PartialDelete } from 'src/@types/utils';
-import { mixins } from 'src/styles/Mixin';
+import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
-import { ReactComponent as CaretDown } from 'src/assets/icons/wght300/CaretDown.svg';
-import { ReactComponent as CaretUp } from 'src/assets/icons/wght300/CaretUp.svg';
+import { ReactComponent as CaretDown } from '@assets/icons/wght300/CaretDown.svg';
+import { ReactComponent as CaretUp } from '@assets/icons/wght300/CaretUp.svg';
 import { SelectBoxProps } from '.';
 
 interface LabelProps extends SelectBoxProps {}

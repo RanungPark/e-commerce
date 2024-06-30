@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import Text from '../common/Text';
-import { mixins } from 'src/styles/Mixin';
+import { mixins } from '@styles/Mixin';
 import { PartialOptional } from 'src/@types/utils';
 import Buttons from '../common/Buttons';
-import { homeAboutDatas } from 'src/data/homeAbout';
+import { homeAboutDatas } from '@data/homeAbout';
 
 interface AboutTitleProps {
   title: string;

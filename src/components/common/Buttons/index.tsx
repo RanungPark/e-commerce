@@ -1,8 +1,8 @@
-import Text from '../Text';
 import { PartialOptional, PartialRequired } from 'src/@types/utils';
+import Text from '../Text';
+import Icon from '../Icon';
 import styled from 'styled-components';
 import { StyledButton } from './Buttons.css';
-import Icon from '../Icon';
 
 export interface ButtonsProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {

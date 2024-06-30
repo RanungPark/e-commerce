@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Text from '../Text';
 import Icon from '../Icon';
-import { ReactComponent as WChevronRight } from 'src/assets/icons/wght400/WChevronRight.svg';
-import { mixins } from 'src/styles/Mixin';
+import { ReactComponent as WChevronRight } from '@assets/icons/wght400/WChevronRight.svg';
+import { mixins } from '@styles/Mixin';
 
 interface BreadCrumbProps {
   label: string;

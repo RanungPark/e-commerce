@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import NavbarLink from './Menu';
-import { mixins } from 'src/styles/Mixin';
+import { mixins } from '@styles/Mixin';
 
 const Header = () => {
   return (

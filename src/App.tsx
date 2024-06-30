@@ -15,3 +15,21 @@ const App = () => {
 };
 
 export default App;
+
+/**
+ * 1. box model 만들기
+ *   - eg) classname: mb-1 , my-1
+ *
+ * 2. fetch
+ *   - usecase 분석
+ *   - request spec 확인
+ *   - msa 대응
+ *   - 추상화 다시
+ *
+ * 3. Text, Button
+ *   - a 태그가 될 수 있도록 변경, href prop 활용
+ *
+ * 4. 타이포그라피 uppercase 코드 수정
+ *
+ * 5. lint, prettier, nvm, gitignore, gitattributes, env
+ */

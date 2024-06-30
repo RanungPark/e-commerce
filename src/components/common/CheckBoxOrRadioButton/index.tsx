@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as Check } from 'src/assets/icons/wght300/Check.svg';
+import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
 import Text from '../Text';
 import { CheckBoxStyle, RadioButtonStyle } from './CheckBoxOrRadioButton.css';
 

@@ -2,13 +2,13 @@ import React from 'react';
 import ActionCard from '../common/Cards/ActionCard';
 import ImageCards from '../common/Cards/ImageCards';
 import styled from 'styled-components';
-import { ReactComponent as WArrowRight } from 'src/assets/icons/wght400/WArrowRight.svg';
-import { ReactComponent as WArrowLeft } from 'src/assets/icons/wght400/WArrowLeft.svg';
-import { mixins } from 'src/styles/Mixin';
+import { ReactComponent as WArrowRight } from '@assets/icons/wght400/WArrowRight.svg';
+import { ReactComponent as WArrowLeft } from '@assets/icons/wght400/WArrowLeft.svg';
+import { mixins } from '@styles/Mixin';
 import Text from '../common/Text';
 import { useNavigate } from 'react-router';
-import { homeCardsDatas } from 'src/data/homeCards';
-import { IMG_PATH } from 'src/constants/imgPath';
+import { homeCardsDatas } from '@data/homeCards';
+import { IMG_PATH } from '@constants/imgPath';
 
 const Home = () => {
   return (

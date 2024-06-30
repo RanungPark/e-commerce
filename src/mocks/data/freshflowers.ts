@@ -1,5 +1,5 @@
 import { Products, Rep } from 'src/@types/product';
-import { IMG_PATH } from 'src/constants/imgPath';
+import { IMG_PATH } from '@constants/imgPath';
 
 export const freshflowersRep: Rep = {
   type: 'Fresh Flowers',

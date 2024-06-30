@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router';
-import Buttons from 'src/components/common/Buttons';
-import Layout from 'src/components/common/Layout';
-import Text from 'src/components/common/Text';
-import { mixins } from 'src/styles/Mixin';
+import Buttons from '@components/common/Buttons';
+import Layout from '@components/common/Layout';
+import Text from '@components/common/Text';
+import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
 
 const NotFound = () => {

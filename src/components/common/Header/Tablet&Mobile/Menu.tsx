@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mixins } from 'src/styles/Mixin';
+import { mixins } from '@styles/Mixin';
 import Icon from '../../Icon';
 import { PartialOptional } from 'src/@types/utils';
 
