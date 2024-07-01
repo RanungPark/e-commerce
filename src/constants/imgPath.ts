@@ -3,7 +3,7 @@ export const IMG_PATH = {
     AutumnSymphony: require('@assets/img/flower/AutumnSymphony.jpg'),
     BlazingBlassoms: require('@assets/img/flower/BlazingBlassoms.jpg'),
     BlueHarmony: require('@assets/img/flower/BlueHarmony.jpg'),
-    DawnsDelight: `/img/flower/DawnsDelight.jpg`,
+    DawnsDelight: require('@assets/img/flower/DawnsDelight.jpg'),
     DriedFlowers: require('@assets/img/flower/DriedFlowers.jpg'),
     LivePlants: require('@assets/img/flower/LivePlants.jpg'),
     MysticalMajesty: require('@assets/img/flower/MysticalMajesty.jpg'),
