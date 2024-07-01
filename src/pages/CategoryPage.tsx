@@ -29,11 +29,14 @@ const CategoryPage = () => {
     if (categoryName === undefined) {
       goToNotFound();
     } else {
-      fetch('/freshflowers/products')
+      fetch('https://todayflawer.netlify.app/freshflowers/products')
         .then(response => response.json())
         .then(data => {
           setRep(data.rep);
           setProducts(data.products);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
         });
     }
   }, [location, navigate]);
