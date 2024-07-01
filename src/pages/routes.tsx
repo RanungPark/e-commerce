@@ -4,6 +4,8 @@ import HomePage from './HomePage';
 import ProductsPage from './ProductsPage';
 import { ReactNode } from 'react';
 import OrderPage from './OrderPage';
+import LoginPage from './LoginPage';
+import SingupPage from './SingupPage';
 
 export interface Routes {
   path: string;
@@ -12,7 +14,8 @@ export interface Routes {
 
 export const routes: Routes[] = [
   { path: '', element: <HomePage /> },
-  { path: '/login', element: <HomePage /> },
+  { path: '/login', element: <LoginPage /> },
+  { path: '/signup', element: <SingupPage /> },
   { path: '/categories/:categoryName', element: <CategoryPage /> },
   {
     path: 'categories/:categoryName/products/:productId',

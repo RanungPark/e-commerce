@@ -11,8 +11,10 @@ const CategoryPage = () => {
   const URL_REGEXP = /\/categories\/([^/]+)/;
   const [products, setProducts] = useState<Products[]>([]);
   const [rep, setRep] = useState<Rep>({ img: '', type: '' });
-
   const location = useLocation();
+
+  const categoryName = findParam(URL_REGEXP, location.pathname);
+
   const navigate = useNavigate();
 
   const goToNotFound = () => {
@@ -24,8 +26,6 @@ const CategoryPage = () => {
   };
 
   useEffect(() => {
-    const categoryName = findParam(URL_REGEXP, location.pathname);
-
     if (categoryName === undefined) {
       goToNotFound();
     } else {
