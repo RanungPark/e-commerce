@@ -25,7 +25,9 @@ root.render(
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <RouterProvider router={router} />
-        <ReactQueryDevtools initialIsOpen={true} />
+        {process.env.NODE_ENV === 'development' && (
+          <ReactQueryDevtools initialIsOpen={false} />
+        )}
       </ThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>
