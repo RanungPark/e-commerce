@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/mockServiceWorker.js"
+  to = "/public/mockServiceWorker.js"
+  status = 200
