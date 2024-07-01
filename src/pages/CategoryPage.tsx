@@ -29,7 +29,7 @@ const CategoryPage = () => {
     if (categoryName === undefined) {
       goToNotFound();
     } else {
-      fetch('https://todayflawer.netlify.app/freshflowers/products')
+      fetch('/freshflowers/products')
         .then(response => response.json())
         .then(data => {
           setRep(data.rep);
