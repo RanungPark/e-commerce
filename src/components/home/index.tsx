@@ -9,6 +9,7 @@ import Text from '../common/Text';
 import { useNavigate } from 'react-router';
 import { homeCardsDatas } from '@data/homeCards';
 import { IMG_PATH } from '@constants/imgPath';
+import toast from 'react-hot-toast';
 
 const Home = () => {
   return (
@@ -32,9 +33,17 @@ const Home = () => {
       <CardsWrapper className="br-1">
         {homeCardsDatas.map(({ label, productImg }, i) =>
           i % 2 === 0 ? (
-            <ActionNextToImage label={label} productImg={productImg} />
+            <ActionNextToImage
+              key={label}
+              label={label}
+              productImg={productImg}
+            />
           ) : (
-            <ImageNextToActcion label={label} productImg={productImg} />
+            <ImageNextToActcion
+              key={label}
+              label={label}
+              productImg={productImg}
+            />
           )
         )}
       </CardsWrapper>
@@ -53,13 +62,19 @@ const ActionNextToImage = ({ label, productImg }: CardProps) => {
     navigate(`/categories/${label.toLowerCase()}`);
   };
 
+  const wait = () =>
+    toast.error('페이지 완성까지 조금만 기다려주세요.', {
+      icon: '🥲',
+      duration: 3000,
+    });
+
   return (
     <>
       <ActionCard
         label={label}
         buttonLabel="Shop now"
         rightIcon={WArrowRight}
-        handleClick={goToMainPate}
+        handleClick={label === 'FreshFlowers' ? goToMainPate : wait}
       />
       <ImageCards cardType="main" productImg={productImg} />
     </>
@@ -72,6 +87,12 @@ const ImageNextToActcion = ({ label, productImg }: CardProps) => {
     navigate(`/categories/${label.toLowerCase()}`);
   };
 
+  const wait = () =>
+    toast.error('페이지 완성까지 조금만 기다려주세요.', {
+      icon: '🥲',
+      duration: 3000,
+    });
+
   return (
     <>
       <ImageCards cardType="main" productImg={productImg} />
@@ -79,7 +100,7 @@ const ImageNextToActcion = ({ label, productImg }: CardProps) => {
         label={label}
         buttonLabel="Shop now"
         leftIcon={WArrowLeft}
-        handleClick={goToMainPate}
+        handleClick={label === 'FreshFlowers' ? goToMainPate : wait}
       />
     </>
   );

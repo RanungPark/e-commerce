@@ -3,6 +3,7 @@ import Header from './components/common/Header/Tablet&Mobile';
 import Footer from './components/common/Footer';
 import { Outlet } from 'react-router';
 import { footerData } from './data/footer';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Header />
       <Outlet />
       <Footer footerData={footerData} />
+      <Toaster position="top-center" reverseOrder={false} />
     </Layout>
   );
 };
