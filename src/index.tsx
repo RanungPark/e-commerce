@@ -9,9 +9,7 @@ import { worker } from '@mocks/worker';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
-if (process.env.NODE_ENV === 'development') {
-  worker.start();
-}
+worker.start();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
