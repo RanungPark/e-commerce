@@ -13,7 +13,7 @@ import { IMG_PATH } from '@constants/imgPath';
 const Home = () => {
   return (
     <>
-      <StyledHome>
+      <StyledHome className="bl-1 bb-1 br-1">
         <HomeHeader>
           <Text as="h1" typography="Heading1">
             {`오늘의 꽃 `}
@@ -29,7 +29,7 @@ const Home = () => {
           </Text>
         </HomeHeaderInfo>
       </StyledHome>
-      <CardsWrapper>
+      <CardsWrapper className="br-1">
         {homeCardsDatas.map(({ label, productImg }, i) =>
           i % 2 === 0 ? (
             <ActionNextToImage label={label} productImg={productImg} />
@@ -86,8 +86,6 @@ const ImageNextToActcion = ({ label, productImg }: CardProps) => {
 };
 
 const StyledHome = styled.section`
-  ${mixins.border({ width: 'right' })};
-  ${mixins.border({ width: 'leftAndBottom' })};
   padding: 80px;
 `;
 
@@ -116,7 +114,6 @@ const HomeHeaderInfo = styled.section`
 `;
 
 const CardsWrapper = styled.section`
-  ${mixins.border({ width: 'right' })}
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 `;

@@ -17,8 +17,8 @@ const OuterProducts = () => {
   }, []);
 
   return (
-    <StyledOuterProducts>
-      <Title>
+    <StyledOuterProducts className="br-1">
+      <Title className="bl-1 bb-1">
         <Text as="p" typography="Heading3">
           {'You may also like…'}
         </Text>
@@ -37,12 +37,9 @@ const OuterProducts = () => {
   );
 };
 
-const StyledOuterProducts = styled.article`
-  ${mixins.border({ width: 'right' })}
-`;
+const StyledOuterProducts = styled.article``;
 
 const Title = styled.div`
-  ${mixins.border({ width: 'leftAndBottom' })}
   ${mixins.flexBox({})}
   height: 206px;
 `;

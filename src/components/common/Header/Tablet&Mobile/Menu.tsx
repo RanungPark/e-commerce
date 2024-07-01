@@ -12,7 +12,7 @@ type OptionalFromMenuProps = PartialOptional<MenuProps, 'handleClick'>;
 
 const Menu = ({ icon, handleClick }: OptionalFromMenuProps) => {
   return (
-    <StyledMenu onClick={handleClick}>
+    <StyledMenu onClick={handleClick} className='br-1'>
       <Icon as={icon} />
     </StyledMenu>
   );
@@ -20,7 +20,6 @@ const Menu = ({ icon, handleClick }: OptionalFromMenuProps) => {
 
 const StyledMenu = styled.button`
   ${mixins.flexBox({})};
-  ${mixins.border({ width: 'right' })}
   width: auto;
   height: auto;
   padding: 16px;

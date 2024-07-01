@@ -34,6 +34,7 @@ const ImageCards = ({
 }: OptionalFromImageCardsProps) => {
   return (
     <StyledImageCards
+      className='bl-1 bb-1'
       productImg={productImg}
       cardType={cardType}
       onClick={handleClick}

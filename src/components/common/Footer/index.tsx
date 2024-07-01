@@ -10,7 +10,6 @@ import { ReactComponent as Pinterest } from '@assets/icons/wght300/Brands/Pinter
 import { ReactComponent as Facebook } from '@assets/icons/wght300/Brands/Facebook.svg';
 import { ReactComponent as Twitter } from '@assets/icons/wght300/Brands/Twitter.svg';
 import { ReactComponent as Telegram } from '@assets/icons/wght300/Brands/Telegram.svg';
-import { mixins } from '@styles/Mixin';
 import { FooterData } from '@data/footer';
 
 type RemindDataProps = SelectObject<FooterData, 'remindData'>;
@@ -21,7 +20,7 @@ type AboutDataProps = SelectObject<FooterData, 'aboutdata'>;
 function Footer({ footerData }: { footerData: FooterData }) {
   const { remindData, contactData, shopAndServiceDate, aboutdata } = footerData;
   return (
-    <StyledFooter>
+    <StyledFooter className="br-1">
       <Remind remindData={remindData} />
       <Contact contactData={contactData} />
       <ShopAndService shopAndServiceDate={shopAndServiceDate} />
@@ -32,7 +31,7 @@ function Footer({ footerData }: { footerData: FooterData }) {
 
 function Remind({ remindData }: { remindData: RemindDataProps }) {
   return (
-    <StyledFooterInfo>
+    <StyledFooterInfo className="bl-1 bb-1">
       <Text as="p" typography="Body">
         {remindData.content}
       </Text>
@@ -49,7 +48,7 @@ function Remind({ remindData }: { remindData: RemindDataProps }) {
 
 function Contact({ contactData }: { contactData: ContactDataProps }) {
   return (
-    <StyledFooterInfo>
+    <StyledFooterInfo className="bl-1 bb-1">
       <ContactInfos title="Contact Us" infos={contactData.contactInfo} />
       <IconInfos
         title="Follow Us"
@@ -65,7 +64,7 @@ function ShopAndService({
   shopAndServiceDate: ShopAndServiceDataProps;
 }) {
   return (
-    <StyledFooterInfo>
+    <StyledFooterInfo className="bl-1 bb-1">
       <PublicInfos title="Shop" infos={shopAndServiceDate.shopInfos} />
       <PublicInfos title="Service" infos={shopAndServiceDate.serviceInfo} />
     </StyledFooterInfo>
@@ -74,7 +73,7 @@ function ShopAndService({
 
 function About({ aboutdata }: { aboutdata: AboutDataProps }) {
   return (
-    <StyledFooterInfo>
+    <StyledFooterInfo className="bl-1 bb-1">
       <PublicInfos title="About Us" infos={aboutdata.aboutInfos} />
     </StyledFooterInfo>
   );
@@ -148,10 +147,8 @@ const StyledFooter = styled.footer`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto;
-  ${mixins.border({ width: 'right' })}
 
   & > div {
-    ${mixins.border({ width: 'leftAndBottom' })}
     padding: 40px;
   }
 `;

@@ -8,7 +8,7 @@ interface MenuProps {
 
 const Menu = ({ label }: MenuProps) => {
   return (
-    <StyledMenu href="/">
+    <StyledMenu href="/" className='br-1'>
       <Text as="p" typography="Links">
         {label}
       </Text>
@@ -18,7 +18,6 @@ const Menu = ({ label }: MenuProps) => {
 
 const StyledMenu = styled.a`
   ${mixins.flexBox({ display: 'inline-flex' })};
-  ${mixins.border({ width: 'right' })}
   width: 180px;
   height: auto;
   padding: 24px 36px;

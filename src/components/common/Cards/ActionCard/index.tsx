@@ -25,7 +25,7 @@ const ActionCard = ({
   handleClick,
 }: OptionalrFromActionCardProps) => {
   return (
-    <StyledActionCard>
+    <StyledActionCard className="bb-1 bl-1">
       <Text as="h3" typography="Heading3" align="center">
         {label}
       </Text>
@@ -42,7 +42,6 @@ const ActionCard = ({
 
 const StyledActionCard = styled.section`
   ${mixins.flexBox({})}
-  ${mixins.border({ width: 'leftAndBottom' })}
   width: 100%;
   position: relative;
   padding: 24px;

@@ -22,11 +22,11 @@ const Product = () => {
     setstepperValue(stepperValue + 1);
   };
   return (
-    <StyledPorduct>
-      <ImgWrapper>
+    <StyledPorduct className="br-1">
+      <ImgWrapper className="bl-1 bb-1">
         <img src={IMG_PATH.FLOWER.ProductPageFlower} alt="ProductPageFlower" />
       </ImgWrapper>
-      <ContentWrapper>
+      <ContentWrapper className="bl-1 bb-1">
         <Text as="p" typography="CaptionBold"></Text>
         <Text as="p" typography="Heading3"></Text>
         <Text as="p" typography="Body"></Text>
@@ -56,13 +56,9 @@ const CombinationProduct = () => {
   return <></>;
 };
 
-const StyledPorduct = styled.section`
-  ${mixins.border({ width: 'right' })}
-`;
+const StyledPorduct = styled.section``;
 
 const ImgWrapper = styled.section`
-  ${mixins.border({ width: 'leftAndBottom' })}
-
   & img {
     width: 100%;
     height: 100%;
@@ -70,7 +66,6 @@ const ImgWrapper = styled.section`
 `;
 
 const ContentWrapper = styled.section`
-  ${mixins.border({ width: 'leftAndBottom' })}
   padding: 40px;
 `;
 

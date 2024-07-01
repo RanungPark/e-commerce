@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Text from '../../Text';
-import { mixins } from '@styles/Mixin';
 
 interface BaseCardProps {
   label: string;
@@ -9,7 +8,7 @@ interface BaseCardProps {
 
 const BaseCard = ({ label, description }: BaseCardProps) => {
   return (
-    <StyledBaseCard>
+    <StyledBaseCard className='bb-1 bl-1'>
       <Text as="h3" typography="Heading3">
         {label}
       </Text>
@@ -21,7 +20,6 @@ const BaseCard = ({ label, description }: BaseCardProps) => {
 };
 
 const StyledBaseCard = styled.section`
-  ${mixins.border({ width: 'leftAndBottom' })}
   width: 100%;
   height: auto;
   padding: 80px;

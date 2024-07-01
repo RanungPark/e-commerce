@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Text from '../common/Text';
-import { mixins } from '@styles/Mixin';
 import { PartialOptional } from 'src/@types/utils';
 import Buttons from '../common/Buttons';
 import { homeAboutDatas } from '@data/homeAbout';
@@ -43,7 +42,7 @@ const About = () => {
 
 const AboutTitle = ({ title }: AboutTitleProps) => {
   return (
-    <AboutTitleWrapper>
+    <AboutTitleWrapper className="bl-1 bb-1 br-1">
       <Text as="h2" typography="Heading2">
         {title}
       </Text>
@@ -58,7 +57,7 @@ const AboutInfo = ({
   caption = '',
 }: OptionalFormAboutInfoProps) => {
   return (
-    <AboutInfoWrapper>
+    <AboutInfoWrapper className="bl-1 bb-1 br-1">
       {caption ? (
         <Text as="span" typography="Caption">
           {caption}
@@ -88,8 +87,6 @@ const AboutInfo = ({
 };
 
 const AboutTitleWrapper = styled.article`
-  ${mixins.border({ width: 'leftAndBottom' })};
-  ${mixins.border({ width: 'right' })};
   padding: 80px;
 `;
 
