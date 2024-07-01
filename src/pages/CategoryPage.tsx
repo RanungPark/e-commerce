@@ -29,7 +29,6 @@ const CategoryPage = () => {
     if (categoryName === undefined) {
       goToNotFound();
     } else {
-      console.log(categoryName);
       fetch('/freshflowers/products')
         .then(response => response.json())
         .then(data => {
