@@ -24,7 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "dev": "webpack serve --config webpack.config.js --open",
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js && npx msw init ./dist --save",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -97,6 +97,6 @@
   "license": "ISC",
   "description": "",
   "msw": {
-    "workerDirectory": "public"
+    "workerDirectory": "dist"
   }
 }

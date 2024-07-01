@@ -13,7 +13,7 @@ if (
   process.env.NODE_ENV === 'development' ||
   process.env.REACT_APP_USE_MSW === 'true'
 ) {
-  worker.start();
+  worker.start({ onUnhandledRequest: 'bypass' });
 }
 
 const root = ReactDOM.createRoot(
