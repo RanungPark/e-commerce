@@ -16,19 +16,16 @@ const Home = () => {
       <StyledHome>
         <HomeHeader>
           <Text as="h1" typography="Heading1">
-            {`Chan 
-            LuxeBouquets`}
+            {`오늘의 꽃 `}
           </Text>
           <Text as="p" typography="Subtitle">
-            {`Discover Uniquely Crafted Bouquets and Gifts for Any Occasion:
-            Spread Joy with Our Online Flower Delivery Service`}
+            {`어떤 상황에도 어울리는 독특하게 제작된 부케와 선물을 찾아보세요. 온라인 꽃배달 서비스로 기쁨을 전하세요.`}
           </Text>
         </HomeHeader>
         <HomeHeaderInfo>
           <img src={IMG_PATH.OTHER.BgGrayPerson} alt="title person img" />
           <Text as="p" typography="Caption">
-            {`Experience the joy of giving with our modern floral studio. Order online
-        and send fresh flowers, plants and gifts today.`}
+            {`모던한 오늘의 꽃에서 서비스의 기쁨을 경험하세요. 오늘 온라인으로 주문하고 신선한 꽃, 식물, 선물을 보내세요..`}
           </Text>
         </HomeHeaderInfo>
       </StyledHome>

@@ -1,8 +1,9 @@
-import { http, HttpResponse } from 'msw';
 import { outerProducts } from '../data/outerProducts';
 
+import { rest } from 'msw';
+
 export const outerProductsHandlers = [
-  http.get('/v1/products/outerProducts', () => {
-    return HttpResponse.json(outerProducts);
+  rest.get('/products/outerProducts', (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(outerProducts));
   }),
 ];

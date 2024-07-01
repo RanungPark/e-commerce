@@ -3,12 +3,11 @@ import NavbarLink from './Menu';
 import { mixins } from '@styles/Mixin';
 import { ReactComponent as WMenu } from '@assets/icons/wght400/WMenu.svg';
 import { ReactComponent as ShoppingBag } from '@assets/icons/wght300/ShoppingBag.svg';
-import BurgerMenu from '../../BurgerMenu';
 
 const Header = () => {
   return (
     <>
-      <BurgerMenu />
+      {/* <BurgerMenu /> */}
       <StyledHeader>
         <LeftNav>
           <NavbarLink icon={WMenu}></NavbarLink>

@@ -1,4 +1,5 @@
 import AboutPage from "@pages/About";
+import CategoryPage from "@pages/Categorys";
 import CheckoutPage from "@pages/Checkout";
 import HomePage from "@pages/Home";
 import ProductsPage from "@pages/Products";
@@ -11,7 +12,7 @@ export interface Routes {
 
 export const routes: Routes[] = [
   { path: '', element: <HomePage /> },
-  // { path: '/categories/:categoryName', element: <CategoryPage /> },
+  { path: '/categories/:categoryName', element: <CategoryPage /> },
   {
     path: 'categories/:categoryName/products/:productId',
     element: <ProductsPage />,
