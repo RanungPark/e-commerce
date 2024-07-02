@@ -86,13 +86,31 @@ module.exports = {
 
     new CopyPlugin({
       patterns: [
-        // public 폴더의 모든 파일을 dist 폴더로 복사
-        { from: 'public', to: '' },
-        // { from: 'public/*.png', to: '[name].[ext]' },
-        // { from: 'public/*.icon', to: '[name].[ext]' },
-        // { from: 'public/*.xml', to: '[name].[ext]' },
-        // { from: 'public/*.svg', to: '[name].[ext]' },
-        // { from: 'public/*.webmanifest', to: '[name].[ext]' },
+        {
+          from: 'public/*.png',
+          to: '[name][ext]',
+          globOptions: { ignore: ['**/index.html', '**/mockServiceWorker.js'] },
+        },
+        {
+          from: 'public/*.ico',
+          to: '[name][ext]',
+          globOptions: { ignore: ['**/index.html', '**/mockServiceWorker.js'] },
+        },
+        {
+          from: 'public/*.xml',
+          to: '[name][ext]',
+          globOptions: { ignore: ['**/index.html', '**/mockServiceWorker.js'] },
+        },
+        {
+          from: 'public/*.svg',
+          to: '[name][ext]',
+          globOptions: { ignore: ['**/index.html', '**/mockServiceWorker.js'] },
+        },
+        {
+          from: 'public/*.webmanifest',
+          to: '[name][ext]',
+          globOptions: { ignore: ['**/index.html', '**/mockServiceWorker.js'] },
+        },
       ],
     }),
   ],
