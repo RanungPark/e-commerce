@@ -1,4 +1,4 @@
-export interface Products {
+export interface ProductType {
   id: number;
   name: string;
   price: number;
@@ -6,9 +6,9 @@ export interface Products {
   info: string;
 }
 
-export type PickFromProducts = Pick<Products, 'name' | 'price' | 'productImg'>;
+export type PickFromProducts = Pick<ProductType, 'name' | 'price' | 'productImg'>;
 
-export interface Rep {
+export interface RepType {
   type: string;
   img: string;
 }
