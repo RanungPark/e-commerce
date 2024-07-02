@@ -1,4 +1,4 @@
-import { outerProductsHandlers } from './outerProducts';
-import { productsHandlers } from './products';
+import { categoryHandlers } from './categorys';
+import { productHandlers } from './products';
 
-export const handlers = [...outerProductsHandlers, ...productsHandlers];
+export const handlers = [...categoryHandlers, ...productHandlers];
