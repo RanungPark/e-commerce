@@ -1,19 +1,23 @@
 import ImageCards from '@components/common/Cards/ImageCards';
 import Text from '@components/common/Text';
 import { mixins } from '@styles/Mixin';
-import { findParam } from '@utils/findParam';
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Products, Rep } from 'src/@types/product';
+import { useQuery } from '@tanstack/react-query';
+import { fetchCategory } from '@utils/api';
+import { useNavigate, useParams } from 'react-router-dom';
+import { ProductType, RepType } from 'src/@types/product';
 import styled from 'styled-components';
+interface ICategory {
+  products: ProductType[];
+  rep: RepType;
+}
 
 const CategoryPage = () => {
-  const URL_REGEXP = /\/categories\/([^/]+)/;
-  const [products, setProducts] = useState<Products[]>([]);
-  const [rep, setRep] = useState<Rep>({ img: '', type: '' });
-  const location = useLocation();
+  const { categoryName } = useParams();
 
-  const categoryName = findParam(URL_REGEXP, location.pathname);
+  const { data, isLoading, error } = useQuery<ICategory>({
+    queryKey: [categoryName],
+    queryFn: () => fetchCategory(categoryName!),
+  });
 
   const navigate = useNavigate();
 
@@ -25,31 +29,22 @@ const CategoryPage = () => {
     navigate(`products/${productId}`);
   };
 
-  useEffect(() => {
-    if (categoryName === undefined) {
-      goToNotFound();
-    } else {
-      fetch('/freshflowers/products')
-        .then(response => response.json())
-        .then(data => {
-          setRep(data.rep);
-          setProducts(data.products);
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        });
-    }
-  }, [location, navigate]);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) goToNotFound();
+  console.log(data?.products.filter(v => v.id === 1));
 
   return (
     <>
-      <CategoryHeader productImg={rep?.img} className="br-1 bl-1 bb-1">
+      <CategoryHeader
+        productImg={data?.rep.img ?? `https://via.placeholder.com/786x500.jpg`}
+        className="br-1 bl-1 bb-1"
+      >
         <Text as="h1" typography="Heading1" color="white">
-          {rep?.type}
+          {data?.rep?.type}
         </Text>
       </CategoryHeader>
       <CardsWrapper className="br-1">
-        {products.map(product => (
+        {data?.products.map(product => (
           <ImageCards
             key={product.id}
             label={product.name}
