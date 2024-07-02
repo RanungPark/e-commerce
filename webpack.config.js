@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { ProvidePlugin } = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 const mode = process.env.NODE_ENV || 'development';
 
 module.exports = {
@@ -82,6 +83,18 @@ module.exports = {
     }),
     //CleanWebpackPlugin: 빌드 이전 dist 디렉토리를 정리(clean)하는 플러그인
     new CleanWebpackPlugin(),
+
+    new CopyPlugin({
+      patterns: [
+        // public 폴더의 모든 파일을 dist 폴더로 복사
+        { from: 'public', to: '' },
+        // { from: 'public/*.png', to: '[name].[ext]' },
+        // { from: 'public/*.icon', to: '[name].[ext]' },
+        // { from: 'public/*.xml', to: '[name].[ext]' },
+        // { from: 'public/*.svg', to: '[name].[ext]' },
+        // { from: 'public/*.webmanifest', to: '[name].[ext]' },
+      ],
+    }),
   ],
   resolve: {
     //extensions: 모듈을 해석할 때 인식할 확장자 목록을 설정, TypeScript와 JavaScript 파일의 확장자를 모두 포함
