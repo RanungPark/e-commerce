@@ -3,14 +3,9 @@ import styled from 'styled-components';
 import Text from '../Text';
 import Buttons from '../Buttons';
 import TextField from '../TextField';
-import Icon from '../Icon';
 import { SelectObject } from 'src/@types/utils';
-import { ReactComponent as Instagram } from '@assets/icons/wght300/Brands/Instagram.svg';
-import { ReactComponent as Pinterest } from '@assets/icons/wght300/Brands/Pinterest.svg';
-import { ReactComponent as Facebook } from '@assets/icons/wght300/Brands/Facebook.svg';
-import { ReactComponent as Twitter } from '@assets/icons/wght300/Brands/Twitter.svg';
-import { ReactComponent as Telegram } from '@assets/icons/wght300/Brands/Telegram.svg';
 import { FooterData } from '@data/footer';
+import { IconInfos } from '../ContactIcons';
 
 type RemindDataProps = SelectObject<FooterData, 'remindData'>;
 type ContactDataProps = SelectObject<FooterData, 'contactData'>;
@@ -50,10 +45,7 @@ function Contact({ contactData }: { contactData: ContactDataProps }) {
   return (
     <StyledFooterInfo className="bl-1 bb-1">
       <ContactInfos title="Contact Us" infos={contactData.contactInfo} />
-      <IconInfos
-        title="Follow Us"
-        icons={[Instagram, Pinterest, Facebook, Twitter, Telegram]}
-      />
+      <IconInfos title="Follow Us" />
     </StyledFooterInfo>
   );
 }
@@ -105,27 +97,6 @@ function ContactInfos({
   );
 }
 
-function IconInfos({
-  title,
-  icons,
-}: {
-  title: string;
-  icons: React.FC<React.SVGProps<SVGSVGElement>>[];
-}) {
-  return (
-    <>
-      <Text as="h5" typography="Heading5" color="gray">
-        {title}
-      </Text>
-      <StyledIcons>
-        {icons.map(icon => (
-          <Icon as={icon} />
-        ))}
-      </StyledIcons>
-    </>
-  );
-}
-
 function PublicInfos({ title, infos }: { title: string; infos: string[] }) {
   return (
     <>
@@ -157,11 +128,6 @@ const StyledFooterInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-`;
-
-const StyledIcons = styled.div`
-  display: flex;
-  gap: 32px;
 `;
 
 const StyledInfos = styled(StyledFooterInfo)`
