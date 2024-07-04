@@ -89,27 +89,37 @@ module.exports = {
         {
           from: 'public/*.png',
           to: '[name][ext]',
-          globOptions: { ignore: ['**/index.html', '**/mockServiceWorker.js'] },
+          globOptions: {
+            ignore: ['public/index.html', 'public/mockServiceWorker.js'],
+          },
         },
         {
           from: 'public/*.ico',
           to: '[name][ext]',
-          globOptions: { ignore: ['**/index.html', '**/mockServiceWorker.js'] },
+          globOptions: {
+            ignore: ['public/index.html', 'public/mockServiceWorker.js'],
+          },
         },
         {
           from: 'public/*.xml',
           to: '[name][ext]',
-          globOptions: { ignore: ['**/index.html', '**/mockServiceWorker.js'] },
+          globOptions: {
+            ignore: ['public/index.html', 'public/mockServiceWorker.js'],
+          },
         },
         {
           from: 'public/*.svg',
           to: '[name][ext]',
-          globOptions: { ignore: ['**/index.html', '**/mockServiceWorker.js'] },
+          globOptions: {
+            ignore: ['public/index.html', 'public/mockServiceWorker.js'],
+          },
         },
         {
           from: 'public/*.webmanifest',
           to: '[name][ext]',
-          globOptions: { ignore: ['**/index.html', '**/mockServiceWorker.js'] },
+          globOptions: {
+            ignore: ['public/index.html', 'public/mockServiceWorker.js'],
+          },
         },
       ],
     }),
