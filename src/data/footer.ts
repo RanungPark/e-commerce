@@ -22,9 +22,7 @@ export interface FooterData {
 
 export const footerData: FooterData = {
   remindData: {
-    content: `Remember to offer beautiful flowers from Kyiv LuxeBouquets Valentines
-    Day, Mothers Day, Christmas... Reminds you 7 days before. No spam or
-    sharing your address`,
+    content: `오늘의 꽃을 통해 발렌타인데이, 어버이날, 크리스마스...에서 아름다운 꽃을 제공하는 것을 잊지 마세요... 7일 전에 알려드립니다. 스팸 또는 주소 공유 금지`,
     input: {
       placeholder: 'Your Email',
     },
