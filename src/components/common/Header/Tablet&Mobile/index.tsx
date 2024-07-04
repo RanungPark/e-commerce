@@ -3,13 +3,21 @@ import NavbarLink from './Menu';
 import { mixins } from '@styles/Mixin';
 import { ReactComponent as WMenu } from '@assets/icons/wght400/WMenu.svg';
 import { ReactComponent as ShoppingBag } from '@assets/icons/wght300/ShoppingBag.svg';
+import BurgerMenu from '@components/common/BurgerMenu';
+import { useState } from 'react';
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleBurgerMenuOpen = () => {
+    setOpen(!open);
+  };
+
   return (
     <>
-      {/* <BurgerMenu /> */}
+      {open ? <BurgerMenu setOpen={setOpen} open={open} /> : <></>}
       <StyledHeader>
-        <LeftNav>
+        <LeftNav onClick={handleBurgerMenuOpen}>
           <NavbarLink icon={WMenu}></NavbarLink>
         </LeftNav>
         <RightNav className="right-nav">
