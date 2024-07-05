@@ -1,18 +1,21 @@
 import { freshflowersRep, freshflowersProducts } from '../data/freshflowers';
-import { rest } from 'msw';
+import { http, HttpResponse } from 'msw';
 
 export const categoryHandlers = [
-  rest.get('/freshflowers', (req, res, ctx) => {
+  http.get('/freshflowers', () => {
     if (!freshflowersProducts) {
-      return res(
-        ctx.status(404),
-        ctx.json({ error: 'freshflowers not found' })
+      return HttpResponse.json(
+        { error: 'freshflowers not found' },
+        { status: 404 }
       );
     }
 
-    return res(
-      ctx.status(200),
-      ctx.json({ rep: freshflowersRep, products: freshflowersProducts })
+    return HttpResponse.json(
+      {
+        rep: freshflowersRep,
+        products: freshflowersProducts,
+      },
+      { status: 200 }
     );
   }),
 ];
