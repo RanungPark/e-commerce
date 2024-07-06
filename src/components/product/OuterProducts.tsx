@@ -2,20 +2,13 @@ import styled from 'styled-components';
 import ImageCards from '../common/Cards/ImageCards';
 import Text from '../common/Text';
 import { mixins } from '@styles/Mixin';
-import { useEffect, useState } from 'react';
 import { PickFromProducts } from 'src/@types/product';
 
-const OuterProducts = () => {
-  const [outerProducts, setOuterProducts] = useState<PickFromProducts[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      const responce = await fetch('/v1/products/outerProducts');
-      const json = await responce.json();
-      setOuterProducts(json);
-    })();
-  }, []);
-
+const OuterProducts = ({
+  outerProducts,
+}: {
+  outerProducts: PickFromProducts[];
+}) => {
   return (
     <StyledOuterProducts className="br-1">
       <Title className="bl-1 bb-1">
