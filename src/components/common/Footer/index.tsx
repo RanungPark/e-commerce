@@ -6,6 +6,7 @@ import TextField from '../TextField';
 import { SelectObject } from 'src/@types/utils';
 import { FooterData } from '@data/footer';
 import { IconInfos } from '../ContactIcons';
+import { useForm } from 'react-hook-form';
 
 type RemindDataProps = SelectObject<FooterData, 'remindData'>;
 type ContactDataProps = SelectObject<FooterData, 'contactData'>;
@@ -25,13 +26,24 @@ function Footer({ footerData }: { footerData: FooterData }) {
 }
 
 function Remind({ remindData }: { remindData: RemindDataProps }) {
+  const { register, handleSubmit } = useForm();
+
+  const onValid = (data: any) => {
+    console.log(data);
+  };
+
   return (
     <StyledFooterInfo className="bl-1 bb-1">
       <Text as="p" typography="Body">
         {remindData.content}
       </Text>
-      <StyledForm>
-        <TextField placeholder={remindData.input.placeholder} />
+      <StyledForm onSubmit={handleSubmit(onValid)}>
+        <TextField>
+          <input
+            {...register('follow')}
+            placeholder={remindData.input.placeholder}
+          />
+        </TextField>
         <Buttons
           label={remindData.button.label}
           buttonType="contained"
@@ -134,7 +146,9 @@ const StyledInfos = styled(StyledFooterInfo)`
   gap: 8px;
 `;
 
-const StyledForm = styled(StyledFooterInfo)`
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 `;
 
