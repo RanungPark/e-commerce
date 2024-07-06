@@ -1,11 +1,10 @@
-import { mixins } from '@styles/Mixin';
 import { css } from 'styled-components';
 
 export const DefaultStyle = css`
   ${({ theme }) => {
     const { colors } = theme;
     return css`
-      ${mixins.input({ colorAndFill: 'gray', borderColor: 'lightgray' })}
+      border: 1px solid ${({ theme }) => theme.colors.lightgray};
       &:hover {
         border: 1px solid ${colors.gray};
       }
@@ -37,14 +36,18 @@ export const DefaultStyle = css`
 `;
 
 export const SuccessStyle = css`
-  ${mixins.input({ colorAndFill: 'success', borderColor: 'success' })}
+  border: 1px solid ${({ theme }) => theme.colors.success};
   &:focus {
+    color: ${({ theme }) => theme.colors.success};
+  }
+
+  & p {
     color: ${({ theme }) => theme.colors.success};
   }
 `;
 
 export const ErrorStyle = css`
-  ${mixins.input({ colorAndFill: 'error', borderColor: 'error' })}
+  border: 1px solid ${({ theme }) => theme.colors.error};
   &:focus {
     color: ${({ theme }) => theme.colors.error};
   }

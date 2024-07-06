@@ -1,49 +1,33 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
-import { PartialRequired } from 'src/@types/utils';
 import Helper from './Helper';
 import { DefaultStyle, ErrorStyle, SuccessStyle } from './TextField.css';
+import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 
 export interface TextFieldProps {
   label: string;
   disabled: boolean;
-  placeholder: string;
-  textHelper: string;
+  textHelper: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
   labelState: boolean;
   helperState: boolean;
   inputState: 'default' | 'success' | 'error';
 }
 
-type RequiredFromTextField = PartialRequired<TextFieldProps, 'placeholder'>;
+type PartialTextField = Partial<TextFieldProps>;
 
 type PickWrapperProps = Pick<TextFieldProps, 'inputState'>;
 
 const TextField = ({
   label,
-  placeholder,
   textHelper,
-  disabled = false,
   inputState = 'default',
-}: RequiredFromTextField) => {
-  const [inputText, setInputText] = useState('');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    setInputText(e.target.value);
-  };
-
+  children,
+}: React.PropsWithChildren<PartialTextField>) => {
   return (
     <StyledTextField>
       {label ? <LabelWrapper htmlFor="textField">{label}</LabelWrapper> : <></>}
-      <InputWrapper
-        type="text"
-        placeholder={placeholder}
-        disabled={disabled}
-        value={inputText}
-        inputState={inputState}
-        onChange={handleChange}
-        id="textField"
-      />
+      <InputWrapper className="mt-2" inputState={inputState}>
+        {children}
+      </InputWrapper>
       {textHelper ? (
         <Helper textHelper={textHelper} inputState={inputState} />
       ) : (
@@ -63,23 +47,25 @@ const LabelWrapper = styled.label`
   margin-bottom: 12px;
 `;
 
-const InputWrapper = styled.input<PickWrapperProps>`
-  ${({ theme }) => theme.typography.Caption};
-  display: block;
-  width: 100%;
-  height: 56px;
-  padding: 16px;
+const InputWrapper = styled.div<PickWrapperProps>`
+  & input {
+    ${({ theme }) => theme.typography.Caption};
+    display: block;
+    width: 100%;
+    height: 56px;
+    padding: 16px;
 
-  background-color: ${({ theme }) => theme.colors.white};
-  cursor: pointer;
+    background-color: ${({ theme }) => theme.colors.white};
+    cursor: pointer;
 
-  &::placeholder {
-    color: ${({ theme }) => theme.colors.gray};
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.gray};
+    }
+
+    ${({ inputState }) => (inputState === 'success' ? SuccessStyle : null)}
+    ${({ inputState }) => (inputState === 'error' ? ErrorStyle : null)}
+    ${({ inputState }) => (inputState === 'default' ? DefaultStyle : null)}
   }
-
-  ${({ inputState }) => (inputState === 'success' ? SuccessStyle : null)}
-  ${({ inputState }) => (inputState === 'error' ? ErrorStyle : null)}
-  ${({ inputState }) => (inputState === 'default' ? DefaultStyle : null)}
 `;
 
 export default TextField;
