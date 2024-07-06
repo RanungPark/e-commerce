@@ -31,7 +31,6 @@ const CategoryPage = () => {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) goToNotFound();
-  console.log(data?.products.filter(v => v.id === 1));
 
   return (
     <>

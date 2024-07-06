@@ -28,6 +28,7 @@ const About = () => {
           <AboutTitle title={aboutData.title} />
           {aboutData.infos.map(infoData => (
             <AboutInfo
+              key={infoData.title}
               title={infoData.title}
               info={infoData.info}
               caption={infoData?.caption}
