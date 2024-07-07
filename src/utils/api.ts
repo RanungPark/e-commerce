@@ -14,8 +14,18 @@ export const fetchProduct = async (categoryName: string, id: string) => {
   return response.json();
 };
 
-export const fetchJoin = async () => {
-  const response = await fetch(`/join`);
+export const fetchJoin = async (
+  username: string,
+  password: string,
+  type: string
+) => {
+  const response = await fetch(`/join`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ username, password, type }),
+  });
 
   if (!response.ok) {
     throw new Error('Network response was not ok');
@@ -36,15 +46,5 @@ export const fetchLogin = async (username: string) => {
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
-  return response.json();
-};
-
-export const fetchSignUp = async () => {
-  const response = await fetch(`/signup`);
-
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-
   return response.json();
 };
