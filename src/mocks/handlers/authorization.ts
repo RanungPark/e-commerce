@@ -17,15 +17,13 @@ type AddCommentParams = {
 };
 
 type AddJoinRequestBody = {
-  user: UserType;
+  type: string;
+  username: string;
+  password: string;
 };
 
 type AddLoginRequestBody = {
   username: string;
-};
-
-type AddSignupRequestBody = {
-  password: string;
 };
 
 export const authorizationHandlers = [
@@ -33,11 +31,43 @@ export const authorizationHandlers = [
     '/join',
     async ({ request }) => {
       const commentData = await request.json();
-      users.push(commentData.user);
+      if (commentData.type === '로그인') {
+        for (const user of users) {
+          if (
+            commentData.username === user.username &&
+            commentData.password === user.password
+          ) {
+            return HttpResponse.json(
+              { message: '로그인 성공' },
+              {
+                status: 200,
+                headers: {
+                  'Set-Cookie': `token=1`,
+                },
+              }
+            );
+          } else {
+            return HttpResponse.json(
+              { message: '로그인 실패' },
+              {
+                status: 494,
+              }
+            );
+          }
+        }
+      } else if (commentData.type === '회원가입') {
+        users.push(commentData);
 
-      return HttpResponse.json({
-        status: 201,
-      });
+        return HttpResponse.json(
+          { message: '회원가입 성공' },
+          {
+            status: 201,
+            headers: {
+              'Set-Cookie': `token=2`,
+            },
+          }
+        );
+      }
     }
   ),
 
@@ -49,7 +79,7 @@ export const authorizationHandlers = [
       for (const user of users) {
         if (commentData.username === user.username) {
           return HttpResponse.json(
-            { message: 'goToJoin' },
+            { message: '로그인 진행' },
             {
               status: 200,
             }
@@ -58,30 +88,11 @@ export const authorizationHandlers = [
       }
 
       return HttpResponse.json(
-        { message: 'goToSginup' },
+        { message: '회원가입 진행' },
         {
           status: 202,
         }
       );
-    }
-  ),
-
-  http.post<AddCommentParams, AddSignupRequestBody, undefined, '/signup'>(
-    '/signup',
-    async ({ request }) => {
-      const commentData = await request.json();
-
-      for (const user of users) {
-        if (commentData.password === user.password) {
-          return HttpResponse.json({
-            status: 200,
-          });
-        }
-      }
-
-      return HttpResponse.json({
-        status: 404,
-      });
     }
   ),
 ];
