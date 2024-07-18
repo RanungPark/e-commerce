@@ -2,6 +2,8 @@ import Buttons from '@components/common/Buttons';
 import CompleteInput from '@components/common/CompleteInput';
 import Text from '@components/common/Text';
 import TextField from '@components/common/TextField';
+import { useUserStore } from '@store/userStore';
+import { mixins } from '@styles/Mixin';
 import { useMutation } from '@tanstack/react-query';
 import { fetchJoin, fetchLogin } from '@utils/api';
 import { useState } from 'react';
@@ -11,6 +13,7 @@ import styled from 'styled-components';
 
 const LoginPage = () => {
   const [status, setStatus] = useState('404');
+  const { isLoggedIn } = useUserStore();
 
   const {
     register,
@@ -43,42 +46,48 @@ const LoginPage = () => {
 
   return (
     <>
-      {status === '404' ? (
-        <LoginWrapper className="bb-1 bl-1 br-1 p-10">
-          <Text as="h2" typography="Heading2">
-            {'안녕하세요! 오늘의 꽃에 오신 것을 환영합니다.'}
-          </Text>
-          <StyledFrom
-            className="mt-3 mb-3"
-            onSubmit={handleSubmit(onLoginValid)}
-          >
-            <TextField
-              label="휴대폰 번호를 사용하여 가입 또는 로그인하기"
-              inputState={
-                Object.keys(errors).length === 0 ? undefined : 'error'
-              }
-              textHelper={
-                Object.keys(errors).length === 0
-                  ? undefined
-                  : errors.username?.message
-              }
-            >
-              <input
-                {...register('username', {
-                  required: 'ID를 입력해주세요',
-                  pattern: {
-                    value: regPhone,
-                    message: `'-' 없이 전화번호를 입력해주세요.`,
-                  },
-                })}
-                placeholder="+82 XXX XXX XXX"
-              />
-            </TextField>
-            <Buttons label="continue" buttonType="contained" />
-          </StyledFrom>
-        </LoginWrapper>
+      {isLoggedIn ? (
+        <LoginSuccess />
       ) : (
-        <Join username={getValues().username} status={status} />
+        <>
+          {status === '404' ? (
+            <LoginWrapper className="bb-1 bl-1 br-1 p-10">
+              <Text as="h2" typography="Heading2">
+                {'안녕하세요! 오늘의 꽃에 오신 것을 환영합니다.'}
+              </Text>
+              <StyledFrom
+                className="mt-3 mb-3"
+                onSubmit={handleSubmit(onLoginValid)}
+              >
+                <TextField
+                  label="휴대폰 번호를 사용하여 가입 또는 로그인하기"
+                  inputState={
+                    Object.keys(errors).length === 0 ? undefined : 'error'
+                  }
+                  textHelper={
+                    Object.keys(errors).length === 0
+                      ? undefined
+                      : errors.username?.message
+                  }
+                >
+                  <input
+                    {...register('username', {
+                      required: 'ID를 입력해주세요',
+                      pattern: {
+                        value: regPhone,
+                        message: `'-' 없이 전화번호를 입력해주세요.`,
+                      },
+                    })}
+                    placeholder="+82 XXX XXX XXX"
+                  />
+                </TextField>
+                <Buttons label="continue" buttonType="contained" />
+              </StyledFrom>
+            </LoginWrapper>
+          ) : (
+            <Join username={getValues().username} status={status} />
+          )}
+        </>
       )}
     </>
   );
@@ -92,9 +101,20 @@ const Join = ({ username, status }: { username: string; status: string }) => {
 
   const navigate = useNavigate();
 
+  const { login } = useUserStore();
+
   const JoinMutation = useMutation({
     mutationFn: (password: string) => fetchJoin(username, password, type),
-    onSuccess: () => {
+    onSuccess: data => {
+      console.log(data);
+
+      const loginUser = {
+        id: data.id,
+        username: data.username,
+      };
+
+      login(loginUser);
+
       setJoin(true);
       navigate(-1);
     },
@@ -139,6 +159,35 @@ const Join = ({ username, status }: { username: string; status: string }) => {
     </JoinWrapper>
   );
 };
+
+const LoginSuccess = () => {
+  const navigate = useNavigate();
+  const goToMainPage = () => {
+    navigate('/');
+  };
+
+  return (
+    <LoginSuccessWrapper className="br-1 bl-1 bb-1">
+      <Text as="p" typography="Heading5">
+        로그인이 완료되었습니다
+      </Text>
+      <Buttons
+        label="메인 페이지로 돌아가기"
+        disabled={false}
+        buttonType="contained"
+        handleClick={goToMainPage}
+      />
+    </LoginSuccessWrapper>
+  );
+};
+
+const LoginSuccessWrapper = styled.div`
+  ${mixins.flexBox({ direction: 'column', justify: 'space-evenly' })}
+  width: 100%;
+  height: 70vh;
+  margin: 0 auto;
+  padding: 80px 30px;
+`;
 
 const LoginWrapper = styled.div`
   height: 720px;
