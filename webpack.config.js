@@ -138,6 +138,7 @@ module.exports = {
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@mocks': path.resolve(__dirname, 'src/mocks'),
       '@pages': path.resolve(__dirname, 'src/pages'),
+      '@store': path.resolve(__dirname, 'src/store'),
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@utils': path.resolve(__dirname, 'src/utils'),
       '@config': path.resolve(__dirname, 'config.ts'),

@@ -31,6 +31,7 @@
       "@hooks/*": ["src/hooks/*"],
       "@mocks/*": ["src/mocks/*"],
       "@pages/*": ["src/pages/*"],
+      "@store/*": ["src/store/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
       "@config": ["config.ts"]
