@@ -1,12 +1,14 @@
 import { http, HttpResponse } from 'msw';
 
 type UserType = {
+  id: number;
   username: string;
   password: string;
 };
 
 const users: UserType[] = [
   {
+    id: 1,
     username: '01087971558',
     password: '1558',
   },
@@ -38,7 +40,11 @@ export const authorizationHandlers = [
             commentData.password === user.password
           ) {
             return HttpResponse.json(
-              { message: '로그인 성공' },
+              {
+                id: user.id,
+                username: user.username,
+                message: '로그인 성공',
+              },
               {
                 status: 200,
                 headers: {
@@ -56,10 +62,20 @@ export const authorizationHandlers = [
           }
         }
       } else if (commentData.type === '회원가입') {
-        users.push(commentData);
+        const createUser: UserType = {
+          id: users.length + 1,
+          username: commentData.username,
+          password: commentData.password,
+        };
+
+        users.push(createUser);
 
         return HttpResponse.json(
-          { message: '회원가입 성공' },
+          {
+            id: createUser.id,
+            username: createUser.username,
+            message: '회원가입 성공',
+          },
           {
             status: 201,
             headers: {
