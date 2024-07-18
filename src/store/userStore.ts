@@ -1,8 +1,9 @@
+import { devtools, persist } from 'zustand/middleware';
 import { create } from 'zustand';
 
 export interface User {
   id: number;
-  email: string;
+  username: string;
 }
 
 export interface UserState {
@@ -12,9 +13,16 @@ export interface UserState {
   logout: () => void;
 }
 
-export const useUserStore = create<UserState>(set => ({
-  isLoggedIn: false,
-  user: null,
-  login: userData => set({ isLoggedIn: true, user: userData }),
-  logout: () => set({ isLoggedIn: false, user: null }),
-}));
+export const useUserStore = create<UserState>()(
+  devtools(
+    persist(
+      set => ({
+        isLoggedIn: false,
+        user: null,
+        login: userData => set({ isLoggedIn: true, user: userData }),
+        logout: () => set({ isLoggedIn: false, user: null }),
+      }),
+      { name: 'userStore' }
+    )
+  )
+);
