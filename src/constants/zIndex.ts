@@ -1,4 +1,5 @@
 export const zIndex = {
-  bugerMenu: 100,
   bugerMenuBackGround: 10,
+  bugerMenu: 100,
+  cart: 200,
 };
