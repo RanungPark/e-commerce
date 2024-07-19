@@ -5,6 +5,7 @@ import { mixins } from '@styles/Mixin';
 import { useState } from 'react';
 import Buttons from '../common/Buttons';
 import { PickFromProducts, ProductType } from 'src/@types/product';
+import { useCartStore } from '@store/cartStore';
 
 type ProductProps = {
   product: ProductType;
@@ -12,25 +13,42 @@ type ProductProps = {
 };
 
 const Product = ({ product, combinationProducts }: ProductProps) => {
-  const [stepperValue, setstepperValue] = useState(1);
+  const [quantity, setQuantity] = useState(1);
+  const { addItem } = useCartStore();
 
   const handleMinus = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    if (stepperValue > 0) {
-      setstepperValue(stepperValue - 1);
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
     } else {
       return;
     }
   };
   const handlePlus = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    setstepperValue(stepperValue + 1);
+    setQuantity(quantity + 1);
+  };
+
+  const handleAddItem = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+
+    const item = {
+      id: product.id,
+      name: product.name,
+      productImg: product.productImg,
+      price: quantity * product.price,
+      quantity,
+    };
+
+    addItem(item);
   };
 
   return (
     <StyledPorduct className="br-1">
       <ImgWrapper className="bl-1 bb-1 ">
-        <img src={product.productImg} alt="ProductPageFlower" />
+        <img src={product.productImg} alt={product.name} />
       </ImgWrapper>
       <ContentWrapper className="bl-1 bb-1">
         <ProdcutWrapper>
@@ -47,18 +65,22 @@ const Product = ({ product, combinationProducts }: ProductProps) => {
             {'Quantity'}
           </Text>
           <Stepper
-            value={stepperValue}
+            value={quantity}
             handleMinus={handleMinus}
             handlePlus={handlePlus}
           />
         </StepperWrapper>
         <CombinationProduct></CombinationProduct>
         <OptionsWrapper className="mt-3 mb-3">
-          <Text as="p" typography="Subtitle">
-            {'Price options'}
-          </Text>
+          {/* <Text as="p" typography="Subtitle">
+            Price options
+          </Text> */}
         </OptionsWrapper>
-        <Buttons buttonType="contained" label="add to basket" />
+        <Buttons
+          buttonType="contained"
+          label="add to basket"
+          handleClick={handleAddItem}
+        />
       </ContentWrapper>
     </StyledPorduct>
   );
