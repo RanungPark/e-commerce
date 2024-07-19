@@ -20,11 +20,11 @@ const BurgerMenu = ({ open, setOpen }: BurgerMenuProps) => {
 
   return (
     <>
-      <BugerMenuBackGround />
-      <StyledBugerMenu className="bb-1 br-1 bl-1">
-        <CloseButton className="p-2" onClick={handleBurgerMenuClose}>
+      <BugerMenuBackGround onClick={handleBurgerMenuClose} />
+      <BugerMenuWrapper className="bb-1 br-1 bl-1">
+        <CloseButtonWrapper className="p-2" onClick={handleBurgerMenuClose}>
           <WClose />
-        </CloseButton>
+        </CloseButtonWrapper>
         {burgerMenus.map(menu => (
           <Menu
             key={menu.content}
@@ -49,7 +49,7 @@ const BurgerMenu = ({ open, setOpen }: BurgerMenuProps) => {
         <IconsWrapper className="bt-1 p-3">
           <IconInfos />
         </IconsWrapper>
-      </StyledBugerMenu>
+      </BugerMenuWrapper>
     </>
   );
 };
@@ -62,7 +62,7 @@ const BugerMenuBackGround = styled.div`
   z-index: ${zIndex.bugerMenuBackGround};
 `;
 
-const StyledBugerMenu = styled.div`
+const BugerMenuWrapper = styled.div`
   width: 385px;
   background-color: ${({ theme }) => theme.colors.white};
   height: 100vh;
@@ -74,7 +74,7 @@ const Menu = styled(Link)`
   display: block;
 `;
 
-const CloseButton = styled.button`
+const CloseButtonWrapper = styled.button`
   ${mixins.flexBox({ justify: 'start' })}
   width: 100%;
   cursor: pointer;
