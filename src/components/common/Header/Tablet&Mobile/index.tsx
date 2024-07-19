@@ -5,22 +5,33 @@ import { ReactComponent as WMenu } from '@assets/icons/wght400/WMenu.svg';
 import { ReactComponent as ShoppingBag } from '@assets/icons/wght300/ShoppingBag.svg';
 import BurgerMenu from '@components/common/BurgerMenu';
 import { useState } from 'react';
+import Cart from '@components/common/Cart';
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
+  const [burgerOpen, setBurgerOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
 
   const handleBurgerMenuOpen = () => {
-    setOpen(!open);
+    setBurgerOpen(!burgerOpen);
+  };
+
+  const handleCartMenuOpen = () => {
+    setCartOpen(!cartOpen);
   };
 
   return (
     <>
-      {open ? <BurgerMenu setOpen={setOpen} open={open} /> : <></>}
+      {burgerOpen ? (
+        <BurgerMenu setOpen={setBurgerOpen} open={burgerOpen} />
+      ) : (
+        <></>
+      )}
+      {cartOpen ? <Cart setOpen={setCartOpen} open={cartOpen} /> : <></>}
       <StyledHeader>
         <LeftNav onClick={handleBurgerMenuOpen}>
           <NavbarLink icon={WMenu}></NavbarLink>
         </LeftNav>
-        <RightNav className="right-nav">
+        <RightNav className="right-nav" onClick={handleCartMenuOpen}>
           <NavbarLink icon={ShoppingBag}></NavbarLink>
         </RightNav>
       </StyledHeader>
