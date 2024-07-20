@@ -8,6 +8,7 @@ import { useMutation } from '@tanstack/react-query';
 import { fetchJoin, fetchLogin } from '@utils/api';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 
@@ -116,7 +117,12 @@ const Join = ({ username, status }: { username: string; status: string }) => {
       login(loginUser);
 
       setJoin(true);
+
       navigate(-1);
+
+      toast.success(`로그인에 성공하였습니다!`, {
+        duration: 3000,
+      });
     },
     onError: error => {
       setJoin(false);
