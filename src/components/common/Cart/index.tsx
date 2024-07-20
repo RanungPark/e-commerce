@@ -5,6 +5,9 @@ import { ReactComponent as WClose } from '@assets/icons/wght400/WClose.svg';
 import Text from '../Text';
 import { mixins } from '@styles/Mixin';
 import { CartItem, useCartStore } from '@store/cartStore';
+import { useNavigate } from 'react-router';
+import toast from 'react-hot-toast';
+import { useUserStore } from '@store/userStore';
 
 type BurgerMenuProps = {
   open: boolean;
@@ -13,11 +16,37 @@ type BurgerMenuProps = {
 
 const Cart = ({ open, setOpen }: BurgerMenuProps) => {
   const { cart, removeItem } = useCartStore();
+  const { isLoggedIn } = useUserStore();
 
   const Subtotal = cart.reduce(
     (accumulator, currentValue) => accumulator + currentValue.price,
     0
   );
+
+  const navigate = useNavigate();
+
+  const goToCheckoutPage = () => {
+    if (isLoggedIn) {
+      if (cart.length === 0) {
+        toast.error(`장바구니가 비어있습니다!`, {
+          duration: 3000,
+        });
+      } else {
+        setOpen(!open);
+
+        navigate(`/checkout`);
+      }
+    } else {
+      setOpen(!open);
+
+      navigate(`/login`);
+
+      toast.error(`로그인을 진행해주세요`, {
+        icon: '🔐',
+        duration: 3000,
+      });
+    }
+  };
 
   const handleCartMenuClose = () => {
     setOpen(!open);
@@ -66,7 +95,11 @@ const Cart = ({ open, setOpen }: BurgerMenuProps) => {
         배송비 및 세금은 결제 시 계산됩니다. 오늘의 꽃 내 무료 표준 배송
       </HelfWrapper>
       <ButtonWrapper>
-        <Buttons label="check out" buttonType="contained" />
+        <Buttons
+          label="check out"
+          buttonType="contained"
+          handleClick={goToCheckoutPage}
+        />
       </ButtonWrapper>
     </CartWrapper>
   );
