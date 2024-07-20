@@ -58,7 +58,7 @@ interface CardProps {
 
 const ActionNextToImage = ({ label, productImg }: CardProps) => {
   const navigate = useNavigate();
-  const goToMainPate = () => {
+  const goToCategoriesPate = () => {
     navigate(`/categories/${label.toLowerCase()}`);
   };
 
@@ -74,7 +74,7 @@ const ActionNextToImage = ({ label, productImg }: CardProps) => {
         label={label}
         buttonLabel="Shop now"
         rightIcon={WArrowRight}
-        handleClick={label === 'FreshFlowers' ? goToMainPate : wait}
+        handleClick={label === 'FreshFlowers' ? goToCategoriesPate : wait}
       />
       <ImageCards cardType="main" productImg={productImg} />
     </>
@@ -83,7 +83,7 @@ const ActionNextToImage = ({ label, productImg }: CardProps) => {
 
 const ImageNextToActcion = ({ label, productImg }: CardProps) => {
   const navigate = useNavigate();
-  const goToMainPate = () => {
+  const goToCategoriesPate = () => {
     navigate(`/categories/${label.toLowerCase()}`);
   };
 
@@ -100,7 +100,7 @@ const ImageNextToActcion = ({ label, productImg }: CardProps) => {
         label={label}
         buttonLabel="Shop now"
         leftIcon={WArrowLeft}
-        handleClick={label === 'FreshFlowers' ? goToMainPate : wait}
+        handleClick={label === 'FreshFlowers' ? goToCategoriesPate : wait}
       />
     </>
   );
