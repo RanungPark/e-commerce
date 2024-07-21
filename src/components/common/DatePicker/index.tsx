@@ -32,14 +32,19 @@ const renderCustomHeader = ({
   );
 };
 
-const DatePicker = () => {
+const DatePicker = ({ placeholder }: { placeholder: string }) => {
   const [startDate, setStartDate] = useState(new Date());
   return (
     <StyledDatePicker>
       <LabelWrapper>
         <DatePickerlib
           dateFormat="MM.dd.yy"
-          selected={startDate}
+          selected={
+            startDate.toString() === new Date().toString()
+              ? undefined
+              : startDate
+          }
+          placeholderText={placeholder}
           locale="en-GB"
           onChange={(date: Date) => setStartDate(date)}
           customInput={<CustomInput />}
@@ -136,7 +141,8 @@ const CustomInput = styled.input`
   height: 100%;
   border: none;
   background-color: inherit;
-  color: ${({ theme }) => theme.colors.gray};
+  color: ${({ theme }) => theme.colors.black};
+  ${({ theme }) => theme.typography.Caption}
   cursor: pointer;
 
   &:focus {
