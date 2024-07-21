@@ -2,6 +2,7 @@ import Buttons from '@components/common/Buttons';
 import CompleteInput from '@components/common/CompleteInput';
 import Text from '@components/common/Text';
 import TextField from '@components/common/TextField';
+import { REG_PHONE } from '@constants/reg';
 import { useUserStore } from '@store/userStore';
 import { mixins } from '@styles/Mixin';
 import { useMutation } from '@tanstack/react-query';
@@ -22,8 +23,6 @@ const LoginPage = () => {
     formState: { errors },
     getValues,
   } = useForm();
-
-  const regPhone = /^010\d{8}$/;
 
   const LoginMutation = useMutation({
     mutationFn: (username: string) => fetchLogin(username),
@@ -75,7 +74,7 @@ const LoginPage = () => {
                     {...register('username', {
                       required: 'ID를 입력해주세요',
                       pattern: {
-                        value: regPhone,
+                        value: REG_PHONE,
                         message: `'-' 없이 전화번호를 입력해주세요.`,
                       },
                     })}
