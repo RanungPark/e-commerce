@@ -1,19 +1,19 @@
 import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
 import Text from '../Text';
+import { SelectBoxProps } from '.';
 
-interface OptionProps {
-  value: string;
-  onClick: React.MouseEventHandler<HTMLLIElement>;
-}
+type OptionProps = Pick<SelectBoxProps, 'handleClickOfLi'> & {
+  option: string;
+};
 
 const Option = ({
-  value,
-  onClick,
+  option,
+  handleClickOfLi,
   children,
 }: React.PropsWithChildren<OptionProps>) => {
   return (
-    <StyledOption onClick={onClick} value={value}>
+    <StyledOption onClick={handleClickOfLi} data-value={option}>
       <Text as="p" typography="CaptionBold">
         {children}
       </Text>

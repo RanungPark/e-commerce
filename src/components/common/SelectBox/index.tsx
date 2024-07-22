@@ -30,7 +30,11 @@ const SelectBox = ({
       {isOpen ? (
         <OptionsWrapper>
           {options.map(option => (
-            <Option onClick={handleClickOfLi} value={option}>
+            <Option
+              key={option}
+              handleClickOfLi={handleClickOfLi}
+              option={option}
+            >
               {option}
             </Option>
           ))}

@@ -5,10 +5,8 @@ import { ReactComponent as CaretDown } from '@assets/icons/wght300/CaretDown.svg
 import { ReactComponent as CaretUp } from '@assets/icons/wght300/CaretUp.svg';
 import { SelectBoxProps } from '.';
 
-interface LabelProps extends SelectBoxProps {}
-
 type DeleteOptionFromLabelProps = PartialDelete<
-  LabelProps,
+  SelectBoxProps,
   'options' | 'handleClickOfLi'
 >;
 
@@ -29,7 +27,7 @@ const Label = ({
   handleClickOfLabel,
 }: DeleteOptionFromLabelProps) => {
   return (
-    <StyledLabel
+    <LabelWrapper
       onClick={handleClickOfLabel}
       placeholder={placeholder}
       isOpen={isOpen}
@@ -43,11 +41,11 @@ const Label = ({
         placeholder={placeholder}
       />
       {isOpen ? <CaretUp /> : <CaretDown />}
-    </StyledLabel>
+    </LabelWrapper>
   );
 };
 
-const StyledLabel = styled.label<LabelWrapperProps>`
+const LabelWrapper = styled.label<LabelWrapperProps>`
   ${mixins.flexBox({ justify: 'space-between' })}
   width: 100%;
   max-height: 56px;
@@ -59,7 +57,7 @@ const StyledLabel = styled.label<LabelWrapperProps>`
         isOpen ? theme.colors.darkgray : theme.colors.lightgray
       }`;
     } else {
-      return `1px solid ${theme.colors.black}`;
+      return `1px solid ${theme.colors.lightgray}`;
     }
   }};
 
