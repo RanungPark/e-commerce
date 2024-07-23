@@ -5,7 +5,6 @@ import { RouterProvider } from 'react-router-dom';
 import { theme } from '@styles/theme';
 import GlobalStyle from '@styles/GlobalStyle';
 import router from './router';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { worker } from '@mocks/browser';
 
@@ -28,7 +27,6 @@ root.render(
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <RouterProvider router={router} />
-        <ReactQueryDevtools initialIsOpen={false} />
       </ThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>
