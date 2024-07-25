@@ -72,6 +72,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: 'public/mockServiceWorker.js', to: '' }, // 서비스 워커 파일 복사
+        { from: '_redirects', to: '' },
       ],
     }),
     //HtmlWebpackPlugin: HTML 파일을 기반으로 빌드 결과물을 생성하는 플러그인
