@@ -1,4 +1,5 @@
 import ImageCards from '@components/common/Cards/ImageCards';
+import Loading from '@components/common/Loading';
 import Text from '@components/common/Text';
 import { mixins } from '@styles/Mixin';
 import { useQuery } from '@tanstack/react-query';
@@ -29,7 +30,7 @@ const CategoryPage = () => {
     navigate(`products/${productId}`);
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading />;
   if (error) goToNotFound();
 
   return (

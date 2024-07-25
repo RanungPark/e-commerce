@@ -1,3 +1,4 @@
+import Loading from '@components/common/Loading';
 import Product from '@components/product';
 import OuterProducts from '@components/product/OuterProducts';
 import { useQuery } from '@tanstack/react-query';
@@ -25,7 +26,7 @@ const ProductsPage = () => {
     navigate('/error');
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading />;
   if (error) goToNotFound();
 
   if (data) {
