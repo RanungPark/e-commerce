@@ -1,4 +1,4 @@
-import { devtools } from 'zustand/middleware';
+import { devtools, persist } from 'zustand/middleware';
 import { create } from 'zustand';
 
 export interface User {
@@ -15,12 +15,14 @@ export interface UserState {
 
 export const useUserStore = create<UserState>()(
   devtools(
-    set => ({
-      isLoggedIn: false,
-      user: null,
-      login: userData => set({ isLoggedIn: true, user: userData }),
-      logout: () => set({ isLoggedIn: false, user: null }),
-    }),
-    { name: 'userStore' }
+    persist(
+      set => ({
+        isLoggedIn: false,
+        user: null,
+        login: userData => set({ isLoggedIn: true, user: userData }),
+        logout: () => set({ isLoggedIn: false, user: null }),
+      }),
+      { name: 'cartStore', getStorage: () => sessionStorage }
+    )
   )
 );

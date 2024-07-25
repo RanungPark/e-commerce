@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { devtools } from 'zustand/middleware';
+import { devtools, persist } from 'zustand/middleware';
 
 export interface CartItem {
   id: number;
@@ -18,34 +18,36 @@ export interface CartState {
 
 export const useCartStore = create<CartState>()(
   devtools(
-    set => ({
-      cart: [],
-      addItem: item =>
-        set(state => {
-          const existingItem = state.cart.find(
-            cartItem => cartItem.id === item.id
-          );
-          if (existingItem) {
-            return {
-              cart: state.cart.map(cartItem =>
-                cartItem.quantity !== item.quantity
-                  ? {
-                      ...cartItem,
-                      quantity: item.quantity,
-                      price: item.price,
-                    }
-                  : cartItem
-              ),
-            };
-          }
-          return { cart: [...state.cart, { ...item }] };
-        }),
-      removeItem: id =>
-        set(state => ({
-          cart: state.cart.filter(item => item.id !== id),
-        })),
-      clearCart: () => set({ cart: [] }),
-    }),
-    { name: 'cartStore' }
+    persist(
+      set => ({
+        cart: [],
+        addItem: item =>
+          set(state => {
+            const existingItem = state.cart.find(
+              cartItem => cartItem.id === item.id
+            );
+            if (existingItem) {
+              return {
+                cart: state.cart.map(cartItem =>
+                  cartItem.quantity !== item.quantity
+                    ? {
+                        ...cartItem,
+                        quantity: item.quantity,
+                        price: item.price,
+                      }
+                    : cartItem
+                ),
+              };
+            }
+            return { cart: [...state.cart, { ...item }] };
+          }),
+        removeItem: id =>
+          set(state => ({
+            cart: state.cart.filter(item => item.id !== id),
+          })),
+        clearCart: () => set({ cart: [] }),
+      }),
+      { name: 'cartStore', getStorage: () => sessionStorage }
+    )
   )
 );
