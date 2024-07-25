@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { ProvidePlugin } = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const mode = process.env.NODE_ENV || 'development';
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   //process.env.NODE_ENV 값을 기반으로 설정하며, 개발 모드(development)와 프로덕션 모드(production)를 구분하여 동작 방식을 조정
@@ -21,6 +22,15 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     //clean: true: 이 옵션을 통해 빌드 전 기존의 dist 디렉토리를 정리(clean)
     clean: true,
+    publicPath: '/',
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'), // 정적 파일 제공 경로
+    },
+    compress: true,
+    port: 8080,
+    historyApiFallback: true,
   },
   module: {
     //rules: 다양한 파일 형식을 처리하는 규칙을 설정
@@ -59,6 +69,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'public/mockServiceWorker.js', to: '' }, // 서비스 워커 파일 복사
+      ],
+    }),
     //HtmlWebpackPlugin: HTML 파일을 기반으로 빌드 결과물을 생성하는 플러그인
     new HtmlWebpackPlugin({
       //template: 기본 HTML 템플릿 파일 경로를 지정
