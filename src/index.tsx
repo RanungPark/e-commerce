@@ -8,12 +8,16 @@ import router from './router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { worker } from '@mocks/browser';
 
-if (
-  process.env.NODE_ENV === 'development' ||
-  process.env.REACT_APP_USE_MSW === 'true'
-) {
-  worker.start({ onUnhandledRequest: 'bypass' });
-}
+// if (
+//   process.env.NODE_ENV === 'development' ||
+//   process.env.REACT_APP_USE_MSW === 'true'
+// ) {
+//   worker.start({ onUnhandledRequest: 'bypass' });
+// }
+
+worker.start({
+  onUnhandledRequest: 'bypass',
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
