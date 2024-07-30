@@ -6,6 +6,7 @@ module.exports = {
     'eslint:recommended',
     'prettier',
     'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:storybook/recommended',
   ],
   //소스 코드를 분석하여 AST(Abstract Syntax Tree)를 생성할 때 사용할 파서를 지정
   //@typescript-eslint/parser: TypeScript 코드를 분석하기 위해 사용하는 파서
