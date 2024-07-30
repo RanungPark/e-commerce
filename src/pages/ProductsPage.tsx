@@ -26,10 +26,9 @@ const ProductsPage = () => {
     navigate('/error');
   };
 
-  if (isLoading) return <Loading />;
   if (error) goToNotFound();
 
-  if (data) {
+  if (data && !isLoading) {
     const { product, outerProducts, combinationProducts } = data;
     return (
       <>
@@ -38,6 +37,8 @@ const ProductsPage = () => {
       </>
     );
   }
+
+  return <Loading />;
 };
 
 export default ProductsPage;
