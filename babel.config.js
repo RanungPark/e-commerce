@@ -10,4 +10,5 @@ module.exports = {
     //TypeScript코드를 JavaScript로 변환하는 프리셋
     '@babel/preset-typescript',
   ],
+  plugins: ['babel-plugin-styled-components'],
 };
