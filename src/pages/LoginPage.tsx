@@ -67,7 +67,7 @@ const LoginPage = () => {
                   textHelper={
                     Object.keys(errors).length === 0
                       ? undefined
-                      : errors.username?.message
+                      : (errors.username?.message as string)
                   }
                 >
                   <input

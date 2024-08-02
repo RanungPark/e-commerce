@@ -26,7 +26,7 @@ const meta = {
       defaultValue: '/icons/ic-cancel.svg',
     },
     onClick: {
-      description: '아이콘 클릭 이벤트',
+      description: '아이콘 버튼 클릭 이벤트',
     },
   },
   args: { onClick: fn() },

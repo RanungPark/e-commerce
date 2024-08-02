@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import Helper from './Helper';
 import { DefaultStyle, ErrorStyle, SuccessStyle } from './TextField.css';
-import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 
 export interface TextFieldProps {
   label: string;
-  disabled: boolean;
-  textHelper: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
+  textHelper: string;
   labelState: boolean;
   helperState: boolean;
   inputState: 'default' | 'success' | 'error';
