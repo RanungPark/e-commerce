@@ -140,13 +140,15 @@ const tertiaryStyle = css`
 
 const PrimaryButtonWrapper = styled.button<PrimaryButtonWrapperProps>`
   ${({ primaryButtontheme }) =>
-    primaryButtontheme === 'primary'
-      ? primaryStyle
-      : primaryButtontheme === 'secondary'
-        ? secondaryStyle
-        : tertiaryStyle}
+    primaryButtontheme === 'primary' ? primaryStyle : null}
+  ${({ primaryButtontheme }) =>
+    primaryButtontheme === 'secondary' ? secondaryStyle : null}
+  ${({ primaryButtontheme }) =>
+    primaryButtontheme === 'tertiary' ? tertiaryStyle : null}
 
   ${mixins.flexBox({})}
+  ${({ theme }) => theme.typography.Button}
+
   gap:8px;
   width: 100%;
   height: 56px;
