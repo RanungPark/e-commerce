@@ -45,6 +45,9 @@ const meta = {
       description: '버튼 활성화 여부',
       defaultValue: false,
     },
+    onClick: {
+      description: '프라이머리 버튼 클릭 이벤트',
+    },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof PrimaryButton>;
@@ -55,20 +58,45 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     primaryButtontheme: 'primary',
-    children: 'Button',
+    children: 'button',
   },
 };
 
 export const Secondary: Story = {
   args: {
     primaryButtontheme: 'secondary',
-    children: 'Button',
+    children: 'button',
   },
 };
 
 export const Tertiary: Story = {
   args: {
     primaryButtontheme: 'tertiary',
-    children: 'Button',
+    children: 'button',
+  },
+};
+
+export const PrimaryWithHasRightIcon: Story = {
+  args: {
+    primaryButtontheme: 'primary',
+    children: 'button',
+    hasRightIcon: true,
+  },
+};
+
+export const PrimaryWithHasLeftIcon: Story = {
+  args: {
+    primaryButtontheme: 'primary',
+    children: 'button',
+    hasLeftIcon: true,
+  },
+};
+
+export const PrimaryWithHasAllIcon: Story = {
+  args: {
+    primaryButtontheme: 'primary',
+    children: 'button',
+    hasRightIcon: true,
+    hasLeftIcon: true,
   },
 };
