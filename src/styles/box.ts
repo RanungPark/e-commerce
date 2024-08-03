@@ -57,6 +57,37 @@ export function box() {
           }
         `;
       },
-      css``
+      css`
+        &.m-half {
+          margin: 4px;
+        }
+        &.mt-half {
+          margin-top: 4px;
+        }
+        &.mb-half {
+          margin-bottom: 4px;
+        }
+        &.mr-half {
+          margin-right: 4px;
+        }
+        &.ml-half {
+          margin-left: 4px;
+        }
+        &.p-half {
+          padding: 4px;
+        }
+        &.pt-half {
+          padding-top: 4px;
+        }
+        &.pb-half {
+          padding-bottom: 4px;
+        }
+        &.pr-half {
+          padding-right: 4px;
+        }
+        &.pl-half {
+          padding-left: 4px;
+        }
+      `
     );
 }
