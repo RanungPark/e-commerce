@@ -5,7 +5,7 @@ type IconButtonSize = 'medium' | 'large';
 interface IconButtonProps {
   size?: IconButtonSize;
   IconComponent: React.FC<React.SVGProps<SVGSVGElement>>;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 interface IconButtonWrapperProps {
