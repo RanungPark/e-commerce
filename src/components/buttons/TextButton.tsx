@@ -5,10 +5,11 @@ import { ReactComponent as ArrowRight } from '@assets/icons/wght300/ArrowRight.s
 import { mixins } from '@styles/Mixin';
 
 interface TextButtonProps {
-  onClick: () => void;
+  onClick: (e: React.MouseEvent) => void;
   children: string;
   hasLeftIcon?: boolean;
   hasRightIcon?: boolean;
+  CustomButton?: React.FC<React.SVGProps<SVGSVGElement>>;
   disabled?: boolean;
 }
 
@@ -17,13 +18,26 @@ const TextButton = ({
   children,
   hasLeftIcon = false,
   hasRightIcon = false,
+  CustomButton,
   disabled = false,
 }: TextButtonProps) => {
   return (
     <TextButtonWrapper onClick={onClick} disabled={disabled}>
-      {hasLeftIcon ? <IconButton IconComponent={ArrowLeft} /> : <></>}
+      {!hasLeftIcon ? (
+        <></>
+      ) : !CustomButton ? (
+        <IconButton IconComponent={ArrowLeft} />
+      ) : (
+        <IconButton IconComponent={CustomButton} />
+      )}
       {children}
-      {hasRightIcon ? <IconButton IconComponent={ArrowRight} /> : <></>}
+      {!hasRightIcon ? (
+        <></>
+      ) : !CustomButton ? (
+        <IconButton IconComponent={ArrowRight} />
+      ) : (
+        <IconButton IconComponent={CustomButton} />
+      )}
     </TextButtonWrapper>
   );
 };
@@ -33,7 +47,6 @@ const TextButtonWrapper = styled.button`
   ${({ theme }) => theme.typography.Links}
 
   gap: 4px;
-  text-transform: capitalize;
   width: auto;
   height: auto;
   background-color: inherit;

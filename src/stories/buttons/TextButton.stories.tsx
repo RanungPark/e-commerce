@@ -1,6 +1,7 @@
 import TextButton from '@components/buttons/TextButton';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
 
 const meta = {
   title: 'Buttons/TextButton',
@@ -43,28 +44,36 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'button',
+    children: 'Button',
   },
 };
 
 export const DefaultWithHasRigthIcon: Story = {
   args: {
-    children: 'button',
+    children: 'Button',
     hasRightIcon: true,
   },
 };
 
 export const DefaultWithHasLeftIcon: Story = {
   args: {
-    children: 'button',
+    children: 'Button',
     hasLeftIcon: true,
   },
 };
 
 export const DefaultWithHasAllIcon: Story = {
   args: {
-    children: 'button',
+    children: 'Button',
     hasRightIcon: true,
     hasLeftIcon: true,
+  },
+};
+
+export const DefaultWithCustomButton: Story = {
+  args: {
+    children: 'Button',
+    hasRightIcon: true,
+    CustomButton: Check,
   },
 };

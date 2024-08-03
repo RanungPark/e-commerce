@@ -1,6 +1,7 @@
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
 
 const meta = {
   title: 'Buttons/PrimaryButton',
@@ -98,5 +99,14 @@ export const PrimaryWithHasAllIcon: Story = {
     children: 'button',
     hasRightIcon: true,
     hasLeftIcon: true,
+  },
+};
+
+export const PrimaryWithCustomButton: Story = {
+  args: {
+    primaryButtontheme: 'primary',
+    children: 'button',
+    hasLeftIcon: true,
+    CustomButton: Check,
   },
 };

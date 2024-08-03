@@ -7,11 +7,12 @@ import { mixins } from '@styles/Mixin';
 type PrimaryButtonTheme = 'primary' | 'secondary' | 'tertiary';
 
 interface PrimaryButtonProps {
-  primaryButtontheme: PrimaryButtonTheme;
-  onClick: () => void;
+  primaryButtontheme?: PrimaryButtonTheme;
+  onClick: (e: React.MouseEvent) => void;
   children: string;
   hasLeftIcon?: boolean;
   hasRightIcon?: boolean;
+  CustomButton?: React.FC<React.SVGProps<SVGSVGElement>>;
   disabled?: boolean;
 }
 
@@ -20,9 +21,10 @@ type PrimaryButtonWrapperProps = Pick<PrimaryButtonProps, 'primaryButtontheme'>;
 const PrimaryButton = ({
   onClick,
   children,
-  primaryButtontheme,
+  primaryButtontheme = 'primary',
   hasLeftIcon = false,
   hasRightIcon = false,
+  CustomButton,
   disabled = false,
 }: PrimaryButtonProps) => {
   return (
@@ -32,9 +34,21 @@ const PrimaryButton = ({
       disabled={disabled}
       className="pt-2 pb-2 pr-3 pl-3"
     >
-      {hasLeftIcon ? <IconButton IconComponent={ArrowLeft} /> : <></>}
+      {!hasLeftIcon ? (
+        <></>
+      ) : !CustomButton ? (
+        <IconButton IconComponent={ArrowLeft} />
+      ) : (
+        <IconButton IconComponent={CustomButton} />
+      )}
       {children}
-      {hasRightIcon ? <IconButton IconComponent={ArrowRight} /> : <></>}
+      {!hasRightIcon ? (
+        <></>
+      ) : !CustomButton ? (
+        <IconButton IconComponent={ArrowRight} />
+      ) : (
+        <IconButton IconComponent={CustomButton} />
+      )}
     </PrimaryButtonWrapper>
   );
 };
