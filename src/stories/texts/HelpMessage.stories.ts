@@ -11,7 +11,7 @@ const meta: Meta<typeof HelpMessage> = {
   argTypes: {
     children: {
       control: 'text',
-      description: '헬프 메시지 텍스트',
+      description: 'HelpMessage 텍스트',
       defaultValue: 'Text Helper',
     },
     helpMessageTheme: {
@@ -19,7 +19,7 @@ const meta: Meta<typeof HelpMessage> = {
         type: 'select',
         options: ['default', 'error', 'success'],
       },
-      description: '헬프 메시지 테마',
+      description: 'HelpMessage 테마',
       defaultValue: 'default',
     },
   },

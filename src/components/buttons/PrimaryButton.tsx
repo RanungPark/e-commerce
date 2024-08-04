@@ -52,6 +52,7 @@ const PrimaryButton = ({
     </PrimaryButtonWrapper>
   );
 };
+
 const primaryStyle = css`
   background-color: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.white};

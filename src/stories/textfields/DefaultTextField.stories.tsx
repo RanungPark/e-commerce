@@ -10,7 +10,7 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     Story => (
-      <div style={{ width: '175px' }}>
+      <div style={{ width: '364px' }}>
         <Story />
       </div>
     ),
@@ -21,34 +21,37 @@ const meta = {
         type: 'select',
         options: ['default', 'error', 'success'],
       },
-      description: '인풋의 상태 테마',
+      description: 'DefaultTextField 상태 테마',
       defaultValue: 'default',
     },
     hasLabel: {
       control: 'boolean',
-      description: '라벨 유무',
+      description: 'DefaultTextFielLabel 라벨 유무',
       defaultValue: false,
     },
     label: {
       control: 'text',
-      description: '라벨 텍스트',
+      description: 'DefaultTextFielLabel 라벨 텍스트',
       defaultValue: 'Label',
     },
     htmlFor: {
       control: 'text',
-      description: 'htmlFor(input의 id값) 텍스트',
+      description: 'DefaultTextFielLabel htmlFor(input의 id값) 텍스트',
       defaultValue: 'id',
     },
     hasHelpMessage: {
       control: 'boolean',
-      description: '헬프 메시지 유무',
+      description: 'DefaultTextField HelpMessage 유무',
       defaultValue: false,
     },
     helpMessage: {
       control: 'text',
-      description: '헬프 메시지 텍스트',
+      description: 'HelpMessage 텍스트',
       defaultValue: 'Text Helper',
     },
+    children: {
+      description: 'DefaultTextField input 태그'
+    }
   },
 } satisfies Meta<typeof DefaultTextField>;
 
