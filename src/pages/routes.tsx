@@ -5,6 +5,7 @@ import ProductsPage from './ProductsPage';
 import { ReactNode } from 'react';
 import LoginPage from './LoginPage';
 import CheckoutPage from './CheckoutPage';
+import TestPage from './TestPage';
 
 export interface Routes {
   path: string;
@@ -21,4 +22,5 @@ export const routes: Routes[] = [
   },
   { path: '/company/about', element: <AboutPage /> },
   { path: '/checkout', element: <CheckoutPage /> },
+  { path: '/admin/test/component', element: <TestPage /> },
 ];

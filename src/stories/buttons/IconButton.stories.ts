@@ -22,11 +22,11 @@ const meta = {
         type: 'select',
         options: ['medium', 'large'],
       },
-      description: '아이콘 크기',
+      description: 'Icon 크기',
       defaultValue: '/icons/ic-cancel.svg',
     },
     onClick: {
-      description: '아이콘 버튼 클릭 이벤트',
+      description: 'IconButton 클릭 이벤트',
     },
   },
   args: { onClick: fn() },

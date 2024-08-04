@@ -14,26 +14,26 @@ const meta = {
   argTypes: {
     children: {
       control: 'text',
-      description: '버튼 텍스트',
+      description: 'TextButton 텍스트',
       defaultValue: 'Button',
     },
     hasLeftIcon: {
       control: 'boolean',
-      description: '왼쪽 아이콘 버튼의 유무',
+      description: '왼쪽 IconButton 유무',
       defaultValue: false,
     },
     hasRightIcon: {
       control: 'boolean',
-      description: '오른쪽 아이콘 버튼의 유무',
+      description: '오른쪽 IconButton 유무',
       defaultValue: false,
     },
     disabled: {
       control: 'boolean',
-      description: '버튼 활성화 여부',
+      description: 'TextButton 활성화 여부',
       defaultValue: false,
     },
     onClick: {
-      description: '텍스트 버튼 클릭 이벤트',
+      description: 'TextButton 클릭 이벤트',
     },
   },
   args: { onClick: fn() },

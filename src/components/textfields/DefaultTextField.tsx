@@ -33,9 +33,9 @@ const DefaultTextField = ({
       ) : (
         <></>
       )}
-      <DefaultTextFieldInput inputState={inputState}>
+      <DefaultTextFieldInputWrapper inputState={inputState}>
         {children}
-      </DefaultTextFieldInput>
+      </DefaultTextFieldInputWrapper>
       {hasHelpMessage && !!helpMessage ? (
         <HelpMessage helpMessageTheme={inputState}>{helpMessage}</HelpMessage>
       ) : (
@@ -113,7 +113,7 @@ export const errorStyle = css`
   }
 `;
 
-const DefaultTextFieldInput = styled.div<DefaultTextFieldInputProps>`
+const DefaultTextFieldInputWrapper = styled.div<DefaultTextFieldInputProps>`
   & input {
     ${({ theme }) => theme.typography.Caption};
 

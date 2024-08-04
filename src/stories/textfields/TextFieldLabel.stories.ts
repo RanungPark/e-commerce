@@ -11,7 +11,7 @@ const meta = {
   argTypes: {
     children: {
       control: 'text',
-      description: '라벨 텍스트',
+      description: 'TextFieldLabel 텍스트',
       defaultValue: 'Label',
     },
   },
