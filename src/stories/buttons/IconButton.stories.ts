@@ -20,10 +20,10 @@ const meta = {
     size: {
       control: {
         type: 'select',
-        options: ['medium', 'large'],
+        options: ['small', 'medium', 'large'],
       },
       description: 'Icon 크기',
-      defaultValue: '/icons/ic-cancel.svg',
+      defaultValue: 'small',
     },
     onClick: {
       description: 'IconButton 클릭 이벤트',
@@ -34,6 +34,13 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const DefalutSize: Story = {
+  args: {
+    size: 'small',
+    IconComponent: ArrowLeft,
+  },
+};
 
 export const MediumSize: Story = {
   args: {

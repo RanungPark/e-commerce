@@ -28,6 +28,11 @@ const meta = {
         development of the structure allows us to assess the importance of the
         directions of progressive development.`,
     },
+    label: {
+      control: 'text',
+      description: 'TextCard 라벨',
+      defaultValue: '',
+    },
   },
 } satisfies Meta<typeof TextCard>;
 
@@ -40,5 +45,15 @@ export const Default: Story = {
     children: `The task of the organization, especially the strengthening and
         development of the structure allows us to assess the importance of the
         directions of progressive development.`,
+  },
+};
+
+export const DefaultAndLabel: Story = {
+  args: {
+    title: 'Stylish bouquets by florists',
+    children: `The task of the organization, especially the strengthening and
+        development of the structure allows us to assess the importance of the
+        directions of progressive development.`,
+    label: 'our story',
   },
 };

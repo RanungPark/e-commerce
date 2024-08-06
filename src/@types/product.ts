@@ -2,13 +2,13 @@ export interface ProductType {
   id: number;
   name: string;
   price: number;
-  productImg: string;
+  imgPath: string;
   info: string;
 }
 
-export type PickFromProducts = Pick<ProductType, 'name' | 'price' | 'productImg'>;
+export type PickFromProducts = Pick<ProductType, 'name' | 'price' | 'imgPath'>;
 
-export interface RepType {
-  type: string;
-  img: string;
+export interface ProductBgType {
+  title: string;
+  imgPath: string;
 }

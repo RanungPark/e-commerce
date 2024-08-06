@@ -36,7 +36,7 @@ const OrderSummary = () => {
           {cart.map(item => (
             <Item
               name={item.name}
-              productImg={item.productImg}
+              imgPath={item.imgPath}
               price={item.price}
               quantity={item.quantity}
             />
@@ -70,11 +70,11 @@ const OrderSummary = () => {
 
 type ItemProps = PartialOptional<CartItem, 'id'>;
 
-const Item = ({ name, productImg, price, quantity }: ItemProps) => {
+const Item = ({ name, imgPath, price, quantity }: ItemProps) => {
   return (
     <ItemWrapper className="bb-1">
       <ItemImgWrapper className="b-1">
-        <img src={productImg} alt={name}></img>
+        <img src={imgPath} alt={name}></img>
       </ItemImgWrapper>
       <ItemContentWrapper>
         <ItemInfoWrapper>

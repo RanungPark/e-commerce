@@ -1,5 +1,6 @@
 import RadioButton from '@components/selects/RadioButton';
 import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 
 const meta = {
   title: 'Selects/RadioButton',
@@ -11,10 +12,34 @@ const meta = {
   argTypes: {
     children: {
       control: 'text',
-      description: '체크박스 텍스트',
+      description: 'RadioButton 텍스트',
       defaultValue: 'Button',
     },
+    name: {
+      control: 'text',
+      description: 'RadioButton 키(name)',
+      defaultValue: 'test',
+    },
+    value: {
+      control: 'text',
+      description: 'RadioButton 값(value)',
+      defaultValue: 'new test',
+    },
+    isGrop: {
+      control: 'boolean',
+      description: 'RadioButton 그룹 여부',
+      defaultValue: false,
+    },
+    defaultChecked: {
+      control: 'boolean',
+      description: 'RadioButton 선택 유무',
+      defaultValue: false,
+    },
+    onChange: {
+      description: 'RadioButton 체인지 이벤트',
+    },
   },
+  args: { onChange: fn() },
 } satisfies Meta<typeof RadioButton>;
 
 export default meta;
@@ -23,20 +48,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: 'Radio Button',
-  },
-};
-
-export const DefaultWithForm: Story = {
-  decorators: [
-    Story => (
-      <form style={{ display: 'flex', gap: '20px' }}>
-        <Story />
-        <Story />
-        <Story />
-      </form>
-    ),
-  ],
-  args: {
-    children: 'Radio Button',
+    isGrop: false,
   },
 };

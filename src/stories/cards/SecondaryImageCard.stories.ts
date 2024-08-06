@@ -14,12 +14,12 @@ const meta = {
     imgPath: {
       control: 'text',
       description: 'SecondaryImageCard 이미지 경로',
-      defaultValue: IMG_PATH.OTHER.GlassVase,
+      defaultValue: IMG_PATH.DesignerVases.BernadotteVase,
     },
     alt: {
       control: 'text',
       description: 'SecondaryImageCard 이미지 대체 속성',
-      defaultValue: 'GlassVase',
+      defaultValue: 'BernadotteVase',
     },
     price: {
       control: 'text',
@@ -43,8 +43,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    imgPath: IMG_PATH.OTHER.GlassVase,
-    alt: 'GlassVase',
+    imgPath: IMG_PATH.DesignerVases.BernadotteVase,
+    alt: 'BernadotteVase',
     price: 0,
     children: 'No Vase',
   },

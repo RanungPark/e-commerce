@@ -3,48 +3,23 @@ import { IMG_PATH } from '@constants/imgPath';
 
 export const combinationProducts: PickFromProducts[] = [
   {
-    name: 'Glass Vase',
+    name: 'Bernadotte Vase',
     price: 15,
-    productImg: IMG_PATH.OTHER.GlassVase,
+    imgPath: IMG_PATH.DesignerVases.BernadotteVase,
   },
   {
-    name: 'Hammershoi',
+    name: 'Botanica Vase',
     price: 45,
-    productImg: IMG_PATH.OTHER.Hammershoi,
+    imgPath: IMG_PATH.DesignerVases.BotanicaVase,
   },
   {
     name: 'Ceramic Vase',
     price: 35,
-    productImg: IMG_PATH.OTHER.CeramicVase,
+    imgPath: IMG_PATH.DesignerVases.CeramicVase,
   },
   {
-    name: 'Steel vase',
+    name: 'Clear Vase',
     price: 25,
-    productImg: IMG_PATH.OTHER.SteelVase,
-  },
-  {
-    name: 'Bamboo',
-    price: 15,
-    productImg: IMG_PATH.OTHER.Bamboo,
-  },
-  {
-    name: 'Rattan Grapefruit',
-    price: 48,
-    productImg: IMG_PATH.OTHER.RattanGrapefruit,
-  },
-  {
-    name: 'Lime & Matcha',
-    price: 46,
-    productImg: IMG_PATH.OTHER.LimeMatcha,
-  },
-  {
-    name: 'Cedar & Lavender',
-    price: 64,
-    productImg: IMG_PATH.OTHER.CedarLavender,
-  },
-  {
-    name: 'Ocean Mist',
-    price: 58,
-    productImg: IMG_PATH.OTHER.OceanMist,
+    imgPath: IMG_PATH.DesignerVases.ClearVase,
   },
 ];

@@ -6,14 +6,26 @@ interface ActionCardProps {
   onClick: (e: React.MouseEvent) => void;
   children: string;
   buttonText: string;
+  hasRightIcon?: boolean;
+  hasLeftIcon?: boolean;
 }
 
-const ActionCard = ({ children, buttonText, onClick }: ActionCardProps) => {
+const ActionCard = ({
+  children,
+  buttonText,
+  onClick,
+  hasLeftIcon,
+  hasRightIcon,
+}: ActionCardProps) => {
   return (
     <ActionCardWrapper className="bb-1 bl-1 p-4">
       {children}
       <ActionCardButtonWrapper>
-        <TextButton onClick={onClick} hasRightIcon={true}>
+        <TextButton
+          onClick={onClick}
+          hasLeftIcon={hasLeftIcon}
+          hasRightIcon={hasRightIcon}
+        >
           {buttonText}
         </TextButton>
       </ActionCardButtonWrapper>
@@ -26,7 +38,6 @@ const ActionCardWrapper = styled.section`
   ${mixins.flexBox({})}
   position: relative;
   width: 100%;
-  height: 360px;
 `;
 
 const ActionCardButtonWrapper = styled.div`

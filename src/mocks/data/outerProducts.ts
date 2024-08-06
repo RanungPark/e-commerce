@@ -5,21 +5,21 @@ export const outerProducts: PickFromProducts[] = [
   {
     name: 'Rattan Grapefruit',
     price: 48,
-    productImg: IMG_PATH.OTHER.RattanGrapefruit,
+    imgPath: IMG_PATH.AromaCandles.RattanGrapefruit,
   },
   {
     name: 'Lime & Matcha',
     price: 46,
-    productImg: IMG_PATH.OTHER.LimeMatcha,
+    imgPath: IMG_PATH.AromaCandles.LimeMatcha,
   },
   {
     name: 'Cedar & Lavender',
     price: 64,
-    productImg: IMG_PATH.OTHER.CedarLavender,
+    imgPath: IMG_PATH.Fresheners.CedarLavender,
   },
   {
     name: 'Ocean Mist',
     price: 58,
-    productImg: IMG_PATH.OTHER.OceanMist,
+    imgPath: IMG_PATH.Fresheners.OceanMist,
   },
 ];

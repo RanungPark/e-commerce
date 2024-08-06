@@ -38,7 +38,7 @@ const Product = ({ product, combinationProducts }: ProductProps) => {
     const item = {
       id: product.id,
       name: product.name,
-      productImg: product.productImg,
+      imgPath: product.imgPath,
       price: quantity * product.price,
       quantity,
     };
@@ -54,7 +54,7 @@ const Product = ({ product, combinationProducts }: ProductProps) => {
   return (
     <StyledPorduct className="br-1">
       <ImgWrapper className="bl-1 bb-1 ">
-        <img src={product.productImg} alt={product.name} />
+        <img src={product.imgPath} alt={product.name} />
       </ImgWrapper>
       <ContentWrapper className="bl-1 bb-1">
         <ProdcutWrapper>

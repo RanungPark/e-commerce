@@ -29,7 +29,17 @@ const meta = {
     },
     onClick: {
       description: 'TextButton 클릭 이벤트',
-    }
+    },
+    hasLeftIcon: {
+      control: 'boolean',
+      description: '왼쪽 IconButton 유무',
+      defaultValue: false,
+    },
+    hasRightIcon: {
+      control: 'boolean',
+      description: '오른쪽 IconButton 유무',
+      defaultValue: false,
+    },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof ActionCard>;

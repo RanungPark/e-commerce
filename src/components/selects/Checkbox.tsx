@@ -1,18 +1,67 @@
 import styled from 'styled-components';
 import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
+import { useContext, useState } from 'react';
+import { CheckboxContext } from '@contexts/CheckboxContext';
 
 interface CheckboxProps {
+  name?: string;
+  value?: string;
   children: string;
+  onChange?: (checked: string) => void;
+  isGrop?: boolean;
 }
 
-const Checkbox = ({ children }: CheckboxProps) => {
-  return (
-    <CheckboxWrapper>
-      <CheckboxInput type="checkbox" value={children} name="contact" />
-      <Check />
-      <CheckboxChildrenWrapper>{children}</CheckboxChildrenWrapper>
-    </CheckboxWrapper>
-  );
+const Checkbox = ({
+  name,
+  value,
+  children,
+  onChange = () => {},
+  isGrop = true,
+}: CheckboxProps) => {
+  const [checked, setChecked] = useState(false);
+  const context = useContext(CheckboxContext);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { checked } = e.target;
+    checked ? onChange(value ?? children) : onChange('');
+  };
+
+  if (!isGrop) {
+    return (
+      <CheckboxWrapper>
+        <CheckboxInput
+          type="checkbox"
+          name={name}
+          value={value ?? children}
+          checked={checked}
+          onChange={handleChange}
+          onClick={() => setChecked(prev => !prev)}
+        />
+        <Check />
+        <CheckboxChildrenWrapper>{children}</CheckboxChildrenWrapper>
+      </CheckboxWrapper>
+    );
+  }
+
+  const { isChecked, toggleValue } = context;
+
+  if (isGrop) {
+    return (
+      <CheckboxWrapper>
+        <CheckboxInput
+          type="checkbox"
+          name={name}
+          value={value ?? children}
+          checked={isChecked(value ?? children)}
+          onChange={({ target: { checked } }) =>
+            toggleValue({ checked, value: value ?? children })
+          }
+        />
+        <Check />
+        <CheckboxChildrenWrapper>{children}</CheckboxChildrenWrapper>
+      </CheckboxWrapper>
+    );
+  }
 };
 
 const CheckboxWrapper = styled.label`

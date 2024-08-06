@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-type IconButtonSize = 'medium' | 'large';
+type IconButtonSize = 'small' | 'medium' | 'large';
 
 interface IconButtonProps {
   size?: IconButtonSize;
@@ -13,7 +13,7 @@ interface IconButtonWrapperProps {
 }
 
 const IconButton = ({
-  size = 'medium',
+  size = 'small',
   IconComponent,
   onClick,
 }: IconButtonProps) => {
@@ -24,9 +24,14 @@ const IconButton = ({
   );
 };
 
-const mediumStyle = css`
+const smallStyle = css`
   width: 24px;
   height: 24px;
+`;
+
+const mediumStyle = css`
+  width: 32px;
+  height: 32px;
 `;
 
 const largeStyle = css`
@@ -35,7 +40,9 @@ const largeStyle = css`
 `;
 
 const IconButtonWrapper = styled.button<IconButtonWrapperProps>`
-  ${({ size }) => (size === 'medium' ? mediumStyle : largeStyle)}
+  ${({ size }) => (size === 'small' ? smallStyle : null)}
+  ${({ size }) => (size === 'medium' ? mediumStyle : null)}
+  ${({ size }) => (size === 'large' ? largeStyle : null)}
 `;
 
 export default IconButton;

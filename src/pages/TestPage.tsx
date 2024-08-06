@@ -190,7 +190,7 @@ const TestPage = () => {
           onClick={() => {
             console.log('이미지 카드 클릭');
           }}
-          imgPath={IMG_PATH.FLOWER.BlazingBlassoms}
+          imgPath={IMG_PATH.FreshFlowers.BlazingBlassoms}
           alt="Bouquets Fresh Flowers"
           price={70}
         >
@@ -202,8 +202,8 @@ const TestPage = () => {
         onClick={() => {
           console.log('이미지 카드 클릭');
         }}
-        imgPath={IMG_PATH.OTHER.GlassVase}
-        alt="GlassVase"
+        imgPath={IMG_PATH.DesignerVases.BernadotteVase}
+        alt="BernadotteVase"
         price={0}
       >
         No Vase
@@ -227,7 +227,7 @@ const TestPage = () => {
 
       <ProductCard
         alt="부케"
-        imgPath={IMG_PATH.FLOWER.ThreeClassic}
+        imgPath={IMG_PATH.FreshFlowers.FreshFlowersRep}
         infoItems={[
           'Price $45',
           'Free Delivery',

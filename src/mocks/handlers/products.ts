@@ -1,5 +1,5 @@
 import { combinationProducts } from '@mocks/data/combinationProducts';
-import { freshflowersProducts } from '@mocks/data/freshflowers';
+import { freshFlowersProducts } from '@mocks/data/freshFlowers';
 import { outerProducts } from '@mocks/data/outerProducts';
 
 import { http, HttpResponse } from 'msw';
@@ -7,7 +7,7 @@ import { http, HttpResponse } from 'msw';
 export const productHandlers = [
   http.get('/freshflowers/:id', ({ params }) => {
     const { id } = params;
-    const product = freshflowersProducts.find(
+    const product = freshFlowersProducts.find(
       product => product.id === Number(id)
     );
 

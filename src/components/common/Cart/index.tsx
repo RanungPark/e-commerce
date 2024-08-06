@@ -76,7 +76,7 @@ const Cart = ({ open, setOpen }: BurgerMenuProps) => {
           <Item
             id={item.id}
             name={item.name}
-            productImg={item.productImg}
+            imgPath={item.imgPath}
             price={item.price}
             quantity={item.quantity}
             removeItem={removeItem}
@@ -110,7 +110,7 @@ type ItemProps = CartItem & { removeItem: (id: number) => void };
 const Item = ({
   id,
   name,
-  productImg,
+  imgPath,
   price,
   quantity,
   removeItem,
@@ -125,7 +125,7 @@ const Item = ({
   return (
     <ItemWrapper className="bb-1 p-5">
       <ItemImgWrapper className="b-1">
-        <img src={productImg} alt={name}></img>
+        <img src={imgPath} alt={name}></img>
       </ItemImgWrapper>
       <ItemContentWrapper>
         <ItemInfoWrapper>
