@@ -1,4 +1,3 @@
-import AboutPage from './AboutPage';
 import CategoryPage from './CategoryPage';
 import HomePage from './HomePage';
 import ProductsPage from './ProductsPage';
@@ -20,7 +19,6 @@ export const routes: Routes[] = [
     path: 'categories/:categoryName/products/:productId',
     element: <ProductsPage />,
   },
-  { path: '/company/about', element: <AboutPage /> },
   { path: '/checkout', element: <CheckoutPage /> },
   { path: '/admin/test/component', element: <TestPage /> },
 ];
