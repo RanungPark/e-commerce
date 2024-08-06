@@ -14,7 +14,7 @@ const meta = {
     imgPath: {
       control: 'text',
       description: 'ProductCard 이미지 경로',
-      defaultValue: IMG_PATH.FLOWER.ThreeClassic,
+      defaultValue: IMG_PATH.FreshFlowers.FreshFlowersRep,
     },
     alt: {
       control: 'text',
@@ -55,7 +55,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    imgPath: IMG_PATH.FLOWER.ThreeClassic,
+    imgPath: IMG_PATH.FreshFlowers.FreshFlowersRep,
     alt: '부케',
     children: 'Classic',
     infoItems: [

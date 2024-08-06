@@ -14,7 +14,7 @@ const meta = {
     imgPath: {
       control: 'text',
       description: 'PrimaryImageCard 이미지 경로',
-      defaultValue: IMG_PATH.FLOWER.BlazingBlassoms,
+      defaultValue: IMG_PATH.FreshFlowers.BlazingBlassoms,
     },
     alt: {
       control: 'text',
@@ -43,7 +43,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    imgPath: IMG_PATH.FLOWER.BlazingBlassoms,
+    imgPath: IMG_PATH.FreshFlowers.BlazingBlassoms,
     alt: 'Bouquets Fresh Flowers',
     price: 70,
     children: 'Bouquets Fresh Flowers',
