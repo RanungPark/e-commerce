@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router';
 import Buttons from '@components/common/Buttons';
-import Layout from '@components/common/Layout';
 import Text from '@components/common/Text';
 import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
+import Layout from '@components/publics/Layout';
 
 const NotFound = () => {
   const navigate = useNavigate();
