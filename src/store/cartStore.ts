@@ -4,7 +4,7 @@ import { devtools, persist } from 'zustand/middleware';
 export interface CartItem {
   id: number;
   name: string;
-  productImg: string;
+  imgPath: string;
   price: number;
   quantity: number;
 }

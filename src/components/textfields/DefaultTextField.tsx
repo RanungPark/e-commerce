@@ -1,12 +1,12 @@
 import HelpMessage from '@components/texts/HelpMessage';
 import React from 'react';
 import styled, { css } from 'styled-components';
-import TextFieldLabel from './TextFieldLabel';
+import TextFieldLabel from '../texts/TextFieldLabel';
 
 type InputState = 'default' | 'error' | 'success';
 
 interface DefaultTextFieldProps {
-  inputState: InputState;
+  inputState?: InputState;
   hasLabel?: boolean;
   label?: string;
   htmlFor?: string;
@@ -18,7 +18,7 @@ interface DefaultTextFieldProps {
 type DefaultTextFieldInputProps = Pick<DefaultTextFieldProps, 'inputState'>;
 
 const DefaultTextField = ({
-  inputState = 'error',
+  inputState = 'default',
   hasLabel = false,
   label = '',
   htmlFor = '',

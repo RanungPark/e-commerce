@@ -4,8 +4,8 @@ import styled from 'styled-components';
 interface PrimaryImageCardProps {
   imgPath: string;
   alt: string;
-  price: number;
-  children: string;
+  price?: number;
+  children?: string;
   onClick: (e: React.MouseEvent) => void;
 }
 
@@ -22,7 +22,7 @@ const PrimaryImageCard = ({
       <PrimaryImageCardTextWrapper>
         {children}
         <PrimaryImageCardPriceWrapper>
-          price {price}$
+          {price && `price ${price}$`}
         </PrimaryImageCardPriceWrapper>
       </PrimaryImageCardTextWrapper>
     </PrimaryImageCardWrapper>

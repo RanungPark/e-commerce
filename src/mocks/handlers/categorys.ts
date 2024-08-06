@@ -1,19 +1,19 @@
-import { freshflowersRep, freshflowersProducts } from '../data/freshflowers';
+import { freshFlowersBg, freshFlowersProducts } from '../data/freshFlowers';
 import { http, HttpResponse } from 'msw';
 
 export const categoryHandlers = [
-  http.get('/freshflowers', () => {
-    if (!freshflowersProducts) {
+  http.get('/fresh-flowers', () => {
+    if (!freshFlowersProducts) {
       return HttpResponse.json(
-        { error: 'freshflowers not found' },
+        { error: 'fresh flowers not found' },
         { status: 404 }
       );
     }
 
     return HttpResponse.json(
       {
-        rep: freshflowersRep,
-        products: freshflowersProducts,
+        products: freshFlowersProducts,
+        productBg: freshFlowersBg,
       },
       { status: 200 }
     );
