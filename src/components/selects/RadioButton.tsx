@@ -1,16 +1,71 @@
+import { RadioButtonContext } from 'src/contexts/RadioButtonContext';
+import { useContext, useState } from 'react';
 import styled from 'styled-components';
 
 interface RadioButtonProps {
+  name?: string;
+  value?: string;
   children: string;
+  defaultChecked?: boolean;
+  onChange?: (checked: string) => void;
+  isGrop?: boolean;
 }
 
-const RadioButton = ({ children }: RadioButtonProps) => {
-  return (
-    <RadioButtonWrapper>
-      <RadioButtonInput type="radio" value={children} name="contact" />
-      <RaduoButtonChildrenWrapper>{children}</RaduoButtonChildrenWrapper>
-    </RadioButtonWrapper>
-  );
+const RadioButton = ({
+  name,
+  value,
+  children,
+  defaultChecked,
+  isGrop = true,
+  onChange = () => {},
+}: RadioButtonProps) => {
+  const [checked, setChecked] = useState(false);
+  const context = useContext(RadioButtonContext);
+
+  const handleChagne = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { checked } = e.target;
+
+    checked ? onChange(value ?? children) : onChange('');
+  };
+
+  if (!isGrop) {
+    return (
+      <RadioButtonWrapper>
+        <RadioButtonInput
+          type="radio"
+          name={name}
+          value={value}
+          defaultChecked={defaultChecked}
+          checked={checked}
+          onChange={handleChagne}
+          onClick={() => setChecked(prev => !prev)}
+        />
+        <RaduoButtonChildrenWrapper>{children}</RaduoButtonChildrenWrapper>
+      </RadioButtonWrapper>
+    );
+  }
+
+  if (isGrop) {
+    return (
+      <RadioButtonWrapper>
+        <RadioButtonInput
+          type="radio"
+          name={name}
+          value={value}
+          defaultChecked={defaultChecked}
+          checked={
+            context.value !== undefined
+              ? !!(value ?? children === context.value)
+              : undefined
+          }
+          onChange={() =>
+            context.onChange && context.onChange(value ?? children)
+          }
+        />
+        <RaduoButtonChildrenWrapper>{children}</RaduoButtonChildrenWrapper>
+      </RadioButtonWrapper>
+    );
+  }
 };
 
 const RadioButtonWrapper = styled.label`
