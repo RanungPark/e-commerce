@@ -1,4 +1,4 @@
-import { CheckboxContext } from 'src/contexts/CheckboxContext';
+import { CheckboxContext } from '@contexts/CheckboxContext';
 import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
 
