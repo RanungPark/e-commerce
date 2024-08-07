@@ -10,27 +10,27 @@ export const shopDatas: ShopDatas[] = [
   {
     children: 'Fresh Flowers',
     imgPath: IMG_PATH.FreshFlowers.FreshFlowersRep,
-    url: `/categories/fresh-flowers`,
+    url: `/categories/fresh_flowers`,
   },
   {
     children: 'Dried Flowers',
     imgPath: IMG_PATH.DriedFlowers.DriedFlowersRep,
-    url: `/categories/dried-flowers`,
+    url: `/categories/dried_flowers`,
   },
   {
     children: 'Live Plants',
     imgPath: IMG_PATH.LivePlants.LivePlantRep,
-    url: `/categories/live-plants`,
+    url: `/categories/live_plants`,
   },
   {
     children: 'Designer Vases',
     imgPath: IMG_PATH.DesignerVases.DesignerVasesRep,
-    url: `/categories/designer-vases`,
+    url: `/categories/designer_vases`,
   },
   {
     children: 'Aroma Candels',
     imgPath: IMG_PATH.AromaCandles.AromaCandlesRep,
-    url: `/categories/aroma-candels`,
+    url: `/categories/aroma_candels`,
   },
   {
     children: 'Fresheners',
