@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Buttons from '../common/Buttons';
 import { PickFromProducts, ProductType } from 'src/@types/product';
 import { useCartStore } from '@store/cartStore';
-import toast from 'react-hot-toast';
+import { addToCart } from '@constants/toast';
 
 type ProductProps = {
   product: ProductType;
@@ -45,10 +45,7 @@ const Product = ({ product, combinationProducts }: ProductProps) => {
 
     addItem(item);
 
-    toast.success(`${product.name}이(가) 장바구니에 담겼어요!`, {
-      icon: '🛒',
-      duration: 3000,
-    });
+    addToCart(product.name);
   };
 
   return (

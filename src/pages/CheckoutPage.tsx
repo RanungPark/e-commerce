@@ -2,11 +2,11 @@ import CompleteInput from '@components/common/CompleteInput';
 import { checkoutFormDatas } from '@data/checkout';
 import { useCartStore } from '@store/cartStore';
 import { useState } from 'react';
-import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import CheckoutForm from '@components/chekcout/ChekcoutForm';
 import OrderSummary from '@components/chekcout/OrderSummary';
+import { paymentsDone } from '@constants/toast';
 
 type paymentOrderType = 'Contact information' | 'Shipping details' | 'Payment';
 
@@ -25,9 +25,7 @@ const CheckoutPage = () => {
     setPaymentOrder('Payment');
   };
   const handleThirdSection = () => {
-    toast.success(`결제가 완료되었습니다`, {
-      duration: 3000,
-    });
+    paymentsDone();
     clearCart();
     navigate('/');
   };
