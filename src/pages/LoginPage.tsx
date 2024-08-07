@@ -3,13 +3,13 @@ import CompleteInput from '@components/common/CompleteInput';
 import Text from '@components/common/Text';
 import TextField from '@components/common/TextField';
 import { REG_PHONE } from '@constants/reg';
+import { loginDone } from '@constants/toast';
 import { useUserStore } from '@store/userStore';
 import { mixins } from '@styles/Mixin';
 import { useMutation } from '@tanstack/react-query';
 import { fetchJoin, fetchLogin } from '@utils/api';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 
@@ -119,9 +119,7 @@ const Join = ({ username, status }: { username: string; status: string }) => {
 
       navigate(-1);
 
-      toast.success(`로그인에 성공하였습니다!`, {
-        duration: 3000,
-      });
+      loginDone();
     },
     onError: error => {
       setJoin(false);

@@ -6,8 +6,8 @@ import Text from '../Text';
 import { mixins } from '@styles/Mixin';
 import { CartItem, useCartStore } from '@store/cartStore';
 import { useNavigate } from 'react-router';
-import toast from 'react-hot-toast';
 import { useUserStore } from '@store/userStore';
+import { clearCart, loginError } from '@constants/toast';
 
 type BurgerMenuProps = {
   open: boolean;
@@ -28,9 +28,7 @@ const Cart = ({ open, setOpen }: BurgerMenuProps) => {
   const goToCheckoutPage = () => {
     if (isLoggedIn) {
       if (cart.length === 0) {
-        toast.error(`장바구니가 비어있습니다!`, {
-          duration: 3000,
-        });
+        clearCart();
       } else {
         setOpen(!open);
 
@@ -41,10 +39,7 @@ const Cart = ({ open, setOpen }: BurgerMenuProps) => {
 
       navigate(`/login`);
 
-      toast.error(`로그인을 진행해주세요`, {
-        icon: '🔐',
-        duration: 3000,
-      });
+      loginError();
     }
   };
 
