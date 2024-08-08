@@ -4,19 +4,19 @@ import Text from '../common/Text';
 import { mixins } from '@styles/Mixin';
 import { useState } from 'react';
 import Buttons from '../common/Buttons';
-import { PickFromProducts, ProductType } from 'src/@types/product';
+import { ProductType } from 'src/@types/product';
 import { useCartStore } from '@store/cartStore';
 import { addToCart } from '@constants/toast';
 
 type ProductProps = {
   product: ProductType;
-  combinationProducts: PickFromProducts[];
+  selectProducts: ProductType[];
 };
 
-const Product = ({ product, combinationProducts }: ProductProps) => {
+const Product = ({ product, selectProducts }: ProductProps) => {
   const [quantity, setQuantity] = useState(1);
   const { addItem } = useCartStore();
-
+  selectProducts;
   const handleMinus = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     if (quantity > 0) {
