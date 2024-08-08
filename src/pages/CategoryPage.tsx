@@ -1,15 +1,16 @@
-import ImageCards from '@components/common/Cards/ImageCards';
+import BackgroundImageCard from '@components/cards/BackgroundImageCard';
+import PrimaryImageCard from '@components/cards/PrimaryImageCard';
 import Loading from '@components/common/Loading';
-import Text from '@components/common/Text';
-import { mixins } from '@styles/Mixin';
 import { useQuery } from '@tanstack/react-query';
 import { fetchCategory } from '@utils/api';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ProductType, RepType } from 'src/@types/product';
+import { ProductType, ProductBgType } from 'src/@types/product';
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
+
 interface ICategory {
   products: ProductType[];
-  rep: RepType;
+  productBg: ProductBgType;
 }
 
 const CategoryPage = () => {
@@ -30,47 +31,39 @@ const CategoryPage = () => {
     navigate(`products/${productId}`);
   };
 
-  if (isLoading) return <Loading />;
-  if (error) goToNotFound();
+  if (!data) {
+    if (isLoading) return <Loading />;
+    if (error) goToNotFound();
+  }
 
-  return (
-    <>
-      <CategoryHeader
-        productImg={data?.rep.img ?? `https://via.placeholder.com/786x500.jpg`}
-        className="br-1 bl-1 bb-1"
-      >
-        <Text as="h1" typography="Heading1" color="white">
-          {data?.rep?.type}
-        </Text>
-      </CategoryHeader>
-      <CardsWrapper className="br-1">
-        {data?.products.map(product => (
-          <ImageCards
-            key={product.id}
-            label={product.name}
-            productImg={product.productImg}
-            price={`price ${product.price}$`}
-            cardType="main"
-            handleClick={goToProduct(product.id)}
-          />
-        ))}
-      </CardsWrapper>
-    </>
-  );
+  if (data) {
+    const { productBg, products } = data;
+
+    return (
+      <CategoryPageWrapper className="br-1">
+        <BackgroundImageCard imgPath={productBg.imgPath}>
+          {productBg.title}
+        </BackgroundImageCard>
+        <CategoryCardWrapper>
+          {products.map(({ id, name, price, imgPath }) => (
+            <PrimaryImageCard
+              key={uuidv4()}
+              alt={name}
+              onClick={goToProduct(id)}
+              imgPath={imgPath}
+              price={price}
+            >
+              {name}
+            </PrimaryImageCard>
+          ))}
+        </CategoryCardWrapper>
+      </CategoryPageWrapper>
+    );
+  }
 };
+const CategoryPageWrapper = styled.main``;
 
-const CategoryHeader = styled.section<{ productImg: string }>`
-  ${mixins.flexBox({})}
-
-  background-image: linear-gradient( rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35) ),${({
-    productImg,
-  }) => `url(${productImg})`};
-  background-size: cover;
-  width: 100%;
-  height: 500px;
-`;
-
-const CardsWrapper = styled.section`
+const CategoryCardWrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 `;
