@@ -1,9 +1,9 @@
-import { aromaCandelsProducts } from '@mocks/data/aromaCandels';
-import { designerVasesProducts } from '@mocks/data/designerVases';
-import { driedFlowersProducts } from '@mocks/data/driedFlowers';
-import { freshenersProducts } from '@mocks/data/fresheners';
-import { freshFlowersProducts } from '@mocks/data/freshFlowersData';
-import { livePlantsProducts } from '@mocks/data/livePlants';
+import { aromaCandelsProducts } from '@mocks/data/aromaCandelsDatas';
+import { designerVasesProducts } from '@mocks/data/designerVasesDatas';
+import { driedFlowersProducts } from '@mocks/data/driedFlowersDatas';
+import { freshenersProducts } from '@mocks/data/freshenersDatas';
+import { freshFlowersProducts } from '@mocks/data/freshFlowersDatas';
+import { livePlantsProducts } from '@mocks/data/livePlantsDatas';
 
 import { http, HttpResponse } from 'msw';
 

@@ -1,16 +1,22 @@
 import { http, HttpResponse } from 'msw';
-import { driedFlowersBg, driedFlowersProducts } from '@mocks/data/driedFlowers';
-import { livePlantsBg, livePlantsProducts } from '@mocks/data/livePlants';
-import { aromaCandelsBg, aromaCandelsProducts } from '@mocks/data/aromaCandels';
+import {
+  driedFlowersBg,
+  driedFlowersProducts,
+} from '@mocks/data/driedFlowersDatas';
+import { livePlantsBg, livePlantsProducts } from '@mocks/data/livePlantsDatas';
+import {
+  aromaCandelsBg,
+  aromaCandelsProducts,
+} from '@mocks/data/aromaCandelsDatas';
 import {
   freshFlowersBg,
   freshFlowersProducts,
-} from '@mocks/data/freshFlowersData';
-import { freshenersBg, freshenersProducts } from '@mocks/data/fresheners';
+} from '@mocks/data/freshFlowersDatas';
+import { freshenersBg, freshenersProducts } from '@mocks/data/freshenersDatas';
 import {
   designerVasesBg,
   designerVasesProducts,
-} from '@mocks/data/designerVases';
+} from '@mocks/data/designerVasesDatas';
 
 export const categoryHandlers = [
   http.get('/fresh_flowers', () => {
