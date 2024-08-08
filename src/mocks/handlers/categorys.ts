@@ -2,8 +2,8 @@ import { http, HttpResponse } from 'msw';
 import { driedFlowersBg, driedFlowersProducts } from '@mocks/data/driedFlowers';
 import { livePlantsBg, livePlantsProducts } from '@mocks/data/livePlants';
 import { aromaCandelsBg, aromaCandelsProducts } from '@mocks/data/aromaCandels';
-import { freshenersBg, freshenersProducts } from '@mocks/data/fresheners';
 import { freshFlowersBg, freshFlowersProducts } from '@mocks/data/freshFlowers';
+import { freshenersBg, freshenersProducts } from '@mocks/data/fresheners';
 import {
   designerVasesBg,
   designerVasesProducts,
