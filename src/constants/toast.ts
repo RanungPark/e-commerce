@@ -7,10 +7,20 @@ export const pageWait = () =>
   });
 
 export const subscriptionDone = (remind: string) => {
-  console.log(remind);
-  toast.success(`구독이 완료되었습니다`, {
+  toast.success(`${remind}님 구독이 완료되었습니다`, {
     duration: 3000,
   });
+};
+
+export const subscriptionFail = (Reasons: string) => {
+  toast.error(
+    `구독을 실패하였습니다, 
+    ${Reasons}`,
+    {
+      icon: '🥲',
+      duration: 3000,
+    }
+  );
 };
 
 export const paymentsDone = () => {
@@ -25,7 +35,7 @@ export const loginDone = () => {
   });
 };
 
-export const loginError = () => {
+export const loginFail = () => {
   toast.error(`로그인을 진행해주세요`, {
     icon: '🔐',
     duration: 3000,

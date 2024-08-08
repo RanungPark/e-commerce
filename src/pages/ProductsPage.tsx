@@ -4,12 +4,12 @@ import OuterProducts from '@components/product/OuterProducts';
 import { useQuery } from '@tanstack/react-query';
 import { fetchProduct } from '@utils/api';
 import { useNavigate, useParams } from 'react-router';
-import { PickFromProducts, ProductType } from 'src/@types/product';
+import { ProductType } from 'src/@types/product';
 
 interface IProduct {
   product: ProductType;
-  outerProducts: PickFromProducts[];
-  combinationProducts: PickFromProducts[];
+  selectProducts: ProductType[];
+  outerProducts: ProductType[];
 }
 
 const ProductsPage = () => {
@@ -29,10 +29,10 @@ const ProductsPage = () => {
   if (error) goToNotFound();
 
   if (data && !isLoading) {
-    const { product, outerProducts, combinationProducts } = data;
+    const { product, outerProducts, selectProducts } = data;
     return (
       <>
-        <Product product={product} combinationProducts={combinationProducts} />
+        <Product product={product} selectProducts={selectProducts} />
         <OuterProducts outerProducts={outerProducts} />
       </>
     );

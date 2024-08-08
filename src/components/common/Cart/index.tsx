@@ -7,7 +7,7 @@ import { mixins } from '@styles/Mixin';
 import { CartItem, useCartStore } from '@store/cartStore';
 import { useNavigate } from 'react-router';
 import { useUserStore } from '@store/userStore';
-import { clearCart, loginError } from '@constants/toast';
+import { clearCart, loginFail } from '@constants/toast';
 
 type BurgerMenuProps = {
   open: boolean;
@@ -39,7 +39,7 @@ const Cart = ({ open, setOpen }: BurgerMenuProps) => {
 
       navigate(`/login`);
 
-      loginError();
+      loginFail();
     }
   };
 

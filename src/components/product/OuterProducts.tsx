@@ -2,13 +2,9 @@ import styled from 'styled-components';
 import ImageCards from '../common/Cards/ImageCards';
 import Text from '../common/Text';
 import { mixins } from '@styles/Mixin';
-import { PickFromProducts } from 'src/@types/product';
+import { ProductType } from 'src/@types/product';
 
-const OuterProducts = ({
-  outerProducts,
-}: {
-  outerProducts: PickFromProducts[];
-}) => {
+const OuterProducts = ({ outerProducts }: { outerProducts: ProductType[] }) => {
   return (
     <StyledOuterProducts className="br-1">
       <Title className="bl-1 bb-1">
@@ -22,7 +18,7 @@ const OuterProducts = ({
             label={outerProduct.name}
             cardType="main"
             price={`price ${outerProduct.price}$`}
-            productImg={outerProduct.productImg}
+            productImg={outerProduct.imgPath}
           />
         ))}
       </ProductsList>
