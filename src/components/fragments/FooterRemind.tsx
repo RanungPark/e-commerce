@@ -1,6 +1,8 @@
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import DefaultTextField from '@components/textfields/DefaultTextField';
-import { subscriptionDone } from '@constants/toast';
+import { REG_EMAIL } from '@constants/reg';
+import { subscriptionDone, subscriptionFail } from '@constants/toast';
+import { useUserStore } from '@store/userStore';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
@@ -10,10 +12,22 @@ interface FooterRemindForm {
 
 const FooterRemind = () => {
   const { register, handleSubmit, reset } = useForm<FooterRemindForm>();
+  const { isLoggedIn, setSubscribe } = useUserStore();
 
   const onValid = ({ remind }: FooterRemindForm) => {
-    subscriptionDone(remind);
-    reset({ remind: '' });
+    if (isLoggedIn) {
+      if (remind === '') {
+        subscriptionFail('이메일을 작성해주세요');
+      } else if (!REG_EMAIL.test(remind)) {
+        subscriptionFail('이메일 형식으로 작성해주세요');
+      } else {
+        subscriptionDone(remind);
+        setSubscribe(true);
+        reset({ remind: '' });
+      }
+    } else {
+      subscriptionFail('로그인을 해주세요');
+    }
   };
 
   return (
