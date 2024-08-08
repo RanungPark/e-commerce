@@ -1,5 +1,5 @@
 import { http, HttpResponse } from 'msw';
-import { driedFlowersBg, driedFlowersProducts } from '@mocks/data/DriedFlowers';
+import { driedFlowersBg, driedFlowersProducts } from '@mocks/data/driedFlowers';
 import { freshFlowersBg, freshFlowersProducts } from '@mocks/data/freshFlowers';
 import { livePlantsBg, livePlantsProducts } from '@mocks/data/livePlants';
 import { aromaCandelsBg, aromaCandelsProducts } from '@mocks/data/aromaCandels';

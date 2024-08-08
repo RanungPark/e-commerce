@@ -1,6 +1,6 @@
 import { aromaCandelsProducts } from '@mocks/data/aromaCandels';
 import { designerVasesProducts } from '@mocks/data/designerVases';
-import { driedFlowersProducts } from '@mocks/data/DriedFlowers';
+import { driedFlowersProducts } from '@mocks/data/driedFlowers';
 import { freshenersProducts } from '@mocks/data/fresheners';
 import { freshFlowersProducts } from '@mocks/data/freshFlowers';
 import { livePlantsProducts } from '@mocks/data/livePlants';
