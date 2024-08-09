@@ -1,94 +1,82 @@
-import CompleteInput from '@components/common/CompleteInput';
-import { checkoutFormDatas } from '@data/checkout';
 import { useCartStore } from '@store/cartStore';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
-import CheckoutForm from '@components/chekcout/ChekcoutForm';
-import OrderSummary from '@components/chekcout/OrderSummary';
 import { paymentsDone } from '@constants/toast';
+import CheckoutSummary from '@components/fragments/CheckoutSummary';
+import Checkout1stStep from '@components/fragments/Checkout1stStep';
+import Checkout2ndStep from '@components/fragments/Checkout2ndStep';
+import Checkout3rdStep from '@components/fragments/Checkout3rdStep';
+import { FormStateType } from 'src/@types/state';
 
-type paymentOrderType = 'Contact information' | 'Shipping details' | 'Payment';
 
 const CheckoutPage = () => {
-  const [paymentOrder, setPaymentOrder] = useState<paymentOrderType>(
-    'Contact information'
-  );
+  const [checkout1stStepState, setCheckout1stStepState] =
+    useState<FormStateType>('curr');
+  const [checkout2ndStepState, setCheckout2ndStepState] =
+    useState<FormStateType>('yet');
+  const [checkout3rdStepState, setCheckout3rdStepState] =
+    useState<FormStateType>('yet');
 
   const navigate = useNavigate();
   const { clearCart } = useCartStore();
 
-  const handleFirstSection = () => {
-    setPaymentOrder('Shipping details');
+  const handle1stSubmit = () => {
+    setCheckout1stStepState('done');
+    setCheckout2ndStepState('curr');
+    setCheckout3rdStepState('yet');
   };
-  const handleSecondSection = () => {
-    setPaymentOrder('Payment');
+
+  const handle1stClick = () => {
+    setCheckout1stStepState('curr');
+    setCheckout2ndStepState('yet');
+    setCheckout3rdStepState('yet');
   };
-  const handleThirdSection = () => {
+
+  const handle2ndSubmit = () => {
+    setCheckout1stStepState('done');
+    setCheckout2ndStepState('done');
+    setCheckout3rdStepState('curr');
+  };
+
+  const handle2ndClick = () => {
+    setCheckout1stStepState('done');
+    setCheckout2ndStepState('curr');
+    setCheckout3rdStepState('yet');
+  };
+
+  const handle3rdSubmit = () => {
+    setCheckout1stStepState('curr');
+    setCheckout2ndStepState('yet');
+    setCheckout3rdStepState('yet');
+
     paymentsDone();
     clearCart();
     navigate('/');
   };
 
   return (
-    <CheckoutWrapper>
-      <OrderSummary />
-      <CheckoutFormWrapper className="bb-1 br-1 bl-1 pt-5 pb-5 pr-10 pl-10">
-        {paymentOrder === 'Contact information' ? (
-          <>
-            <CheckoutForm
-              checkoutFormData={checkoutFormDatas[0]}
-              handlerFunc={handleFirstSection}
-            />
-            <div className="mt-5">
-              <CompleteInput label="2 Shipping details" isFilled={false} />
-            </div>
-            <div className="mt-5">
-              <CompleteInput label="3 Payment" isFilled={false} />
-            </div>
-          </>
-        ) : (
-          <></>
-        )}
-        {paymentOrder === 'Shipping details' ? (
-          <>
-            <CompleteInput label="1 Contact information" isFilled={true} />
-            <div className="mt-5">
-              <CheckoutForm
-                checkoutFormData={checkoutFormDatas[1]}
-                handlerFunc={handleSecondSection}
-              />
-            </div>
-            <div className="mt-5">
-              <CompleteInput label="3 Payment" isFilled={false} />
-            </div>
-          </>
-        ) : (
-          <></>
-        )}
-        {paymentOrder === 'Payment' ? (
-          <>
-            <CompleteInput label="1 Contact information" isFilled={true} />
-            <div className="mt-5">
-              <CompleteInput label="2 Shipping details" isFilled={true} />
-            </div>
-            <div className="mt-5">
-              <CheckoutForm
-                checkoutFormData={checkoutFormDatas[2]}
-                handlerFunc={handleThirdSection}
-              />
-            </div>
-          </>
-        ) : (
-          <></>
-        )}
-      </CheckoutFormWrapper>
-    </CheckoutWrapper>
+    <CheckoutPagetWrapper className="bb-1 pb-10">
+      <CheckoutSummary />
+      <Checkout1stStep
+        stepState={checkout1stStepState}
+        onSubmit={handle1stSubmit}
+        onClick={handle1stClick}
+      />
+      <Checkout2ndStep
+        stepState={checkout2ndStepState}
+        onSubmit={handle2ndSubmit}
+        onClick={handle2ndClick}
+      />
+      <Checkout3rdStep
+        stepState={checkout3rdStepState}
+        onSubmit={handle3rdSubmit}
+        onClick={() => {}}
+      />
+    </CheckoutPagetWrapper>
   );
 };
 
-const CheckoutWrapper = styled.section``;
-
-const CheckoutFormWrapper = styled.div``;
+const CheckoutPagetWrapper = styled.section``;
 
 export default CheckoutPage;
