@@ -16,7 +16,7 @@ const contactItems: FooterContactItemType[] = [
 
 const FooterContact = () => {
   return (
-    <FooterContactWrapper className="bl-1 bb-1 p-5">
+    <FooterContactWrapper className="bb-1 p-5">
       <FooterContactList contactItems={contactItems}>
         contact us
       </FooterContactList>

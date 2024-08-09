@@ -21,7 +21,7 @@ const FooterShopAndService = () => {
   };
 
   return (
-    <FooterShopAndServiceWrapper className="bl-1 bb-1 p-5">
+    <FooterShopAndServiceWrapper className="p-5">
       <FooterInfoTittle>shop</FooterInfoTittle>
       <FooterTextButtonList>
         {footerShopDatas.map(({ children, url }) => (

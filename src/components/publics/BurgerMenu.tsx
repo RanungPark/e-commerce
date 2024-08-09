@@ -22,11 +22,11 @@ const BurgerMenu = ({ open, setOpen }: BurgerMenuProps) => {
 
   return (
     <>
-      <BurgerMenuBackGround onClick={handleClose} />
-      <BurgerMenuWrapper className="bl-1 br-1">
+      <BurgerMenuBackGround onClick={handleClose} className="b-1" />
+      <BurgerMenuWrapper className="b-1">
         <BurgerMenuCloseButtonWrapper
           onClick={handleClose}
-          className="p-2 bb-1 bt-1"
+          className="p-2 bb-1"
         >
           <IconButton IconComponent={WClose} size="medium" />
         </BurgerMenuCloseButtonWrapper>

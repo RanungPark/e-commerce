@@ -10,7 +10,7 @@ const HomeAbout = () => {
   return (
     <HomeAboutWrapper>
       <TitleCard>About us</TitleCard>
-      <HomeAboutTextCardAndButtonWrapper className="bl-1 bb-1">
+      <HomeAboutTextCardAndButtonWrapper className="bb-1">
         <TextCard label="our story" title={aboutUsData.title}>
           {aboutUsData.children}
         </TextCard>

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const HomeMain = () => {
   return (
-    <HomeMainWrapper className="p-10 bl-1 bb-1">
+    <HomeMainWrapper className="p-10 bb-1">
       <HomeMainTitle className="pb-7 bb-1">
         <h1 className="pb-2">오늘의 꽃</h1>
         어떤 상황에도 어울리는 독특하게 제작된 부케와 선물을 찾아보세요. 온라인

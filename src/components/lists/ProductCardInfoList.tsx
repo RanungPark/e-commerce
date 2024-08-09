@@ -14,7 +14,7 @@ const ProductCardInfoList = ({
 }: ProductCardInfoListProps) => {
   return (
     <ProductCardInfoListWrapper
-      className="bl-1 p-2"
+      className="p-2"
       style={{ borderColor: colors.lightgray }}
     >
       {children}

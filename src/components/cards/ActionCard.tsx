@@ -18,7 +18,7 @@ const ActionCard = ({
   hasRightIcon,
 }: ActionCardProps) => {
   return (
-    <ActionCardWrapper className="bb-1 bl-1 p-4">
+    <ActionCardWrapper className="bb-1 p-4">
       {children}
       <ActionCardButtonWrapper>
         <TextButton
@@ -38,6 +38,7 @@ const ActionCardWrapper = styled.section`
   ${mixins.flexBox({})}
   position: relative;
   width: 100%;
+  height: ${768 / 2}px;
 `;
 
 const ActionCardButtonWrapper = styled.div`

@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const FooterAbout = () => {
   return (
-    <FooterAboutWrapper className="bl-1 bb-1 p-5">
+    <FooterAboutWrapper className="p-5">
       <FooterInfoTittle>service</FooterInfoTittle>
       <FooterTextButtonList>
         {aboutDatas.map(children => (
