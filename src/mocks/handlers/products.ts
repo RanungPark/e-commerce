@@ -82,7 +82,7 @@ export const productHandlers = [
       {
         product,
         selectProducts: designerVasesProducts,
-        outerProducts: aromaCandelsProducts,
+        outerProducts: driedFlowersProducts,
       },
       { status: 200 }
     );
@@ -102,7 +102,7 @@ export const productHandlers = [
       {
         product,
         selectProducts: aromaCandelsProducts,
-        outerProducts: freshenersProducts,
+        outerProducts: livePlantsProducts,
       },
       { status: 200 }
     );
@@ -122,7 +122,7 @@ export const productHandlers = [
       {
         product,
         selectProducts: freshenersProducts,
-        outerProducts: designerVasesProducts,
+        outerProducts: freshFlowersProducts,
       },
       { status: 200 }
     );
