@@ -1,207 +1,94 @@
-import Buttons from '@components/common/Buttons';
-import CompleteInput from '@components/common/CompleteInput';
-import Text from '@components/common/Text';
-import TextField from '@components/common/TextField';
-import { REG_PHONE } from '@constants/reg';
-import { loginDone } from '@constants/toast';
+import PrimaryButton from '@components/buttons/PrimaryButton';
+import LoginId from '@components/fragments/LoginId';
+import LoginPassword from '@components/fragments/LoginPassword';
 import { useUserStore } from '@store/userStore';
 import { mixins } from '@styles/Mixin';
-import { useMutation } from '@tanstack/react-query';
-import { fetchJoin, fetchLogin } from '@utils/api';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
+import { FormStateType } from 'src/@types/state';
 import styled from 'styled-components';
 
+export type loginStateType = 'signin' | 'join' | 'signup' | 'done';
+
 const LoginPage = () => {
-  const [status, setStatus] = useState('404');
+  const [loginCurrState, setLoginCurrState] =
+    useState<loginStateType>('signin');
+  const [loginIdState, setLoginIdState] = useState<FormStateType>('curr');
+  const [loginPasswordState, setLoginPasswordState] =
+    useState<FormStateType>('yet');
+  const [username, setUsername] = useState('');
+
   const { isLoggedIn } = useUserStore();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    getValues,
-  } = useForm();
-
-  const LoginMutation = useMutation({
-    mutationFn: (username: string) => fetchLogin(username),
-    onSuccess: data => {
-      const { message } = data;
-      if (message === '로그인 진행') {
-        setStatus('200');
-      } else if (message === '회원가입 진행') {
-        setStatus('202');
-      }
-    },
-    onError: error => {
-      console.error('Login failed:', error);
-    },
-  });
-
-  const onLoginValid = (data: any) => {
-    const { username } = data;
-    LoginMutation.mutate(username);
-  };
-
-  return (
-    <>
-      {isLoggedIn ? (
-        <LoginSuccess />
-      ) : (
-        <>
-          {status === '404' ? (
-            <LoginWrapper className="bb-1 bl-1 br-1 p-10">
-              <Text as="h2" typography="Heading2">
-                {'안녕하세요! 오늘의 꽃에 오신 것을 환영합니다.'}
-              </Text>
-              <StyledFrom
-                className="mt-3 mb-3"
-                onSubmit={handleSubmit(onLoginValid)}
-              >
-                <TextField
-                  label="휴대폰 번호를 사용하여 가입 또는 로그인하기"
-                  inputState={
-                    Object.keys(errors).length === 0 ? undefined : 'error'
-                  }
-                  textHelper={
-                    Object.keys(errors).length === 0
-                      ? undefined
-                      : (errors.username?.message as string)
-                  }
-                >
-                  <input
-                    {...register('username', {
-                      required: 'ID를 입력해주세요',
-                      pattern: {
-                        value: REG_PHONE,
-                        message: `'-' 없이 전화번호를 입력해주세요.`,
-                      },
-                    })}
-                    placeholder="+82 XXX XXX XXX"
-                  />
-                </TextField>
-                <Buttons label="continue" buttonType="contained" />
-              </StyledFrom>
-            </LoginWrapper>
-          ) : (
-            <Join username={getValues().username} status={status} />
-          )}
-        </>
-      )}
-    </>
-  );
-};
-
-const Join = ({ username, status }: { username: string; status: string }) => {
-  const [join, setJoin] = useState(true);
-  const type = status === '200' ? '로그인' : '회원가입';
-
-  const { register, handleSubmit } = useForm();
-
-  const navigate = useNavigate();
-
-  const { login } = useUserStore();
-
-  const JoinMutation = useMutation({
-    mutationFn: (password: string) => fetchJoin(username, password, type),
-    onSuccess: data => {
-      console.log(data);
-
-      const loginUser = {
-        id: data.id,
-        username: data.username,
-      };
-
-      login(loginUser);
-
-      setJoin(true);
-
-      navigate(-1);
-
-      loginDone();
-    },
-    onError: error => {
-      setJoin(false);
-      console.error('Login failed:', error);
-    },
-  });
-
-  const onJoinValid = (data: any) => {
-    const { password } = data;
-    JoinMutation.mutate(password);
-  };
-
-  return (
-    <JoinWrapper className="bb-1 bl-1 br-1 p-10">
-      {status === '200' ? (
-        <Text as="h2" typography="Heading2">
-          {'로그인을 진행해주세요!'}
-        </Text>
-      ) : (
-        <Text as="h2" typography="Heading2">
-          {'회원가입을 진행해주세요!'}
-        </Text>
-      )}
-      <StyledFrom className="mt-3 mb-3" onSubmit={handleSubmit(onJoinValid)}>
-        <CompleteInput label={username} />
-        <TextField
-          label="비밀번호를 입렵해주세요"
-          inputState={join ? undefined : 'error'}
-          textHelper={join ? undefined : '로그인을 실패 하였습니다.'}
-        >
-          <input
-            {...register('password', {
-              required: '비밀번호를 입력해주세요',
-            })}
-            placeholder="비밀번호를 입력해주세요"
-          />
-        </TextField>
-        <Buttons label="continue" buttonType="contained" />
-      </StyledFrom>
-    </JoinWrapper>
-  );
-};
-
-const LoginSuccess = () => {
   const navigate = useNavigate();
   const goToMainPage = () => {
     navigate('/');
   };
 
+  const handleIdSubmit = (state: loginStateType) => {
+    setLoginCurrState(state);
+    setLoginIdState('done');
+    setLoginPasswordState('curr');
+  };
+
+  const handleIdClick = () => {
+    setLoginCurrState('signin');
+    setLoginIdState('curr');
+    setLoginPasswordState('yet');
+  };
+
+  const handlePasswordSubmit = (state: loginStateType) => {
+    setLoginCurrState(state);
+  };
+
   return (
-    <LoginSuccessWrapper className="br-1 bl-1 bb-1">
-      <Text as="p" typography="Heading5">
-        로그인이 완료되었습니다
-      </Text>
-      <Buttons
-        label="메인 페이지로 돌아가기"
-        disabled={false}
-        buttonType="contained"
-        handleClick={goToMainPage}
-      />
-    </LoginSuccessWrapper>
+    <>
+      {isLoggedIn ? (
+        <LoginSuccessWrapper className="bb-1">
+          로그인이 완료되었습니다
+          <PrimaryButton onClick={goToMainPage}>
+            메인 페이지로 돌아가기
+          </PrimaryButton>
+        </LoginSuccessWrapper>
+      ) : (
+        <LoginPageWrapper className="p-5 bb-1">
+          {loginCurrState === 'signin' &&
+            `안녕하세요! 오늘의 꽃에 오신 것을 환영합니다.`}
+          {loginCurrState === 'join' && `로그인을 진행해주세요`}
+          {loginCurrState === 'signup' && `회원가입을 진행해주세요`}
+          <LoginId
+            loginState={loginIdState}
+            onClick={handleIdClick}
+            onSubmit={handleIdSubmit}
+            setUsername={setUsername}
+          />
+          <LoginPassword
+            loginState={loginPasswordState}
+            onSubmit={handlePasswordSubmit}
+            username={username}
+            loginCurrState={loginCurrState}
+          />
+        </LoginPageWrapper>
+      )}
+    </>
   );
 };
 
 const LoginSuccessWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', justify: 'space-evenly' })}
+  ${({ theme }) => theme.typography.Heading5}
   width: 100%;
-  height: 70vh;
+  height: 55vh;
   margin: 0 auto;
   padding: 80px 30px;
 `;
 
-const LoginWrapper = styled.div`
-  height: 720px;
-`;
-
-const JoinWrapper = styled(LoginWrapper)``;
-
-const StyledFrom = styled.form`
+const LoginPageWrapper = styled.div`
+  ${({ theme }) => theme.typography.Heading2}
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 100px;
+  height: 60vh;
 `;
 
 export default LoginPage;
