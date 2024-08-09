@@ -23,6 +23,7 @@ const Stepper = ({ value, onClickMinus, onClickPlus }: StepperProps) => {
 
 const StepperWrapper = styled.div`
   ${mixins.flexBox({ justify: 'space-between' })}
+  max-width: 146px;
 
   & button:first-child {
     border-right: 1px solid ${({ theme }) => theme.colors.black};

@@ -23,20 +23,16 @@ const TextButton = ({
 }: TextButtonProps) => {
   return (
     <TextButtonWrapper onClick={onClick} disabled={disabled}>
-      {!hasLeftIcon ? (
-        <></>
-      ) : !CustomButton ? (
-        <IconButton IconComponent={ArrowLeft} />
+      {hasLeftIcon ? (
+        <IconButton IconComponent={CustomButton || ArrowLeft} />
       ) : (
-        <IconButton IconComponent={CustomButton} />
+        <></>
       )}
       {children}
-      {!hasRightIcon ? (
-        <></>
-      ) : !CustomButton ? (
-        <IconButton IconComponent={ArrowRight} />
+      {hasRightIcon ? (
+        <IconButton IconComponent={CustomButton || ArrowRight} />
       ) : (
-        <IconButton IconComponent={CustomButton} />
+        <></>
       )}
     </TextButtonWrapper>
   );
