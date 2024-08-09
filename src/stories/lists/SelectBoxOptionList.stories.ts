@@ -1,21 +1,21 @@
-import SelectBoxOptionList from '@components/lists/SelectBoxOptionList';
+import DropDownOptionList from '@components/lists/DropDownOptionList';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-const meta: Meta<typeof SelectBoxOptionList> = {
-  title: 'Lists/SelectBoxOptionList',
-  component: SelectBoxOptionList,
+const meta: Meta<typeof DropDownOptionList> = {
+  title: 'Lists/DropDownOptionList',
+  component: DropDownOptionList,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
     onClick: {
-      description: 'SelectBoxOption 클릭 이벤트',
+      description: 'DropDownOption 클릭 이벤트',
     },
     options: {
       control: 'text',
-      description: 'SelectBoxOptionList 옵션 아이템들',
+      description: 'DropDownOptionList 옵션 아이템들',
       defaultValue: [
         'Option A',
         'Option B',
