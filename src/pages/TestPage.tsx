@@ -1,8 +1,6 @@
 import NavigationButton from '@components/buttons/NavigationButton';
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import TextButton from '@components/buttons/TextButton';
-import Checkbox from '@components/selects/Checkbox';
-import RadioButton from '@components/selects/RadioButton';
 import DefaultTextField from '@components/textfields/DefaultTextField';
 import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
@@ -19,15 +17,17 @@ import CompleteTextFiled from '@components/textfields/CompleteTextFiled';
 import Accordion from '@components/utilities/Accordion';
 import ProductCard from '@components/cards/ProductCard';
 import DatePicker from '@components/utilities/DatePicker';
-import SelectBox from '@components/selects/SelectBox';
 import ProductCardInfo from '@components/texts/ProductCardInfo';
 import ProductCardInfoList from '@components/lists/ProductCardInfoList';
 import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
-import SelectBoxOption from '@components/texts/SelectBoxOption';
-import SelectBoxOptionList from '@components/lists/SelectBoxOptionList';
 import { useState } from 'react';
 import CheckboxGroup from '@components/groups/CheckboxGroup';
 import RadioButtonGroup from '@components/groups/RadioButtonGroup';
+import DropDown from '@components/utilities/DropDown';
+import DropDownOption from '@components/texts/DropDownOption';
+import DropDownOptionList from '@components/lists/DropDownOptionList';
+import Checkbox from '@components/utilities/Checkbox';
+import RadioButton from '@components/utilities/RadioButton';
 
 const TestPage = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -264,18 +264,18 @@ const TestPage = () => {
         onChange={handleDateChange}
       />
 
-      <SelectBox
+      <DropDown
         value={selectValue}
         onChange={setSelectValue}
         options={['Option A', 'Option B', 'Option C', 'Option D', 'Option E']}
         placeholder="- Select -"
       />
 
-      <SelectBoxOption onClick={() => console.log('셀렉트 바스 옵션 클리')}>
+      <DropDownOption onClick={() => console.log('셀렉트 바스 옵션 클리')}>
         Option A
-      </SelectBoxOption>
+      </DropDownOption>
 
-      <SelectBoxOptionList
+      <DropDownOptionList
         onClick={() => console.log('셀렉트 바스 옵션 클리')}
         options={['Option A', 'Option B', 'Option C', 'Option D', 'Option E']}
       />

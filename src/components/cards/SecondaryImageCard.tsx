@@ -51,6 +51,10 @@ const SecondaryImageCardImg = styled.img`
 const SecondaryImageCardTextWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   ${({ theme }) => theme.typography.Caption}
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100px;
   gap: 4px;
 `;
 

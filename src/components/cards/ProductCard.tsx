@@ -25,7 +25,7 @@ const ProductCard = ({
   return (
     <ProductCardWrapper>
       <ProductCardContentWrapper
-        className="bt-1 br-1 bl-1"
+        className="bb-1"
         style={{ borderColor: colors.lightgray }}
       >
         <ProductCardImg alt={alt} src={imgPath} />

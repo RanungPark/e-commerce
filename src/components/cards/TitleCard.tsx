@@ -7,7 +7,7 @@ interface TitleCardProps {
 
 const TitleCard = ({ children }: TitleCardProps) => {
   return (
-    <TitleCardWrapper className="bl-1 bb-1 p-10">{children}</TitleCardWrapper>
+    <TitleCardWrapper className="bb-1 p-10">{children}</TitleCardWrapper>
   );
 };
 

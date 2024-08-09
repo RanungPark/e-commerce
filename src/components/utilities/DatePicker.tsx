@@ -4,6 +4,7 @@ import { ReactComponent as WChevronLeft } from '@assets/icons/wght400/WChevronLe
 import { ReactComponent as WChevronRight } from '@assets/icons/wght400/WChevronRight.svg';
 import { ReactComponent as WCalendar } from '@assets/icons/wght400/WCalendar.svg';
 import { default as DatePickerLib } from 'react-datepicker';
+import { zIndex } from '@constants/zIndex';
 
 interface DatePickerProps {
   placeholder: string;
@@ -19,11 +20,7 @@ interface RenderCustomHeaderProps {
   nextMonthButtonDisabled: boolean;
 }
 
-const DatePicker = ({
-  placeholder,
-  value,
-  onChange,
-}: DatePickerProps) => {
+const DatePicker = ({ placeholder, value, onChange }: DatePickerProps) => {
   return (
     <DatePickerWrapper>
       <DatePickerLabelWrapper>
@@ -69,10 +66,11 @@ const CustomHeader = ({
   nextMonthButtonDisabled,
 }: RenderCustomHeaderProps) => {
   const formatDate = (d: Date): string => {
+    const date = new Date(d);
     const header = new Intl.DateTimeFormat('en-US', {
       month: 'long',
       year: 'numeric',
-    }).format(d);
+    }).format(date);
     return `${header}`;
   };
 
@@ -95,6 +93,7 @@ const DatePickerWrapper = styled.div`
   width: 100%;
   max-height: 56px;
   position: relative;
+  z-index: ${zIndex.datePicker};
 `;
 
 const DatePickerLabelWrapper = styled.label`
@@ -113,12 +112,16 @@ const DatePickerLabelWrapper = styled.label`
   padding: 16px;
   cursor: pointer;
 
+  .react-datepicker-popper{
+    left: 0;
+  }
+
   .react-datepicker {
     border: 1px solid ${({ theme }) => theme.colors.black};
     border-radius: 0;
     position: absolute;
     top: 16px;
-    left: 0;
+    left: auto;
     padding: 24px;
   }
 
@@ -127,32 +130,46 @@ const DatePickerLabelWrapper = styled.label`
     border-bottom: none;
     border-radius: 0;
     padding: 0;
+    width: 180px;
+  }
+  .react-datepicker__aria-live {
+    display: none;
   }
 
   .react-datepicker__day-names {
     ${({ theme }) => theme.typography.CaptionBold}
-    ${mixins.flexBox({})}
-    gap: 8px;
+    ${mixins.flexBox({ justify: 'space-between' })}
     padding: 0;
     margin-top: 16px;
 
     .react-datepicker__day-name {
+      ${mixins.flexBox({})}
+      width: 24px;
+      height: 24px;
+
       color: ${({ theme }) => theme.colors.gray};
-      width: auto;
-      height: auto;
       margin: 0;
     }
   }
 
   .react-datepicker__month {
     ${({ theme }) => theme.typography.CaptionBold}
-    ${mixins.flexBox({ direction: 'column' })}
-    margin: 24px 0 0 0;
-    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .react-datepicker__week {
+    display: flex;
+    justify-content: space-between;
   }
 
   .react-datepicker__day {
+    ${mixins.flexBox({})}
     margin: 0;
+    width: 24px;
+    height: 24px;
 
     &:hover {
       color: ${({ theme }) => theme.colors.black};

@@ -5,7 +5,7 @@ import { ReactComponent as WEdit } from '@assets/icons/wght400/WEdit.svg';
 import { mixins } from '@styles/Mixin';
 
 interface CompleteTextFiledProps {
-  onClick: (e: React.MouseEvent) => void;
+  onClick?: (e: React.MouseEvent) => void;
   children: string;
   disabled?: boolean;
 }

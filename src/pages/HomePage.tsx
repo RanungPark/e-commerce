@@ -16,7 +16,7 @@ const HomePage = () => {
   };
 
   return (
-    <HomePageWrapper className="br-1">
+    <HomePageWrapper>
       <HomeMain />
       {shopDatas.map(({ children, imgPath, url }, index) => (
         <ActionCardAndImageCardList

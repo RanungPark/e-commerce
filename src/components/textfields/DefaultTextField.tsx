@@ -2,6 +2,7 @@ import HelpMessage from '@components/texts/HelpMessage';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import TextFieldLabel from '../texts/TextFieldLabel';
+import { zIndex } from '@constants/zIndex';
 
 type InputState = 'default' | 'error' | 'success';
 
@@ -47,7 +48,7 @@ const DefaultTextField = ({
 
 const DefaultTextFieldWrapper = styled.div`
   position: relative;
-
+  width: 100%;
   & .helpMessage,
   label {
     position: absolute;
@@ -58,6 +59,7 @@ const DefaultTextFieldWrapper = styled.div`
   & label {
     top: -30px;
   }
+  z-index: ${zIndex.textField};
 `;
 
 export const defaultStyle = css`

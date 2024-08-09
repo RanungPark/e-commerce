@@ -5,10 +5,10 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  return <StyledLayout>{children}</StyledLayout>;
+  return <LayoutWrapper className="b-1">{children}</LayoutWrapper>;
 };
 
-const StyledLayout = styled.main`
+const LayoutWrapper = styled.main`
   display: flex;
   position: relative;
   flex-direction: column;

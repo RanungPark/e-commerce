@@ -1,7 +1,8 @@
-import Cart from '@components/common/Cart';
 import BurgerMenu from '@components/publics/BurgerMenu';
 import NavigationBar from '@components/utilities/NavigationBar';
+import Cart from './Cart';
 import { useState } from 'react';
+import styled from 'styled-components';
 
 const Header = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);
@@ -16,19 +17,22 @@ const Header = () => {
   };
 
   return (
-    <>
+    <HeaderWrapper>
       {burgerOpen ? (
         <BurgerMenu setOpen={setBurgerOpen} open={burgerOpen} />
       ) : (
         <></>
       )}
       {cartOpen ? <Cart setOpen={setCartOpen} open={cartOpen} /> : <></>}
+      {/* <Cart setOpen={setCartOpen} open={cartOpen} /> */}
       <NavigationBar
         onMenuClick={handleBurgerMenuOpen}
         onCartClick={handleCartOpen}
       />
-    </>
+    </HeaderWrapper>
   );
 };
 
+const HeaderWrapper = styled.header`
+`;
 export default Header;

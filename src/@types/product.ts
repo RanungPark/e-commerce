@@ -4,6 +4,7 @@ export interface ProductType {
   price: number;
   imgPath: string;
   info: string;
+  category: string;
 }
 
 export interface ProductBgType {

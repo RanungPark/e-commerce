@@ -1,5 +1,5 @@
 import CheckboxGroup from '@components/groups/CheckboxGroup';
-import Checkbox from '@components/selects/Checkbox';
+import Checkbox from '@components/utilities/Checkbox';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 

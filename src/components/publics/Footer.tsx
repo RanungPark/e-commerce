@@ -6,7 +6,7 @@ import FooterShopAndService from '@components/fragments/FooterShopAndService';
 
 const Footer = () => {
   return (
-    <FooterWrapper className="br-1">
+    <FooterWrapper>
       <FooterRemind />
       <FooterContact />
       <FooterShopAndService />
@@ -19,6 +19,10 @@ const FooterWrapper = styled.footer`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto;
+
+  & > div:nth-child(odd) {
+    border-right: 1px solid ${({ theme }) => theme.colors.black};
+  }
 `;
 
 export default Footer;

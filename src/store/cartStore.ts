@@ -10,9 +10,9 @@ export interface CartItem {
 }
 
 export interface CartState {
-  cart: CartItem[];
+  carts: CartItem[];
   addItem: (item: CartItem) => void;
-  removeItem: (id: number) => void;
+  removeItem: (name: string) => void;
   clearCart: () => void;
 }
 
@@ -20,32 +20,34 @@ export const useCartStore = create<CartState>()(
   devtools(
     persist(
       set => ({
-        cart: [],
+        carts: [],
         addItem: item =>
           set(state => {
-            const existingItem = state.cart.find(
-              cartItem => cartItem.id === item.id
+            const existingItem = state.carts.find(
+              cart => cart.name === item.name
             );
             if (existingItem) {
               return {
-                cart: state.cart.map(cartItem =>
-                  cartItem.quantity !== item.quantity
-                    ? {
-                        ...cartItem,
-                        quantity: item.quantity,
-                        price: item.price,
-                      }
-                    : cartItem
-                ),
+                carts: state.carts.map(cart => {
+                  if (cart.name === existingItem.name) {
+                    return cart.quantity
+                      ? {
+                          ...cart,
+                          quantity: item.quantity,
+                          price: item.price,
+                        }
+                      : cart;
+                  } else return cart;
+                }),
               };
             }
-            return { cart: [...state.cart, { ...item }] };
+            return { carts: [...state.carts, { ...item }] };
           }),
-        removeItem: id =>
+        removeItem: name =>
           set(state => ({
-            cart: state.cart.filter(item => item.id !== id),
+            carts: state.carts.filter(cart => cart.name !== name),
           })),
-        clearCart: () => set({ cart: [] }),
+        clearCart: () => set({ carts: [] }),
       }),
       { name: 'cartStore', getStorage: () => sessionStorage }
     )

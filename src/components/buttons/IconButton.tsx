@@ -1,3 +1,4 @@
+import { mixins } from '@styles/Mixin';
 import styled, { css } from 'styled-components';
 
 type IconButtonSize = 'small' | 'medium' | 'large';
@@ -40,6 +41,8 @@ const largeStyle = css`
 `;
 
 const IconButtonWrapper = styled.button<IconButtonWrapperProps>`
+  ${mixins.flexBox({})}
+
   ${({ size }) => (size === 'small' ? smallStyle : null)}
   ${({ size }) => (size === 'medium' ? mediumStyle : null)}
   ${({ size }) => (size === 'large' ? largeStyle : null)}

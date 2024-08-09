@@ -51,6 +51,10 @@ const ActionCardAndImageCardList = ({
 const ActionCardAndImageCardListWrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  & > section:nth-child(odd) {
+    border-right: 1px solid ${({ theme }) => theme.colors.black};
+  }
 `;
 
 export default ActionCardAndImageCardList;

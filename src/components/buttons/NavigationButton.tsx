@@ -18,7 +18,7 @@ const NavigationButton = ({
   return (
     <NavigationButtonWrapper
       onClick={onClick}
-      className={`br-1 ${hasIcon ? 'p-2' : 'pt-4 pb-4 pr-9 pl-9'}`}
+      className={`${hasIcon ? 'p-2' : 'pt-4 pb-4 pr-9 pl-9'}`}
     >
       {hasIcon && IconComponent ? (
         <IconButton IconComponent={IconComponent} />

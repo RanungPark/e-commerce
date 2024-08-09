@@ -17,7 +17,7 @@ const PrimaryImageCard = ({
   onClick,
 }: PrimaryImageCardProps) => {
   return (
-    <PrimaryImageCardWrapper className="bl-1 bb-1" onClick={onClick}>
+    <PrimaryImageCardWrapper className="bb-1" onClick={onClick}>
       <PrimaryImageCardImg alt={alt} src={imgPath} />
       <PrimaryImageCardTextWrapper>
         {children}

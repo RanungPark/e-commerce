@@ -1,6 +1,6 @@
 import BackgroundImageCard from '@components/cards/BackgroundImageCard';
 import PrimaryImageCard from '@components/cards/PrimaryImageCard';
-import Loading from '@components/common/Loading';
+import Loading from '@components/publics/Loading';
 import { useQuery } from '@tanstack/react-query';
 import { fetchCategory } from '@utils/api';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -40,11 +40,11 @@ const CategoryPage = () => {
     const { productBg, products } = data;
 
     return (
-      <CategoryPageWrapper className="br-1">
+      <CategoryPageWrapper>
         <BackgroundImageCard imgPath={productBg.imgPath}>
           {productBg.title}
         </BackgroundImageCard>
-        <CategoryCardWrapper>
+        <CategoryCardList>
           {products.map(({ id, name, price, imgPath }) => (
             <PrimaryImageCard
               key={uuidv4()}
@@ -56,16 +56,20 @@ const CategoryPage = () => {
               {name}
             </PrimaryImageCard>
           ))}
-        </CategoryCardWrapper>
+        </CategoryCardList>
       </CategoryPageWrapper>
     );
   }
 };
 const CategoryPageWrapper = styled.main``;
 
-const CategoryCardWrapper = styled.section`
+const CategoryCardList = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  & > section:nth-child(odd) {
+    border-right: 1px solid ${({ theme }) => theme.colors.black};
+  }
 `;
 
 export default CategoryPage;

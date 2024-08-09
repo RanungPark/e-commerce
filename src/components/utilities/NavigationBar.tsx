@@ -12,7 +12,7 @@ interface NavigationBarProps {
 
 const NavigationBar = ({ onMenuClick, onCartClick }: NavigationBarProps) => {
   return (
-    <NavigationBarWrapper className="bl-1 bt-1 bb-1">
+    <NavigationBarWrapper className="bb-1">
       <NavigationButton
         onClick={onMenuClick}
         hasIcon={true}
@@ -30,6 +30,10 @@ const NavigationBar = ({ onMenuClick, onCartClick }: NavigationBarProps) => {
 const NavigationBarWrapper = styled.header`
   ${mixins.flexBox({ justify: 'space-between' })};
   width: 100%;
+
+  & > button:first-child {
+    border-right: 1px solid ${({ theme }) => theme.colors.black};
+  }
 
   & > button:last-child {
     border-left: 1px solid ${({ theme }) => theme.colors.black};

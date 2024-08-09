@@ -33,7 +33,7 @@ export const authorizationHandlers = [
     '/join',
     async ({ request }) => {
       const commentData = await request.json();
-      if (commentData.type === '로그인') {
+      if (commentData.type === 'join') {
         for (const user of users) {
           if (
             commentData.username === user.username &&
@@ -61,7 +61,7 @@ export const authorizationHandlers = [
             );
           }
         }
-      } else if (commentData.type === '회원가입') {
+      } else if (commentData.type === 'signup') {
         const createUser: UserType = {
           id: users.length + 1,
           username: commentData.username,

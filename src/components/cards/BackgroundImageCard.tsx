@@ -16,7 +16,7 @@ const BackgroundImageCard = ({
   children,
 }: BackgroundImageCardProps) => {
   return (
-    <BackgroundImageCardWrapper imgPath={imgPath} className="bl-1 bb-1">
+    <BackgroundImageCardWrapper imgPath={imgPath} className="bb-1">
       {children}
     </BackgroundImageCardWrapper>
   );
@@ -29,7 +29,8 @@ const BackgroundImageCardWrapper = styled.section<BackgroundImageCardWrapperProp
     imgPath,
   }) => `url(${imgPath})`};
   color: ${({ theme }) => theme.colors.white};
-
+  background-position: right 100% bottom 25%;
+  background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 500px;
