@@ -25,10 +25,15 @@ const ProductCard = ({
   return (
     <ProductCardWrapper>
       <ProductCardContentWrapper
-        className="bb-1"
+        className="b-1"
         style={{ borderColor: colors.lightgray }}
       >
-        <ProductCardImg alt={alt} src={imgPath} />
+        <ProductCardImg
+          alt={alt}
+          src={imgPath}
+          className="br-1"
+          style={{ borderColor: colors.lightgray }}
+        />
         <ProductCardInfoList infoItems={infoItems}>
           {children}
         </ProductCardInfoList>
@@ -51,8 +56,8 @@ const ProductCardContentWrapper = styled.div`
 `;
 
 const ProductCardImg = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
 `;
 
 export default ProductCard;

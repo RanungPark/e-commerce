@@ -1,5 +1,4 @@
 import { FooterContactItemType } from '@components/fragments/FooterContact';
-import React from 'react';
 import styled from 'styled-components';
 
 interface FooterContactItemProps extends FooterContactItemType {}

@@ -9,9 +9,9 @@ export interface FooterContactItemType {
 }
 
 const contactItems: FooterContactItemType[] = [
-  { title: 'address', children: '15/4 Khreshchatyk Street, Kyiv' },
-  { title: 'Phone', children: '+380980099777' },
-  { title: 'General Enquiry:', children: 'Kiev.Florist.Studio@gmail.com' },
+  { title: 'address', children: '경기도 시흥시 진말로 36번지' },
+  { title: 'Phone', children: '01087971558' },
+  { title: 'General Enquiry:', children: 'ckehfqkr302@gamil.com' },
 ];
 
 const FooterContact = () => {
