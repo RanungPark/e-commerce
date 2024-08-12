@@ -10,6 +10,13 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  decorators: [
+    Story => (
+      <div style={{ width: '728px' }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     imgPath: {
       control: 'text',
