@@ -5,15 +5,12 @@ interface ProductCardInfoProps {
 }
 
 const ProductCardInfo = ({ children }: ProductCardInfoProps) => {
-  return (
-    <ProductCardInfoWrapper className="mb-half">
-      {children}
-    </ProductCardInfoWrapper>
-  );
+  return <ProductCardInfoWrapper>{children}</ProductCardInfoWrapper>;
 };
 
 const ProductCardInfoWrapper = styled.li`
   ${({ theme }) => theme.typography.Body}
+  margin-bottom: 4px;
   height: 100%;
   list-style: inside;
 `;

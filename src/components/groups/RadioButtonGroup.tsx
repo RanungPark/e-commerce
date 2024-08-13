@@ -17,7 +17,7 @@ const RadioButtonGroup = ({
 }: RadioButtonGroupProps) => {
   return (
     <RadioButtonGroupWrapper>
-      <RadioButtonGroupLegend className="mb-2">{label}</RadioButtonGroupLegend>
+      <RadioButtonGroupLegend>{label}</RadioButtonGroupLegend>
       <RadioButtonContext.Provider value={{ value, onChange }}>
         {children}
       </RadioButtonContext.Provider>
@@ -32,6 +32,7 @@ const RadioButtonGroupWrapper = styled.fieldset`
 
 const RadioButtonGroupLegend = styled.legend`
   ${({ theme }) => theme.typography.Subtitle}
+  margin-bottom: 16px;
 `;
 
 export default RadioButtonGroup;

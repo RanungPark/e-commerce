@@ -5,10 +5,8 @@ interface FooterContactItemProps extends FooterContactItemType {}
 
 const FooterContactItem = ({ title, children }: FooterContactItemProps) => {
   return (
-    <FooterContactItemWrapper className="mb-3">
-      <FooterContactItemTitleWrapper className="mb-1">
-        {title}
-      </FooterContactItemTitleWrapper>
+    <FooterContactItemWrapper>
+      <FooterContactItemTitleWrapper>{title}</FooterContactItemTitleWrapper>
       {children}
     </FooterContactItemWrapper>
   );
@@ -16,11 +14,13 @@ const FooterContactItem = ({ title, children }: FooterContactItemProps) => {
 
 const FooterContactItemWrapper = styled.li`
   ${({ theme }) => theme.typography.Links}
+  margin-bottom: 24px;
 `;
 
 const FooterContactItemTitleWrapper = styled.h6`
   ${({ theme }) => theme.typography.Caption}
   color: ${({ theme }) => theme.colors.gray};
+  margin-bottom: 8px;
   text-transform: capitalize;
 `;
 

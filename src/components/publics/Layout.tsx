@@ -5,7 +5,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  return <LayoutWrapper className="b-1">{children}</LayoutWrapper>;
+  return <LayoutWrapper>{children}</LayoutWrapper>;
 };
 
 const LayoutWrapper = styled.main`
@@ -15,6 +15,7 @@ const LayoutWrapper = styled.main`
   max-width: 768px;
   min-height: 100vh;
   margin: 0 auto;
+  border: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 export default Layout;

@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const FooterAbout = () => {
   return (
-    <FooterAboutWrapper className="p-5">
+    <FooterAboutWrapper>
       <FooterInfoTittle>service</FooterInfoTittle>
       <FooterTextButtonList>
         {aboutDatas.map(children => (
@@ -21,7 +21,9 @@ const FooterAbout = () => {
   );
 };
 
-const FooterAboutWrapper = styled.div``;
+const FooterAboutWrapper = styled.div`
+  padding: 40px;
+`;
 
 const FooterTextButtonList = styled.ul`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}

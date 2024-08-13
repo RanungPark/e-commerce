@@ -10,7 +10,7 @@ const HomeAbout = () => {
   return (
     <HomeAboutWrapper>
       <TitleCard>About us</TitleCard>
-      <HomeAboutTextCardAndButtonWrapper className="bb-1">
+      <HomeAboutTextCardAndButtonWrapper>
         <TextCard label="our story" title={aboutUsData.title}>
           {aboutUsData.children}
         </TextCard>
@@ -30,10 +30,13 @@ const HomeAbout = () => {
 
 const HomeAboutWrapper = styled.article``;
 
-const HomeAboutTextCardAndButtonWrapper = styled.section`
-  & > section {
+const HomeAboutTextCardAndButtonWrapper = styled.div`
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+
+  & > div {
     border: none;
   }
+
   & > button {
     margin-left: 80px;
     margin-bottom: 80px;

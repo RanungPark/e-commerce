@@ -17,29 +17,33 @@ const PrimaryImageCard = ({
   onClick,
 }: PrimaryImageCardProps) => {
   return (
-    <PrimaryImageCardWrapper className="bb-1" onClick={onClick}>
+    <PrimaryImageCardWrapper onClick={onClick}>
       <PrimaryImageCardImg alt={alt} src={imgPath} />
       <PrimaryImageCardTextWrapper>
         {children}
-        <PrimaryImageCardPriceWrapper>
-          {price && `price ${price}$`}
-        </PrimaryImageCardPriceWrapper>
+        {price !== undefined && (
+          <PrimaryImageCardPriceWrapper>
+            {`Price: $${price}`}
+          </PrimaryImageCardPriceWrapper>
+        )}
       </PrimaryImageCardTextWrapper>
     </PrimaryImageCardWrapper>
   );
 };
 
-const PrimaryImageCardWrapper = styled.section`
+const PrimaryImageCardWrapper = styled.div`
   ${mixins.flexBox({})}
   width: 100%;
   height: ${768 / 2}px;
   position: relative;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   cursor: pointer;
 `;
 
 const PrimaryImageCardImg = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 
 const PrimaryImageCardTextWrapper = styled.div`
