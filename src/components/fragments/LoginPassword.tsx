@@ -20,6 +20,10 @@ interface LoginPasswordProps {
   loginCurrState: loginStateType;
 }
 
+interface LoginPasswordForm {
+  password: string;
+}
+
 const LoginPassword = ({
   loginState,
   onSubmit,
@@ -27,14 +31,13 @@ const LoginPassword = ({
   loginCurrState,
 }: LoginPasswordProps) => {
   const [join, setJoin] = useState(true);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<LoginPasswordForm>();
   const navigate = useNavigate();
   const { login } = useUserStore();
 
-  const type = loginCurrState;
-
   const LoginPasswordMutation = useMutation({
-    mutationFn: (password: string) => fetchJoin(username, password, type),
+    mutationFn: (password: string) =>
+      fetchJoin(username, password, loginCurrState),
     onSuccess: data => {
       const loginUser = {
         id: data.id,
@@ -52,8 +55,7 @@ const LoginPassword = ({
     },
   });
 
-  const onJoinValid = (data: any) => {
-    const { password } = data;
+  const onJoinValid = ({ password }: LoginPasswordForm) => {
     LoginPasswordMutation.mutate(password);
   };
 

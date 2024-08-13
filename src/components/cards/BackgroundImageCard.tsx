@@ -16,18 +16,22 @@ const BackgroundImageCard = ({
   children,
 }: BackgroundImageCardProps) => {
   return (
-    <BackgroundImageCardWrapper imgPath={imgPath} className="bb-1">
+    <BackgroundImageCardWrapper imgPath={imgPath}>
       {children}
     </BackgroundImageCardWrapper>
   );
 };
 
-const BackgroundImageCardWrapper = styled.section<BackgroundImageCardWrapperProps>`
+const BackgroundImageCardWrapper = styled.div<BackgroundImageCardWrapperProps>`
   ${mixins.flexBox({})}
   ${({ theme }) => theme.typography.Heading1}
-  background-image: linear-gradient( rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35) ),${({
-    imgPath,
-  }) => `url(${imgPath})`};
+
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.35), 
+    rgba(0, 0, 0, 0.35)
+  ), url(${({ imgPath }) => imgPath});
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+
   color: ${({ theme }) => theme.colors.white};
   background-position: right 100% bottom 25%;
   background-repeat: no-repeat;

@@ -3,23 +3,20 @@ import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
 import PrimaryButton from '@components/buttons/PrimaryButton';
 
-const NotFound = () => {
+const NotFoundPage = () => {
   const navigate = useNavigate();
-  const goToMainPage = () => {
-    navigate('/');
-  };
 
   return (
-    <NotFoundWrapper>
+    <NotFoundPageWrapper>
       요청하신 페이지를 찾을 수 없습니다.
-      <PrimaryButton onClick={goToMainPage}>
+      <PrimaryButton onClick={() => navigate('/')}>
         메인 페이지로 돌아가기
       </PrimaryButton>
-    </NotFoundWrapper>
+    </NotFoundPageWrapper>
   );
 };
 
-const NotFoundWrapper = styled.div`
+const NotFoundPageWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', justify: 'space-evenly' })}
   ${({ theme }) => theme.typography.Heading5}
 
@@ -28,4 +25,4 @@ const NotFoundWrapper = styled.div`
   margin: 0 auto;
 `;
 
-export default NotFound;
+export default NotFoundPage;

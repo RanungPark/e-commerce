@@ -15,59 +15,53 @@ interface ICategory {
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
+  const navigate = useNavigate();
 
   const { data, isLoading, error } = useQuery<ICategory>({
     queryKey: [categoryName],
     queryFn: () => fetchCategory(categoryName!),
   });
 
-  const navigate = useNavigate();
+  if (isLoading) {
+    return <Loading />;
+  }
 
-  const goToNotFound = () => {
+  if (error || !data) {
     navigate('/error');
-  };
-
-  const goToProduct = (productId: number) => () => {
-    navigate(`products/${productId}`);
-  };
-
-  if (!data) {
-    if (isLoading) return <Loading />;
-    if (error) goToNotFound();
+    return null;
   }
 
-  if (data) {
-    const { productBg, products } = data;
+  const { productBg, products } = data;
 
-    return (
-      <CategoryPageWrapper>
-        <BackgroundImageCard imgPath={productBg.imgPath}>
-          {productBg.title}
-        </BackgroundImageCard>
-        <CategoryCardList>
-          {products.map(({ id, name, price, imgPath }) => (
-            <PrimaryImageCard
-              key={uuidv4()}
-              alt={name}
-              onClick={goToProduct(id)}
-              imgPath={imgPath}
-              price={price}
-            >
-              {name}
-            </PrimaryImageCard>
-          ))}
-        </CategoryCardList>
-      </CategoryPageWrapper>
-    );
-  }
+  return (
+    <CategoryPageWrapper>
+      <BackgroundImageCard imgPath={productBg.imgPath}>
+        {productBg.title}
+      </BackgroundImageCard>
+      <CategoryCardList>
+        {products.map(({ id, name, price, imgPath }) => (
+          <PrimaryImageCard
+            key={uuidv4()}
+            alt={name}
+            onClick={() => navigate(`products/${id}`)}
+            imgPath={imgPath}
+            price={price}
+          >
+            {name}
+          </PrimaryImageCard>
+        ))}
+      </CategoryCardList>
+    </CategoryPageWrapper>
+  );
 };
+
 const CategoryPageWrapper = styled.main``;
 
 const CategoryCardList = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
-  & > section:nth-child(odd) {
+  & > div:nth-child(odd) {
     border-right: 1px solid ${({ theme }) => theme.colors.black};
   }
 `;

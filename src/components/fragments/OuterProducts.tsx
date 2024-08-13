@@ -20,16 +20,13 @@ const OuterProducts = ({ outerProducts }: OuterProductsProps) => {
   const goToProduct =
     ({ productCategory, productId }: GoToProductProps) =>
     () => {
-      navigate(
-        `/categories/${productCategory.replace(' ', '_')}/products/${productId}`
-      );
+      const formattedCategory = productCategory.replace(' ', '_');
+      navigate(`/categories/${formattedCategory}/products/${productId}`);
     };
 
   return (
     <OuterProductsWrapper>
-      <OuterProductsTitle className="bb-1 p-8">
-        You may also like…
-      </OuterProductsTitle>
+      <OuterProductsTitle>You may also like…</OuterProductsTitle>
       <OuterProductsList>
         {outerProducts.map(({ id, name, price, imgPath, category }) => (
           <PrimaryImageCard
@@ -52,13 +49,15 @@ const OuterProductsWrapper = styled.article``;
 const OuterProductsTitle = styled.div`
   ${({ theme }) => theme.typography.Heading4}
   ${mixins.flexBox({})}
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+  padding: 64px;
 `;
 
 const OuterProductsList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
-  & > section:nth-child(odd) {
+  & > div:nth-child(odd) {
     border-right: 1px solid ${({ theme }) => theme.colors.black};
   }
 `;
