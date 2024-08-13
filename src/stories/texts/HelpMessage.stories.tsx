@@ -8,6 +8,13 @@ const meta: Meta<typeof HelpMessage> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  decorators: [
+    Story => (
+      <div style={{ position: 'relative', width: '100px' }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     children: {
       control: 'text',
