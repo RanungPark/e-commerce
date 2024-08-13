@@ -8,15 +8,13 @@ type PrimaryButtonTheme = 'primary' | 'secondary' | 'tertiary';
 
 interface PrimaryButtonProps {
   primaryButtontheme?: PrimaryButtonTheme;
-  onClick: (e: React.MouseEvent) => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: string;
   hasLeftIcon?: boolean;
   hasRightIcon?: boolean;
   CustomButton?: React.FC<React.SVGProps<SVGSVGElement>>;
   disabled?: boolean;
 }
-
-type PrimaryButtonWrapperProps = Pick<PrimaryButtonProps, 'primaryButtontheme'>;
 
 const PrimaryButton = ({
   onClick,
@@ -27,144 +25,143 @@ const PrimaryButton = ({
   CustomButton,
   disabled = false,
 }: PrimaryButtonProps) => {
+  const renderIcon = (position: 'left' | 'right') => {
+    if (position === 'left') {
+      return hasLeftIcon ? (
+        <IconButton IconComponent={CustomButton || ArrowLeft} />
+      ) : null;
+    }
+    return hasRightIcon ? (
+      <IconButton IconComponent={CustomButton || ArrowRight} />
+    ) : null;
+  };
+
   return (
     <PrimaryButtonWrapper
       primaryButtontheme={primaryButtontheme}
       onClick={onClick}
       disabled={disabled}
-      className="pt-2 pb-2 pr-3 pl-3"
     >
-      {!hasLeftIcon ? (
-        <></>
-      ) : !CustomButton ? (
-        <IconButton IconComponent={ArrowLeft} />
-      ) : (
-        <IconButton IconComponent={CustomButton} />
-      )}
+      {renderIcon('left')}
       {children}
-      {!hasRightIcon ? (
-        <></>
-      ) : !CustomButton ? (
-        <IconButton IconComponent={ArrowRight} />
-      ) : (
-        <IconButton IconComponent={CustomButton} />
-      )}
+      {renderIcon('right')}
     </PrimaryButtonWrapper>
   );
 };
 
-const primaryStyle = css`
-  background-color: ${({ theme }) => theme.colors.black};
-  color: ${({ theme }) => theme.colors.white};
-
-  & path {
-    fill: ${({ theme }) => theme.colors.white};
-  }
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.darkgray};
-  }
-
-  &:active {
-    background-color: ${({ theme }) => theme.colors.black};
-  }
-
-  &:disabled {
-    background-color: ${({ theme }) => theme.colors.lightgray};
-    color: ${({ theme }) => theme.colors.gray};
-
-    & path {
-      fill: ${({ theme }) => theme.colors.gray};
-    }
-  }
-`;
-
-const secondaryStyle = css`
-  background-color: ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.black};
-  border: 1px solid ${({ theme }) => theme.colors.black};
-
-  & path {
-    fill: ${({ theme }) => theme.colors.black};
-  }
-
-  &:hover {
+const buttonStyles = {
+  primary: css`
     background-color: ${({ theme }) => theme.colors.black};
     color: ${({ theme }) => theme.colors.white};
+
     & path {
       fill: ${({ theme }) => theme.colors.white};
     }
-  }
 
-  &:active {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.darkgray};
+    }
+
+    &:active {
+      background-color: ${({ theme }) => theme.colors.black};
+    }
+
+    &:disabled {
+      background-color: ${({ theme }) => theme.colors.lightgray};
+      color: ${({ theme }) => theme.colors.gray};
+
+      & path {
+        fill: ${({ theme }) => theme.colors.gray};
+      }
+    }
+  `,
+  secondary: css`
     background-color: ${({ theme }) => theme.colors.white};
     color: ${({ theme }) => theme.colors.black};
     border: 1px solid ${({ theme }) => theme.colors.black};
-    & path {
-      fill: ${({ theme }) => theme.colors.black};
-    }
-  }
-
-  &:disabled {
-    background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.gray};
-    border: 1px solid ${({ theme }) => theme.colors.gray};
-
-    & path {
-      fill: ${({ theme }) => theme.colors.gray};
-    }
-  }
-`;
-
-const tertiaryStyle = css`
-  background-color: inherit;
-  color: ${({ theme }) => theme.colors.white};
-  border: 1px solid ${({ theme }) => theme.colors.white};
-
-  & path {
-    fill: ${({ theme }) => theme.colors.white};
-  }
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.black};
-    & path {
-      fill: ${({ theme }) => theme.colors.black};
-    }
-  }
-
-  &:active {
-    background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.black};
 
     & path {
       fill: ${({ theme }) => theme.colors.black};
     }
-  }
 
-  &:disabled {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.black};
+      color: ${({ theme }) => theme.colors.white};
+
+      & path {
+        fill: ${({ theme }) => theme.colors.white};
+      }
+    }
+
+    &:active {
+      background-color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.black};
+      border: 1px solid ${({ theme }) => theme.colors.black};
+
+      & path {
+        fill: ${({ theme }) => theme.colors.black};
+      }
+    }
+
+    &:disabled {
+      background-color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.gray};
+      border: 1px solid ${({ theme }) => theme.colors.gray};
+
+      & path {
+        fill: ${({ theme }) => theme.colors.gray};
+      }
+    }
+  `,
+  tertiary: css`
     background-color: inherit;
-    color: ${({ theme }) => theme.colors.gray};
-    border: 1px solid ${({ theme }) => theme.colors.lightgray};
+    color: ${({ theme }) => theme.colors.white};
+    border: 1px solid ${({ theme }) => theme.colors.white};
 
     & path {
-      fill: ${({ theme }) => theme.colors.gray};
+      fill: ${({ theme }) => theme.colors.white};
     }
-  }
-`;
 
-const PrimaryButtonWrapper = styled.button<PrimaryButtonWrapperProps>`
-  ${({ primaryButtontheme }) =>
-    primaryButtontheme === 'primary' ? primaryStyle : null}
-  ${({ primaryButtontheme }) =>
-    primaryButtontheme === 'secondary' ? secondaryStyle : null}
-  ${({ primaryButtontheme }) =>
-    primaryButtontheme === 'tertiary' ? tertiaryStyle : null}
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.black};
 
+      & path {
+        fill: ${({ theme }) => theme.colors.black};
+      }
+    }
+
+    &:active {
+      background-color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.black};
+
+      & path {
+        fill: ${({ theme }) => theme.colors.black};
+      }
+    }
+
+    &:disabled {
+      background-color: inherit;
+      color: ${({ theme }) => theme.colors.gray};
+      border: 1px solid ${({ theme }) => theme.colors.lightgray};
+
+      & path {
+        fill: ${({ theme }) => theme.colors.gray};
+      }
+    }
+  `,
+};
+
+const PrimaryButtonWrapper = styled.button<{
+  primaryButtontheme: PrimaryButtonTheme;
+}>`
+  ${({ primaryButtontheme }) =>
+    buttonStyles[primaryButtontheme] || buttonStyles.primary}
   ${mixins.flexBox({})}
   ${({ theme }) => theme.typography.Button}
-
-  gap:8px;
+  
+  padding:16px 24px;
+  gap: 8px;
   width: 100%;
   height: 56px;
   cursor: pointer;

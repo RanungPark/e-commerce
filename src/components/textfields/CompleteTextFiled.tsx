@@ -18,23 +18,30 @@ const CompleteTextFiled = ({
   disabled = false,
 }: CompleteTextFiledProps) => {
   return (
-    <CompleteTextFiledWrapper disabled={disabled} className="pb-3 pr-2">
+    <CompleteTextFiledWrapper disabled={disabled}>
       <CompleteTextFiledChildrenWrapper>
-        {!disabled ? <Check /> : <></>}
+        {!disabled && <Check />}
         {children}
       </CompleteTextFiledChildrenWrapper>
-      {!disabled ? (
-        <IconButton onClick={onClick} IconComponent={WEdit} />
-      ) : (
-        <></>
-      )}
+      {!disabled && <IconButton onClick={onClick} IconComponent={WEdit} />}
     </CompleteTextFiledWrapper>
   );
 };
 
-const defalutStyle = css`
+const baseStyle = css`
+  ${mixins.flexBox({ justify: 'space-between' })}
+  ${({ theme }) => theme.typography.Subtitle}
+  padding: 0px 16px 24px 0px;
+  width: 100%;
+`;
+
+const enabledStyle = css`
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.black};
+
+  & button path {
+    fill: ${({ theme }) => theme.colors.gray};
+  }
 `;
 
 const disabledStyle = css`
@@ -43,15 +50,8 @@ const disabledStyle = css`
 `;
 
 const CompleteTextFiledWrapper = styled.div<CompleteTextFiledWrapperProps>`
-  ${mixins.flexBox({ justify: 'space-between' })}
-  ${({ theme }) => theme.typography.Subtitle}
-  ${({ disabled }) => (!disabled ? defalutStyle : disabledStyle)}
-  
-  width: 100%;
-
-  & button path {
-    fill: ${({ theme }) => theme.colors.gray};
-  }
+  ${baseStyle}
+  ${({ disabled }) => (disabled ? disabledStyle : enabledStyle)}
 `;
 
 const CompleteTextFiledChildrenWrapper = styled.div`
