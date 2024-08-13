@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
-import NotFound from './pages/NotFoundPage';
+import NotFoundPage from './pages/NotFoundPage';
 import { ReactNode } from 'react';
 import { Routes, routes } from './pages/routes';
 
@@ -13,7 +13,7 @@ const routeElement: RouteElement[] = [
   {
     path: '/',
     element: <App />,
-    errorElement: <NotFound />,
+    errorElement: <NotFoundPage />,
     children: routes,
   },
 ];
