@@ -19,53 +19,38 @@ const RadioButton = ({
   isGrop = true,
   onChange = () => {},
 }: RadioButtonProps) => {
-  const [checked, setChecked] = useState(false);
   const context = useContext(RadioButtonContext);
+  const [checked, setChecked] = useState(false);
 
-  const handleChagne = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target;
-
     checked ? onChange(value ?? children) : onChange('');
   };
 
-  if (!isGrop) {
-    return (
-      <RadioButtonWrapper>
-        <RadioButtonInput
-          type="radio"
-          name={name}
-          value={value}
-          defaultChecked={defaultChecked}
-          checked={checked}
-          onChange={handleChagne}
-          onClick={() => setChecked(prev => !prev)}
-        />
-        <RaduoButtonChildrenWrapper>{children}</RaduoButtonChildrenWrapper>
-      </RadioButtonWrapper>
-    );
-  }
+  const handleClick = () => setChecked(prev => !prev);
 
-  if (isGrop) {
-    return (
-      <RadioButtonWrapper>
-        <RadioButtonInput
-          type="radio"
-          name={name}
-          value={value}
-          defaultChecked={defaultChecked}
-          checked={
-            context.value !== undefined
-              ? !!(value ?? children === context.value)
-              : undefined
-          }
-          onChange={() =>
-            context.onChange && context.onChange(value ?? children)
-          }
-        />
-        <RaduoButtonChildrenWrapper>{children}</RaduoButtonChildrenWrapper>
-      </RadioButtonWrapper>
-    );
-  }
+  const isGroupChecked =
+    isGrop && context.value !== undefined
+      ? !!(value ?? children === context.value)
+      : undefined;
+
+  const handleGroupChange = () =>
+    context.onChange && context.onChange(value ?? children);
+
+  return (
+    <RadioButtonWrapper>
+      <RadioButtonInput
+        type="radio"
+        name={name}
+        value={value}
+        defaultChecked={defaultChecked}
+        checked={isGrop ? isGroupChecked : checked}
+        onChange={isGrop ? handleGroupChange : handleChange}
+        onClick={!isGrop ? handleClick : undefined}
+      />
+      <RadioButtonChildrenWrapper>{children}</RadioButtonChildrenWrapper>
+    </RadioButtonWrapper>
+  );
 };
 
 const RadioButtonWrapper = styled.label`
@@ -119,7 +104,7 @@ const RadioButtonInput = styled.input`
   }
 `;
 
-const RaduoButtonChildrenWrapper = styled.p`
+const RadioButtonChildrenWrapper = styled.p`
   ${({ theme }) => theme.typography.Body}
   display: inline-block;
 `;

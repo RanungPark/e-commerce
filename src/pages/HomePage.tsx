@@ -10,9 +10,11 @@ import styled from 'styled-components';
 const HomePage = () => {
   const navigate = useNavigate();
 
-  const handleShopClick = (url: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    navigate(url);
+  const handleShopClick = (url: string) => {
+    return (e: React.MouseEvent) => {
+      e.preventDefault();
+      navigate(url);
+    };
   };
 
   return (
@@ -27,7 +29,7 @@ const HomePage = () => {
           imgPath={imgPath}
           alt={children}
         >
-          {children.replaceAll(' ', '')}
+          {children.trim().replace(/\s+/g, '')}
         </ActionCardAndImageCardList>
       ))}
       <HomeAbout />

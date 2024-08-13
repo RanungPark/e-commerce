@@ -6,6 +6,7 @@ import { mixins } from '@styles/Mixin';
 import { useForm } from 'react-hook-form';
 import { FormStateType } from 'src/@types/state';
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Checkout1stStepProps {
   stepState: FormStateType;
@@ -24,9 +25,6 @@ const Checkout1stStep = ({
 
   return (
     <Checkout1stStepWrapper>
-      {stepState === 'yet' && (
-        <CompleteTextFiled disabled={true}>{StepTitle}</CompleteTextFiled>
-      )}
       {stepState === 'curr' && (
         <Checkout1stStepForm onSubmit={handleSubmit(onSubmit)}>
           {StepTitle}
@@ -34,13 +32,13 @@ const Checkout1stStep = ({
             ({ registerValue, placeholder, ...rest }) => {
               if (rest.pattern) {
                 return (
-                  <DefaultTextField>
+                  <DefaultTextField key={uuidv4()}>
                     <input
                       {...register(registerValue, {
                         required: rest?.required,
-                        pattern: {
-                          value: rest.pattern?.value,
-                          message: rest.pattern?.message,
+                        pattern: rest.pattern && {
+                          value: rest.pattern.value,
+                          message: rest.pattern.message,
                         },
                       })}
                       placeholder={placeholder}

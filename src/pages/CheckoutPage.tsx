@@ -9,74 +9,72 @@ import Checkout2ndStep from '@components/fragments/Checkout2ndStep';
 import Checkout3rdStep from '@components/fragments/Checkout3rdStep';
 import { FormStateType } from 'src/@types/state';
 
+type CheckoutStepsState = {
+  first: FormStateType;
+  second: FormStateType;
+  third: FormStateType;
+};
 
 const CheckoutPage = () => {
-  const [checkout1stStepState, setCheckout1stStepState] =
-    useState<FormStateType>('curr');
-  const [checkout2ndStepState, setCheckout2ndStepState] =
-    useState<FormStateType>('yet');
-  const [checkout3rdStepState, setCheckout3rdStepState] =
-    useState<FormStateType>('yet');
+  const [stepsState, setStepsState] = useState<CheckoutStepsState>({
+    first: 'curr',
+    second: 'yet',
+    third: 'yet',
+  });
 
   const navigate = useNavigate();
   const { clearCart } = useCartStore();
 
+  const updateStepsState = (updatedState: Partial<CheckoutStepsState>) => {
+    setStepsState(prevState => ({ ...prevState, ...updatedState }));
+  };
+
   const handle1stSubmit = () => {
-    setCheckout1stStepState('done');
-    setCheckout2ndStepState('curr');
-    setCheckout3rdStepState('yet');
+    updateStepsState({ first: 'done', second: 'curr', third: 'yet' });
   };
 
   const handle1stClick = () => {
-    setCheckout1stStepState('curr');
-    setCheckout2ndStepState('yet');
-    setCheckout3rdStepState('yet');
+    updateStepsState({ first: 'curr', second: 'yet', third: 'yet' });
   };
 
   const handle2ndSubmit = () => {
-    setCheckout1stStepState('done');
-    setCheckout2ndStepState('done');
-    setCheckout3rdStepState('curr');
+    updateStepsState({ first: 'done', second: 'done', third: 'curr' });
   };
 
   const handle2ndClick = () => {
-    setCheckout1stStepState('done');
-    setCheckout2ndStepState('curr');
-    setCheckout3rdStepState('yet');
+    updateStepsState({ first: 'done', second: 'curr', third: 'yet' });
   };
 
   const handle3rdSubmit = () => {
-    setCheckout1stStepState('curr');
-    setCheckout2ndStepState('yet');
-    setCheckout3rdStepState('yet');
-
     paymentsDone();
     clearCart();
     navigate('/');
   };
 
   return (
-    <CheckoutPagetWrapper className="bb-1 pb-10">
+    <CheckoutPagetWrapper>
       <CheckoutSummary />
       <Checkout1stStep
-        stepState={checkout1stStepState}
+        stepState={stepsState.first}
         onSubmit={handle1stSubmit}
         onClick={handle1stClick}
       />
       <Checkout2ndStep
-        stepState={checkout2ndStepState}
+        stepState={stepsState.second}
         onSubmit={handle2ndSubmit}
         onClick={handle2ndClick}
       />
       <Checkout3rdStep
-        stepState={checkout3rdStepState}
+        stepState={stepsState.third}
         onSubmit={handle3rdSubmit}
-        onClick={() => {}}
       />
     </CheckoutPagetWrapper>
   );
 };
 
-const CheckoutPagetWrapper = styled.section``;
+const CheckoutPagetWrapper = styled.section`
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+  padding-bottom: 80px;
+`;
 
 export default CheckoutPage;

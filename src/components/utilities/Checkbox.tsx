@@ -18,50 +18,36 @@ const Checkbox = ({
   onChange = () => {},
   isGrop = true,
 }: CheckboxProps) => {
-  const [checked, setChecked] = useState(false);
   const context = useContext(CheckboxContext);
+  const [checked, setChecked] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target;
     checked ? onChange(value ?? children) : onChange('');
   };
 
-  if (!isGrop) {
-    return (
-      <CheckboxWrapper>
-        <CheckboxInput
-          type="checkbox"
-          name={name}
-          value={value ?? children}
-          checked={checked}
-          onChange={handleChange}
-          onClick={() => setChecked(prev => !prev)}
-        />
-        <Check />
-        <CheckboxChildrenWrapper>{children}</CheckboxChildrenWrapper>
-      </CheckboxWrapper>
-    );
-  }
+  const isGroupChecked = isGrop && context.isChecked(value ?? children);
+  const toggleGroupValue = isGrop ? context.toggleValue : null;
 
-  const { isChecked, toggleValue } = context;
-
-  if (isGrop) {
-    return (
-      <CheckboxWrapper>
-        <CheckboxInput
-          type="checkbox"
-          name={name}
-          value={value ?? children}
-          checked={isChecked(value ?? children)}
-          onChange={({ target: { checked } }) =>
-            toggleValue({ checked, value: value ?? children })
-          }
-        />
-        <Check />
-        <CheckboxChildrenWrapper>{children}</CheckboxChildrenWrapper>
-      </CheckboxWrapper>
-    );
-  }
+  return (
+    <CheckboxWrapper>
+      <CheckboxInput
+        type="checkbox"
+        name={name}
+        value={value ?? children}
+        checked={isGrop ? isGroupChecked : checked}
+        onChange={
+          isGrop
+            ? ({ target: { checked } }) =>
+                toggleGroupValue!({ checked, value: value ?? children })
+            : handleChange
+        }
+        onClick={() => !isGrop && setChecked(prev => !prev)}
+      />
+      <Check />
+      <CheckboxChildrenWrapper>{children}</CheckboxChildrenWrapper>
+    </CheckboxWrapper>
+  );
 };
 
 const CheckboxWrapper = styled.label`

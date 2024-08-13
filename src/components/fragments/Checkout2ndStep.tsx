@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FormStateType } from 'src/@types/state';
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Checkout2ndStepProps {
   stepState: FormStateType;
@@ -25,6 +26,7 @@ const Checkout2ndStep = ({
 
   const [selectValue, setSelectValue] = useState('');
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+
   const handleDateChange = (date: Date) => {
     setSelectedDate(date);
   };
@@ -41,15 +43,15 @@ const Checkout2ndStep = ({
           {StepTitle}
           {checkout2ndStepDatas.map(
             ({ component, registerValue, placeholder, ...rest }) => {
-              if (component === 'textField' && rest.pattern) {
+              if (component === 'textField') {
                 return (
-                  <DefaultTextField>
+                  <DefaultTextField key={uuidv4()}>
                     <input
                       {...register(registerValue, {
                         required: rest?.required,
-                        pattern: {
-                          value: rest.pattern?.value,
-                          message: rest.pattern?.message,
+                        pattern: rest.pattern && {
+                          value: rest.pattern.value,
+                          message: rest.pattern.message,
                         },
                       })}
                       placeholder={placeholder}
@@ -61,6 +63,7 @@ const Checkout2ndStep = ({
                   <DatePicker
                     placeholder={placeholder}
                     value={selectedDate}
+                    key={uuidv4()}
                     onChange={handleDateChange}
                   />
                 );
@@ -71,7 +74,8 @@ const Checkout2ndStep = ({
                     onChange={setSelectValue}
                     options={checkoutDropDownDatas}
                     placeholder={placeholder}
-                  ></DropDown>
+                    key={uuidv4()}
+                  />
                 );
               }
             }
