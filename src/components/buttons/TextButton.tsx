@@ -5,7 +5,7 @@ import { ReactComponent as ArrowRight } from '@assets/icons/wght300/ArrowRight.s
 import { mixins } from '@styles/Mixin';
 
 interface TextButtonProps {
-  onClick: (e: React.MouseEvent) => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: string;
   hasLeftIcon?: boolean;
   hasRightIcon?: boolean;
@@ -21,19 +21,21 @@ const TextButton = ({
   CustomButton,
   disabled = false,
 }: TextButtonProps) => {
+  const renderIcon = (position: 'left' | 'right') => {
+    if (position === 'left' && hasLeftIcon) {
+      return <IconButton IconComponent={CustomButton || ArrowLeft} />;
+    }
+    if (position === 'right' && hasRightIcon) {
+      return <IconButton IconComponent={CustomButton || ArrowRight} />;
+    }
+    return null;
+  };
+
   return (
     <TextButtonWrapper onClick={onClick} disabled={disabled}>
-      {hasLeftIcon ? (
-        <IconButton IconComponent={CustomButton || ArrowLeft} />
-      ) : (
-        <></>
-      )}
+      {renderIcon('left')}
       {children}
-      {hasRightIcon ? (
-        <IconButton IconComponent={CustomButton || ArrowRight} />
-      ) : (
-        <></>
-      )}
+      {renderIcon('right')}
     </TextButtonWrapper>
   );
 };
@@ -43,10 +45,9 @@ const TextButtonWrapper = styled.button`
   ${({ theme }) => theme.typography.Links}
 
   gap: 4px;
-  width: auto;
-  height: auto;
   background-color: inherit;
   position: relative;
+  cursor: pointer;
 
   &:hover {
     color: ${({ theme }) => theme.colors.gray};

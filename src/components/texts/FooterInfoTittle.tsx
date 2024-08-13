@@ -5,16 +5,13 @@ interface FooterInfoTittleProps {
 }
 
 const FooterInfoTittle = ({ children }: FooterInfoTittleProps) => {
-  return (
-    <FooterInfoTittleWrapper className="mb-3">
-      {children}
-    </FooterInfoTittleWrapper>
-  );
+  return <FooterInfoTittleWrapper>{children}</FooterInfoTittleWrapper>;
 };
 
 const FooterInfoTittleWrapper = styled.h5`
   ${({ theme }) => theme.typography.Heading5}
   color: ${({ theme }) => theme.colors.gray};
+  margin-bottom: 24px;
   text-transform: capitalize;
 `;
 

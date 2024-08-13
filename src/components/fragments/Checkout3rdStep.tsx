@@ -6,18 +6,14 @@ import { mixins } from '@styles/Mixin';
 import { useForm } from 'react-hook-form';
 import { FormStateType } from 'src/@types/state';
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Checkout3rdStepProps {
   stepState: FormStateType;
   onSubmit: () => void;
-  onClick: (e: React.MouseEvent) => void;
 }
 
-const Checkout3rdStep = ({
-  stepState,
-  onSubmit,
-  onClick,
-}: Checkout3rdStepProps) => {
+const Checkout3rdStep = ({ stepState, onSubmit }: Checkout3rdStepProps) => {
   const StepTitle = '3 Payment';
 
   const { register, handleSubmit } = useForm();
@@ -34,13 +30,13 @@ const Checkout3rdStep = ({
             ({ registerValue, placeholder, ...rest }) => {
               if (rest.pattern) {
                 return (
-                  <DefaultTextField>
+                  <DefaultTextField key={uuidv4()}>
                     <input
                       {...register(registerValue, {
                         required: rest?.required,
-                        pattern: {
-                          value: rest.pattern?.value,
-                          message: rest.pattern?.message,
+                        pattern: rest.pattern && {
+                          value: rest.pattern.value,
+                          message: rest.pattern.message,
                         },
                       })}
                       placeholder={placeholder}
@@ -54,9 +50,6 @@ const Checkout3rdStep = ({
             make a purchase
           </PrimaryButton>
         </Checkout3rdStepForm>
-      )}
-      {stepState === 'done' && (
-        <CompleteTextFiled onClick={onClick}>{StepTitle}</CompleteTextFiled>
       )}
     </Checkout3rdStepWrapper>
   );

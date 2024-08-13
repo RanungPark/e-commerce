@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { BiSolidErrorCircle } from 'react-icons/bi';
-import { BiSolidCheckCircle } from 'react-icons/bi';
+import { BiSolidErrorCircle, BiSolidCheckCircle } from 'react-icons/bi';
 import { mixins } from '@styles/Mixin';
 
 type HelpMessageTheme = 'default' | 'error' | 'success';
@@ -21,55 +20,43 @@ const HelpMessage = ({
   helpMessageTheme = 'default',
 }: HelpMessageProps) => {
   return (
-    <HelpMessageWrapper
-      helpMessageTheme={helpMessageTheme}
-      className="helpMessage"
-    >
-      {helpMessageTheme === 'error' ? <BiSolidErrorCircle /> : <></>}
-      {helpMessageTheme === 'success' ? <BiSolidCheckCircle /> : <></>}
+    <HelpMessageWrapper helpMessageTheme={helpMessageTheme}>
+      {helpMessageTheme === 'error' && <BiSolidErrorCircle />}
+      {helpMessageTheme === 'success' && <BiSolidCheckCircle />}
       <p>{children}</p>
     </HelpMessageWrapper>
   );
 };
 
-const defaultStyle = css`
-  & p {
+const helpMessageStyle = {
+  default: css`
     color: ${({ theme }) => theme.colors.gray};
-  }
-  & path {
-    fill: ${({ theme }) => theme.colors.gray};
-  }
-`;
-
-const successStyle = css`
-  & p {
+    & path {
+      fill: ${({ theme }) => theme.colors.gray};
+    }
+  `,
+  success: css`
     color: ${({ theme }) => theme.colors.success};
-  }
-  & path {
-    fill: ${({ theme }) => theme.colors.success};
-  }
-`;
-
-const errorStyle = css`
-  & p {
+    & path {
+      fill: ${({ theme }) => theme.colors.success};
+    }
+  `,
+  error: css`
     color: ${({ theme }) => theme.colors.error};
-  }
-  & path {
-    fill: ${({ theme }) => theme.colors.error};
-  }
-`;
+    & path {
+      fill: ${({ theme }) => theme.colors.error};
+    }
+  `,
+};
 
 const HelpMessageWrapper = styled.div<HelpMessageChildrenWrapperProps>`
-  ${({ theme }) => theme.typography.CaptionSmall}
-  ${mixins.flexBox({})}
+  ${({ theme }) => theme.typography.CaptionSmall};
+  ${mixins.flexBox({})};
+  ${({ helpMessageTheme }) =>
+    helpMessageStyle[helpMessageTheme] || helpMessageStyle.default};
 
-  ${({ helpMessageTheme }) =>
-    helpMessageTheme === 'default' ? defaultStyle : null}
-  ${({ helpMessageTheme }) =>
-    helpMessageTheme === 'success' ? successStyle : null}
-  ${({ helpMessageTheme }) =>
-    helpMessageTheme === 'error' ? errorStyle : null}
-  
+  position: absolute;
+  bottom: -20px;
   height: 16px;
 
   & svg {

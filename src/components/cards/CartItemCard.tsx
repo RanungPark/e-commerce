@@ -23,11 +23,11 @@ const CartItemCard = ({
 }: CartItemCardProps) => {
   return (
     <CartItemCardPropsWrapper>
-      <img alt={alt} src={imgPath} className="b-1" />
-      <CartItemCardInfosWrapper className="ml-2">
+      <img alt={alt} src={imgPath} />
+      <CartItemCardInfosWrapper>
         <span>{children}</span>
         <span>{`Quantity (${quantity})`}</span>
-        {hasTextButton ? <span>{`$${price}`}</span> : <></>}
+        {hasTextButton && <span>{`$${price}`}</span>}
       </CartItemCardInfosWrapper>
       {hasTextButton ? (
         <TextButton onClick={onClick}>Remove</TextButton>
@@ -45,6 +45,8 @@ const CartItemCardPropsWrapper = styled.li`
   & img {
     width: 160px;
     height: 160px;
+    border: 1px solid ${({ theme }) => theme.colors.black};
+    object-fit: cover;
   }
 `;
 
@@ -52,6 +54,7 @@ const CartItemCardInfosWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   flex: 1;
   gap: 8px;
+  margin-left: 16px;
 
   & span:nth-child(2) {
     ${({ theme }) => theme.typography.Body}

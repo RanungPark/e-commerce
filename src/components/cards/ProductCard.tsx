@@ -3,7 +3,6 @@ import ProductCardInfoList from '@components/lists/ProductCardInfoList';
 import styled from 'styled-components';
 import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
 import { mixins } from '@styles/Mixin';
-import { colors } from '@styles/theme';
 
 interface ProductCardProps {
   alt: string;
@@ -24,16 +23,8 @@ const ProductCard = ({
 }: ProductCardProps) => {
   return (
     <ProductCardWrapper>
-      <ProductCardContentWrapper
-        className="b-1"
-        style={{ borderColor: colors.lightgray }}
-      >
-        <ProductCardImg
-          alt={alt}
-          src={imgPath}
-          className="br-1"
-          style={{ borderColor: colors.lightgray }}
-        />
+      <ProductCardContentWrapper>
+        <ProductCardImg alt={alt} src={imgPath} />
         <ProductCardInfoList infoItems={infoItems}>
           {children}
         </ProductCardInfoList>
@@ -53,9 +44,11 @@ const ProductCardWrapper = styled.div``;
 
 const ProductCardContentWrapper = styled.div`
   ${mixins.flexBox({})}
+  border: 1px solid ${({ theme }) => theme.colors.lightgray};
 `;
 
 const ProductCardImg = styled.img`
+  border-right: 1px solid ${({ theme }) => theme.colors.lightgray};
   width: 50%;
   height: 50%;
 `;

@@ -1,7 +1,7 @@
 import ProductCardInfo from '@components/texts/ProductCardInfo';
 import { mixins } from '@styles/Mixin';
-import { colors } from '@styles/theme';
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 
 interface ProductCardInfoListProps {
   children: string;
@@ -13,14 +13,11 @@ const ProductCardInfoList = ({
   infoItems,
 }: ProductCardInfoListProps) => {
   return (
-    <ProductCardInfoListWrapper
-      className="p-2"
-      style={{ borderColor: colors.lightgray }}
-    >
+    <ProductCardInfoListWrapper>
       {children}
       <ProductCardInfoListUl>
         {infoItems.map(infoItem => (
-          <ProductCardInfo>{infoItem}</ProductCardInfo>
+          <ProductCardInfo key={uuidv4()}>{infoItem}</ProductCardInfo>
         ))}
       </ProductCardInfoListUl>
     </ProductCardInfoListWrapper>
@@ -32,6 +29,7 @@ const ProductCardInfoListWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   width: 100%;
   height: 100%;
+  padding: 16px;
   min-height: 225px;
   gap: 16px;
 `;

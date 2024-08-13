@@ -1,5 +1,4 @@
 import { mixins } from '@styles/Mixin';
-import { colors } from '@styles/theme';
 import styled from 'styled-components';
 
 interface DropDownOptionProps {
@@ -9,12 +8,7 @@ interface DropDownOptionProps {
 
 const DropDownOption = ({ children, onClick }: DropDownOptionProps) => {
   return (
-    <DropDownOptionWrapper
-      onClick={onClick}
-      data-value={children}
-      className="p-2"
-      style={{ borderColor: colors.darkgray }}
-    >
+    <DropDownOptionWrapper onClick={onClick} data-value={children}>
       {children}
     </DropDownOptionWrapper>
   );
@@ -25,6 +19,7 @@ const DropDownOptionWrapper = styled.li`
   ${({ theme }) => theme.typography.CaptionBold}
   cursor: pointer;
   max-height: 56px;
+  padding: 16px;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.gray};

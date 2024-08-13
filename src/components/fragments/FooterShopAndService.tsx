@@ -21,7 +21,7 @@ const FooterShopAndService = () => {
   };
 
   return (
-    <FooterShopAndServiceWrapper className="p-5">
+    <FooterShopAndServiceWrapper>
       <FooterInfoTittle>shop</FooterInfoTittle>
       <FooterTextButtonList>
         {footerShopDatas.map(({ children, url }) => (
@@ -43,6 +43,8 @@ const FooterShopAndService = () => {
 };
 
 const FooterShopAndServiceWrapper = styled.div`
+  padding: 40px;
+
   & > h5:nth-last-child(2) {
     margin-top: 24px;
   }

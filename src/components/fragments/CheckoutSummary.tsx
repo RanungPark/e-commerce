@@ -11,32 +11,30 @@ import CartItemCardList from '@components/lists/CartItemCardList';
 const CheckoutSummary = () => {
   const [isOrderOpen, setIsOrderOpen] = useState(false);
 
-  const handleClick = () => {
-    setIsOrderOpen(prev => !prev);
-  };
+  const handleClick = () => setIsOrderOpen(prev => !prev);
 
   return (
-    <CheckoutSummaryWrapper className="bb-1">
+    <CheckoutSummaryWrapper>
       {isOrderOpen ? (
-        <CheckoutSummaryOpenWrapper>
-          <CheckoutSummaryIconButtonWrapper onClick={handleClick}>
+        <CheckoutSummaryContent>
+          <ButtonWrapper onClick={handleClick}>
             <IconButton IconComponent={WShoppingCart} />
             Show order summary
             <IconButton IconComponent={ChevronUp} />
-          </CheckoutSummaryIconButtonWrapper>
+          </ButtonWrapper>
           <CartItemCardList hasTextButton={false} />
           <CartTotalPriceCard>Total</CartTotalPriceCard>
-        </CheckoutSummaryOpenWrapper>
+        </CheckoutSummaryContent>
       ) : (
-        <CheckoutSummaryCloseWrapper>
+        <CheckoutSummaryContent>
           <CartTotalPriceCard>
-            <CheckoutSummaryIconButtonWrapper onClick={handleClick}>
+            <ButtonWrapper onClick={handleClick}>
               <IconButton IconComponent={WShoppingCart} />
               Show order summary
               <IconButton IconComponent={ChevronDown} />
-            </CheckoutSummaryIconButtonWrapper>
+            </ButtonWrapper>
           </CartTotalPriceCard>
-        </CheckoutSummaryCloseWrapper>
+        </CheckoutSummaryContent>
       )}
     </CheckoutSummaryWrapper>
   );
@@ -44,9 +42,10 @@ const CheckoutSummary = () => {
 
 const CheckoutSummaryWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.extralight};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
-const CheckoutSummaryOpenWrapper = styled.div`
+const CheckoutSummaryContent = styled.div`
   padding: 40px 80px;
 
   & li {
@@ -63,11 +62,7 @@ const CheckoutSummaryOpenWrapper = styled.div`
   }
 `;
 
-const CheckoutSummaryCloseWrapper = styled.div`
-  padding: 40px 80px;
-`;
-
-const CheckoutSummaryIconButtonWrapper = styled.div`
+const ButtonWrapper = styled.div`
   ${({ theme }) => theme.typography.Heading6}
   ${mixins.flexBox({ justify: 'start' })}
   gap: 8px;

@@ -16,7 +16,7 @@ const contactItems: FooterContactItemType[] = [
 
 const FooterContact = () => {
   return (
-    <FooterContactWrapper className="bb-1 p-5">
+    <FooterContactWrapper>
       <FooterContactList contactItems={contactItems}>
         contact us
       </FooterContactList>
@@ -26,6 +26,9 @@ const FooterContact = () => {
   );
 };
 
-const FooterContactWrapper = styled.div``;
+const FooterContactWrapper = styled.div`
+  padding: 40px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+`;
 
 export default FooterContact;

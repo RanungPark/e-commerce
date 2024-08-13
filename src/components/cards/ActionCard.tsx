@@ -3,7 +3,7 @@ import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
 
 interface ActionCardProps {
-  onClick: (e: React.MouseEvent) => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: string;
   buttonText: string;
   hasRightIcon?: boolean;
@@ -14,8 +14,8 @@ const ActionCard = ({
   children,
   buttonText,
   onClick,
-  hasLeftIcon,
-  hasRightIcon,
+  hasLeftIcon = false,
+  hasRightIcon = false,
 }: ActionCardProps) => {
   return (
     <ActionCardWrapper className="bb-1 p-4">
@@ -33,12 +33,14 @@ const ActionCard = ({
   );
 };
 
-const ActionCardWrapper = styled.section`
+const ActionCardWrapper = styled.div`
   ${({ theme }) => theme.typography.Heading3}
   ${mixins.flexBox({})}
   position: relative;
   width: 100%;
-  height: ${768 / 2}px;
+  height: 384px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+  padding: 32px;
 `;
 
 const ActionCardButtonWrapper = styled.div`

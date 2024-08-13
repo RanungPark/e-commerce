@@ -1,13 +1,15 @@
 import { mixins } from '@styles/Mixin';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import IconButton from './IconButton';
 
 interface NavigationButtonProps {
-  onClick: (e: React.MouseEvent) => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children?: string;
   hasIcon?: boolean;
   IconComponent?: React.FC<React.SVGProps<SVGSVGElement>>;
 }
+
+type NavigationButtonWrapperProps = Pick<NavigationButtonProps, 'hasIcon'>;
 
 const NavigationButton = ({
   onClick,
@@ -16,10 +18,7 @@ const NavigationButton = ({
   IconComponent,
 }: NavigationButtonProps) => {
   return (
-    <NavigationButtonWrapper
-      onClick={onClick}
-      className={`${hasIcon ? 'p-2' : 'pt-4 pb-4 pr-9 pl-9'}`}
-    >
+    <NavigationButtonWrapper onClick={onClick} hasIcon={hasIcon}>
       {hasIcon && IconComponent ? (
         <IconButton IconComponent={IconComponent} />
       ) : (
@@ -29,9 +28,17 @@ const NavigationButton = ({
   );
 };
 
-const NavigationButtonWrapper = styled.button`
+const NavigationButtonWrapper = styled.button<NavigationButtonWrapperProps>`
   ${mixins.flexBox({})};
-  ${({ theme }) => theme.typography.Links}
+  ${({ hasIcon }) =>
+    hasIcon
+      ? css`
+          padding: 16px;
+        `
+      : css`
+          padding: 32px 72px;
+        `}
+  ${({ theme }) => theme.typography.Links};
 `;
 
 export default NavigationButton;

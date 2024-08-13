@@ -12,22 +12,17 @@ import { pageWait } from '@constants/toast';
 
 type BurgerMenuProps = {
   open: boolean;
-  setOpen: (date: boolean) => void;
+  setOpen: (open: boolean) => void;
 };
 
 const BurgerMenu = ({ open, setOpen }: BurgerMenuProps) => {
-  const handleClose = () => {
-    setOpen(!open);
-  };
-
+  const handleClose = () => setOpen(!open);
+  
   return (
     <>
-      <BurgerMenuBackGround onClick={handleClose} className="b-1" />
-      <BurgerMenuWrapper className="b-1">
-        <BurgerMenuCloseButtonWrapper
-          onClick={handleClose}
-          className="p-2 bb-1"
-        >
+      <BurgerMenuBackGround onClick={handleClose} />
+      <BurgerMenuWrapper>
+        <BurgerMenuCloseButtonWrapper onClick={handleClose}>
           <IconButton IconComponent={WClose} size="medium" />
         </BurgerMenuCloseButtonWrapper>
         {menuDatas.map(({ to, children }) => (
@@ -35,14 +30,14 @@ const BurgerMenu = ({ open, setOpen }: BurgerMenuProps) => {
             {children}
           </MenuButton>
         ))}
-        <TextButtonList className="p-3 bb-1">
+        <TextButtonList>
           {aboutDatas.map(children => (
             <TextButton key={uuidv4()} onClick={pageWait}>
               {children}
             </TextButton>
           ))}
         </TextButtonList>
-        <SMSIconButtonWrapper className="p-3 bb-1">
+        <SMSIconButtonWrapper>
           <SNSIconButtonList />
         </SMSIconButtonWrapper>
       </BurgerMenuWrapper>
@@ -56,6 +51,7 @@ const BurgerMenuBackGround = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
   position: fixed;
   z-index: ${zIndex.bugerMenuBackGround};
+  border: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const BurgerMenuWrapper = styled.div`
@@ -64,19 +60,27 @@ const BurgerMenuWrapper = styled.div`
   height: 100vh;
   position: fixed;
   z-index: ${zIndex.bugerMenu};
+  border: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const TextButtonList = styled.ul`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+  padding: 24px;
   gap: 16px;
 `;
 
 const BurgerMenuCloseButtonWrapper = styled.button`
   ${mixins.flexBox({ justify: 'start' })}
   width: 100%;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   cursor: pointer;
+  padding: 16px;
 `;
 
-const SMSIconButtonWrapper = styled.div``;
+const SMSIconButtonWrapper = styled.div`
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+  padding: 24px;
+`;
 
 export default BurgerMenu;

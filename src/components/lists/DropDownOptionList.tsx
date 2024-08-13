@@ -1,7 +1,7 @@
 import DropDownOption from '@components/texts/DropDownOption';
-import { colors } from '@styles/theme';
 import React from 'react';
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 
 interface DropDownOptionListProps {
   options: string[];
@@ -10,12 +10,11 @@ interface DropDownOptionListProps {
 
 const DropDownOptionList = ({ options, onClick }: DropDownOptionListProps) => {
   return (
-    <DropDownOptionListWrapper
-      className="mt-1 b-1"
-      style={{ borderColor: colors.darkgray }}
-    >
+    <DropDownOptionListWrapper>
       {options.map(option => (
-        <DropDownOption onClick={onClick}>{option}</DropDownOption>
+        <DropDownOption onClick={onClick} key={uuidv4()}>
+          {option}
+        </DropDownOption>
       ))}
     </DropDownOptionListWrapper>
   );
@@ -23,7 +22,8 @@ const DropDownOptionList = ({ options, onClick }: DropDownOptionListProps) => {
 
 const DropDownOptionListWrapper = styled.ul`
   width: 100%;
-
+  margin-top: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.darkgray};
   & > li {
     border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   }

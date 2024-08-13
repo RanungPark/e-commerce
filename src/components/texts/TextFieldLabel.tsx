@@ -14,6 +14,8 @@ const TextFieldLabel = ({ children, htmlFor }: TextFieldLabelProps) => {
 const TextFieldLabelWrapper = styled.label`
   width: 100%;
   ${({ theme }) => theme.typography.Heading6}
+  position: absolute;
+  top: -30px;
 `;
 
 export default TextFieldLabel;

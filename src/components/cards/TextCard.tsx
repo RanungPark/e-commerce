@@ -8,26 +8,25 @@ interface TextCardProps {
 
 const TextCard = ({ title, children, label = '' }: TextCardProps) => {
   return (
-    <TextCardWrapper className="bb-1 p-10">
-      {label ? (
-        <TextCardLabelWrapper className="mb-3">{label}</TextCardLabelWrapper>
-      ) : (
-        <></>
-      )}
+    <TextCardWrapper>
+      {label && <TextCardLabel>{label}</TextCardLabel>}
       <TextCardTitle>{title}</TextCardTitle>
       {children}
     </TextCardWrapper>
   );
 };
 
-const TextCardWrapper = styled.section`
+const TextCardWrapper = styled.div`
   ${({ theme }) => theme.typography.Body}
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   width: 100%;
   height: auto;
+  padding: 80px;
 `;
 
-const TextCardLabelWrapper = styled.p`
+const TextCardLabel = styled.p`
   ${({ theme }) => theme.typography.Caption}
+  margin-bottom: 24px;
 `;
 
 const TextCardTitle = styled.h3`

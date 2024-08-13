@@ -6,7 +6,7 @@ type IconButtonSize = 'small' | 'medium' | 'large';
 interface IconButtonProps {
   size?: IconButtonSize;
   IconComponent: React.FC<React.SVGProps<SVGSVGElement>>;
-  onClick?: (e: React.MouseEvent) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 interface IconButtonWrapperProps {
@@ -25,27 +25,24 @@ const IconButton = ({
   );
 };
 
-const smallStyle = css`
-  width: 24px;
-  height: 24px;
-`;
-
-const mediumStyle = css`
-  width: 32px;
-  height: 32px;
-`;
-
-const largeStyle = css`
-  width: 44px;
-  height: 44px;
-`;
+const sizeStyles = {
+  small: css`
+    width: 24px;
+    height: 24px;
+  `,
+  medium: css`
+    width: 32px;
+    height: 32px;
+  `,
+  large: css`
+    width: 44px;
+    height: 44px;
+  `,
+};
 
 const IconButtonWrapper = styled.button<IconButtonWrapperProps>`
   ${mixins.flexBox({})}
-
-  ${({ size }) => (size === 'small' ? smallStyle : null)}
-  ${({ size }) => (size === 'medium' ? mediumStyle : null)}
-  ${({ size }) => (size === 'large' ? largeStyle : null)}
+  ${({ size }) => sizeStyles[size]}
 `;
 
 export default IconButton;

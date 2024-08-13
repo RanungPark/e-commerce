@@ -19,7 +19,7 @@ const SecondaryImageCard = ({
   return (
     <SecondaryImageCardWrapper onClick={onClick}>
       <SecondaryImageCardImg alt={alt} src={imgPath} />
-      <SecondaryImageCardTextWrapper className="mt-1">
+      <SecondaryImageCardTextWrapper>
         {children}
         <SecondaryImageCardPriceWrapper>
           ${price}
@@ -54,7 +54,7 @@ const SecondaryImageCardTextWrapper = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 100px;
+  margin-top: 8px;
   gap: 4px;
 `;
 

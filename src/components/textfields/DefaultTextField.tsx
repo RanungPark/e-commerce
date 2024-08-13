@@ -16,8 +16,6 @@ interface DefaultTextFieldProps {
   children: React.ReactElement<HTMLInputElement>;
 }
 
-type DefaultTextFieldInputProps = Pick<DefaultTextFieldProps, 'inputState'>;
-
 const DefaultTextField = ({
   inputState = 'default',
   hasLabel = false,
@@ -29,18 +27,12 @@ const DefaultTextField = ({
 }: DefaultTextFieldProps) => {
   return (
     <DefaultTextFieldWrapper>
-      {hasLabel ? (
-        <TextFieldLabel htmlFor={htmlFor}>{label}</TextFieldLabel>
-      ) : (
-        <></>
-      )}
+      {hasLabel && <TextFieldLabel htmlFor={htmlFor}>{label}</TextFieldLabel>}
       <DefaultTextFieldInputWrapper inputState={inputState}>
         {children}
       </DefaultTextFieldInputWrapper>
-      {hasHelpMessage && !!helpMessage ? (
+      {hasHelpMessage && !!helpMessage && (
         <HelpMessage helpMessageTheme={inputState}>{helpMessage}</HelpMessage>
-      ) : (
-        <></>
       )}
     </DefaultTextFieldWrapper>
   );
@@ -49,86 +41,73 @@ const DefaultTextField = ({
 const DefaultTextFieldWrapper = styled.div`
   position: relative;
   width: 100%;
-  & .helpMessage,
-  label {
-    position: absolute;
-  }
-  & .helpMessage {
-    bottom: -20px;
-  }
-  & label {
-    top: -30px;
-  }
   z-index: ${zIndex.textField};
 `;
 
-export const defaultStyle = css`
-  ${({ theme }) => {
-    const { colors } = theme;
-    return css`
-      border: 1px solid ${colors.lightgray};
-      &:hover {
-        border: 1px solid ${colors.gray};
-      }
-
-      &:focus {
-        outline: none;
-        box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.gray};
-
-        &::placeholder {
-          color: ${colors.lightgray};
-        }
-      }
-
-      &:disabled {
-        background-color: ${colors.extralight};
+const TextFieldStyle = {
+  default: css`
+    ${({ theme }) => {
+      const { colors } = theme;
+      return css`
         border: 1px solid ${colors.lightgray};
-        cursor: not-allowed;
-
-        &::placeholder {
-          color: ${colors.lightgray};
+        &:hover {
+          border: 1px solid ${colors.gray};
         }
-      }
 
-      &[value]:not([value='']) {
-        border: 1px solid ${colors.black};
-      }
-    `;
-  }}
-`;
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.gray};
 
-export const successStyle = css`
-  border: 1px solid ${({ theme }) => theme.colors.success};
+          &::placeholder {
+            color: ${colors.lightgray};
+          }
+        }
 
-  &:focus {
-    color: ${({ theme }) => theme.colors.success};
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.success};
-  }
-`;
+        &:disabled {
+          background-color: ${colors.extralight};
+          border: 1px solid ${colors.lightgray};
+          cursor: not-allowed;
 
-export const errorStyle = css`
-  border: 1px solid ${({ theme }) => theme.colors.error};
+          &::placeholder {
+            color: ${colors.lightgray};
+          }
+        }
 
-  &:focus {
-    color: ${({ theme }) => theme.colors.error};
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.error};
-  }
-`;
+        &[value]:not([value='']) {
+          border: 1px solid ${colors.black};
+        }
+      `;
+    }}
+  `,
+  success: css`
+    border: 1px solid ${({ theme }) => theme.colors.success};
 
-const DefaultTextFieldInputWrapper = styled.div<DefaultTextFieldInputProps>`
+    &:focus {
+      color: ${({ theme }) => theme.colors.success};
+      box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.success};
+    }
+  `,
+  error: css`
+    border: 1px solid ${({ theme }) => theme.colors.error};
+
+    &:focus {
+      color: ${({ theme }) => theme.colors.error};
+      box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.error};
+    }
+  `,
+};
+
+const DefaultTextFieldInputWrapper = styled.div<{ inputState: InputState }>`
   & input {
     ${({ theme }) => theme.typography.Caption};
+    ${({ inputState }) => TextFieldStyle[inputState] || TextFieldStyle.default};
 
-    ${({ inputState }) => (inputState === 'default' ? defaultStyle : null)}
-    ${({ inputState }) => (inputState === 'success' ? successStyle : null)}
-    ${({ inputState }) => (inputState === 'error' ? errorStyle : null)}
-    
     display: block;
     width: 100%;
     height: 56px;
     padding: 16px;
     background-color: ${({ theme }) => theme.colors.white};
-    cursor: pointer;
+    cursor: text;
 
     &::placeholder {
       color: ${({ theme }) => theme.colors.gray};

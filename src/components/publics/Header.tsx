@@ -8,23 +8,13 @@ const Header = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
-  const handleBurgerMenuOpen = () => {
-    setBurgerOpen(prev => !prev);
-  };
-
-  const handleCartOpen = () => {
-    setCartOpen(prev => !prev);
-  };
+  const handleBurgerMenuOpen = () => setBurgerOpen(prev => !prev);
+  const handleCartOpen = () => setCartOpen(prev => !prev);
 
   return (
     <HeaderWrapper>
-      {burgerOpen ? (
-        <BurgerMenu setOpen={setBurgerOpen} open={burgerOpen} />
-      ) : (
-        <></>
-      )}
-      {cartOpen ? <Cart setOpen={setCartOpen} open={cartOpen} /> : <></>}
-      {/* <Cart setOpen={setCartOpen} open={cartOpen} /> */}
+      {burgerOpen && <BurgerMenu setOpen={setBurgerOpen} open={burgerOpen} />}
+      {cartOpen && <Cart setOpen={setCartOpen} open={cartOpen} />}
       <NavigationBar
         onMenuClick={handleBurgerMenuOpen}
         onCartClick={handleCartOpen}
@@ -33,6 +23,5 @@ const Header = () => {
   );
 };
 
-const HeaderWrapper = styled.header`
-`;
+const HeaderWrapper = styled.header``;
 export default Header;

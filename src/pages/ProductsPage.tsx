@@ -21,86 +21,83 @@ interface IProduct {
 }
 
 const ProductsPage = () => {
-  const param = useParams();
+  const { categoryName, productId } = useParams();
+  const navigate = useNavigate();
   const { addItem } = useCartStore();
-  const { data, isLoading, error } = useQuery<IProduct>({
-    queryKey: [`${param.categoryName}_${param.productId}`],
-    queryFn: () => fetchProduct(param.categoryName!, param.productId!),
-  });
   const [quantity, setQuantity] = useState(1);
 
-  const navigate = useNavigate();
+  const { data, isLoading, error } = useQuery<IProduct>({
+    queryKey: [`${categoryName}_${productId}`],
+    queryFn: () => fetchProduct(categoryName!, productId!),
+  });
 
-  const goToNotFound = () => {
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (error || !data) {
     navigate('/error');
+    return null;
+  }
+
+  const { product, outerProducts, selectProducts } = data;
+  const { id, name, price, imgPath, info } = product;
+
+  const handleMinusClick = () => {
+    setQuantity(prevValue => Math.max(prevValue - 1, 0));
   };
 
-  if (!data) {
-    if (isLoading) return <Loading />;
-    if (error) goToNotFound();
-  }
+  const handlePlusClick = () => {
+    setQuantity(prevValue => prevValue + 1);
+  };
 
-  if (data) {
-    const { product, outerProducts, selectProducts } = data;
-    const { id, name, price, imgPath, info } = product;
+  const handleAddItem = (e: React.MouseEvent) => {
+    e.preventDefault();
 
-    const handleMinusClick = () => {
-      setQuantity(prevValue => Math.max(prevValue - 1, 0));
+    const item = {
+      id,
+      name,
+      imgPath,
+      price: quantity * price,
+      quantity,
     };
 
-    const handlePlusClick = () => {
-      setQuantity(prevValue => prevValue + 1);
-    };
+    addItem(item);
+    addToCart(name);
+  };
 
-    const handleAddItem = (e: React.MouseEvent) => {
-      e.preventDefault();
+  return (
+    <>
+      <ProductsPageWrapper>
+        <ProductsImgWrapper className="pb-3 pt-3 bb-1">
+          <img src={imgPath} alt={name} className="b-1" />
+        </ProductsImgWrapper>
 
-      const item = {
-        id,
-        name,
-        imgPath,
-        price: quantity * price,
-        quantity,
-      };
+        <ProductsInfosWrapper className="p-5 bb-1">
+          <ProductInfo price={price} name={name}>
+            {info}
+          </ProductInfo>
 
-      addItem(item);
+          <ProductsQuantityWrapper>
+            Quantity
+            <Stepper
+              value={quantity}
+              onClickMinus={handleMinusClick}
+              onClickPlus={handlePlusClick}
+            />
+          </ProductsQuantityWrapper>
 
-      addToCart(name);
-    };
+          <ProductsCarouselWrapper>
+            Other products of category
+            <ImgCarousel products={selectProducts} />
+          </ProductsCarouselWrapper>
 
-    return (
-      <>
-        <ProductsPageWrapper>
-          <ProductsImgWrapper className="pb-3 pt-3 bb-1">
-            <img src={imgPath} alt={name} className="b-1" />
-          </ProductsImgWrapper>
-
-          <ProductsInfosWrapper className="p-5 bb-1">
-            <ProductInfo price={price} name={name}>
-              {info}
-            </ProductInfo>
-
-            <ProductsQuantityWrapper>
-              Quantity
-              <Stepper
-                value={quantity}
-                onClickMinus={handleMinusClick}
-                onClickPlus={handlePlusClick}
-              />
-            </ProductsQuantityWrapper>
-
-            <ProductsCarouselWrapper>
-              Other products of category
-              <ImgCarousel products={selectProducts} />
-            </ProductsCarouselWrapper>
-
-            <PrimaryButton onClick={handleAddItem}>Add to basket</PrimaryButton>
-          </ProductsInfosWrapper>
-        </ProductsPageWrapper>
-        <OuterProducts outerProducts={outerProducts} />
-      </>
-    );
-  }
+          <PrimaryButton onClick={handleAddItem}>Add to basket</PrimaryButton>
+        </ProductsInfosWrapper>
+      </ProductsPageWrapper>
+      <OuterProducts outerProducts={outerProducts} />
+    </>
+  );
 };
 
 const ProductsPageWrapper = styled.main``;

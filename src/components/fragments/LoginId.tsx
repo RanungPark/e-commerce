@@ -18,7 +18,7 @@ interface LoginIdProps {
 }
 
 interface LoginIdForm {
-  username: number;
+  username: string;
 }
 
 const LoginId = ({
@@ -38,11 +38,13 @@ const LoginId = ({
     mutationFn: (username: string) => fetchLogin(username),
     onSuccess: data => {
       const { message } = data;
+      const username = getValues().username;
+
       if (message === '로그인 진행') {
-        setUsername(getValues().username?.toString());
+        setUsername(username);
         onSubmit('join');
       } else if (message === '회원가입 진행') {
-        setUsername(getValues().username?.toString());
+        setUsername(username);
         onSubmit('signup');
       }
     },
@@ -52,7 +54,7 @@ const LoginId = ({
   });
 
   const onLoginValid = ({ username }: LoginIdForm) => {
-    LoginIdMutation.mutate(username.toString());
+    LoginIdMutation.mutate(username);
   };
 
   return (
@@ -60,15 +62,11 @@ const LoginId = ({
       {loginState === 'curr' && (
         <LoginIdForm onSubmit={handleSubmit(onLoginValid)}>
           <DefaultTextField
-            inputState={Object.keys(errors).length === 0 ? undefined : 'error'}
+            inputState={errors.username ? 'error' : undefined}
             hasLabel={true}
             label="휴대폰 번호를 사용하여 가입 또는 로그인하기"
             hasHelpMessage={true}
-            helpMessage={
-              Object.keys(errors).length === 0
-                ? undefined
-                : (errors.username?.message as string)
-            }
+            helpMessage={errors.username?.message}
           >
             <input
               {...register('username', {
