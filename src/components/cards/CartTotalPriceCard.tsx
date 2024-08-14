@@ -1,5 +1,5 @@
 import { mixins } from '@styles/Mixin';
-import { totalPriceCalc } from '@utils/calc';
+import { changeKroeaPrice, totalPriceCalc } from '@utils/price';
 import styled from 'styled-components';
 
 interface CartTotalPriceCardProps {
@@ -10,7 +10,9 @@ const CartTotalPriceCard = ({ children }: CartTotalPriceCardProps) => {
   return (
     <CartTotalPriceCardWrapper>
       {children}
-      <TotalPrice>{`$${totalPriceCalc()}.00`}</TotalPrice>
+      <TotalPrice>
+        {`${changeKroeaPrice(totalPriceCalc())}`} <span> KRW</span>
+      </TotalPrice>
     </CartTotalPriceCardWrapper>
   );
 };
@@ -22,5 +24,9 @@ const CartTotalPriceCardWrapper = styled.div`
 
 const TotalPrice = styled.span`
   ${({ theme }) => theme.typography.Heading5}
+
+  & span {
+    ${({ theme }) => theme.typography.Heading6}
+  }
 `;
 export default CartTotalPriceCard;

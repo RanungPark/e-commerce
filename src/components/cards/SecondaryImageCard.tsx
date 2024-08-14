@@ -1,4 +1,5 @@
 import { mixins } from '@styles/Mixin';
+import { changeKroeaPrice } from '@utils/price';
 import styled from 'styled-components';
 
 interface SecondaryImageCardProps {
@@ -22,7 +23,7 @@ const SecondaryImageCard = ({
       <SecondaryImageCardTextWrapper>
         {children}
         <SecondaryImageCardPriceWrapper>
-          ${price}
+          {changeKroeaPrice(price)}
         </SecondaryImageCardPriceWrapper>
       </SecondaryImageCardTextWrapper>
     </SecondaryImageCardWrapper>

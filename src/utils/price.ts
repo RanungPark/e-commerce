@@ -10,3 +10,9 @@ export const totalPriceCalc = () => {
 
   return totalPrice;
 };
+
+export const changeKroeaPrice = (price: number) => {
+  const koreaPrice = price.toLocaleString('ko-KR');
+
+  return `₩ ${koreaPrice}`;
+};

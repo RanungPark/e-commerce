@@ -1,5 +1,6 @@
 import TextButton from '@components/buttons/TextButton';
 import { mixins } from '@styles/Mixin';
+import { changeKroeaPrice } from '@utils/price';
 import styled from 'styled-components';
 
 interface CartItemCardProps {
@@ -25,14 +26,20 @@ const CartItemCard = ({
     <CartItemCardPropsWrapper>
       <img alt={alt} src={imgPath} />
       <CartItemCardInfosWrapper>
-        <span>{children}</span>
-        <span>{`Quantity (${quantity})`}</span>
-        {hasTextButton && <span>{`$${price}`}</span>}
+        <p>{children}</p>
+        <p>{`Quantity (${quantity})`}</p>
+        {hasTextButton && (
+          <p>
+            {`${changeKroeaPrice(price)}`} <span>KRW</span>
+          </p>
+        )}
       </CartItemCardInfosWrapper>
       {hasTextButton ? (
         <TextButton onClick={onClick}>Remove</TextButton>
       ) : (
-        <span>{`$${price}`}</span>
+        <p>
+          {`${changeKroeaPrice(price)}`} <span>KRW</span>
+        </p>
       )}
     </CartItemCardPropsWrapper>
   );
@@ -48,6 +55,10 @@ const CartItemCardPropsWrapper = styled.li`
     border: 1px solid ${({ theme }) => theme.colors.black};
     object-fit: cover;
   }
+
+  & span {
+    ${({ theme }) => theme.typography.Body}
+  }
 `;
 
 const CartItemCardInfosWrapper = styled.div`
@@ -56,7 +67,7 @@ const CartItemCardInfosWrapper = styled.div`
   gap: 8px;
   margin-left: 16px;
 
-  & span:nth-child(2) {
+  & > p:nth-child(2) {
     ${({ theme }) => theme.typography.Body}
   }
 `;

@@ -1,3 +1,4 @@
+import { changeKroeaPrice } from '@utils/price';
 import styled from 'styled-components';
 
 interface ProductInfoProps {
@@ -9,7 +10,10 @@ interface ProductInfoProps {
 const ProductInfo = ({ name, price, children }: ProductInfoProps) => {
   return (
     <ProductInfoWrapper>
-      <ProductInfoTitle>{`${name} - $ ${price}`}</ProductInfoTitle>
+      <ProductInfoTitle>
+        {`${name} - ${changeKroeaPrice(price)}`}
+        <span> KRW</span>
+      </ProductInfoTitle>
       {children}
     </ProductInfoWrapper>
   );
@@ -24,6 +28,9 @@ const ProductInfoWrapper = styled.section`
 const ProductInfoTitle = styled.h3`
   ${({ theme }) => theme.typography.Heading3}
   margin-bottom: 16px;
+  & span {
+    ${({ theme }) => theme.typography.Heading4}
+  }
 `;
 
 export default ProductInfo;
