@@ -19,7 +19,7 @@ const ProductInfo = ({ name, price, children }: ProductInfoProps) => {
   );
 };
 
-const ProductInfoWrapper = styled.section`
+const ProductInfoWrapper = styled.div`
   ${({ theme }) => theme.typography.Body}
   width: 100%;
   height: auto;
