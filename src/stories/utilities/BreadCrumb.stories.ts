@@ -37,12 +37,22 @@ export const Default: Story = {
   args: {
     children: 'Bread Crumb',
     focus: true,
+    disabled: false,
+  },
+};
+
+export const DefaultNotFocus: Story = {
+  args: {
+    children: 'Bread Crumb',
+    focus: false,
+    disabled: false,
   },
 };
 
 export const DefaultIsDisabled: Story = {
   args: {
     children: 'Bread Crumb',
-    focus: false,
+    focus: true,
+    disabled: true,
   },
 };
