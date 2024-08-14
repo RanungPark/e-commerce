@@ -33,6 +33,7 @@ const SecondaryImageCard = ({
 const SecondaryImageCardWrapper = styled.div`
   width: 100px;
   cursor: pointer;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 const SecondaryImageCardImg = styled.img`

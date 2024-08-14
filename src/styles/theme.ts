@@ -6,11 +6,11 @@ export const colors = {
   white: '#ffffff',
   extralight: '#f5f5f7',
   lightgray: '#d2d2d7',
-  gray: '#808080',
+  gray: '#72727D',
   darkgray: '#424245',
   black: '#121212',
-  success: '#32936f',
-  error: '#f55f56',
+  success: '#2E8564',
+  error: '#EB170A',
 };
 
 const weightScheme: Record<Weight, number> = {
