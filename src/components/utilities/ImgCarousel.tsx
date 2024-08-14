@@ -54,7 +54,7 @@ const ImgCarousel = ({ products }: ImgCarouselProps) => {
 
   return (
     <SecondaryImageCardWrapper>
-      <IconButton IconComponent={WChevronLeft} onClick={handleLeftButton} />
+      <IconButton IconComponent={WChevronLeft} onClick={handleLeftButton} ariaLabel='chevron left'/>
       {viewProducts.map(({ name, price, imgPath, category, id }) => (
         <SecondaryImageCard
           price={price}
@@ -65,7 +65,7 @@ const ImgCarousel = ({ products }: ImgCarouselProps) => {
           {name}
         </SecondaryImageCard>
       ))}
-      <IconButton IconComponent={WChevronRight} onClick={handleRightButton} />
+      <IconButton IconComponent={WChevronRight} onClick={handleRightButton} ariaLabel='chevron right'/>
     </SecondaryImageCardWrapper>
   );
 };

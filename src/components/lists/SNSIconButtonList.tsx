@@ -14,6 +14,7 @@ const SNSIconButtonList = () => {
             console.log(`go to ${SNSName}`);
           }}
           IconComponent={IconComponent}
+          ariaLabel={SNSName}
         />
       ))}
     </SNSIconButtonListWrapper>

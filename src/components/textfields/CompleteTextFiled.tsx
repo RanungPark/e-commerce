@@ -23,7 +23,7 @@ const CompleteTextFiled = ({
         {!disabled && <Check />}
         {children}
       </CompleteTextFiledChildrenWrapper>
-      {!disabled && <IconButton onClick={onClick} IconComponent={WEdit} />}
+      {!disabled && <IconButton onClick={onClick} IconComponent={WEdit} ariaLabel='edit'/>}
     </CompleteTextFiledWrapper>
   );
 };

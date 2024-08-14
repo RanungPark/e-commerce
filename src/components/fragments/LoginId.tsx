@@ -77,6 +77,7 @@ const LoginId = ({
                 },
               })}
               placeholder="+82 XXX XXX XXX"
+              aria-label='username'
             />
           </DefaultTextField>
           <PrimaryButton onClick={handleSubmit(onLoginValid)}>

@@ -6,6 +6,7 @@ type IconButtonSize = 'small' | 'medium' | 'large';
 interface IconButtonProps {
   size?: IconButtonSize;
   IconComponent: React.FC<React.SVGProps<SVGSVGElement>>;
+  ariaLabel: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -16,10 +17,11 @@ interface IconButtonWrapperProps {
 const IconButton = ({
   size = 'small',
   IconComponent,
+  ariaLabel,
   onClick,
 }: IconButtonProps) => {
   return (
-    <IconButtonWrapper size={size} onClick={onClick}>
+    <IconButtonWrapper size={size} onClick={onClick} aria-label={ariaLabel}>
       <IconComponent />
     </IconButtonWrapper>
   );

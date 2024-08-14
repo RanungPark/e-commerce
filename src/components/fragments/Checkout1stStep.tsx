@@ -42,6 +42,7 @@ const Checkout1stStep = ({
                         },
                       })}
                       placeholder={placeholder}
+                      aria-label={registerValue}
                     />
                   </DefaultTextField>
                 );

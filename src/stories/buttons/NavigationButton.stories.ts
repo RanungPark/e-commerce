@@ -27,6 +27,10 @@ const meta = {
       control: 'text',
       description: 'SVG 컴포넌트',
     },
+    ariaLabel: {
+      control: 'text',
+      description: 'IconButton 접근자 이름',
+    },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof NavigationButton>;
@@ -44,5 +48,6 @@ export const HasIcon: Story = {
   args: {
     hasIcon: true,
     IconComponent: WMenu,
+    ariaLabel: 'menu',
   },
 };

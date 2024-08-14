@@ -44,7 +44,11 @@ const FooterRemind = () => {
       </p>
       <FooterRemindForm onSubmit={handleSubmit(handleSubscription)}>
         <DefaultTextField>
-          <input placeholder="Your Email" {...register('remind')} />
+          <input
+            placeholder="Your Email"
+            {...register('remind')}
+            aria-label='remind'
+          />
         </DefaultTextField>
         <PrimaryButton onClick={() => {}}>remind</PrimaryButton>
       </FooterRemindForm>

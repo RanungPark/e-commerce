@@ -23,7 +23,7 @@ const BurgerMenu = ({ open, setOpen }: BurgerMenuProps) => {
       <BurgerMenuBackGround onClick={handleClose} />
       <BurgerMenuWrapper>
         <BurgerMenuCloseButtonWrapper onClick={handleClose}>
-          <IconButton IconComponent={WClose} size="medium" />
+          <IconButton IconComponent={WClose} size="medium" ariaLabel='close'/>
         </BurgerMenuCloseButtonWrapper>
         {menuDatas.map(({ to, children }) => (
           <MenuButton to={to} onClick={handleClose} key={uuidv4()}>

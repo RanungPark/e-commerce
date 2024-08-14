@@ -14,9 +14,19 @@ interface StepperProps {
 const Stepper = ({ value, onClickMinus, onClickPlus }: StepperProps) => {
   return (
     <StepperWrapper className="b-1">
-      <IconButton onClick={onClickMinus} IconComponent={BiMinus} size="large" />
-      <StepperInput readOnly value={value} type="text" />
-      <IconButton onClick={onClickPlus} IconComponent={BiPlus} size="large" />
+      <IconButton
+        onClick={onClickMinus}
+        IconComponent={BiMinus}
+        size="large"
+        ariaLabel="minus"
+      />
+      <StepperInput readOnly value={value} type="text" aria-label="stepper" />
+      <IconButton
+        onClick={onClickPlus}
+        IconComponent={BiPlus}
+        size="large"
+        ariaLabel="plus"
+      />
     </StepperWrapper>
   );
 };

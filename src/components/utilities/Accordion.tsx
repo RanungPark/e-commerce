@@ -22,9 +22,15 @@ const Accordion = ({ title, children }: AccordionProps) => {
       <AccordionTitleWrapper onClick={handleClickn}>
         {title}
         {isOpen ? (
-          <IconButton IconComponent={ArrowTopRight} />
+          <IconButton
+            IconComponent={ArrowTopRight}
+            ariaLabel="top and right arrow"
+          />
         ) : (
-          <IconButton IconComponent={ArrowDownRight} />
+          <IconButton
+            IconComponent={ArrowDownRight}
+            ariaLabel="down and right arrow"
+          />
         )}
       </AccordionTitleWrapper>
       {isOpen ? children : <></>}

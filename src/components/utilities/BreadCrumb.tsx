@@ -21,7 +21,7 @@ const BreadCrumb = ({
   return (
     <BreadCrumbWrapper onClick={onClick} focus={focus} disabled={disabled}>
       {children}
-      <IconButton IconComponent={WChevronRight} />
+      <IconButton IconComponent={WChevronRight} ariaLabel='chevron right'/>
     </BreadCrumbWrapper>
   );
 };

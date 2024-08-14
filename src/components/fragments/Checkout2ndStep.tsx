@@ -55,6 +55,7 @@ const Checkout2ndStep = ({
                         },
                       })}
                       placeholder={placeholder}
+                      aria-label={registerValue}
                     />
                   </DefaultTextField>
                 );

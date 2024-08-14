@@ -82,6 +82,7 @@ const LoginPassword = ({
               })}
               placeholder="비밀번호를 입력해주세요"
               type="password"
+              aria-label='password'
             />
           </DefaultTextField>
           <PrimaryButton onClick={handleSubmit(onJoinValid)}>

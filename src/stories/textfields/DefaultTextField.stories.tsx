@@ -56,14 +56,14 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     inputState: 'default',
-    children: <input />,
+    children: <input aria-label="text field" />,
   },
 };
 
 export const DefaultWithLabel: Story = {
   args: {
     inputState: 'default',
-    children: <input />,
+    children: <input aria-label="text field" />,
     hasLabel: true,
     label: 'Label',
     htmlFor: 'id',
@@ -73,7 +73,7 @@ export const DefaultWithLabel: Story = {
 export const DefaultWithLabelAndHasHelpMessage: Story = {
   args: {
     inputState: 'default',
-    children: <input />,
+    children: <input aria-label="text field" />,
     hasLabel: true,
     label: 'Label',
     htmlFor: 'id',
@@ -85,7 +85,7 @@ export const DefaultWithLabelAndHasHelpMessage: Story = {
 export const DefaultIsDisabled: Story = {
   args: {
     inputState: 'default',
-    children: <input disabled />,
+    children: <input disabled aria-label="text field" />,
     hasLabel: true,
     label: 'Label',
     htmlFor: 'id',
@@ -97,14 +97,14 @@ export const DefaultIsDisabled: Story = {
 export const Success: Story = {
   args: {
     inputState: 'success',
-    children: <input />,
+    children: <input aria-label="text field" />,
   },
 };
 
 export const SuccessWithHasHelpMessage: Story = {
   args: {
     inputState: 'success',
-    children: <input />,
+    children: <input aria-label="text field" />,
     hasHelpMessage: true,
     helpMessage: 'Text helper',
   },
@@ -113,7 +113,7 @@ export const SuccessWithHasHelpMessage: Story = {
 export const SuccessWithLabelAndHasHelpMessage: Story = {
   args: {
     inputState: 'success',
-    children: <input />,
+    children: <input aria-label="text field" />,
     hasLabel: true,
     label: 'Label',
     htmlFor: 'id',
@@ -125,14 +125,14 @@ export const SuccessWithLabelAndHasHelpMessage: Story = {
 export const Error: Story = {
   args: {
     inputState: 'error',
-    children: <input />,
+    children: <input aria-label="text field" />,
   },
 };
 
 export const ErrorWithHasHelpMessage: Story = {
   args: {
     inputState: 'error',
-    children: <input />,
+    children: <input aria-label="text field" />,
     hasHelpMessage: true,
     helpMessage: 'Text helper',
   },
@@ -141,7 +141,7 @@ export const ErrorWithHasHelpMessage: Story = {
 export const ErrorWithLabelAndHasHelpMessage: Story = {
   args: {
     inputState: 'error',
-    children: <input />,
+    children: <input aria-label="text field" />,
     hasLabel: true,
     label: 'Label',
     htmlFor: 'id',

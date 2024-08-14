@@ -46,6 +46,7 @@ const Cart = ({ open, setOpen }: CartProps) => {
           IconComponent={WClose}
           size="medium"
           onClick={handleClose}
+          ariaLabel="close"
         />
       </CartHeaderWrapper>
       <CartMainWrapper>

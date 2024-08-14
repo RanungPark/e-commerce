@@ -54,11 +54,13 @@ const DropDown = ({
           <IconButton
             onClick={e => e.preventDefault()}
             IconComponent={CaretUp}
+            ariaLabel="caret up"
           />
         ) : (
           <IconButton
             onClick={e => e.preventDefault()}
             IconComponent={CaretDown}
+            ariaLabel="caret down"
           />
         )}
       </DropDownLabel>

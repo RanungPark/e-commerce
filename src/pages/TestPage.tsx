@@ -153,6 +153,7 @@ const TestPage = () => {
         }}
         hasIcon={true}
         IconComponent={Menu}
+        ariaLabel="menu"
       />
 
       <NavigationBar onMenuClick={() => {}} onCartClick={() => {}} />

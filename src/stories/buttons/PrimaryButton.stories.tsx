@@ -132,5 +132,6 @@ export const PrimaryWithCustomButton: Story = {
     children: 'button',
     hasLeftIcon: true,
     CustomButton: Check,
+    ariaLabel: 'check'
   },
 };

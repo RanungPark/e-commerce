@@ -28,6 +28,10 @@ const meta = {
     onClick: {
       description: 'IconButton 클릭 이벤트',
     },
+    ariaLabel: {
+      control: 'text',
+      description: 'IconButton 접근자 이름',
+    },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof IconButton>;
@@ -39,6 +43,7 @@ export const SmallSize: Story = {
   args: {
     size: 'small',
     IconComponent: ArrowLeft,
+    ariaLabel: 'left arrow',
   },
 };
 
@@ -46,6 +51,7 @@ export const MediumSize: Story = {
   args: {
     size: 'medium',
     IconComponent: ArrowLeft,
+    ariaLabel: 'left arrow',
   },
 };
 
@@ -53,5 +59,6 @@ export const LargeSize: Story = {
   args: {
     size: 'large',
     IconComponent: ArrowLeft,
+    ariaLabel: 'left arrow',
   },
 };

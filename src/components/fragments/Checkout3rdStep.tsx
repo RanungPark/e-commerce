@@ -40,6 +40,7 @@ const Checkout3rdStep = ({ stepState, onSubmit }: Checkout3rdStepProps) => {
                         },
                       })}
                       placeholder={placeholder}
+                      aria-label={registerValue}
                     />
                   </DefaultTextField>
                 );
