@@ -14,10 +14,17 @@ const meta = {
     children: {
       control: 'text',
       description: 'BreadCrumb 텍스트',
-      defaultValue: 'infomation',
     },
     onClick: {
       description: 'IconButton 클릭 이벤트',
+    },
+    focus: {
+      control: 'boolean',
+      description: 'BreadCrumb 포커스 여부',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'BreadCrumb 활성화 여부',
     },
   },
   args: { onClick: fn() },
@@ -28,6 +35,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'infomation',
+    children: 'Bread Crumb',
+    focus: true,
+  },
+};
+
+export const DefaultIsDisabled: Story = {
+  args: {
+    children: 'Bread Crumb',
+    focus: false,
   },
 };
