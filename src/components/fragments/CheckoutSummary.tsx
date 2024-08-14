@@ -49,12 +49,8 @@ const CheckoutSummaryContent = styled.div`
   padding: 40px 80px;
 
   & li {
-    padding-bottom: 24px;
+    padding: 24px 0;
     border-bottom: 1px solid ${({ theme }) => theme.colors.lightgray};
-  }
-
-  & > div:first-child {
-    padding-bottom: 24px;
   }
 
   & > div:last-child {
