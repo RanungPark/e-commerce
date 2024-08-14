@@ -16,15 +16,19 @@ const FooterContactList = ({
   return (
     <FooterContactListWrapper>
       <FooterInfoTittle>{children}</FooterInfoTittle>
-      {contactItems.map(({ title, children }) => (
-        <FooterContactItem title={title} key={uuidv4()}>
-          {children}
-        </FooterContactItem>
-      ))}
+      <FooterContactListUl>
+        {contactItems.map(({ title, children }) => (
+          <FooterContactItem title={title} key={uuidv4()}>
+            {children}
+          </FooterContactItem>
+        ))}
+      </FooterContactListUl>
     </FooterContactListWrapper>
   );
 };
 
-const FooterContactListWrapper = styled.ul``;
+const FooterContactListWrapper = styled.div``;
+
+const FooterContactListUl = styled.ul``;
 
 export default FooterContactList;
