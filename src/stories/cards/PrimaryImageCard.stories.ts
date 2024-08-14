@@ -14,22 +14,18 @@ const meta = {
     imgPath: {
       control: 'text',
       description: 'PrimaryImageCard 이미지 경로',
-      defaultValue: IMG_PATH.FreshFlowers.BlazingBlassoms,
     },
     alt: {
       control: 'text',
       description: 'PrimaryImageCard 이미지 대체 속성',
-      defaultValue: 'Bouquets Fresh Flowers',
     },
     price: {
-      control: 'text',
+      control: 'number',
       description: 'PrimaryImageCard 가격',
-      defaultValue: 70,
     },
     children: {
       control: 'text',
       description: 'PrimaryImageCard 타이틀',
-      defaultValue: 'Bouquets Fresh Flowers',
     },
     onClick: {
       description: 'PrimaryImageCard 클릭 이벤트',
@@ -46,6 +42,6 @@ export const Default: Story = {
     imgPath: IMG_PATH.FreshFlowers.BlazingBlassoms,
     alt: 'Bouquets Fresh Flowers',
     price: 70,
-    children: 'Bouquets Fresh Flowers',
+    children: 'Primary Img Card',
   },
 };

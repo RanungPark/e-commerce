@@ -12,24 +12,16 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     children: {
+      control: 'object',
       description: 'Checkbox 컴포넌트',
-      defaultValue: (
-        <>
-          <Checkbox>Checkbox1</Checkbox>
-          <Checkbox>Checkbox2</Checkbox>
-          <Checkbox>Checkbox3</Checkbox>
-        </>
-      ),
     },
     label: {
       control: 'text',
       description: 'CheckboxGroup 라벨',
-      defaultValue: 'Checkbox Group',
     },
     values: {
-      control: 'text',
+      control: 'object',
       description: 'CheckboxGroup 값(value)들',
-      defaultValue: [],
     },
     onChange: {
       description: 'CheckboxGroup 체인지 이벤트',

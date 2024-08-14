@@ -12,19 +12,10 @@ const meta: Meta<typeof ProductCardInfoList> = {
     children: {
       control: 'text',
       description: 'ProductCardInfoList 타이틀',
-      defaultValue: 'Classic',
     },
     infoItems: {
-      control: 'text',
+      control: 'object',
       description: 'ProductCardInfoList 정보 아이템들',
-      defaultValue: [
-        'Price $45',
-        'Free Delivery',
-        'Best for a budget',
-        'Glass vase with first delivery',
-        'Save up to 25%',
-        'Save up to 25%',
-      ],
     },
   },
 };

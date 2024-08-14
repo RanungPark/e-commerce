@@ -13,27 +13,22 @@ const meta = {
     children: {
       control: 'text',
       description: 'RadioButton 텍스트',
-      defaultValue: 'Button',
     },
     name: {
       control: 'text',
       description: 'RadioButton 키(name)',
-      defaultValue: 'test',
     },
     value: {
       control: 'text',
       description: 'RadioButton 값(value)',
-      defaultValue: 'new test',
     },
     isGrop: {
       control: 'boolean',
       description: 'RadioButton 그룹 여부',
-      defaultValue: false,
     },
     defaultChecked: {
       control: 'boolean',
       description: 'RadioButton 선택 유무',
-      defaultValue: false,
     },
     onChange: {
       description: 'RadioButton 체인지 이벤트',

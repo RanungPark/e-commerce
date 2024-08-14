@@ -14,22 +14,18 @@ const meta = {
     imgPath: {
       control: 'text',
       description: 'SecondaryImageCard 이미지 경로',
-      defaultValue: IMG_PATH.DesignerVases.BernadotteVase,
     },
     alt: {
       control: 'text',
       description: 'SecondaryImageCard 이미지 대체 속성',
-      defaultValue: 'BernadotteVase',
     },
     price: {
-      control: 'text',
+      control: 'number',
       description: 'SecondaryImageCard 가격',
-      defaultValue: 0,
     },
     children: {
       control: 'text',
       description: 'SecondaryImageCard 타이틀',
-      defaultValue: 'No Vase',
     },
     onClick: {
       description: 'SecondaryImageCard 클릭 이벤트',
@@ -46,6 +42,6 @@ export const Default: Story = {
     imgPath: IMG_PATH.DesignerVases.BernadotteVase,
     alt: 'BernadotteVase',
     price: 0,
-    children: 'No Vase',
+    children: 'Secondary Img Card',
   },
 };

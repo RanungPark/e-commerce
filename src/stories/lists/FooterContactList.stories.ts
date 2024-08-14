@@ -15,6 +15,7 @@ const meta: Meta<typeof FooterContactList> = {
       defaultValue: 'contact us',
     },
     contactItems: {
+      control: 'object',
       description: 'FooterContactList 아이템들',
     },
   },

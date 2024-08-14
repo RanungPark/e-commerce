@@ -21,7 +21,7 @@ const meta: Meta<typeof ActionCardAndImageCardList> = {
     children: {
       control: 'text',
       description: 'ActionCard 타이틀',
-      defaultValue: 'FreshFlowers',
+      defaultValue: 'Action Card',
     },
     index: {
       control: 'number',
@@ -55,7 +55,7 @@ type Story = StoryObj<typeof meta>;
 
 export const EvenIndex: Story = {
   args: {
-    children: 'FreshFlowers',
+    children: 'Action Card',
     index: 0,
     buttonText: 'Shop now',
     imgPath: IMG_PATH.FreshFlowers.FreshFlowersRep,
@@ -65,7 +65,7 @@ export const EvenIndex: Story = {
 
 export const OddIndex: Story = {
   args: {
-    children: 'FreshFlowers',
+    children: 'Action Card',
     index: 1,
     buttonText: 'Shop now',
     imgPath: IMG_PATH.FreshFlowers.FreshFlowersRep,

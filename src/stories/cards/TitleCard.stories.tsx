@@ -8,11 +8,17 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  decorators: [
+    Story => (
+      <div style={{ width: '728px' }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     children: {
       control: 'text',
       description: 'TitleCard 텍스트',
-      defaultValue: `shop`,
     },
   },
 } satisfies Meta<typeof TitleCard>;
@@ -22,6 +28,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: `shop`,
+    children: `Title Card`,
   },
 };

@@ -12,12 +12,10 @@ const meta: Meta<typeof FooterContactItem> = {
     children: {
       control: 'text',
       description: 'FooterContactItem 정보',
-      defaultValue: 'ckehfqkr302@gamil.com',
     },
     title: {
       control: 'text',
       description: 'FooterContactItem 테이틀',
-      defaultValue: 'General Enquiry',
     },
   },
 };

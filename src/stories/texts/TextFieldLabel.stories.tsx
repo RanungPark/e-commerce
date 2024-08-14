@@ -19,8 +19,11 @@ const meta = {
     children: {
       control: 'text',
       description: 'TextFieldLabel 텍스트',
-      defaultValue: 'Label',
     },
+    htmlFor: {
+      control: 'text',
+      description: 'TextFieldLabel htmlFor',
+    }
   },
 } satisfies Meta<typeof TextFieldLabel>;
 
@@ -29,7 +32,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    htmlFor: '',
+    htmlFor: 'id',
     children: 'Label',
   },
 };

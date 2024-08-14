@@ -12,24 +12,16 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     children: {
+      control: 'object',
       description: 'RadioButton 컴포넌트',
-      defaultValue: (
-        <>
-          <RadioButton>Radio Button1</RadioButton>
-          <RadioButton>Radio Button2</RadioButton>
-          <RadioButton>Radio Button3</RadioButton>
-        </>
-      ),
     },
     label: {
       control: 'text',
       description: 'RadioButtonGroup 라벨',
-      defaultValue: 'Radio Button Group',
     },
     value: {
       control: 'text',
       description: 'RadioButtonGroup 값(value)',
-      defaultValue: '',
     },
     onChange: {
       description: 'RadioButtonGroup 체인지 이벤트',

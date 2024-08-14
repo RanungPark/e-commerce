@@ -20,11 +20,9 @@ const meta = {
     children: {
       control: 'text',
       description: 'BackgroundImageCard 텍스트',
-      defaultValue: `FreshFlowers`,
     },
     imgPath: {
       description: 'BackgroundImageCard 배경 이미지',
-      defaultValue: IMG_PATH.FreshFlowers.FreshFlowersBg,
     },
   },
 } satisfies Meta<typeof BackgroundImageCard>;
@@ -34,7 +32,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: `FreshFlowers`,
+    children: `Background Img Card`,
     imgPath: IMG_PATH.FreshFlowers.FreshFlowersBg,
   },
 };

@@ -14,12 +14,10 @@ const meta = {
     placeholder: {
       control: 'text',
       description: 'DatePicker placeholder',
-      defaultValue: 'Select a date',
     },
     value: {
       control: 'date',
       description: 'DatePicker 값(value)',
-      defaultValue: new Date(),
     },
     onChange: {
       description: 'DatePicker 체인지 이벤트',

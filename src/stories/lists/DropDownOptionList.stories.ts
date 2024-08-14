@@ -14,15 +14,8 @@ const meta: Meta<typeof DropDownOptionList> = {
       description: 'DropDownOption 클릭 이벤트',
     },
     options: {
-      control: 'text',
+      control: 'object',
       description: 'DropDownOptionList 옵션 아이템들',
-      defaultValue: [
-        'Option A',
-        'Option B',
-        'Option C',
-        'Option D',
-        'Option E',
-      ],
     },
   },
   args: { onClick: fn() },

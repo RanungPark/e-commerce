@@ -12,7 +12,6 @@ const meta: Meta<typeof FooterInfoTittle> = {
     children: {
       control: 'text',
       description: 'FooterInfoTittle 텍스트',
-      defaultValue: 'contact us',
     },
   },
 };

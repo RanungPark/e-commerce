@@ -19,19 +19,14 @@ const meta = {
     title: {
       control: 'text',
       description: 'TextCard 제목',
-      defaultValue: 'Stylish bouquets by florists',
     },
     children: {
       control: 'text',
       description: 'TextCard 내용',
-      defaultValue: `The task of the organization, especially the strengthening and
-        development of the structure allows us to assess the importance of the
-        directions of progressive development.`,
     },
     label: {
       control: 'text',
       description: 'TextCard 라벨',
-      defaultValue: '',
     },
   },
 } satisfies Meta<typeof TextCard>;
@@ -41,19 +36,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    title: 'Stylish bouquets by florists',
-    children: `The task of the organization, especially the strengthening and
-        development of the structure allows us to assess the importance of the
-        directions of progressive development.`,
+    title: 'Text Card',
+    children: `타이틀과 자식를 필수로 지닌 텍스트로만 이루어진 카드`,
   },
 };
 
 export const DefaultAndLabel: Story = {
   args: {
-    title: 'Stylish bouquets by florists',
-    children: `The task of the organization, especially the strengthening and
-        development of the structure allows us to assess the importance of the
-        directions of progressive development.`,
-    label: 'our story',
+    title: 'Text Card',
+    children: `타이틀과 자식를 필수로 지닌 텍스트로만 이루어진 카드`,
+    label: 'label',
   },
 };

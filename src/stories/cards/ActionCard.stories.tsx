@@ -20,12 +20,10 @@ const meta = {
     children: {
       control: 'text',
       description: 'ActionCard 타이틀',
-      defaultValue: 'Fresh Flowers',
     },
     buttonText: {
       control: 'text',
       description: 'TextButton 텍스트',
-      defaultValue: 'Button',
     },
     onClick: {
       description: 'TextButton 클릭 이벤트',
@@ -33,12 +31,10 @@ const meta = {
     hasLeftIcon: {
       control: 'boolean',
       description: '왼쪽 IconButton 유무',
-      defaultValue: false,
     },
     hasRightIcon: {
       control: 'boolean',
       description: '오른쪽 IconButton 유무',
-      defaultValue: false,
     },
   },
   args: { onClick: fn() },
@@ -49,7 +45,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'Fresh Flowers',
+    children: 'Action Card',
     buttonText: 'Button',
   },
 };

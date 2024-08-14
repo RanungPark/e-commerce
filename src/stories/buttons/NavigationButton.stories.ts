@@ -15,7 +15,6 @@ const meta = {
     children: {
       control: 'text',
       description: 'NavigationButton 텍스트',
-      defaultValue: 'Link',
     },
     onClick: {
       description: 'NavigationButton 클릭 이벤트',
@@ -23,12 +22,10 @@ const meta = {
     hasIcon: {
       control: 'boolean',
       description: 'IconButton 유무',
-      defaultValue: false,
     },
     IconComponent: {
       control: 'text',
       description: 'SVG 컴포넌트',
-      defaultValue: WMenu,
     },
   },
   args: { onClick: fn() },

@@ -12,7 +12,6 @@ const meta: Meta<typeof ProductCardInfo> = {
     children: {
       control: 'text',
       description: 'ProductCardInfo 텍스트',
-      defaultValue: 'Price $45',
     },
   },
 };
@@ -22,6 +21,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'Price $45',
+    children: '₩ 140,000',
   },
 };

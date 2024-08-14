@@ -12,9 +12,8 @@ const meta = {
 
   argTypes: {
     value: {
-      control: 'text',
+      control: 'number',
       description: 'Stepper 값',
-      defaultValue: 1,
     },
     onClickMinus: {
       description: '마이너스 IconButton 클릭 이벤트',

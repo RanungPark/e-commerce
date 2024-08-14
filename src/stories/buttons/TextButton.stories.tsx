@@ -15,22 +15,18 @@ const meta = {
     children: {
       control: 'text',
       description: 'TextButton 텍스트',
-      defaultValue: 'Button',
     },
     hasLeftIcon: {
       control: 'boolean',
       description: '왼쪽 IconButton 유무',
-      defaultValue: false,
     },
     hasRightIcon: {
       control: 'boolean',
       description: '오른쪽 IconButton 유무',
-      defaultValue: false,
     },
     disabled: {
       control: 'boolean',
       description: 'TextButton 활성화 여부',
-      defaultValue: false,
     },
     onClick: {
       description: 'TextButton 클릭 이벤트',

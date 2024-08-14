@@ -22,36 +22,31 @@ const meta = {
         options: ['default', 'error', 'success'],
       },
       description: 'DefaultTextField 상태 테마',
-      defaultValue: 'default',
     },
     hasLabel: {
       control: 'boolean',
       description: 'DefaultTextFielLabel 라벨 유무',
-      defaultValue: false,
     },
     label: {
       control: 'text',
       description: 'DefaultTextFielLabel 라벨 텍스트',
-      defaultValue: 'Label',
     },
     htmlFor: {
       control: 'text',
       description: 'DefaultTextFielLabel htmlFor(input의 id값) 텍스트',
-      defaultValue: 'id',
     },
     hasHelpMessage: {
       control: 'boolean',
       description: 'DefaultTextField HelpMessage 유무',
-      defaultValue: false,
     },
     helpMessage: {
       control: 'text',
       description: 'HelpMessage 텍스트',
-      defaultValue: 'Text Helper',
     },
     children: {
-      description: 'DefaultTextField input 태그'
-    }
+      control: 'object',
+      description: 'DefaultTextField input 태그',
+    },
   },
 } satisfies Meta<typeof DefaultTextField>;
 

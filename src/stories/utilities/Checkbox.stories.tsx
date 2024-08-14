@@ -14,22 +14,18 @@ const meta = {
     children: {
       control: 'text',
       description: 'Checkbox 텍스트',
-      defaultValue: 'Button',
     },
     name: {
       control: 'text',
       description: 'Checkbox 키(name)',
-      defaultValue: 'test',
     },
     value: {
       control: 'text',
       description: 'Checkbox 값(value)',
-      defaultValue: 'new test',
     },
     isGrop: {
       control: 'boolean',
       description: 'Checkbox 그룹 여부',
-      defaultValue: false,
     },
     onChange: {
       description: 'Checkbox 체인지 이벤트',

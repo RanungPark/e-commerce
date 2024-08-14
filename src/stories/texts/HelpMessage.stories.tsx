@@ -19,7 +19,6 @@ const meta: Meta<typeof HelpMessage> = {
     children: {
       control: 'text',
       description: 'HelpMessage 텍스트',
-      defaultValue: 'Text Helper',
     },
     helpMessageTheme: {
       control: {
@@ -27,7 +26,6 @@ const meta: Meta<typeof HelpMessage> = {
         options: ['default', 'error', 'success'],
       },
       description: 'HelpMessage 테마',
-      defaultValue: 'default',
     },
   },
 };

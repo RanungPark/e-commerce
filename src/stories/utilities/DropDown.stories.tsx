@@ -21,30 +21,20 @@ const meta = {
       description: 'DropDownOption 클릭 이벤트',
     },
     options: {
-      control: 'text',
+      control: 'object',
       description: 'DropDownOptionList 옵션 아이템들',
-      defaultValue: [
-        'Option A',
-        'Option B',
-        'Option C',
-        'Option D',
-        'Option E',
-      ],
     },
     placeholder: {
       control: 'text',
       description: 'DropDown placeholder',
-      defaultValue: '- Select -',
     },
     value: {
       control: 'text',
       description: 'DropDown 값(value)',
-      defaultValue: '',
     },
     disabled: {
       control: 'boolean',
       description: 'DropDown 활성화 여부',
-      defaultValue: 'false',
     },
   },
   args: { onChange: fn() },

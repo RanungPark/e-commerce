@@ -23,12 +23,10 @@ const meta = {
     children: {
       control: 'text',
       description: 'MenuButton 텍스트',
-      defaultValue: 'Shop',
     },
     to: {
       control: 'text',
       description: 'MenuButton 이동 URL',
-      defalutValue: '/',
     },
     onClick: {
       description: 'MenuButton 클릭 이벤트',

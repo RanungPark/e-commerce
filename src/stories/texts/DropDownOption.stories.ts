@@ -13,7 +13,6 @@ const meta: Meta<typeof DropDownOption> = {
     children: {
       control: 'text',
       description: 'DropDownOption 텍스트',
-      defaultValue: 'Option A',
     },
     onClick: {
       description: 'DropDownOption 클릭 이벤트',

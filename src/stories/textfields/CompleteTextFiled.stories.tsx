@@ -20,12 +20,10 @@ const meta = {
     children: {
       control: 'text',
       description: 'CompleteTextFiled 텍스트',
-      defaultValue: 'Dropdown closed',
     },
     disabled: {
       control: 'boolean',
       description: 'CompleteTextFiled 활성화 여부',
-      defaultValue: false,
     },
     onClick: {
       description: 'IconButton 클릭 이벤트',

@@ -19,7 +19,6 @@ const meta = {
     children: {
       control: 'text',
       description: 'CartTotalPriceCard 텍스트',
-      defaultValue: `total`,
     },
   },
 } satisfies Meta<typeof CartTotalPriceCard>;

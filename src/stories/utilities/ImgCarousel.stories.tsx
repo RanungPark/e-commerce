@@ -21,6 +21,7 @@ const meta = {
   ],
   argTypes: {
     products: {
+      control: 'object',
       description: 'ImgCarousel 포함될 상품들',
     },
   },

@@ -13,7 +13,7 @@ const meta = {
 
   argTypes: {
     IconComponent: {
-      control: 'text',
+      control: 'object',
       description: 'SVG 컴포넌트',
       defaultValue: ArrowLeft,
     },
@@ -35,7 +35,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const DefalutSize: Story = {
+export const SmallSize: Story = {
   args: {
     size: 'small',
     IconComponent: ArrowLeft,
