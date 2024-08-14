@@ -1,12 +1,12 @@
 import { mixins } from '@styles/Mixin';
 import styled, { css } from 'styled-components';
-import IconButton from './IconButton';
 
 interface NavigationButtonProps {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children?: string;
   hasIcon?: boolean;
   IconComponent?: React.FC<React.SVGProps<SVGSVGElement>>;
+  ariaLabel?: string;
 }
 
 type NavigationButtonWrapperProps = Pick<NavigationButtonProps, 'hasIcon'>;
@@ -16,11 +16,12 @@ const NavigationButton = ({
   children,
   hasIcon = false,
   IconComponent,
+  ariaLabel,
 }: NavigationButtonProps) => {
   return (
     <NavigationButtonWrapper onClick={onClick} hasIcon={hasIcon}>
-      {hasIcon && IconComponent ? (
-        <IconButton IconComponent={IconComponent} />
+      {hasIcon && IconComponent && ariaLabel ? (
+        <IconComponent aria-label={ariaLabel} />
       ) : (
         children
       )}

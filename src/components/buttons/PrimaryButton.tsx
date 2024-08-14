@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import IconButton from './IconButton';
 import { ReactComponent as ArrowLeft } from '@assets/icons/wght300/ArrowLeft.svg';
 import { ReactComponent as ArrowRight } from '@assets/icons/wght300/ArrowRight.svg';
 import { mixins } from '@styles/Mixin';
@@ -14,6 +13,7 @@ interface PrimaryButtonProps {
   hasRightIcon?: boolean;
   CustomButton?: React.FC<React.SVGProps<SVGSVGElement>>;
   disabled?: boolean;
+  ariaLabel?: string;
 }
 
 const PrimaryButton = ({
@@ -24,16 +24,27 @@ const PrimaryButton = ({
   hasRightIcon = false,
   CustomButton,
   disabled = false,
+  ariaLabel,
 }: PrimaryButtonProps) => {
   const renderIcon = (position: 'left' | 'right') => {
     if (position === 'left') {
-      return hasLeftIcon ? (
-        <IconButton IconComponent={CustomButton || ArrowLeft} />
-      ) : null;
+      if (hasLeftIcon) {
+        if (CustomButton && ariaLabel) {
+          return <CustomButton aria-label={ariaLabel} />;
+        } else {
+          return <ArrowLeft aria-label="left arrow" />;
+        }
+      }
+    } else if (position === 'right') {
+      if (hasRightIcon) {
+        if (CustomButton && ariaLabel) {
+          return <CustomButton aria-label={ariaLabel} />;
+        } else {
+          return <ArrowRight aria-label="right arrow" />;
+        }
+      }
     }
-    return hasRightIcon ? (
-      <IconButton IconComponent={CustomButton || ArrowRight} />
-    ) : null;
+    return null;
   };
 
   return (
