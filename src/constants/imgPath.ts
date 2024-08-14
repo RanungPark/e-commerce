@@ -21,7 +21,7 @@ export const IMG_PATH = {
     TheNaomi: require(`@assets/img/dried_flowers/the_naomi.jpg`),
     TheHeath: require(`@assets/img/dried_flowers/the_heath.jpg`),
     FrostyWinter: require(`@assets/img/dried_flowers/frosty_winter.jpg`),
-    RosyPerfection: require(`@assets/img/dried_flowers/frosty_winter.jpg`),
+    RosyPerfection: require(`@assets/img/dried_flowers/rosy_perfection.jpg`),
   },
   LivePlants: {
     LivePlantRep: require(`@assets/img/live_plants/live_plant_rep.jpg`),
