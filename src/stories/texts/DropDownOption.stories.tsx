@@ -9,6 +9,13 @@ const meta: Meta<typeof DropDownOption> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  decorators: [
+    Story => (
+      <ul>
+        <Story />
+      </ul>
+    ),
+  ],
   argTypes: {
     children: {
       control: 'text',

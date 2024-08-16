@@ -8,6 +8,13 @@ const meta: Meta<typeof ProductCardInfo> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  decorators: [
+    Story => (
+      <ul>
+        <Story />
+      </ul>
+    ),
+  ],
   argTypes: {
     children: {
       control: 'text',

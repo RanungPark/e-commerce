@@ -12,9 +12,9 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     Story => (
-      <div style={{ width: '600px' }}>
+      <ul style={{ width: '600px' }}>
         <Story />
-      </div>
+      </ul>
     ),
   ],
   argTypes: {
