@@ -16,9 +16,10 @@ export type InputTextsType = {
     value: RegExp;
     message: string;
   };
+  options?: string[];
 };
 
-export const checkoutDropDownDatas = [
+const checkoutDropDownDatas = [
   '8AM',
   '9AM',
   '10AM',
@@ -96,6 +97,7 @@ export const checkout2ndStepDatas: InputTextsType[] = [
     component: 'selectBox',
     registerValue: 'deliveryTime',
     placeholder: 'Delivery Time',
+    options: checkoutDropDownDatas,
   },
   {
     component: 'textField',
