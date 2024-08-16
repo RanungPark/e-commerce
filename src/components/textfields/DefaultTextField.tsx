@@ -66,7 +66,7 @@ const TextFieldStyle = {
         &:disabled {
           background-color: ${colors.extralight};
           border: 1px solid ${colors.lightgray};
-          cursor: not-allowed;
+          pointer-events: none;
 
           &::placeholder {
             color: ${colors.lightgray};

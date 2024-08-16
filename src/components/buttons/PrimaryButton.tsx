@@ -179,7 +179,7 @@ const PrimaryButtonWrapper = styled.button<{
   text-transform: uppercase;
 
   &:disabled {
-    cursor: not-allowed;
+    pointer-events : none;
   }
 `;
 

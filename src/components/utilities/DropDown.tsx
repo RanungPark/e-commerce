@@ -101,9 +101,9 @@ const disabledStyle = css`
   & path {
     fill: ${({ theme }) => theme.colors.lightgray};
   }
-  cursor: not-allowed;
+  pointer-events: none;
   & button {
-    cursor: not-allowed;
+    pointer-events: none;
   }
 `;
 
@@ -122,7 +122,7 @@ const DropDownInput = styled.input`
   cursor: pointer;
 
   &:disabled {
-    cursor: not-allowed;
+    pointer-events: none;
   }
 `;
 
