@@ -21,7 +21,7 @@ const BreadCrumb = ({
   return (
     <BreadCrumbWrapper onClick={onClick} focus={focus} disabled={disabled}>
       {children}
-      <IconButton IconComponent={WChevronRight} ariaLabel='chevron right'/>
+      <IconButton IconComponent={WChevronRight} ariaLabel="chevron right" />
     </BreadCrumbWrapper>
   );
 };
@@ -39,6 +39,14 @@ const baseStyle = css`
 `;
 
 const focusStyle = css`
+  color: ${({ theme }) => theme.colors.black};
+
+  path {
+    fill: ${({ theme }) => theme.colors.black};
+  }
+`;
+
+const notFocusStyle = css`
   color: ${({ theme }) => theme.colors.darkgray};
 
   path {
@@ -46,20 +54,12 @@ const focusStyle = css`
   }
 `;
 
-const notFocusStyle = css`
+const disabledStyle = css`
   color: ${({ theme }) => theme.colors.gray};
+  pointer-events: none;
 
   path {
     fill: ${({ theme }) => theme.colors.gray};
-  }
-`;
-
-const disabledStyle = css`
-  color: ${({ theme }) => theme.colors.lightgray};
-  cursor: not-allowed;
-
-  path {
-    fill: ${({ theme }) => theme.colors.lightgray};
   }
 `;
 
@@ -67,7 +67,7 @@ const BreadCrumbWrapper = styled.div<BreadCrumbWrapperProps>`
   ${mixins.flexBox({})};
   ${({ theme }) => theme.typography.Overline}
   text-transform: uppercase;
-
+  font-weight: 700;
   ${({ focus }) => (focus ? focusStyle : notFocusStyle)}
   ${({ disabled }) => (disabled ? disabledStyle : baseStyle)}
 `;

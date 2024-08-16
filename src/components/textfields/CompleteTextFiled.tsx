@@ -23,7 +23,9 @@ const CompleteTextFiled = ({
         {!disabled && <Check />}
         {children}
       </CompleteTextFiledChildrenWrapper>
-      {!disabled && <IconButton onClick={onClick} IconComponent={WEdit} ariaLabel='edit'/>}
+      {!disabled && (
+        <IconButton onClick={onClick} IconComponent={WEdit} ariaLabel="edit" />
+      )}
     </CompleteTextFiledWrapper>
   );
 };
@@ -46,7 +48,7 @@ const enabledStyle = css`
 
 const disabledStyle = css`
   border-bottom: 1px solid ${({ theme }) => theme.colors.lightgray};
-  color: ${({ theme }) => theme.colors.lightgray};
+  color: ${({ theme }) => theme.colors.gray};
 `;
 
 const CompleteTextFiledWrapper = styled.div<CompleteTextFiledWrapperProps>`
