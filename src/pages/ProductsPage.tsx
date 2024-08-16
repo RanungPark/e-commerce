@@ -1,4 +1,4 @@
-import OuterProducts from '@components/fragments/OuterProducts';
+import OuterProducts from '@pages/sections/OuterProducts';
 import { useQuery } from '@tanstack/react-query';
 import { fetchProduct } from '@utils/api';
 import { useNavigate, useParams } from 'react-router';

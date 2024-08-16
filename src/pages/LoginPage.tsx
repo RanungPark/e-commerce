@@ -1,6 +1,6 @@
 import PrimaryButton from '@components/buttons/PrimaryButton';
-import LoginId from '@components/fragments/LoginId';
-import LoginPassword from '@components/fragments/LoginPassword';
+import LoginId from '@pages/sections/LoginId';
+import LoginPassword from '@pages/sections/LoginPassword';
 import { useUserStore } from '@store/userStore';
 import { mixins } from '@styles/Mixin';
 import { useState } from 'react';
@@ -56,6 +56,7 @@ const LoginPage = () => {
             onClick={handleIdClick}
             onSubmit={handleIdSubmit}
             setUsername={setUsername}
+            username={username}
           />
           <LoginPassword
             loginState={loginPasswordState}

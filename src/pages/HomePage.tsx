@@ -2,9 +2,9 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import ActionCardAndImageCardList from '@components/lists/ActionCardAndImageCardList';
 import { useNavigate } from 'react-router';
-import HomeMain from '@components/fragments/HomeMain';
+import HomeMain from '@pages/sections/HomeMain';
 import { shopDatas } from '@data/shopDatas';
-import HomeAbout from '@components/fragments/HomeAbout';
+import HomeAbout from '@pages/sections/HomeAbout';
 import styled from 'styled-components';
 
 const HomePage = () => {

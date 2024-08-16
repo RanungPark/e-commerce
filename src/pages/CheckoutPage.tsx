@@ -3,13 +3,16 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import { paymentsDone } from '@constants/toast';
-import CheckoutSummary from '@components/fragments/CheckoutSummary';
-import Checkout1stStep from '@components/fragments/Checkout1stStep';
-import Checkout2ndStep from '@components/fragments/Checkout2ndStep';
-import Checkout3rdStep from '@components/fragments/Checkout3rdStep';
-import { BreadCrumbType, FormStateType } from 'src/@types/state';
+import CheckoutSummary from '@pages/sections/CheckoutSummary';
+import { FormStateType } from 'src/@types/state';
 import BreadCrumb from '@components/utilities/BreadCrumb';
 import { mixins } from '@styles/Mixin';
+import {
+  checkout1stStepDatas,
+  checkout2ndStepDatas,
+  checkout3rdStepDatas,
+} from '@data/inputDatas';
+import CheckoutStep from './sections/CheckoutStep';
 
 type CheckoutStepsState = {
   first: FormStateType;
@@ -17,23 +20,11 @@ type CheckoutStepsState = {
   third: FormStateType;
 };
 
-type BreadCrunbState = {
-  first: BreadCrumbType;
-  second: BreadCrumbType;
-  third: BreadCrumbType;
-};
-
 const CheckoutPage = () => {
   const [stepsState, setStepsState] = useState<CheckoutStepsState>({
     first: 'curr',
     second: 'yet',
     third: 'yet',
-  });
-
-  const [breadCrumbState, setBreadCrumbState] = useState<BreadCrunbState>({
-    first: 'focus',
-    second: 'disabled',
-    third: 'disabled',
   });
 
   const navigate = useNavigate();
@@ -45,11 +36,6 @@ const CheckoutPage = () => {
 
   const handle1stSubmit = () => {
     updateStepsState({ first: 'done', second: 'curr', third: 'yet' });
-    updateBreadCrumbsState({
-      first: 'notFocus',
-      second: 'focus',
-      third: 'disabled',
-    });
   };
 
   const handle1stClick = () => {
@@ -58,11 +44,6 @@ const CheckoutPage = () => {
 
   const handle2ndSubmit = () => {
     updateStepsState({ first: 'done', second: 'done', third: 'curr' });
-    updateBreadCrumbsState({
-      first: 'notFocus',
-      second: 'notFocus',
-      third: 'focus',
-    });
   };
 
   const handle2ndClick = () => {
@@ -75,55 +56,28 @@ const CheckoutPage = () => {
     navigate('/');
   };
 
-  const updateBreadCrumbsState = (updatedState: BreadCrunbState) => {
-    setBreadCrumbState(prevState => ({ ...prevState, ...updatedState }));
-  };
-
-  const handle1stCrumbClick = () => {
-    updateStepsState({ first: 'curr', second: 'yet', third: 'yet' });
-    updateBreadCrumbsState({
-      first: 'focus',
-      second: 'disabled',
-      third: 'disabled',
-    });
-  };
-
-  const handle2ndCrumbClick = () => {
-    updateStepsState({ first: 'done', second: 'curr', third: 'yet' });
-    updateBreadCrumbsState({
-      first: 'notFocus',
-      second: 'focus',
-      third: 'disabled',
-    });
-  };
-
-  const handle3rdCrumbClick = () => {
+  const handle3rdClick = () => {
     updateStepsState({ first: 'done', second: 'done', third: 'curr' });
-    updateBreadCrumbsState({
-      first: 'notFocus',
-      second: 'notFocus',
-      third: 'focus',
-    });
   };
 
   const breadCrumbDatas = [
     {
       children: 'information',
-      onClick: handle1stCrumbClick,
-      focus: breadCrumbState.first === 'focus' ? true : false,
-      disabled: breadCrumbState.first === 'disabled' ? true : false,
+      onClick: handle1stClick,
+      focus: stepsState.first === 'curr' ? true : false,
+      disabled: stepsState.first === 'yet' ? true : false,
     },
     {
       children: 'shipping',
-      onClick: handle2ndCrumbClick,
-      focus: breadCrumbState.second === 'focus' ? true : false,
-      disabled: breadCrumbState.second === 'disabled' ? true : false,
+      onClick: handle2ndClick,
+      focus: stepsState.second === 'curr' ? true : false,
+      disabled: stepsState.second === 'yet' ? true : false,
     },
     {
       children: 'payment',
-      onClick: handle3rdCrumbClick,
-      focus: breadCrumbState.third === 'focus' ? true : false,
-      disabled: breadCrumbState.third === 'disabled' ? true : false,
+      onClick: handle3rdClick,
+      focus: stepsState.third === 'curr' ? true : false,
+      disabled: stepsState.third === 'yet' ? true : false,
     },
   ];
 
@@ -137,19 +91,25 @@ const CheckoutPage = () => {
           </BreadCrumb>
         ))}
       </BreadCrumbWrapper>
-      <Checkout1stStep
+      <CheckoutStep
         stepState={stepsState.first}
         onSubmit={handle1stSubmit}
         onClick={handle1stClick}
+        stepTitle="1 Contact Information"
+        checkoutFormDatas={checkout1stStepDatas}
       />
-      <Checkout2ndStep
+      <CheckoutStep
         stepState={stepsState.second}
         onSubmit={handle2ndSubmit}
         onClick={handle2ndClick}
+        stepTitle="2 Shipping Details"
+        checkoutFormDatas={checkout2ndStepDatas}
       />
-      <Checkout3rdStep
+      <CheckoutStep
         stepState={stepsState.third}
         onSubmit={handle3rdSubmit}
+        stepTitle="3 Payment"
+        checkoutFormDatas={checkout3rdStepDatas}
       />
     </CheckoutPagetWrapper>
   );
