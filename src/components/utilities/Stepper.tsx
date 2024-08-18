@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BiPlus } from 'react-icons/bi';
-import { BiMinus } from 'react-icons/bi';
+import { ReactComponent as Add } from '@assets/icons/wght300/Add.svg';
+import { ReactComponent as Minus } from '@assets/icons/wght300/Minus.svg';
 import IconButton from '@components/buttons/IconButton';
 import { mixins } from '@styles/Mixin';
 
@@ -16,14 +16,14 @@ const Stepper = ({ value, onClickMinus, onClickPlus }: StepperProps) => {
     <StepperWrapper className="b-1">
       <IconButton
         onClick={onClickMinus}
-        IconComponent={BiMinus}
+        IconComponent={Add}
         size="large"
         ariaLabel="minus"
       />
       <StepperInput readOnly value={value} type="text" aria-label="stepper" />
       <IconButton
         onClick={onClickPlus}
-        IconComponent={BiPlus}
+        IconComponent={Minus}
         size="large"
         ariaLabel="plus"
       />
