@@ -29,6 +29,7 @@
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "chromatic": "chromatic --exit-zero-on-changes",
     "test-storybook": "test-storybook",
     "analyze": "webpack-bundle-analyzer ./dist/bundle-report.json --default-sizes gzip"
   },
