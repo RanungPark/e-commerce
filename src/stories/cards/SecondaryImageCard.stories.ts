@@ -1,7 +1,7 @@
 import SecondaryImageCard from '@components/cards/SecondaryImageCard';
-import { IMG_PATH } from '@constants/imgPath';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import { fetchImgURL } from '@utils/img';
 
 const meta = {
   title: 'Cards/SecondaryImageCard',
@@ -39,7 +39,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    imgPath: IMG_PATH.DesignerVases.BernadotteVase,
+    imgPath: fetchImgURL({
+      category: 'designer_vases',
+      name: 'bernadotte_vase',
+    }),
     alt: 'BernadotteVase',
     price: 0,
     children: 'Secondary Img Card',

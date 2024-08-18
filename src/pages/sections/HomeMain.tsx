@@ -1,5 +1,5 @@
-import { IMG_PATH } from '@constants/imgPath';
 import { mixins } from '@styles/Mixin';
+import { fetchImgURL, imgOptimization } from '@utils/img';
 import styled from 'styled-components';
 
 const HomeMain = () => {
@@ -11,7 +11,13 @@ const HomeMain = () => {
         꽃배달 서비스로 기쁨을 전하세요.
       </HomeMainTitle>
       <HomeMainInfo>
-        <img alt="Home title person img" src={IMG_PATH.Ohters.HomeRep} />
+        <img
+          alt="Home title person img"
+          src={
+            fetchImgURL({ category: 'others', name: 'home_rep' }) +
+            imgOptimization({ width: 300, height: 300 })
+          }
+        />
         <p>
           모던한 오늘의 꽃에서 서비스의 기쁨을 경험하세요. 오늘 온라인으로
           주문하고 신선한 꽃, 식물, 선물을 보내세요..
@@ -45,6 +51,7 @@ const HomeMainInfo = styled.section`
     margin-top: 32px;
     border-right: 1px solid ${({ theme }) => theme.colors.black};
     padding-right: 32px;
+    width: 100%;
     height: 256px;
   }
 

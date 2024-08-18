@@ -1,7 +1,7 @@
 import PrimaryImageCard from '@components/cards/PrimaryImageCard';
-import { IMG_PATH } from '@constants/imgPath';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import { fetchImgURL } from '@utils/img';
 
 const meta = {
   title: 'Cards/PrimaryImageCard',
@@ -39,7 +39,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    imgPath: IMG_PATH.FreshFlowers.BlazingBlassoms,
+    imgPath: fetchImgURL({
+      category: 'fresh_flowers',
+      name: 'blazing_blassoms',
+    }),
     alt: 'Bouquets Fresh Flowers',
     price: 70,
     children: 'Primary Img Card',

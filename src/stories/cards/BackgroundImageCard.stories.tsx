@@ -1,6 +1,6 @@
 import BackgroundImageCard from '@components/cards/BackgroundImageCard';
-import { IMG_PATH } from '@constants/imgPath';
 import type { Meta, StoryObj } from '@storybook/react';
+import { fetchImgURL } from '@utils/img';
 
 const meta = {
   title: 'Cards/BackgroundImageCard',
@@ -33,6 +33,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: `Background Img Card`,
-    imgPath: IMG_PATH.FreshFlowers.FreshFlowersBg,
+    imgPath: fetchImgURL({
+      category: 'fresh_flowers',
+      name: 'fresh_flowers_bg',
+    }),
   },
 };

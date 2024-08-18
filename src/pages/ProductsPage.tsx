@@ -13,6 +13,7 @@ import ImgCarousel from '@components/utilities/ImgCarousel';
 import { useCartStore } from '@store/cartStore';
 import { addToCart } from '@constants/toast';
 import Loading from '@components/publics/Loading';
+import { imgOptimization } from '@utils/img';
 
 interface IProduct {
   product: ProductType;
@@ -70,7 +71,11 @@ const ProductsPage = () => {
     <>
       <ProductsPageWrapper>
         <ProductsImgWrapper className="pb-3 pt-3 bb-1">
-          <img src={imgPath} alt={name} className="b-1" />
+          <img
+            src={imgPath + imgOptimization({ width: 500, height: 500 })}
+            alt={name}
+            className="b-1"
+          />
         </ProductsImgWrapper>
 
         <ProductsInfosWrapper className="p-5 bb-1">

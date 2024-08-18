@@ -1,7 +1,7 @@
 import ProductCard from '@components/cards/ProductCard';
-import { IMG_PATH } from '@constants/imgPath';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import { fetchImgURL } from '@utils/img';
 
 const meta = {
   title: 'Cards/ProductCard',
@@ -50,7 +50,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    imgPath: IMG_PATH.FreshFlowers.FreshFlowersRep,
+    imgPath: fetchImgURL({
+      category: 'fresh_flowers',
+      name: 'fresh_flowers_rep',
+    }),
     alt: '부케',
     children: 'Classic',
     infoItems: [

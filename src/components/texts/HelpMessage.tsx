@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { BiSolidErrorCircle, BiSolidCheckCircle } from 'react-icons/bi';
+import { ReactComponent as CrossCircle } from '@assets/icons/wght300/CrossCircle.svg';
+import { ReactComponent as CheckCircle } from '@assets/icons/wght300/CheckCircle.svg';
 import { mixins } from '@styles/Mixin';
 
 type HelpMessageTheme = 'default' | 'error' | 'success';
@@ -21,8 +22,12 @@ const HelpMessage = ({
 }: HelpMessageProps) => {
   return (
     <HelpMessageWrapper helpMessageTheme={helpMessageTheme}>
-      {helpMessageTheme === 'error' && <BiSolidErrorCircle />}
-      {helpMessageTheme === 'success' && <BiSolidCheckCircle />}
+      {helpMessageTheme === 'error' && (
+        <CrossCircle aria-label="cross circle" />
+      )}
+      {helpMessageTheme === 'success' && (
+        <CheckCircle aria-label="check circle" />
+      )}
       <p>{children}</p>
     </HelpMessageWrapper>
   );

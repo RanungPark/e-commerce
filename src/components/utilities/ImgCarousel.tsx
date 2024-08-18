@@ -7,6 +7,7 @@ import { ReactComponent as WChevronRight } from '@assets/icons/wght400/WChevronR
 import { ReactComponent as WChevronLeft } from '@assets/icons/wght400/WChevronLeft.svg';
 import { mixins } from '@styles/Mixin';
 import { useState } from 'react';
+import { imgOptimization } from '@utils/img';
 
 interface ImgCarouselProps {
   products: ProductType[];
@@ -54,18 +55,29 @@ const ImgCarousel = ({ products }: ImgCarouselProps) => {
 
   return (
     <SecondaryImageCardWrapper>
-      <IconButton IconComponent={WChevronLeft} onClick={handleLeftButton} ariaLabel='chevron left'/>
+      <IconButton
+        IconComponent={WChevronLeft}
+        onClick={handleLeftButton}
+        ariaLabel="chevron left"
+      />
       {viewProducts.map(({ name, price, imgPath, category, id }) => (
         <SecondaryImageCard
           price={price}
-          imgPath={imgPath}
+          imgPath={
+            imgPath +
+            imgOptimization({ width: 100, height: 100, auto: ['format'] })
+          }
           alt={name}
           onClick={goToProduct({ productId: id, productCategory: category })}
         >
           {name}
         </SecondaryImageCard>
       ))}
-      <IconButton IconComponent={WChevronRight} onClick={handleRightButton} ariaLabel='chevron right'/>
+      <IconButton
+        IconComponent={WChevronRight}
+        onClick={handleRightButton}
+        ariaLabel="chevron right"
+      />
     </SecondaryImageCardWrapper>
   );
 };

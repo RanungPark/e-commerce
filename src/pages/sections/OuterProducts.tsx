@@ -4,6 +4,7 @@ import { ProductType } from 'src/@types/product';
 import PrimaryImageCard from '@components/cards/PrimaryImageCard';
 import { useNavigate } from 'react-router';
 import { v4 as uuidv4 } from 'uuid';
+import { imgOptimization } from '@utils/img';
 
 interface OuterProductsProps {
   outerProducts: ProductType[];
@@ -33,7 +34,7 @@ const OuterProducts = ({ outerProducts }: OuterProductsProps) => {
             key={uuidv4()}
             alt={name}
             onClick={goToProduct({ productId: id, productCategory: category })}
-            imgPath={imgPath}
+            imgPath={imgPath + imgOptimization({ width: 500, height: 500 })}
             price={price}
           >
             {name}
