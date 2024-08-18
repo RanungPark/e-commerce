@@ -5,6 +5,8 @@ const { ProvidePlugin } = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const mode = process.env.NODE_ENV || 'development';
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   //process.env.NODE_ENV 값을 기반으로 설정하며, 개발 모드(development)와 프로덕션 모드(production)를 구분하여 동작 방식을 조정
@@ -69,6 +71,12 @@ module.exports = {
     ],
   },
   plugins: [
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      generateStatsFile: true,
+      statsFilename: 'bundle-report.json',
+    }),
     new CopyWebpackPlugin({
       patterns: [
         { from: 'public/mockServiceWorker.js', to: '' }, // 서비스 워커 파일 복사
