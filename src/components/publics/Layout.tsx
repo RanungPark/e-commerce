@@ -9,9 +9,11 @@ const Layout = ({ children }: LayoutProps) => {
 };
 
 const LayoutWrapper = styled.main`
-  display: flex;
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Header, main content, footer */
+  min-height: 100vh;
   position: relative;
-  flex-direction: column;
+
   max-width: 768px;
   min-height: 100vh;
   margin: 0 auto;

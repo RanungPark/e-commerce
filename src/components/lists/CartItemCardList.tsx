@@ -1,5 +1,6 @@
 import CartItemCard from '@components/cards/CartItemCard';
 import { useCartStore } from '@store/cartStore';
+import { imgOptimization } from '@utils/img';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -15,7 +16,7 @@ const CartItemCardList = ({ hasTextButton = true }: CartItemCardListProps) => {
       {carts.map(({ name, imgPath, price, quantity }) => (
         <CartItemCard
           key={uuidv4()}
-          imgPath={imgPath}
+          imgPath={imgPath + imgOptimization({ width: 200, height: 200 })}
           alt={name}
           price={price}
           quantity={quantity}

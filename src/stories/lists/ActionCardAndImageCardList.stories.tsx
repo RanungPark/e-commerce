@@ -1,7 +1,7 @@
 import ActionCardAndImageCardList from '@components/lists/ActionCardAndImageCardList';
-import { IMG_PATH } from '@constants/imgPath';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import { fetchImgURL } from '@utils/img';
 
 const meta: Meta<typeof ActionCardAndImageCardList> = {
   title: 'Lists/ActionCardAndImageCardList',
@@ -21,27 +21,22 @@ const meta: Meta<typeof ActionCardAndImageCardList> = {
     children: {
       control: 'text',
       description: 'ActionCard 타이틀',
-      defaultValue: 'Action Card',
     },
     index: {
       control: 'number',
       description: 'ActionCardAndImageCardList 순서',
-      defaultValue: 0,
     },
     buttonText: {
       control: 'text',
       description: 'TextButton 텍스트',
-      defaultValue: 'Shop noow',
     },
     imgPath: {
       control: 'text',
       description: 'PrimaryImageCard 이미지 경로 ',
-      defaultValue: IMG_PATH.FreshFlowers.FreshFlowersRep,
     },
     alt: {
       control: 'text',
       description: 'PrimaryImageCard 대체 속성',
-      defaultValue: 'FreshFlowers 대표 이미지',
     },
     onClick: {
       description: 'AciotnCard와 ImageCard 클릭 이벤트',
@@ -58,7 +53,10 @@ export const EvenIndex: Story = {
     children: 'Action Card',
     index: 0,
     buttonText: 'Shop now',
-    imgPath: IMG_PATH.FreshFlowers.FreshFlowersRep,
+    imgPath: fetchImgURL({
+      category: 'fresh_flowers',
+      name: 'fresh_flowers_rep',
+    }),
     alt: 'FreshFlowers 대표 이미지',
   },
 };
@@ -68,7 +66,10 @@ export const OddIndex: Story = {
     children: 'Action Card',
     index: 1,
     buttonText: 'Shop now',
-    imgPath: IMG_PATH.FreshFlowers.FreshFlowersRep,
+    imgPath: fetchImgURL({
+      category: 'fresh_flowers',
+      name: 'fresh_flowers_rep',
+    }),
     alt: 'FreshFlowers 대표 이미지',
   },
 };

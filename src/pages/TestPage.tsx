@@ -11,7 +11,6 @@ import Stepper from '@components/utilities/Stepper';
 import TextCard from '@components/cards/TextCard';
 import ActionCard from '@components/cards/ActionCard';
 import PrimaryImageCard from '@components/cards/PrimaryImageCard';
-import { IMG_PATH } from '@constants/imgPath';
 import SecondaryImageCard from '@components/cards/SecondaryImageCard';
 import CompleteTextFiled from '@components/textfields/CompleteTextFiled';
 import Accordion from '@components/utilities/Accordion';
@@ -28,6 +27,7 @@ import DropDownOption from '@components/texts/DropDownOption';
 import DropDownOptionList from '@components/lists/DropDownOptionList';
 import Checkbox from '@components/utilities/Checkbox';
 import RadioButton from '@components/utilities/RadioButton';
+import { fetchImgURL } from '@utils/img';
 
 const TestPage = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -191,7 +191,10 @@ const TestPage = () => {
           onClick={() => {
             console.log('이미지 카드 클릭');
           }}
-          imgPath={IMG_PATH.FreshFlowers.BlazingBlassoms}
+          imgPath={fetchImgURL({
+            category: 'fresh_flowers',
+            name: 'fresh_flowers_rep',
+          })}
           alt="Bouquets Fresh Flowers"
           price={70}
         >
@@ -203,7 +206,10 @@ const TestPage = () => {
         onClick={() => {
           console.log('이미지 카드 클릭');
         }}
-        imgPath={IMG_PATH.DesignerVases.BernadotteVase}
+        imgPath={fetchImgURL({
+          category: 'designer_vases',
+          name: 'bernadotte_vase',
+        })}
         alt="BernadotteVase"
         price={0}
       >
@@ -228,7 +234,10 @@ const TestPage = () => {
 
       <ProductCard
         alt="부케"
-        imgPath={IMG_PATH.FreshFlowers.FreshFlowersRep}
+        imgPath={fetchImgURL({
+          category: 'fresh_flowers',
+          name: 'fresh_flowers_rep',
+        })}
         infoItems={[
           'Price $45',
           'Free Delivery',

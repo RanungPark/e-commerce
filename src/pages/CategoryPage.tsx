@@ -3,6 +3,7 @@ import PrimaryImageCard from '@components/cards/PrimaryImageCard';
 import Loading from '@components/publics/Loading';
 import { useQuery } from '@tanstack/react-query';
 import { fetchCategory } from '@utils/api';
+import { imgOptimization } from '@utils/img';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ProductType, ProductBgType } from 'src/@types/product';
 import styled from 'styled-components';
@@ -35,7 +36,11 @@ const CategoryPage = () => {
 
   return (
     <CategoryPageWrapper>
-      <BackgroundImageCard imgPath={productBg.imgPath}>
+      <BackgroundImageCard
+        imgPath={
+          productBg.imgPath + imgOptimization({ width: 800, height: 800 })
+        }
+      >
         {productBg.title}
       </BackgroundImageCard>
       <CategoryCardList>
@@ -44,7 +49,7 @@ const CategoryPage = () => {
             key={uuidv4()}
             alt={name}
             onClick={() => navigate(`products/${id}`)}
-            imgPath={imgPath}
+            imgPath={imgPath + imgOptimization({ width: 500, height: 500 })}
             price={price}
           >
             {name}
