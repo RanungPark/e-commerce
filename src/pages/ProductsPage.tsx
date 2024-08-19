@@ -12,8 +12,8 @@ import { mixins } from '@styles/Mixin';
 import ImgCarousel from '@components/utilities/ImgCarousel';
 import { useCartStore } from '@store/cartStore';
 import { addToCart } from '@constants/toast';
-import Loading from '@components/publics/Loading';
 import { imgOptimization } from '@utils/img';
+import ProductsLoading from './sections/ProductsLoading';
 
 interface IProduct {
   product: ProductType;
@@ -33,7 +33,7 @@ const ProductsPage = () => {
   });
 
   if (isLoading) {
-    return <Loading />;
+    return <ProductsLoading />;
   }
 
   if (error || !data) {
@@ -70,15 +70,14 @@ const ProductsPage = () => {
   return (
     <>
       <ProductsPageWrapper>
-        <ProductsImgWrapper className="pb-3 pt-3 bb-1">
+        <ProductsImgWrapper>
           <img
             src={imgPath + imgOptimization({ width: 500, height: 500 })}
             alt={name}
-            className="b-1"
           />
         </ProductsImgWrapper>
 
-        <ProductsInfosWrapper className="p-5 bb-1">
+        <ProductsInfosWrapper>
           <ProductInfo price={price} name={name}>
             {info}
           </ProductInfo>
@@ -109,18 +108,23 @@ const ProductsPageWrapper = styled.main``;
 
 const ProductsImgWrapper = styled.section`
   text-align: center;
+  padding: 24px 0;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 
   & img {
     width: 500px;
     height: 500px;
+    border: 1px solid ${({ theme }) => theme.colors.black};
   }
 `;
 
 const ProductsInfosWrapper = styled.section`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   ${({ theme }) => theme.typography.Subtitle}
+  padding: 40px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 
-  gap:24px;
+  gap: 24px;
 `;
 
 const ProductsQuantityWrapper = styled.div`
