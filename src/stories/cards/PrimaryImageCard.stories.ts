@@ -44,7 +44,7 @@ export const Default: Story = {
       name: 'blazing_blassoms',
     }),
     alt: 'Bouquets Fresh Flowers',
-    price: 70,
+    price: 95000,
     children: 'Primary Img Card',
   },
 };

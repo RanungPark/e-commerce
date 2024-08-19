@@ -38,7 +38,7 @@ export const Default: Story = {
   args: {
     children:
       'Product infos',
-    price: 70000,
+    price: 95000,
     name: 'Product Name',
   },
 };
