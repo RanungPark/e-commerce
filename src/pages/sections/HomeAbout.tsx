@@ -14,7 +14,7 @@ const HomeAbout = () => {
         <TextCard label="our story" title={aboutUsData.title}>
           {aboutUsData.children}
         </TextCard>
-        <PrimaryButton onClick={pageWait} primaryButtontheme="secondary">
+        <PrimaryButton onClick={pageWait} primarybuttontheme="secondary">
           lern more
         </PrimaryButton>
       </HomeAboutTextCardAndButtonWrapper>

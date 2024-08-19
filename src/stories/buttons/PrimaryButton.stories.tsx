@@ -23,7 +23,7 @@ const meta = {
       description: 'PrimaryButton 텍스트',
       defaultValue: 'Button',
     },
-    primaryButtontheme: {
+    primarybuttontheme: {
       control: {
         type: 'select',
         options: ['primary', 'secondary', 'tertiary'],
@@ -58,28 +58,28 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    primaryButtontheme: 'primary',
+    primarybuttontheme: 'primary',
     children: 'button',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    primaryButtontheme: 'secondary',
+    primarybuttontheme: 'secondary',
     children: 'button',
   },
 };
 
 export const Tertiary: Story = {
   args: {
-    primaryButtontheme: 'tertiary',
+    primarybuttontheme: 'tertiary',
     children: 'button',
   },
 };
 
 export const PrimaryIsDisabled: Story = {
   args: {
-    primaryButtontheme: 'primary',
+    primarybuttontheme: 'primary',
     children: 'button',
     disabled: true,
   },
@@ -87,7 +87,7 @@ export const PrimaryIsDisabled: Story = {
 
 export const SecondaryIsDisabled: Story = {
   args: {
-    primaryButtontheme: 'secondary',
+    primarybuttontheme: 'secondary',
     children: 'button',
     disabled: true,
   },
@@ -95,7 +95,7 @@ export const SecondaryIsDisabled: Story = {
 
 export const TertiaryIsDisabled: Story = {
   args: {
-    primaryButtontheme: 'tertiary',
+    primarybuttontheme: 'tertiary',
     children: 'button',
     disabled: true,
   },
@@ -103,7 +103,7 @@ export const TertiaryIsDisabled: Story = {
 
 export const PrimaryWithHasRightIcon: Story = {
   args: {
-    primaryButtontheme: 'primary',
+    primarybuttontheme: 'primary',
     children: 'button',
     hasRightIcon: true,
   },
@@ -111,7 +111,7 @@ export const PrimaryWithHasRightIcon: Story = {
 
 export const PrimaryWithHasLeftIcon: Story = {
   args: {
-    primaryButtontheme: 'primary',
+    primarybuttontheme: 'primary',
     children: 'button',
     hasLeftIcon: true,
   },
@@ -119,7 +119,7 @@ export const PrimaryWithHasLeftIcon: Story = {
 
 export const PrimaryWithHasAllIcon: Story = {
   args: {
-    primaryButtontheme: 'primary',
+    primarybuttontheme: 'primary',
     children: 'button',
     hasRightIcon: true,
     hasLeftIcon: true,
@@ -128,10 +128,10 @@ export const PrimaryWithHasAllIcon: Story = {
 
 export const PrimaryWithCustomButton: Story = {
   args: {
-    primaryButtontheme: 'primary',
+    primarybuttontheme: 'primary',
     children: 'button',
     hasLeftIcon: true,
     CustomButton: Check,
-    ariaLabel: 'check'
+    ariaLabel: 'check',
   },
 };

@@ -6,7 +6,7 @@ import { mixins } from '@styles/Mixin';
 type PrimaryButtonTheme = 'primary' | 'secondary' | 'tertiary';
 
 interface PrimaryButtonProps {
-  primaryButtontheme?: PrimaryButtonTheme;
+  primarybuttontheme?: PrimaryButtonTheme;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: string;
   hasLeftIcon?: boolean;
@@ -19,7 +19,7 @@ interface PrimaryButtonProps {
 const PrimaryButton = ({
   onClick,
   children,
-  primaryButtontheme = 'primary',
+  primarybuttontheme = 'primary',
   hasLeftIcon = false,
   hasRightIcon = false,
   CustomButton,
@@ -49,7 +49,7 @@ const PrimaryButton = ({
 
   return (
     <PrimaryButtonWrapper
-      primaryButtontheme={primaryButtontheme}
+      primaryButtontheme={primarybuttontheme}
       onClick={onClick}
       disabled={disabled}
     >

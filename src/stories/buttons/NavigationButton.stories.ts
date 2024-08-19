@@ -19,7 +19,7 @@ const meta = {
     onClick: {
       description: 'NavigationButton 클릭 이벤트',
     },
-    hasIcon: {
+    hasicon: {
       control: 'boolean',
       description: 'IconButton 유무',
     },
@@ -44,9 +44,9 @@ export const Default: Story = {
   },
 };
 
-export const HasIcon: Story = {
+export const hasIcon: Story = {
   args: {
-    hasIcon: true,
+    hasicon: true,
     IconComponent: WMenu,
     ariaLabel: 'menu',
   },
