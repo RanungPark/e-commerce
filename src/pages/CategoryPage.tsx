@@ -1,6 +1,5 @@
 import BackgroundImageCard from '@components/cards/BackgroundImageCard';
 import PrimaryImageCard from '@components/cards/PrimaryImageCard';
-import Loading from '@components/publics/Loading';
 import { useQuery } from '@tanstack/react-query';
 import { fetchCategory } from '@utils/api';
 import { imgOptimization } from '@utils/img';
@@ -8,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ProductType, ProductBgType } from 'src/@types/product';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
+import CategoryLoading from './sections/CategoryLoading';
 
 interface ICategory {
   products: ProductType[];
@@ -24,7 +24,7 @@ const CategoryPage = () => {
   });
 
   if (isLoading) {
-    return <Loading />;
+    return <CategoryLoading />;
   }
 
   if (error || !data) {

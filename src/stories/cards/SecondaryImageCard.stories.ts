@@ -44,7 +44,7 @@ export const Default: Story = {
       name: 'bernadotte_vase',
     }),
     alt: 'BernadotteVase',
-    price: 0,
+    price: 106000,
     children: 'Secondary Img Card',
   },
 };

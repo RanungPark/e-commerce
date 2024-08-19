@@ -60,7 +60,7 @@ export const Default: Story = {
     }),
     alt: 'Snowfall',
     quantity: 2,
-    price: 14000,
+    price: 190000,
     hasTextButton: true,
   },
 };
@@ -74,7 +74,7 @@ export const DefaultHasNotTextButton: Story = {
     }),
     alt: 'Snowfall',
     quantity: 2,
-    price: 14000,
+    price: 190000,
     hasTextButton: false,
   },
 };

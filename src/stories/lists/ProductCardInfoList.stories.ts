@@ -27,7 +27,7 @@ export const Default: Story = {
   args: {
     children: 'Classic',
     infoItems: [
-      'Price $45',
+      'Price ₩ 150000',
       'Free Delivery',
       'Best for a budget',
       'Glass vase with first delivery',

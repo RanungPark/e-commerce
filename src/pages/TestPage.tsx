@@ -28,6 +28,11 @@ import DropDownOptionList from '@components/lists/DropDownOptionList';
 import Checkbox from '@components/utilities/Checkbox';
 import RadioButton from '@components/utilities/RadioButton';
 import { fetchImgURL } from '@utils/img';
+import PrimaryCardSkeleton from '@components/skeletons/PrimaryCardSkeleton';
+import CategoryLoading from './sections/CategoryLoading';
+import TitleCardSkeleton from '@components/skeletons/TitleCardSkeleton';
+import SecondaryCardSkeleton from '@components/skeletons/SecondaryCardSkeleton';
+import ProductInfoSkeleton from '@components/skeletons/ProductInfoSkeleton';
 
 const TestPage = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -65,6 +70,13 @@ const TestPage = () => {
 
   return (
     <TestPageWrapper>
+      <ProductInfoSkeleton />
+      <SecondaryCardSkeleton />
+      <TitleCardSkeleton />
+
+      <CategoryLoading />
+      <PrimaryCardSkeleton />
+
       <PrimaryButton
         primaryButtontheme="primary"
         onClick={() => {
@@ -296,6 +308,7 @@ const TestPage = () => {
 const TestPageWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column' })}
   gap: 32px;
+  width: 100%;
 `;
 
 export default TestPage;
