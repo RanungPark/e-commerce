@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SecondaryCardSkeleton from './SecondaryCardSkeleton';
 import { mixins } from '@styles/Mixin';
 import { LoadingAnimation, LongLoadingAnimation } from '@styles/animation';
+import { v4 as uuidv4 } from 'uuid';
 
 const ProductInfoSkeleton = () => {
   return (
@@ -13,7 +14,7 @@ const ProductInfoSkeleton = () => {
       <StepperWrapper />
       <SecondaryCardSkeletonWrapper>
         {Array.from({ length: 5 }).map(() => (
-          <SecondaryCardSkeleton />
+          <SecondaryCardSkeleton key={uuidv4()} />
         ))}
       </SecondaryCardSkeletonWrapper>
       <ButtonWrapper />

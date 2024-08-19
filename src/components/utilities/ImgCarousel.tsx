@@ -8,7 +8,7 @@ import { ReactComponent as WChevronLeft } from '@assets/icons/wght400/WChevronLe
 import { mixins } from '@styles/Mixin';
 import { useState } from 'react';
 import { imgOptimization } from '@utils/img';
-
+import { v4 as uuidv4 } from 'uuid';
 interface ImgCarouselProps {
   products: ProductType[];
 }
@@ -69,6 +69,7 @@ const ImgCarousel = ({ products }: ImgCarouselProps) => {
           }
           alt={name}
           onClick={goToProduct({ productId: id, productCategory: category })}
+          key={uuidv4()}
         >
           {name}
         </SecondaryImageCard>

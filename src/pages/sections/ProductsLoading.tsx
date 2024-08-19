@@ -3,6 +3,7 @@ import ProductInfoSkeleton from '@components/skeletons/ProductInfoSkeleton';
 import { LoadingAnimation, LongLoadingAnimation } from '@styles/animation';
 import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 
 const ProductsLoading = () => {
   return (
@@ -16,7 +17,7 @@ const ProductsLoading = () => {
       </SubWrapper>
       <LoadingCardList>
         {Array.from({ length: 6 }).map(() => (
-          <PrimaryCardSkeleton />
+          <PrimaryCardSkeleton key={uuidv4()} />
         ))}
       </LoadingCardList>
     </div>
