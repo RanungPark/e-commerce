@@ -78,7 +78,7 @@ const TestPage = () => {
       <PrimaryCardSkeleton />
 
       <PrimaryButton
-        primarybuttontheme="primary"
+        primaryButtontheme="primary"
         onClick={() => {
           console.log('primarybuttonclick');
         }}
@@ -163,7 +163,7 @@ const TestPage = () => {
         onClick={() => {
           console.log('네비게이션 아이콘 버튼 클릭');
         }}
-        hasicon={true}
+        hasIcon={true}
         IconComponent={Menu}
         ariaLabel="menu"
       />

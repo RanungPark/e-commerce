@@ -3,10 +3,10 @@ import { ReactComponent as ArrowLeft } from '@assets/icons/wght300/ArrowLeft.svg
 import { ReactComponent as ArrowRight } from '@assets/icons/wght300/ArrowRight.svg';
 import { mixins } from '@styles/Mixin';
 
-type PrimaryButtonTheme = 'primary' | 'secondary' | 'tertiary';
+type PrimaryButtontheme = 'primary' | 'secondary' | 'tertiary';
 
 interface PrimaryButtonProps {
-  primarybuttontheme?: PrimaryButtonTheme;
+  primaryButtontheme?: PrimaryButtontheme;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: string;
   hasLeftIcon?: boolean;
@@ -19,7 +19,7 @@ interface PrimaryButtonProps {
 const PrimaryButton = ({
   onClick,
   children,
-  primarybuttontheme = 'primary',
+  primaryButtontheme = 'primary',
   hasLeftIcon = false,
   hasRightIcon = false,
   CustomButton,
@@ -49,7 +49,7 @@ const PrimaryButton = ({
 
   return (
     <PrimaryButtonWrapper
-      primaryButtontheme={primarybuttontheme}
+      primaryButtontheme={primaryButtontheme}
       onClick={onClick}
       disabled={disabled}
     >
@@ -163,8 +163,10 @@ const buttonStyles = {
   `,
 };
 
-const PrimaryButtonWrapper = styled.button<{
-  primaryButtontheme: PrimaryButtonTheme;
+const PrimaryButtonWrapper = styled.button.withConfig({
+  shouldForwardProp: prop => prop !== 'primaryButtontheme',
+})<{
+  primaryButtontheme: PrimaryButtontheme;
 }>`
   ${({ primaryButtontheme }) =>
     buttonStyles[primaryButtontheme] || buttonStyles.primary}
@@ -179,7 +181,7 @@ const PrimaryButtonWrapper = styled.button<{
   text-transform: uppercase;
 
   &:disabled {
-    pointer-events : none;
+    pointer-events: none;
   }
 `;
 

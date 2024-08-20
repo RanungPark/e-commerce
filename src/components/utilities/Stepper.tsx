@@ -16,14 +16,14 @@ const Stepper = ({ value, onClickMinus, onClickPlus }: StepperProps) => {
     <StepperWrapper className="b-1">
       <IconButton
         onClick={onClickMinus}
-        IconComponent={Add}
+        IconComponent={Minus}
         size="large"
         ariaLabel="minus"
       />
       <StepperInput readOnly value={value} type="text" aria-label="stepper" />
       <IconButton
         onClick={onClickPlus}
-        IconComponent={Minus}
+        IconComponent={Add}
         size="large"
         ariaLabel="plus"
       />

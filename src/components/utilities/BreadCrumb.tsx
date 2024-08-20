@@ -63,7 +63,9 @@ const disabledStyle = css`
   }
 `;
 
-const BreadCrumbWrapper = styled.div<BreadCrumbWrapperProps>`
+const BreadCrumbWrapper = styled.div.withConfig({
+  shouldForwardProp: prop => prop !== 'focus',
+})<BreadCrumbWrapperProps>`
   ${mixins.flexBox({})};
   ${({ theme }) => theme.typography.Overline}
   text-transform: uppercase;

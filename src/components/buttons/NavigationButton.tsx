@@ -4,23 +4,23 @@ import styled, { css } from 'styled-components';
 interface NavigationButtonProps {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children?: string;
-  hasicon?: boolean;
+  hasIcon?: boolean;
   IconComponent?: React.FC<React.SVGProps<SVGSVGElement>>;
   ariaLabel?: string;
 }
 
-type NavigationButtonWrapperProps = Pick<NavigationButtonProps, 'hasicon'>;
+type NavigationButtonWrapperProps = Pick<NavigationButtonProps, 'hasIcon'>;
 
 const NavigationButton = ({
   onClick,
   children,
-  hasicon = false,
+  hasIcon = false,
   IconComponent,
   ariaLabel,
 }: NavigationButtonProps) => {
   return (
-    <NavigationButtonWrapper onClick={onClick} hasicon={hasicon}>
-      {hasicon && IconComponent && ariaLabel ? (
+    <NavigationButtonWrapper onClick={onClick} hasIcon={hasIcon}>
+      {hasIcon && IconComponent && ariaLabel ? (
         <IconComponent aria-label={ariaLabel} />
       ) : (
         children
@@ -29,10 +29,12 @@ const NavigationButton = ({
   );
 };
 
-const NavigationButtonWrapper = styled.button<NavigationButtonWrapperProps>`
+const NavigationButtonWrapper = styled.button.withConfig({
+  shouldForwardProp: (prop) => prop !== 'hasIcon',
+})<NavigationButtonWrapperProps>`
   ${mixins.flexBox({})};
-  ${({ hasicon }) =>
-    hasicon
+  ${({ hasIcon }) =>
+    hasIcon
       ? css`
           padding: 16px;
         `

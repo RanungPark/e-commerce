@@ -13,6 +13,7 @@ import {
   checkout3rdStepDatas,
 } from '@data/inputDatas';
 import CheckoutStep from './sections/CheckoutStep';
+import { v4 as uuidv4 } from 'uuid';
 
 type CheckoutStepsState = {
   first: FormStateType;
@@ -86,7 +87,12 @@ const CheckoutPage = () => {
       <CheckoutSummary />
       <BreadCrumbWrapper>
         {breadCrumbDatas.map(({ children, onClick, focus, disabled }) => (
-          <BreadCrumb onClick={onClick} focus={focus} disabled={disabled}>
+          <BreadCrumb
+            key={uuidv4()}
+            onClick={onClick}
+            focus={focus}
+            disabled={disabled}
+          >
             {children}
           </BreadCrumb>
         ))}

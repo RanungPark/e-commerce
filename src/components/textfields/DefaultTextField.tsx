@@ -97,7 +97,9 @@ const TextFieldStyle = {
   `,
 };
 
-const DefaultTextFieldInputWrapper = styled.div<{ inputState: InputState }>`
+const DefaultTextFieldInputWrapper = styled.div.withConfig({
+  shouldForwardProp: prop => prop !== 'inputState',
+})<{ inputState: InputState }>`
   & input {
     ${({ theme }) => theme.typography.Caption};
     ${({ inputState }) => TextFieldStyle[inputState] || TextFieldStyle.default};
