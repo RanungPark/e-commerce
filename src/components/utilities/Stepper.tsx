@@ -9,9 +9,15 @@ interface StepperProps {
   value: number;
   onClickMinus: (e: React.MouseEvent) => void;
   onClickPlus: (e: React.MouseEvent) => void;
+  testId?: string;
 }
 
-const Stepper = ({ value, onClickMinus, onClickPlus }: StepperProps) => {
+const Stepper = ({
+  value,
+  onClickMinus,
+  onClickPlus,
+  testId,
+}: StepperProps) => {
   return (
     <StepperWrapper>
       <IconButton
@@ -19,13 +25,21 @@ const Stepper = ({ value, onClickMinus, onClickPlus }: StepperProps) => {
         IconComponent={Minus}
         size="large"
         ariaLabel="minus"
+        testId="minusBtn"
       />
-      <Input readOnly value={value} type="text" aria-label="stepper" />
+      <Input
+        readOnly
+        value={value}
+        type="text"
+        aria-label="stepper"
+        data-cy={testId}
+      />
       <IconButton
         onClick={onClickPlus}
         IconComponent={Add}
         size="large"
         ariaLabel="plus"
+        testId="plusBtn"
       />
     </StepperWrapper>
   );

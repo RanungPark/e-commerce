@@ -33,7 +33,7 @@ const ProductsPage = () => {
   });
 
   useEffect(() => {
-    setQuantity(0);
+    setQuantity(1);
   }, [categoryName, productId]);
 
   if (isLoading) {
@@ -94,6 +94,7 @@ const ProductsPage = () => {
               value={quantity}
               onClickMinus={handleMinusClick}
               onClickPlus={handlePlusClick}
+              testId="quantityInput"
             />
           </QuantityWrapper>
 
@@ -102,7 +103,7 @@ const ProductsPage = () => {
             <ImgCarousel products={selectProducts} />
           </CarouselWrapper>
 
-          <PrimaryButton onClick={handleAddItem}>Add to basket</PrimaryButton>
+          <PrimaryButton onClick={handleAddItem} testId='addBtn'>Add to basket</PrimaryButton>
         </ProductInfosWrapper>
       </ProductsPageWrapper>
       <OuterProducts outerProducts={outerProducts} />

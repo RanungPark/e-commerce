@@ -18,12 +18,14 @@ const NavigationBar = ({ onMenuClick, onCartClick }: NavigationBarProps) => {
         hasIcon={true}
         IconComponent={WMenu}
         ariaLabel="menu"
+        testId="menuBtn"
       />
       <NavigationButton
         onClick={onCartClick}
         hasIcon={true}
         IconComponent={ShoppingBag}
         ariaLabel="shopping bag"
+        testId="cartBtn"
       />
     </NavigationBarWrapper>
   );
