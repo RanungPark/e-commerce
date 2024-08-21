@@ -12,7 +12,7 @@ const ProductInfo = ({ name, price, children }: ProductInfoProps) => {
     <ProductInfoWrapper>
       <Title>
         {`${name} - ${changeKroeaPrice(price)}`}
-        <span> KRW</span>
+        <Unit> KRW</Unit>
       </Title>
       {children}
     </ProductInfoWrapper>
@@ -28,9 +28,10 @@ const ProductInfoWrapper = styled.div`
 const Title = styled.h3`
   ${({ theme }) => theme.typography.Heading3}
   margin-bottom: 16px;
-  & span {
-    ${({ theme }) => theme.typography.Heading4}
-  }
+`;
+
+const Unit = styled.span`
+  ${({ theme }) => theme.typography.Heading4}
 `;
 
 export default ProductInfo;

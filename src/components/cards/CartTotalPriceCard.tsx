@@ -11,7 +11,7 @@ const CartTotalPriceCard = ({ children }: CartTotalPriceCardProps) => {
     <CartTotalPriceCardWrapper>
       {children}
       <TotalPrice>
-        {`${changeKroeaPrice(totalPriceCalc())}`} <span> KRW</span>
+        {`${changeKroeaPrice(totalPriceCalc())}`} <Unit> KRW</Unit>
       </TotalPrice>
     </CartTotalPriceCardWrapper>
   );
@@ -24,9 +24,9 @@ const CartTotalPriceCardWrapper = styled.div`
 
 const TotalPrice = styled.span`
   ${({ theme }) => theme.typography.Heading5}
+`;
 
-  & span {
-    ${({ theme }) => theme.typography.Heading6}
-  }
+const Unit = styled.span`
+  ${({ theme }) => theme.typography.Heading6}
 `;
 export default CartTotalPriceCard;
