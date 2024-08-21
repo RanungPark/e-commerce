@@ -8,16 +8,16 @@ import { v4 as uuidv4 } from 'uuid';
 const ProductInfoSkeleton = () => {
   return (
     <ProductInfoSkeletonWrapper>
-      <TitleWrapper />
-      <InfoWrapper />
-      <SubWrapper />
-      <StepperWrapper />
+      <TitleSkeleton />
+      <InfoSkeleton />
+      <SubSkeleton />
+      <StepperSkeleton />
       <SecondaryCardSkeletonWrapper>
         {Array.from({ length: 5 }).map(() => (
           <SecondaryCardSkeleton key={uuidv4()} />
         ))}
       </SecondaryCardSkeletonWrapper>
-      <ButtonWrapper />
+      <ButtonSkeleton />
     </ProductInfoSkeletonWrapper>
   );
 };
@@ -36,7 +36,7 @@ const SecondaryCardSkeletonWrapper = styled.div`
   ${mixins.flexBox({ justify: 'space-between' })}
 `;
 
-const TitleWrapper = styled.p`
+const TitleSkeleton = styled.p`
   width: 600px;
   height: 50px;
   background-color: ${({ theme }) => theme.colors.extralight};
@@ -45,7 +45,7 @@ const TitleWrapper = styled.p`
   ${LongLoadingAnimation}
 `;
 
-const InfoWrapper = styled.p`
+const InfoSkeleton = styled.p`
   width: 700px;
   height: 80px;
   background-color: ${({ theme }) => theme.colors.extralight};
@@ -54,7 +54,7 @@ const InfoWrapper = styled.p`
   ${LongLoadingAnimation}
 `;
 
-const SubWrapper = styled.p`
+const SubSkeleton = styled.p`
   width: 300px;
   height: 60px;
   background-color: ${({ theme }) => theme.colors.extralight};
@@ -63,7 +63,7 @@ const SubWrapper = styled.p`
   ${LoadingAnimation}
 `;
 
-const StepperWrapper = styled.p`
+const StepperSkeleton = styled.p`
   width: 250px;
   height: 20px;
   background-color: ${({ theme }) => theme.colors.extralight};
@@ -72,7 +72,7 @@ const StepperWrapper = styled.p`
   ${LoadingAnimation}
 `;
 
-const ButtonWrapper = styled.p`
+const ButtonSkeleton = styled.p`
   width: 700px;
   height: 60px;
   background-color: ${({ theme }) => theme.colors.extralight};

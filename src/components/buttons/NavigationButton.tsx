@@ -7,6 +7,7 @@ interface NavigationButtonProps {
   hasIcon?: boolean;
   IconComponent?: React.FC<React.SVGProps<SVGSVGElement>>;
   ariaLabel?: string;
+  testId?: string;
 }
 
 type NavigationButtonWrapperProps = Pick<NavigationButtonProps, 'hasIcon'>;
@@ -17,9 +18,14 @@ const NavigationButton = ({
   hasIcon = false,
   IconComponent,
   ariaLabel,
+  testId,
 }: NavigationButtonProps) => {
   return (
-    <NavigationButtonWrapper onClick={onClick} hasIcon={hasIcon}>
+    <NavigationButtonWrapper
+      onClick={onClick}
+      hasIcon={hasIcon}
+      data-cy={testId}
+    >
       {hasIcon && IconComponent && ariaLabel ? (
         <IconComponent aria-label={ariaLabel} />
       ) : (
@@ -30,7 +36,7 @@ const NavigationButton = ({
 };
 
 const NavigationButtonWrapper = styled.button.withConfig({
-  shouldForwardProp: (prop) => prop !== 'hasIcon',
+  shouldForwardProp: prop => prop !== 'hasIcon',
 })<NavigationButtonWrapperProps>`
   ${mixins.flexBox({})};
   ${({ hasIcon }) =>

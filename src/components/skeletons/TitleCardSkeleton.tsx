@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const TitleCardSkeleton = () => {
   return (
     <TitleCardSkeletonWrapper>
-      <TitleWrapper />
+      <TitleSkeleton />
     </TitleCardSkeletonWrapper>
   );
 };
@@ -19,7 +19,7 @@ const TitleCardSkeletonWrapper = styled.div`
   position: relative;
 `;
 
-const TitleWrapper = styled.div`
+const TitleSkeleton = styled.div`
   width: 350px;
   height: 80px;
   background-color: ${({ theme }) => theme.colors.extralight};

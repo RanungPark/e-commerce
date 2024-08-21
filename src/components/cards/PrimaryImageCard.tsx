@@ -8,6 +8,7 @@ interface PrimaryImageCardProps {
   price?: number;
   children?: string;
   onClick: (e: React.MouseEvent) => void;
+  testId?: string;
 }
 
 const PrimaryImageCard = ({
@@ -16,18 +17,17 @@ const PrimaryImageCard = ({
   price,
   children,
   onClick,
+  testId,
 }: PrimaryImageCardProps) => {
   return (
-    <PrimaryImageCardWrapper onClick={onClick}>
-      <PrimaryImageCardImg alt={alt} src={imgPath} />
-      <PrimaryImageCardTextWrapper>
+    <PrimaryImageCardWrapper onClick={onClick} data-cy={testId}>
+      <Img alt={alt} src={imgPath} />
+      <Contents>
         {children}
         {price !== undefined && (
-          <PrimaryImageCardPriceWrapper>
-            {`Price: ${changeKroeaPrice(price)}`}
-          </PrimaryImageCardPriceWrapper>
+          <Price>{`Price: ${changeKroeaPrice(price)}`}</Price>
         )}
-      </PrimaryImageCardTextWrapper>
+      </Contents>
     </PrimaryImageCardWrapper>
   );
 };
@@ -41,13 +41,13 @@ const PrimaryImageCardWrapper = styled.div`
   cursor: pointer;
 `;
 
-const PrimaryImageCardImg = styled.img`
+const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `;
 
-const PrimaryImageCardTextWrapper = styled.div`
+const Contents = styled.div`
   position: absolute;
   ${mixins.flexBox({ direction: 'column' })}
   ${({ theme }) => theme.typography.Heading6}
@@ -56,7 +56,7 @@ const PrimaryImageCardTextWrapper = styled.div`
   bottom: 24px;
 `;
 
-const PrimaryImageCardPriceWrapper = styled.p`
+const Price = styled.p`
   ${({ theme }) => theme.typography.Caption}
   color: ${({ theme }) => theme.colors.gray};
 `;

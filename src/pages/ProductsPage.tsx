@@ -6,7 +6,7 @@ import { ProductType } from 'src/@types/product';
 import styled from 'styled-components';
 import ProductInfo from '@components/texts/ProductInfo';
 import Stepper from '@components/utilities/Stepper';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import { mixins } from '@styles/Mixin';
 import ImgCarousel from '@components/utilities/ImgCarousel';
@@ -32,6 +32,10 @@ const ProductsPage = () => {
     queryFn: () => fetchProduct(categoryName!, productId!),
   });
 
+  useEffect(() => {
+    setQuantity(1);
+  }, [categoryName, productId]);
+
   if (isLoading) {
     return <ProductsLoading />;
   }
@@ -42,7 +46,7 @@ const ProductsPage = () => {
   }
 
   const { product, outerProducts, selectProducts } = data;
-  const { id, name, price, imgPath, info } = product;
+  const { id, name, price, imgPath, info, category } = product;
 
   const handleMinusClick = () => {
     setQuantity(prevValue => Math.max(prevValue - 1, 0));
@@ -60,7 +64,9 @@ const ProductsPage = () => {
       name,
       imgPath,
       price: quantity * price,
+      category,
       quantity,
+      key: `${category}_${id}`,
     };
 
     addItem(item);
@@ -70,34 +76,35 @@ const ProductsPage = () => {
   return (
     <>
       <ProductsPageWrapper>
-        <ProductsImgWrapper>
-          <img
+        <ProductImgWrapper>
+          <ProductImg
             src={imgPath + imgOptimization({ width: 500, height: 500 })}
             alt={name}
           />
-        </ProductsImgWrapper>
+        </ProductImgWrapper>
 
-        <ProductsInfosWrapper>
+        <ProductInfosWrapper>
           <ProductInfo price={price} name={name}>
             {info}
           </ProductInfo>
 
-          <ProductsQuantityWrapper>
+          <QuantityWrapper>
             Quantity
             <Stepper
               value={quantity}
               onClickMinus={handleMinusClick}
               onClickPlus={handlePlusClick}
+              testId="quantityInput"
             />
-          </ProductsQuantityWrapper>
+          </QuantityWrapper>
 
-          <ProductsCarouselWrapper>
+          <CarouselWrapper>
             Other products of category
             <ImgCarousel products={selectProducts} />
-          </ProductsCarouselWrapper>
+          </CarouselWrapper>
 
-          <PrimaryButton onClick={handleAddItem}>Add to basket</PrimaryButton>
-        </ProductsInfosWrapper>
+          <PrimaryButton onClick={handleAddItem} testId='addBtn'>Add to basket</PrimaryButton>
+        </ProductInfosWrapper>
       </ProductsPageWrapper>
       <OuterProducts outerProducts={outerProducts} />
     </>
@@ -106,19 +113,19 @@ const ProductsPage = () => {
 
 const ProductsPageWrapper = styled.main``;
 
-const ProductsImgWrapper = styled.section`
+const ProductImgWrapper = styled.section`
   text-align: center;
   padding: 24px 0;
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-
-  & img {
-    width: 500px;
-    height: 500px;
-    border: 1px solid ${({ theme }) => theme.colors.black};
-  }
 `;
 
-const ProductsInfosWrapper = styled.section`
+const ProductImg = styled.img`
+  width: 500px;
+  height: 500px;
+  border: 1px solid ${({ theme }) => theme.colors.black};
+`;
+
+const ProductInfosWrapper = styled.section`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   ${({ theme }) => theme.typography.Subtitle}
   padding: 40px;
@@ -127,12 +134,12 @@ const ProductsInfosWrapper = styled.section`
   gap: 24px;
 `;
 
-const ProductsQuantityWrapper = styled.div`
+const QuantityWrapper = styled.div`
   ${mixins.flexBox({ justify: 'start' })}
   gap: 16px;
 `;
 
-const ProductsCarouselWrapper = styled.div`
+const CarouselWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   width: 100%;
   gap: 16px;

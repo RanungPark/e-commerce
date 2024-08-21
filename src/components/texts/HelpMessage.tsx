@@ -54,7 +54,9 @@ const helpMessageStyle = {
   `,
 };
 
-const HelpMessageWrapper = styled.div<HelpMessageChildrenWrapperProps>`
+const HelpMessageWrapper = styled.div.withConfig({
+  shouldForwardProp: prop => prop !== 'helpMessageTheme',
+})<HelpMessageChildrenWrapperProps>`
   ${({ theme }) => theme.typography.CaptionSmall};
   ${mixins.flexBox({})};
   ${({ helpMessageTheme }) =>

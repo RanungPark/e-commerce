@@ -5,11 +5,12 @@ interface MenuButtonProps {
   to: To;
   onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   children: string;
+  testId?: string;
 }
 
-const MenuButton = ({ to, onClick, children }: MenuButtonProps) => {
+const MenuButton = ({ to, onClick, children, testId }: MenuButtonProps) => {
   return (
-    <MenuButtonWrapper to={to} onClick={onClick}>
+    <MenuButtonWrapper to={to} onClick={onClick} data-cy={testId}>
       {children}
     </MenuButtonWrapper>
   );

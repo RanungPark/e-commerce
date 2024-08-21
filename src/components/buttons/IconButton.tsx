@@ -8,6 +8,7 @@ interface IconButtonProps {
   IconComponent: React.FC<React.SVGProps<SVGSVGElement>>;
   ariaLabel: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  testId?: string;
 }
 
 interface IconButtonWrapperProps {
@@ -19,9 +20,15 @@ const IconButton = ({
   IconComponent,
   ariaLabel,
   onClick,
+  testId,
 }: IconButtonProps) => {
   return (
-    <IconButtonWrapper size={size} onClick={onClick} aria-label={ariaLabel}>
+    <IconButtonWrapper
+      size={size}
+      onClick={onClick}
+      aria-label={ariaLabel}
+      data-cy={testId}
+    >
       <IconComponent />
     </IconButtonWrapper>
   );
@@ -42,7 +49,9 @@ const sizeStyles = {
   `,
 };
 
-const IconButtonWrapper = styled.button<IconButtonWrapperProps>`
+const IconButtonWrapper = styled.button.withConfig({
+  shouldForwardProp: prop => prop !== 'size',
+})<IconButtonWrapperProps>`
   ${mixins.flexBox({})}
   ${({ size }) => sizeStyles[size]}
 `;

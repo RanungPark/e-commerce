@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { ReactComponent as ArrowTopRight } from '@assets/icons/wght300/ArrowTopRight.svg';
 import { ReactComponent as ArrowDownRight } from '@assets/icons/wght300/ArrowDownRight.svg';
-import IconButton from '@components/buttons/IconButton';
 import { useState } from 'react';
 import { mixins } from '@styles/Mixin';
 
@@ -18,21 +17,15 @@ const Accordion = ({ title, children }: AccordionProps) => {
   };
 
   return (
-    <AccordionWrapper className="bb-1 pt-3 pb-3">
-      <AccordionTitleWrapper onClick={handleClickn}>
+    <AccordionWrapper>
+      <TitleWrapper onClick={handleClickn}>
         {title}
         {isOpen ? (
-          <IconButton
-            IconComponent={ArrowTopRight}
-            ariaLabel="top and right arrow"
-          />
+          <ArrowTopRight aria-label="top and right arrow" />
         ) : (
-          <IconButton
-            IconComponent={ArrowDownRight}
-            ariaLabel="down and right arrow"
-          />
+          <ArrowDownRight aria-label="down and right arrow" />
         )}
-      </AccordionTitleWrapper>
+      </TitleWrapper>
       {isOpen ? children : <></>}
     </AccordionWrapper>
   );
@@ -44,10 +37,12 @@ const AccordionWrapper = styled.div`
   width: 100%;
   opacity: 0.9;
   gap: 16px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+  padding: 24px 0;
   cursor: pointer;
 `;
 
-const AccordionTitleWrapper = styled.div`
+const TitleWrapper = styled.div`
   ${mixins.flexBox({ justify: 'space-between' })}
   ${({ theme }) => theme.typography.Heading4}
   width: 100%;

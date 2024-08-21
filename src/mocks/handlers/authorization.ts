@@ -56,7 +56,7 @@ export const authorizationHandlers = [
             return HttpResponse.json(
               { message: '로그인 실패' },
               {
-                status: 494,
+                status: 404,
               }
             );
           }

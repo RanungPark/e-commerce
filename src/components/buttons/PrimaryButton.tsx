@@ -14,6 +14,7 @@ interface PrimaryButtonProps {
   CustomButton?: React.FC<React.SVGProps<SVGSVGElement>>;
   disabled?: boolean;
   ariaLabel?: string;
+  testId?: string;
 }
 
 const PrimaryButton = ({
@@ -25,6 +26,7 @@ const PrimaryButton = ({
   CustomButton,
   disabled = false,
   ariaLabel,
+  testId,
 }: PrimaryButtonProps) => {
   const renderIcon = (position: 'left' | 'right') => {
     if (position === 'left') {
@@ -52,6 +54,7 @@ const PrimaryButton = ({
       primaryButtontheme={primaryButtontheme}
       onClick={onClick}
       disabled={disabled}
+      data-cy={testId}
     >
       {renderIcon('left')}
       {children}

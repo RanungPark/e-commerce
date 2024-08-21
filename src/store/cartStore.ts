@@ -4,6 +4,8 @@ import { devtools, persist } from 'zustand/middleware';
 export interface CartItem {
   id: number;
   name: string;
+  category: string;
+  key: string;
   imgPath: string;
   price: number;
   quantity: number;
@@ -12,7 +14,7 @@ export interface CartItem {
 export interface CartState {
   carts: CartItem[];
   addItem: (item: CartItem) => void;
-  removeItem: (name: string) => void;
+  removeItem: (key: string) => void;
   clearCart: () => void;
 }
 
@@ -24,12 +26,12 @@ export const useCartStore = create<CartState>()(
         addItem: item =>
           set(state => {
             const existingItem = state.carts.find(
-              cart => cart.name === item.name
+              cart => cart.key === item.key
             );
             if (existingItem) {
               return {
                 carts: state.carts.map(cart => {
-                  if (cart.name === existingItem.name) {
+                  if (cart.key === existingItem.key) {
                     return cart.quantity
                       ? {
                           ...cart,
@@ -43,9 +45,9 @@ export const useCartStore = create<CartState>()(
             }
             return { carts: [...state.carts, { ...item }] };
           }),
-        removeItem: name =>
+        removeItem: key =>
           set(state => ({
-            carts: state.carts.filter(cart => cart.name !== name),
+            carts: state.carts.filter(cart => cart.key !== key),
           })),
         clearCart: () => set({ carts: [] }),
       }),

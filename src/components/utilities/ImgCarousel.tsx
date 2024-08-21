@@ -48,13 +48,11 @@ const ImgCarousel = ({ products }: ImgCarouselProps) => {
   const goToProduct =
     ({ productCategory, productId }: GoToProductProps) =>
     () => {
-      navigate(
-        `/categories/${productCategory.replace(' ', '_')}/products/${productId}`
-      );
+      navigate(`/categories/${productCategory}/products/${productId}`);
     };
 
   return (
-    <SecondaryImageCardWrapper>
+    <ImgCarouselWrapper>
       <IconButton
         IconComponent={WChevronLeft}
         onClick={handleLeftButton}
@@ -79,11 +77,11 @@ const ImgCarousel = ({ products }: ImgCarouselProps) => {
         onClick={handleRightButton}
         ariaLabel="chevron right"
       />
-    </SecondaryImageCardWrapper>
+    </ImgCarouselWrapper>
   );
 };
 
-const SecondaryImageCardWrapper = styled.div`
+const ImgCarouselWrapper = styled.div`
   width: 100%;
   ${mixins.flexBox({ justify: 'space-between' })}
 `;

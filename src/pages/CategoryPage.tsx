@@ -44,13 +44,14 @@ const CategoryPage = () => {
         {productBg.title}
       </BackgroundImageCard>
       <CategoryCardList>
-        {products.map(({ id, name, price, imgPath }) => (
+        {products.map(({ id, name, price, imgPath, category }) => (
           <PrimaryImageCard
             key={uuidv4()}
             alt={name}
             onClick={() => navigate(`products/${id}`)}
             imgPath={imgPath + imgOptimization({ width: 500, height: 500 })}
             price={price}
+            testId={`${category}_${id}`}
           >
             {name}
           </PrimaryImageCard>

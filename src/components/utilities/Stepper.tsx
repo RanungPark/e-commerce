@@ -9,23 +9,37 @@ interface StepperProps {
   value: number;
   onClickMinus: (e: React.MouseEvent) => void;
   onClickPlus: (e: React.MouseEvent) => void;
+  testId?: string;
 }
 
-const Stepper = ({ value, onClickMinus, onClickPlus }: StepperProps) => {
+const Stepper = ({
+  value,
+  onClickMinus,
+  onClickPlus,
+  testId,
+}: StepperProps) => {
   return (
-    <StepperWrapper className="b-1">
+    <StepperWrapper>
       <IconButton
         onClick={onClickMinus}
         IconComponent={Minus}
         size="large"
         ariaLabel="minus"
+        testId="minusBtn"
       />
-      <StepperInput readOnly value={value} type="text" aria-label="stepper" />
+      <Input
+        readOnly
+        value={value}
+        type="text"
+        aria-label="stepper"
+        data-cy={testId}
+      />
       <IconButton
         onClick={onClickPlus}
         IconComponent={Add}
         size="large"
         ariaLabel="plus"
+        testId="plusBtn"
       />
     </StepperWrapper>
   );
@@ -34,6 +48,7 @@ const Stepper = ({ value, onClickMinus, onClickPlus }: StepperProps) => {
 const StepperWrapper = styled.div`
   ${mixins.flexBox({ justify: 'space-between' })}
   max-width: 146px;
+  border: 1px solid ${({ theme }) => theme.colors.black};
 
   & button:first-child {
     border-right: 1px solid ${({ theme }) => theme.colors.black};
@@ -49,7 +64,7 @@ const StepperWrapper = styled.div`
   }
 `;
 
-const StepperInput = styled.input`
+const Input = styled.input`
   ${({ theme }) => theme.typography.Body};
   width: 59px;
   height: 100%;

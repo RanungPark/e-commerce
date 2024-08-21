@@ -19,10 +19,10 @@ const CompleteTextFiled = ({
 }: CompleteTextFiledProps) => {
   return (
     <CompleteTextFiledWrapper disabled={disabled}>
-      <CompleteTextFiledChildrenWrapper>
+      <Contents>
         {!disabled && <Check />}
         {children}
-      </CompleteTextFiledChildrenWrapper>
+      </Contents>
       {!disabled && (
         <IconButton onClick={onClick} IconComponent={WEdit} ariaLabel="edit" />
       )}
@@ -51,12 +51,14 @@ const disabledStyle = css`
   color: ${({ theme }) => theme.colors.gray};
 `;
 
-const CompleteTextFiledWrapper = styled.div<CompleteTextFiledWrapperProps>`
+const CompleteTextFiledWrapper = styled.div.withConfig({
+  shouldForwardProp: prop => prop !== 'disabled',
+})<CompleteTextFiledWrapperProps>`
   ${baseStyle}
   ${({ disabled }) => (disabled ? disabledStyle : enabledStyle)}
 `;
 
-const CompleteTextFiledChildrenWrapper = styled.div`
+const Contents = styled.div`
   ${mixins.flexBox({})}
   gap: 4px;
 `;

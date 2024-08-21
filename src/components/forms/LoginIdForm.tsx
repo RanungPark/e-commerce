@@ -65,11 +65,12 @@ const LoginIdForm = ({ onSubmit, setUsername }: LoginIdFormProps) => {
               message: `'-' 없이 전화번호를 입력해주세요.`,
             },
           })}
+          data-cy="phoneInput"
           placeholder="+82 XXX XXX XXX"
           aria-label="username"
         />
       </DefaultTextField>
-      <PrimaryButton onClick={handleSubmit(onLoginValid)}>
+      <PrimaryButton testId="phoneButton" onClick={handleSubmit(onLoginValid)}>
         continue
       </PrimaryButton>
     </LoginIdFormWrapper>

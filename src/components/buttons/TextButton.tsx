@@ -11,6 +11,7 @@ interface TextButtonProps {
   CustomButton?: React.FC<React.SVGProps<SVGSVGElement>>;
   disabled?: boolean;
   ariaLabel?: string;
+  testId?: string;
 }
 
 const TextButton = ({
@@ -21,6 +22,7 @@ const TextButton = ({
   CustomButton,
   disabled = false,
   ariaLabel,
+  testId,
 }: TextButtonProps) => {
   const renderIcon = (position: 'left' | 'right') => {
     if (position === 'left') {
@@ -44,7 +46,7 @@ const TextButton = ({
   };
 
   return (
-    <TextButtonWrapper onClick={onClick} disabled={disabled}>
+    <TextButtonWrapper onClick={onClick} disabled={disabled} data-cy={testId}>
       {renderIcon('left')}
       {children}
       {renderIcon('right')}

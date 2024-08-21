@@ -41,7 +41,7 @@ const DropDown = ({
 
   return (
     <>
-      <DropDownLabel className="p-2" disabled={disabled}>
+      <DropDownLabel disabled={disabled}>
         <DropDownInput
           type="text"
           readOnly
@@ -107,12 +107,15 @@ const disabledStyle = css`
   }
 `;
 
-const DropDownLabel = styled.label<DropDownLabelProps>`
+const DropDownLabel = styled.label.withConfig({
+  shouldForwardProp: prop => prop !== 'disabled',
+})<DropDownLabelProps>`
   ${mixins.flexBox({ justify: 'space-between' })}
   ${({ disabled }) => (!disabled ? defalutStyle : disabledStyle)}
   
   width: 100%;
   max-height: 56px;
+  padding: 16px;
   border: 1px solid ${({ theme }) => theme.colors.lightgray};
 `;
 
