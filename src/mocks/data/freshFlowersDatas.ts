@@ -19,7 +19,7 @@ export const freshFlowersProducts: ProductType[] = [
       name: 'snowfall',
     }),
     info: `Snowfall은 겨울의 차가운 아름다움을 담아낸 우아한 꽃입니다. 이 꽃다발은 하얀색과 부드러운 파스텔 톤의 꽃들이 조화를 이루어, 차가운 겨울 날씨 속에서도 따뜻한 감동을 선사합니다. 각기 다른 질감과 색상의 꽃들이 함께 어우러져, 겨울의 순수하고 청량한 아름다움을 전달합니다.`,
-    category: 'fresh flowers',
+    category: 'fresh_flowers',
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ export const freshFlowersProducts: ProductType[] = [
       name: 'pink_elegance',
     }),
     info: `Pink Elegance는 섬세한 핑크색 꽃들이 서로 어우러져, 세련되면서도 따뜻한 감동을 줍니다. 이 꽃다발은 특별한 날이나 사랑하는 사람에게 보내는 선물로 완벽하며, 그 자체로도 인테리어에 고급스러움을 더하는 아이템입니다. 부드러운 핑크 톤의 꽃들이 조화를 이루어, 사랑스럽고 우아한 분위기를 선사합니다.`,
-    category: 'fresh flowers',
+    category: 'fresh_flowers',
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ export const freshFlowersProducts: ProductType[] = [
       name: 'autumn_symphony',
     }),
     info: `Autumn Symphony는 가을의 따뜻한 색감과 풍부한 질감을 담아낸 작품입니다. 이 꽃다발은 깊고 풍성한 오렌지, 레드, 브라운 톤의 꽃들이 조화를 이루어, 가을의 정수를 고스란히 느낄 수 있게 해줍니다. 계절의 변화를 아름답게 표현하며, 가을의 풍성하고 아늑한 분위기를 전달합니다.`,
-    category: 'fresh flowers',
+    category: 'fresh_flowers',
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ export const freshFlowersProducts: ProductType[] = [
       name: 'serenity',
     }),
     info: `Serenity는 평온하고 조화로운 분위기를 담아낸 아름다운 작품입니다. 이 꽃다발은 부드러운 화이트와 파스텔 톤의 꽃들이 어우러져, 차분하고 아늑한 느낌을 전달합니다. 섬세한 꽃잎과 부드러운 색상 조화로, 공간에 편안하고 안정감 있는 분위기를 제공합니다.`,
-    category: 'fresh flowers',
+    category: 'fresh_flowers',
   },
   {
     id: 5,
@@ -63,7 +63,7 @@ export const freshFlowersProducts: ProductType[] = [
       name: 'mystical_majesty',
     }),
     info: `Mystical Majesty는 신비롭고 고급스러운 분위기를 담아낸 작품입니다. 이 꽃다발은 깊은 보라색과 짙은 핑크색이 어우러져, 우아하면서도 신비로운 매력을 전달합니다. 강렬하면서도 섬세한 색상의 꽃들이 조화롭게 배열되어, 고귀하고 신비로운 느낌을 제공합니다.`,
-    category: 'fresh flowers',
+    category: 'fresh_flowers',
   },
   {
     id: 6,
@@ -74,7 +74,7 @@ export const freshFlowersProducts: ProductType[] = [
       name: `dawn's_delight`,
     }),
     info: `Dawn's Delight는 아침의 신선함과 기운을 담아낸 아름다운 작품입니다. 이 꽃다발은 부드러운 파스텔 톤과 밝은 색상의 꽃들이 조화를 이루어, 새벽의 상쾌한 느낌과 기운을 전달합니다. 부드러운 핑크, 크림, 연두색의 조화로 밝고 활기찬 분위기를 만들어주며, 공간에 상쾌하고 기분 좋은 느낌을 더해줍니다.`,
-    category: 'fresh flowers',
+    category: 'fresh_flowers',
   },
   {
     id: 7,
@@ -85,7 +85,7 @@ export const freshFlowersProducts: ProductType[] = [
       name: 'rustic_charm',
     }),
     info: `Rustic Charm은 자연의 소박하고 따뜻한 매력을 담아낸 작품입니다. 이 꽃다발은 따뜻한 톤의 색상과 자연스러운 질감의 꽃들이 어우러져, 전통적이고 소박한 아름다움을 제공합니다. 깊은 브라운, 오렌지, 베이지 등의 색상과 질감이 조화를 이루어, 자연의 원초적이고 감성적인 느낌을 전달합니다.`,
-    category: 'fresh flowers',
+    category: 'fresh_flowers',
   },
   {
     id: 8,
@@ -96,7 +96,7 @@ export const freshFlowersProducts: ProductType[] = [
       name: 'rosy_delight',
     }),
     info: `Rosy Delight는 다양한 색상의 장미로 구성되어, 감미롭고 로맨틱한 분위기를 자아냅니다. 이 꽃다발은 부드러운 핑크부터 진한 로즈 색상까지 다양한 장미들이 조화롭게 배열되어, 시각적으로 매력적인 디자인을 제공합니다. 각기 다른 장미들이 섬세하게 배치되어 풍성하고 우아한 느낌을 전달합니다.`,
-    category: 'fresh flowers',
+    category: 'fresh_flowers',
   },
   {
     id: 9,
@@ -107,7 +107,7 @@ export const freshFlowersProducts: ProductType[] = [
       name: 'blue_harmony',
     }),
     info: `Blue Harmony는 차분하고 우아한 파란색 계열의 꽃들로 구성된 아름다운 작품입니다. 이 꽃다발은 신비롭고 고요한 블루 톤과 그라데이션이 조화를 이루어, 편안하면서도 세련된 분위기를 제공합니다. 파란색의 깊이와 미세한 톤의 변화가 자연스럽게 어우러져, 우아하면서도 신비로운 아름다움을 만들어냅니다.`,
-    category: 'fresh flowers',
+    category: 'fresh_flowers',
   },
   {
     id: 10,
@@ -118,6 +118,6 @@ export const freshFlowersProducts: ProductType[] = [
       name: 'blazing_blassoms',
     }),
     info: `Blazing Blossoms는 화려하고 열정적인 색상으로 가득 찬 다채로운 꽃들로 구성된 작품입니다. 이 꽃다발은 붉은색, 오렌지색, 금색 등 강렬한 색상의 꽃들이 어우러져, 열정적이고 활기찬 분위기를 자아냅니다. 강렬한 색상과 풍성한 꽃잎들이 조화롭게 배열되어, 눈길을 끌고 감동을 주는 디자인을 완성합니다.`,
-    category: 'fresh flowers',
+    category: 'fresh_flowers',
   },
 ];
