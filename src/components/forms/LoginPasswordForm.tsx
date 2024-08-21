@@ -72,9 +72,13 @@ const LoginPasswordForm = ({
           placeholder="비밀번호를 입력해주세요"
           type="password"
           aria-label="password"
+          data-cy="passwordInput"
         />
       </DefaultTextField>
-      <PrimaryButton onClick={handleSubmit(onJoinValid)}>
+      <PrimaryButton
+        testId="passwrodButton"
+        onClick={handleSubmit(onJoinValid)}
+      >
         continue
       </PrimaryButton>
     </LoginPasswordFormWrapper>

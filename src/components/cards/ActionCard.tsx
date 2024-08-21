@@ -8,6 +8,8 @@ interface ActionCardProps {
   buttonText: string;
   hasRightIcon?: boolean;
   hasLeftIcon?: boolean;
+  testId?: string;
+  buttonTestId?: string;
 }
 
 const ActionCard = ({
@@ -16,15 +18,18 @@ const ActionCard = ({
   onClick,
   hasLeftIcon = false,
   hasRightIcon = false,
+  testId,
+  buttonTestId,
 }: ActionCardProps) => {
   return (
-    <ActionCardWrapper className="bb-1 p-4">
+    <ActionCardWrapper data-cy={testId}>
       {children}
       <ButtonWrapper>
         <TextButton
           onClick={onClick}
           hasLeftIcon={hasLeftIcon}
           hasRightIcon={hasRightIcon}
+          testId={buttonTestId}
         >
           {buttonText}
         </TextButton>

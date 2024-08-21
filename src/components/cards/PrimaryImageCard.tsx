@@ -8,6 +8,7 @@ interface PrimaryImageCardProps {
   price?: number;
   children?: string;
   onClick: (e: React.MouseEvent) => void;
+  testId?: string;
 }
 
 const PrimaryImageCard = ({
@@ -16,9 +17,10 @@ const PrimaryImageCard = ({
   price,
   children,
   onClick,
+  testId,
 }: PrimaryImageCardProps) => {
   return (
-    <PrimaryImageCardWrapper onClick={onClick}>
+    <PrimaryImageCardWrapper onClick={onClick} data-cy={testId}>
       <Img alt={alt} src={imgPath} />
       <Contents>
         {children}

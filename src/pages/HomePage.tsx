@@ -28,6 +28,8 @@ const HomePage = () => {
           buttonText="Shop now"
           imgPath={imgPath}
           alt={children}
+          actionTestId={`action_${index}`}
+          imgTestId={`img_${index}`}
         >
           {children.trim().replace(/\s+/g, '')}
         </ActionCardAndImageCardList>

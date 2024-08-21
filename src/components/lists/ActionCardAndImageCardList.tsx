@@ -9,6 +9,8 @@ export interface ActionCardAndImageCardListProps {
   buttonText: string;
   imgPath: string;
   alt: string;
+  actionTestId?: string;
+  imgTestId?: string;
 }
 
 const ActionCardAndImageCardList = ({
@@ -18,6 +20,8 @@ const ActionCardAndImageCardList = ({
   buttonText,
   imgPath,
   alt,
+  actionTestId,
+  imgTestId,
 }: ActionCardAndImageCardListProps) => {
   if (index % 2 === 0) {
     return (
@@ -26,20 +30,34 @@ const ActionCardAndImageCardList = ({
           onClick={onClick}
           buttonText={buttonText}
           hasRightIcon={true}
+          testId={actionTestId}
+          buttonTestId="actionCardBtn"
         >
           {children}
         </ActionCard>
-        <PrimaryImageCard alt={alt} imgPath={imgPath} onClick={onClick} />
+        <PrimaryImageCard
+          alt={alt}
+          imgPath={imgPath}
+          onClick={onClick}
+          testId={imgTestId}
+        />
       </ActionCardAndImageCardListWrapper>
     );
   } else {
     return (
       <ActionCardAndImageCardListWrapper>
-        <PrimaryImageCard alt={alt} imgPath={imgPath} onClick={onClick} />
+        <PrimaryImageCard
+          alt={alt}
+          imgPath={imgPath}
+          onClick={onClick}
+          testId={imgTestId}
+        />
         <ActionCard
           onClick={onClick}
           buttonText={buttonText}
           hasLeftIcon={true}
+          testId={actionTestId}
+          buttonTestId="actionCardBtn"
         >
           {children}
         </ActionCard>

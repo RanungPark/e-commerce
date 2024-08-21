@@ -1,8 +1,6 @@
 import { mixins } from '@styles/Mixin';
 import styled, { css } from 'styled-components';
 import { ReactComponent as WChevronRight } from '@assets/icons/wght400/WChevronRight.svg';
-import IconButton from '@components/buttons/IconButton';
-
 interface BreadCrumbProps {
   children: string;
   onClick: (e: React.MouseEvent) => void;
@@ -21,7 +19,7 @@ const BreadCrumb = ({
   return (
     <BreadCrumbWrapper onClick={onClick} focus={focus} disabled={disabled}>
       {children}
-      <IconButton IconComponent={WChevronRight} ariaLabel="chevron right" />
+      <WChevronRight aria-label="chevron right" />
     </BreadCrumbWrapper>
   );
 };

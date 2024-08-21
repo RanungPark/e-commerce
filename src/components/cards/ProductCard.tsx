@@ -11,6 +11,8 @@ interface ProductCardProps {
   infoItems: string[];
   select?: boolean;
   onClick: (e: React.MouseEvent) => void;
+  testId?: string;
+  buttonTestId?: string;
 }
 
 const ProductCard = ({
@@ -20,9 +22,11 @@ const ProductCard = ({
   infoItems,
   select = false,
   onClick,
+  testId,
+  buttonTestId,
 }: ProductCardProps) => {
   return (
-    <ProductCardWrapper>
+    <ProductCardWrapper data-cy={testId}>
       <Contents>
         <Img alt={alt} src={imgPath} />
         <ProductCardInfoList infoItems={infoItems}>
@@ -33,6 +37,7 @@ const ProductCard = ({
         onClick={onClick}
         hasLeftIcon={select}
         CustomButton={Check}
+        testId={buttonTestId}
       >
         select
       </PrimaryButton>

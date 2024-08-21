@@ -11,6 +11,8 @@ interface CartItemCardProps {
   imgPath: string;
   hasTextButton?: boolean;
   onClick: (e: React.MouseEvent) => void;
+  testId?: string;
+  buttonTestId?: string;
 }
 
 const CartItemCard = ({
@@ -21,9 +23,11 @@ const CartItemCard = ({
   imgPath,
   hasTextButton = true,
   onClick,
+  testId,
+  buttonTestId,
 }: CartItemCardProps) => {
   return (
-    <CartItemCardPropsWrapper>
+    <CartItemCardPropsWrapper data-cy={testId}>
       <Img alt={alt} src={imgPath} />
       <CartItemCardInfosWrapper>
         <Name>{children}</Name>
@@ -35,7 +39,9 @@ const CartItemCard = ({
         )}
       </CartItemCardInfosWrapper>
       {hasTextButton ? (
-        <TextButton onClick={onClick}>Remove</TextButton>
+        <TextButton onClick={onClick} testId={buttonTestId}>
+          Remove
+        </TextButton>
       ) : (
         <Price>
           {`${changeKroeaPrice(price)}`} <Unit>KRW</Unit>
