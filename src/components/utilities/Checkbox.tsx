@@ -31,7 +31,7 @@ const Checkbox = ({
 
   return (
     <CheckboxWrapper>
-      <CheckboxInput
+      <Input
         type="checkbox"
         name={name}
         value={value ?? children}
@@ -45,7 +45,7 @@ const Checkbox = ({
         onClick={() => !isGrop && setChecked(prev => !prev)}
       />
       <Check />
-      <CheckboxChildrenWrapper>{children}</CheckboxChildrenWrapper>
+      <Value>{children}</Value>
     </CheckboxWrapper>
   );
 };
@@ -80,7 +80,7 @@ const CheckboxWrapper = styled.label`
   }
 `;
 
-const CheckboxInput = styled.input`
+const Input = styled.input`
   appearance: none;
   background-color: ${({ theme }) => theme.colors.lightgray};
   border: 1px solid ${({ theme }) => theme.colors.black};
@@ -99,7 +99,7 @@ const CheckboxInput = styled.input`
   }
 `;
 
-const CheckboxChildrenWrapper = styled.p`
+const Value = styled.p`
   ${({ theme }) => theme.typography.CaptionBold}
   display: inline-block;
 `;

@@ -19,10 +19,10 @@ const CompleteTextFiled = ({
 }: CompleteTextFiledProps) => {
   return (
     <CompleteTextFiledWrapper disabled={disabled}>
-      <CompleteTextFiledChildrenWrapper>
+      <Contents>
         {!disabled && <Check />}
         {children}
-      </CompleteTextFiledChildrenWrapper>
+      </Contents>
       {!disabled && (
         <IconButton onClick={onClick} IconComponent={WEdit} ariaLabel="edit" />
       )}
@@ -56,7 +56,7 @@ const CompleteTextFiledWrapper = styled.div<CompleteTextFiledWrapperProps>`
   ${({ disabled }) => (disabled ? disabledStyle : enabledStyle)}
 `;
 
-const CompleteTextFiledChildrenWrapper = styled.div`
+const Contents = styled.div`
   ${mixins.flexBox({})}
   gap: 4px;
 `;

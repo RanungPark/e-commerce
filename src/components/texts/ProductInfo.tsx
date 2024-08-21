@@ -10,10 +10,10 @@ interface ProductInfoProps {
 const ProductInfo = ({ name, price, children }: ProductInfoProps) => {
   return (
     <ProductInfoWrapper>
-      <ProductInfoTitle>
+      <Title>
         {`${name} - ${changeKroeaPrice(price)}`}
         <span> KRW</span>
-      </ProductInfoTitle>
+      </Title>
       {children}
     </ProductInfoWrapper>
   );
@@ -25,7 +25,7 @@ const ProductInfoWrapper = styled.div`
   height: auto;
 `;
 
-const ProductInfoTitle = styled.h3`
+const Title = styled.h3`
   ${({ theme }) => theme.typography.Heading3}
   margin-bottom: 16px;
   & span {

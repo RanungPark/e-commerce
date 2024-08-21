@@ -20,7 +20,7 @@ const Stepper = ({ value, onClickMinus, onClickPlus }: StepperProps) => {
         size="large"
         ariaLabel="minus"
       />
-      <StepperInput readOnly value={value} type="text" aria-label="stepper" />
+      <Input readOnly value={value} type="text" aria-label="stepper" />
       <IconButton
         onClick={onClickPlus}
         IconComponent={Add}
@@ -49,7 +49,7 @@ const StepperWrapper = styled.div`
   }
 `;
 
-const StepperInput = styled.input`
+const Input = styled.input`
   ${({ theme }) => theme.typography.Body};
   width: 59px;
   height: 100%;

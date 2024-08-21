@@ -24,22 +24,22 @@ const CartItemCard = ({
 }: CartItemCardProps) => {
   return (
     <CartItemCardPropsWrapper>
-      <img alt={alt} src={imgPath} />
+      <Img alt={alt} src={imgPath} />
       <CartItemCardInfosWrapper>
-        <p>{children}</p>
-        <p>{`Quantity (${quantity})`}</p>
+        <Name>{children}</Name>
+        <Quantity>{`Quantity (${quantity})`}</Quantity>
         {hasTextButton && (
-          <p>
-            {`${changeKroeaPrice(price)}`} <span>KRW</span>
-          </p>
+          <Price>
+            {`${changeKroeaPrice(price)}`} <Unit>KRW</Unit>
+          </Price>
         )}
       </CartItemCardInfosWrapper>
       {hasTextButton ? (
         <TextButton onClick={onClick}>Remove</TextButton>
       ) : (
-        <p>
-          {`${changeKroeaPrice(price)}`} <span>KRW</span>
-        </p>
+        <Price>
+          {`${changeKroeaPrice(price)}`} <Unit>KRW</Unit>
+        </Price>
       )}
     </CartItemCardPropsWrapper>
   );
@@ -48,17 +48,20 @@ const CartItemCard = ({
 const CartItemCardPropsWrapper = styled.li`
   ${mixins.flexBox({ justify: 'space-between' })}
   ${({ theme }) => theme.typography.Subtitle}
+`;
 
-  & img {
-    width: 160px;
-    height: 160px;
-    border: 1px solid ${({ theme }) => theme.colors.black};
-    object-fit: cover;
-  }
+const Img = styled.img`
+  width: 160px;
+  height: 160px;
+  border: 1px solid ${({ theme }) => theme.colors.black};
+  object-fit: cover;
+`;
 
-  & span {
-    ${({ theme }) => theme.typography.Body}
-  }
+const Name = styled.p``;
+const Quantity = styled.p``;
+const Price = styled.p``;
+const Unit = styled.span`
+  ${({ theme }) => theme.typography.Body}
 `;
 
 const CartItemCardInfosWrapper = styled.div`

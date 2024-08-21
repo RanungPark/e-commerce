@@ -37,17 +37,17 @@ const FooterRemind = () => {
 
   return (
     <FooterRemindWrapper>
-      <p>
+      <Sentence>
         오늘의 꽃을 통해 발렌타인데이, 어버이날, 크리스마스...에서 아름다운 꽃을
         제공하는 것을 잊지 마세요... 7일 전에 알려드립니다. 스팸 또는 주소 공유
         금지
-      </p>
+      </Sentence>
       <FooterRemindForm onSubmit={handleSubmit(handleSubscription)}>
         <DefaultTextField>
-          <input
+          <Input
             placeholder="Your Email"
             {...register('remind')}
-            aria-label='remind'
+            aria-label="remind"
           />
         </DefaultTextField>
         <PrimaryButton onClick={() => {}}>remind</PrimaryButton>
@@ -70,5 +70,8 @@ const FooterRemindForm = styled.form`
   flex-direction: column;
   gap: 16px;
 `;
+
+const Input = styled.input``;
+const Sentence = styled.p``;
 
 export default FooterRemind;

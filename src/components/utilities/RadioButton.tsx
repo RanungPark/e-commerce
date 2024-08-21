@@ -39,7 +39,7 @@ const RadioButton = ({
 
   return (
     <RadioButtonWrapper>
-      <RadioButtonInput
+      <Input
         type="radio"
         name={name}
         value={value}
@@ -48,7 +48,7 @@ const RadioButton = ({
         onChange={isGrop ? handleGroupChange : handleChange}
         onClick={!isGrop ? handleClick : undefined}
       />
-      <RadioButtonChildrenWrapper>{children}</RadioButtonChildrenWrapper>
+      <Value>{children}</Value>
     </RadioButtonWrapper>
   );
 };
@@ -78,7 +78,7 @@ const RadioButtonWrapper = styled.label`
   }
 `;
 
-const RadioButtonInput = styled.input`
+const Input = styled.input`
   appearance: none;
   background-color: ${({ theme }) => theme.colors.lightgray};
   border: 1px solid ${({ theme }) => theme.colors.black};
@@ -104,7 +104,7 @@ const RadioButtonInput = styled.input`
   }
 `;
 
-const RadioButtonChildrenWrapper = styled.p`
+const Value = styled.p`
   ${({ theme }) => theme.typography.Body}
   display: inline-block;
 `;

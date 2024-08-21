@@ -5,18 +5,20 @@ import { v4 as uuidv4 } from 'uuid';
 
 const CategoryLoading = () => {
   return (
-    <div>
+    <CategoryLoadingWrapper>
       <TitleCardSkeleton />
       <LoadingCardList>
         {Array.from({ length: 6 }).map(() => (
           <PrimaryCardSkeleton key={uuidv4()} />
         ))}
       </LoadingCardList>
-    </div>
+    </CategoryLoadingWrapper>
   );
 };
 
 export default CategoryLoading;
+
+const CategoryLoadingWrapper = styled.div``;
 
 const LoadingCardList = styled.div`
   display: grid;

@@ -19,7 +19,7 @@ const Accordion = ({ title, children }: AccordionProps) => {
 
   return (
     <AccordionWrapper className="bb-1 pt-3 pb-3">
-      <AccordionTitleWrapper onClick={handleClickn}>
+      <TitleWrapper onClick={handleClickn}>
         {title}
         {isOpen ? (
           <IconButton
@@ -32,7 +32,7 @@ const Accordion = ({ title, children }: AccordionProps) => {
             ariaLabel="down and right arrow"
           />
         )}
-      </AccordionTitleWrapper>
+      </TitleWrapper>
       {isOpen ? children : <></>}
     </AccordionWrapper>
   );
@@ -47,7 +47,7 @@ const AccordionWrapper = styled.div`
   cursor: pointer;
 `;
 
-const AccordionTitleWrapper = styled.div`
+const TitleWrapper = styled.div`
   ${mixins.flexBox({ justify: 'space-between' })}
   ${({ theme }) => theme.typography.Heading4}
   width: 100%;

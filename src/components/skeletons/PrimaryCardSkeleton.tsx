@@ -5,10 +5,10 @@ import styled from 'styled-components';
 const PrimaryCardSkeleton = () => {
   return (
     <PrimaryCardSkeletonWrapper>
-      <ImgWrapper />
+      <ImgSkeleton />
       <ContentWrapper>
-        <NameWrapper />
-        <PriceWrapper />
+        <NameSkeleton />
+        <PriceSkeleton />
       </ContentWrapper>
     </PrimaryCardSkeletonWrapper>
   );
@@ -28,7 +28,7 @@ const ContentWrapper = styled.div`
   gap: 4px;
 `;
 
-const ImgWrapper = styled.div`
+const ImgSkeleton = styled.div`
   width: 250px;
   height: 250px;
   background-color: ${({ theme }) => theme.colors.extralight};
@@ -37,7 +37,7 @@ const ImgWrapper = styled.div`
   ${LoadingAnimation}
 `;
 
-const NameWrapper = styled.p`
+const NameSkeleton = styled.p`
   width: 150px;
   height: 20px;
   background-color: ${({ theme }) => theme.colors.extralight};
@@ -46,7 +46,7 @@ const NameWrapper = styled.p`
   ${LoadingAnimation}
 `;
 
-const PriceWrapper = styled.p`
+const PriceSkeleton = styled.p`
   width: 130px;
   height: 15px;
   background-color: ${({ theme }) => theme.colors.extralight};

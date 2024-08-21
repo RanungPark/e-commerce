@@ -7,51 +7,53 @@ import { v4 as uuidv4 } from 'uuid';
 
 const ProductsLoading = () => {
   return (
-    <div>
-      <MainWrapper>
-        <p />
-      </MainWrapper>
+    <ProductsLoadingWrapper>
+      <MainSkeletonWrapper>
+        <MainSkeleton />
+      </MainSkeletonWrapper>
       <ProductInfoSkeleton />
-      <SubWrapper>
-        <p />
-      </SubWrapper>
+      <SubSkeletonWrapper>
+        <SubSkeleton />
+      </SubSkeletonWrapper>
       <LoadingCardList>
         {Array.from({ length: 6 }).map(() => (
           <PrimaryCardSkeleton key={uuidv4()} />
         ))}
       </LoadingCardList>
-    </div>
+    </ProductsLoadingWrapper>
   );
 };
 
-const MainWrapper = styled.div`
+const ProductsLoadingWrapper = styled.div``;
+
+const MainSkeletonWrapper = styled.div`
   ${mixins.flexBox({})}
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   padding: 24px 0;
-
-  & p {
-    width: 500px;
-    height: 500px;
-    background-color: ${({ theme }) => theme.colors.extralight};
-    position: relative;
-    overflow: hidden;
-    ${LongLoadingAnimation}
-  }
 `;
 
-const SubWrapper = styled.div`
+const MainSkeleton = styled.p`
+  width: 500px;
+  height: 500px;
+  background-color: ${({ theme }) => theme.colors.extralight};
+  position: relative;
+  overflow: hidden;
+  ${LongLoadingAnimation}
+`;
+
+const SubSkeletonWrapper = styled.div`
   ${mixins.flexBox({})}
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   padding: 64px;
+`;
 
-  & p {
-    width: 300px;
-    height: 45px;
-    background-color: ${({ theme }) => theme.colors.extralight};
-    position: relative;
-    overflow: hidden;
-    ${LoadingAnimation}
-  }
+const SubSkeleton = styled.p`
+  width: 300px;
+  height: 45px;
+  background-color: ${({ theme }) => theme.colors.extralight};
+  position: relative;
+  overflow: hidden;
+  ${LoadingAnimation}
 `;
 
 const LoadingCardList = styled.div`

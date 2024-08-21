@@ -15,11 +15,11 @@ const ProductCardInfoList = ({
   return (
     <ProductCardInfoListWrapper>
       {children}
-      <ProductCardInfoListUl>
+      <Ul>
         {infoItems.map(infoItem => (
           <ProductCardInfo key={uuidv4()}>{infoItem}</ProductCardInfo>
         ))}
-      </ProductCardInfoListUl>
+      </Ul>
     </ProductCardInfoListWrapper>
   );
 };
@@ -34,7 +34,7 @@ const ProductCardInfoListWrapper = styled.div`
   gap: 16px;
 `;
 
-const ProductCardInfoListUl = styled.ul`
+const Ul = styled.ul`
   & li:last-of-type {
     margin: 0;
   }

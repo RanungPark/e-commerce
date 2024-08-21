@@ -28,9 +28,7 @@ const DefaultTextField = ({
   return (
     <DefaultTextFieldWrapper>
       {hasLabel && <TextFieldLabel htmlFor={htmlFor}>{label}</TextFieldLabel>}
-      <DefaultTextFieldInputWrapper inputState={inputState}>
-        {children}
-      </DefaultTextFieldInputWrapper>
+      <InputWrapper inputState={inputState}>{children}</InputWrapper>
       {hasHelpMessage && !!helpMessage && (
         <HelpMessage helpMessageTheme={inputState}>{helpMessage}</HelpMessage>
       )}
@@ -97,7 +95,7 @@ const TextFieldStyle = {
   `,
 };
 
-const DefaultTextFieldInputWrapper = styled.div.withConfig({
+const InputWrapper = styled.div.withConfig({
   shouldForwardProp: prop => prop !== 'inputState',
 })<{ inputState: InputState }>`
   & input {

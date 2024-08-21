@@ -23,12 +23,12 @@ const ProductCard = ({
 }: ProductCardProps) => {
   return (
     <ProductCardWrapper>
-      <ProductCardContentWrapper>
-        <ProductCardImg alt={alt} src={imgPath} />
+      <Contents>
+        <Img alt={alt} src={imgPath} />
         <ProductCardInfoList infoItems={infoItems}>
           {children}
         </ProductCardInfoList>
-      </ProductCardContentWrapper>
+      </Contents>
       <PrimaryButton
         onClick={onClick}
         hasLeftIcon={select}
@@ -42,12 +42,12 @@ const ProductCard = ({
 
 const ProductCardWrapper = styled.div``;
 
-const ProductCardContentWrapper = styled.div`
+const Contents = styled.div`
   ${mixins.flexBox({})}
   border: 1px solid ${({ theme }) => theme.colors.lightgray};
 `;
 
-const ProductCardImg = styled.img`
+const Img = styled.img`
   border-right: 1px solid ${({ theme }) => theme.colors.lightgray};
   width: 50%;
   height: 50%;

@@ -19,13 +19,11 @@ const SecondaryImageCard = ({
 }: SecondaryImageCardProps) => {
   return (
     <SecondaryImageCardWrapper onClick={onClick}>
-      <SecondaryImageCardImg alt={alt} src={imgPath} />
-      <SecondaryImageCardTextWrapper>
+      <Img alt={alt} src={imgPath} />
+      <Contents>
         {children}
-        <SecondaryImageCardPriceWrapper>
-          {changeKroeaPrice(price)}
-        </SecondaryImageCardPriceWrapper>
-      </SecondaryImageCardTextWrapper>
+        <Price>{changeKroeaPrice(price)}</Price>
+      </Contents>
     </SecondaryImageCardWrapper>
   );
 };
@@ -36,7 +34,7 @@ const SecondaryImageCardWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
-const SecondaryImageCardImg = styled.img`
+const Img = styled.img`
   border: 1px solid ${({ theme }) => theme.colors.lightgray};
   width: 100px;
   height: 100px;
@@ -50,7 +48,7 @@ const SecondaryImageCardImg = styled.img`
   }
 `;
 
-const SecondaryImageCardTextWrapper = styled.div`
+const Contents = styled.div`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   ${({ theme }) => theme.typography.Caption}
   overflow: hidden;
@@ -60,7 +58,7 @@ const SecondaryImageCardTextWrapper = styled.div`
   gap: 4px;
 `;
 
-const SecondaryImageCardPriceWrapper = styled.p`
+const Price = styled.p`
   color: ${({ theme }) => theme.colors.gray};
 `;
 

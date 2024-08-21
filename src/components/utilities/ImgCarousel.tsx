@@ -54,7 +54,7 @@ const ImgCarousel = ({ products }: ImgCarouselProps) => {
     };
 
   return (
-    <SecondaryImageCardWrapper>
+    <ImgCarouselWrapper>
       <IconButton
         IconComponent={WChevronLeft}
         onClick={handleLeftButton}
@@ -79,11 +79,11 @@ const ImgCarousel = ({ products }: ImgCarouselProps) => {
         onClick={handleRightButton}
         ariaLabel="chevron right"
       />
-    </SecondaryImageCardWrapper>
+    </ImgCarouselWrapper>
   );
 };
 
-const SecondaryImageCardWrapper = styled.div`
+const ImgCarouselWrapper = styled.div`
   width: 100%;
   ${mixins.flexBox({ justify: 'space-between' })}
 `;

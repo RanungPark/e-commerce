@@ -20,7 +20,7 @@ const ActionCard = ({
   return (
     <ActionCardWrapper className="bb-1 p-4">
       {children}
-      <ActionCardButtonWrapper>
+      <ButtonWrapper>
         <TextButton
           onClick={onClick}
           hasLeftIcon={hasLeftIcon}
@@ -28,7 +28,7 @@ const ActionCard = ({
         >
           {buttonText}
         </TextButton>
-      </ActionCardButtonWrapper>
+      </ButtonWrapper>
     </ActionCardWrapper>
   );
 };
@@ -43,7 +43,7 @@ const ActionCardWrapper = styled.div`
   padding: 32px;
 `;
 
-const ActionCardButtonWrapper = styled.div`
+const ButtonWrapper = styled.div`
   position: absolute;
   bottom: 24px;
 `;

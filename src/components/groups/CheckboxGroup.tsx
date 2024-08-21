@@ -33,7 +33,7 @@ const CheckboxGroup = ({
 
   return (
     <CheckboxGroupWrapper>
-      <CheckboxGroupLegend>{label}</CheckboxGroupLegend>
+      <Legend>{label}</Legend>
       <CheckboxContext.Provider value={{ isChecked, toggleValue }}>
         {children}
       </CheckboxContext.Provider>
@@ -46,7 +46,7 @@ const CheckboxGroupWrapper = styled.fieldset`
   gap: 16px;
 `;
 
-const CheckboxGroupLegend = styled.legend`
+const Legend = styled.legend`
   ${({ theme }) => theme.typography.Subtitle}
   margin-bottom: 16px;
 `;
