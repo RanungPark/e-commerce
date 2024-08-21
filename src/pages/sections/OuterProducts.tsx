@@ -21,8 +21,7 @@ const OuterProducts = ({ outerProducts }: OuterProductsProps) => {
   const goToProduct =
     ({ productCategory, productId }: GoToProductProps) =>
     () => {
-      const formattedCategory = productCategory.replace(' ', '_');
-      navigate(`/categories/${formattedCategory}/products/${productId}`);
+      navigate(`/categories/${productCategory}/products/${productId}`);
     };
 
   return (

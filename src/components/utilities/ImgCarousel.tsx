@@ -48,9 +48,7 @@ const ImgCarousel = ({ products }: ImgCarouselProps) => {
   const goToProduct =
     ({ productCategory, productId }: GoToProductProps) =>
     () => {
-      navigate(
-        `/categories/${productCategory.replace(' ', '_')}/products/${productId}`
-      );
+      navigate(`/categories/${productCategory}/products/${productId}`);
     };
 
   return (
