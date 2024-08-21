@@ -28,7 +28,7 @@ export const useUserStore = create<UserState>()(
           set(state => ({ ...state, isLoggedIn: false, user: null })),
         setSubscribe: subscribe => set(state => ({ ...state, subscribe })),
       }),
-      { name: 'cartStore', getStorage: () => sessionStorage }
+      { name: 'userStore', getStorage: () => sessionStorage }
     )
   )
 );
