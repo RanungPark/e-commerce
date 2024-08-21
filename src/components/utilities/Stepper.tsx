@@ -13,7 +13,7 @@ interface StepperProps {
 
 const Stepper = ({ value, onClickMinus, onClickPlus }: StepperProps) => {
   return (
-    <StepperWrapper className="b-1">
+    <StepperWrapper>
       <IconButton
         onClick={onClickMinus}
         IconComponent={Minus}
@@ -34,6 +34,7 @@ const Stepper = ({ value, onClickMinus, onClickPlus }: StepperProps) => {
 const StepperWrapper = styled.div`
   ${mixins.flexBox({ justify: 'space-between' })}
   max-width: 146px;
+  border: 1px solid ${({ theme }) => theme.colors.black};
 
   & button:first-child {
     border-right: 1px solid ${({ theme }) => theme.colors.black};
