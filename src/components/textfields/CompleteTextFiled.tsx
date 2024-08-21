@@ -51,7 +51,9 @@ const disabledStyle = css`
   color: ${({ theme }) => theme.colors.gray};
 `;
 
-const CompleteTextFiledWrapper = styled.div<CompleteTextFiledWrapperProps>`
+const CompleteTextFiledWrapper = styled.div.withConfig({
+  shouldForwardProp: prop => prop !== 'disabled',
+})<CompleteTextFiledWrapperProps>`
   ${baseStyle}
   ${({ disabled }) => (disabled ? disabledStyle : enabledStyle)}
 `;
