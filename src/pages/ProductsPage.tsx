@@ -6,7 +6,7 @@ import { ProductType } from 'src/@types/product';
 import styled from 'styled-components';
 import ProductInfo from '@components/texts/ProductInfo';
 import Stepper from '@components/utilities/Stepper';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import { mixins } from '@styles/Mixin';
 import ImgCarousel from '@components/utilities/ImgCarousel';
@@ -32,6 +32,10 @@ const ProductsPage = () => {
     queryFn: () => fetchProduct(categoryName!, productId!),
   });
 
+  useEffect(() => {
+    setQuantity(0);
+  }, [categoryName, productId]);
+
   if (isLoading) {
     return <ProductsLoading />;
   }
@@ -42,7 +46,7 @@ const ProductsPage = () => {
   }
 
   const { product, outerProducts, selectProducts } = data;
-  const { id, name, price, imgPath, info } = product;
+  const { id, name, price, imgPath, info, category } = product;
 
   const handleMinusClick = () => {
     setQuantity(prevValue => Math.max(prevValue - 1, 0));
@@ -60,7 +64,9 @@ const ProductsPage = () => {
       name,
       imgPath,
       price: quantity * price,
+      category,
       quantity,
+      key: `${category}_${id}`,
     };
 
     addItem(item);

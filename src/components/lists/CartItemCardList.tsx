@@ -13,14 +13,14 @@ const CartItemCardList = ({ hasTextButton = true }: CartItemCardListProps) => {
 
   return (
     <CartItemCardListWrapper>
-      {carts.map(({ name, imgPath, price, quantity }) => (
+      {carts.map(({ id, name, imgPath, price, quantity, category }) => (
         <CartItemCard
           key={uuidv4()}
           imgPath={imgPath + imgOptimization({ width: 200, height: 200 })}
           alt={name}
           price={price}
           quantity={quantity}
-          onClick={() => removeItem(name)}
+          onClick={() => removeItem(`${category}_${id}`)}
           hasTextButton={hasTextButton}
         >
           {name}
