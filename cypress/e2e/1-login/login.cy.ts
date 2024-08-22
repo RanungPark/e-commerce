@@ -12,7 +12,7 @@ describe('로그인 테스트', () => {
     cy.get('@phoneInput').type('01087971558');
     cy.get('@phoneInput').invoke('val').should('eq', '01087971558');
 
-    cy.get('[data-cy=phoneButton]').should('exist').click();
+    cy.get('[data-cy=phoneBtn]').should('exist').click();
 
     cy.intercept({
       method: 'POST',
@@ -23,7 +23,7 @@ describe('로그인 테스트', () => {
     cy.get('@passwordInput').type('1558');
     cy.get('@passwordInput').invoke('val').should('eq', '1558');
 
-    cy.get('[data-cy=passwrodButton]').should('exist').click();
+    cy.get('[data-cy=passwrodBtn]').should('exist').click();
     cy.intercept({
       method: 'POST',
       url: '/join',
