@@ -56,7 +56,7 @@ export const shopDatas: ShopDatas[] = [
         width: 400,
         height: 400,
       }),
-    url: `/categories/aroma_candels`,
+    url: `/categories/aroma_candles`,
   },
   {
     children: 'Fresheners',

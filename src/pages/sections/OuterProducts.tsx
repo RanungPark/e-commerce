@@ -35,6 +35,7 @@ const OuterProducts = ({ outerProducts }: OuterProductsProps) => {
             onClick={goToProduct({ productId: id, productCategory: category })}
             imgPath={imgPath + imgOptimization({ width: 500, height: 500 })}
             price={price}
+            testId={`${category}_${id}`}
           >
             {name}
           </PrimaryImageCard>

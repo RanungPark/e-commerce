@@ -70,7 +70,7 @@ export const checkout1stStepDatas: InputTextsType[] = [
 export const checkout2ndStepDatas: InputTextsType[] = [
   {
     component: 'textField',
-    registerValue: 'name',
+    registerValue: 'recipientName',
     required: '수신자의 이름을 입력해주세요',
     placeholder: 'Recipients Name',
     pattern: {
@@ -80,7 +80,7 @@ export const checkout2ndStepDatas: InputTextsType[] = [
   },
   {
     component: 'textField',
-    registerValue: 'Phone',
+    registerValue: 'recipientPhone',
     placeholder: 'Recipients Phone number *',
     required: '수신자의 전화번호를 입력해주세요',
     pattern: {

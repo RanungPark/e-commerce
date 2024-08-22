@@ -1,4 +1,4 @@
-import { aromaCandelsProducts } from '@mocks/data/aromaCandelsDatas';
+import { aromaCandlesProducts } from './../data/aromaCandlesDatas';
 import { designerVasesProducts } from '@mocks/data/designerVasesDatas';
 import { driedFlowersProducts } from '@mocks/data/driedFlowersDatas';
 import { freshenersProducts } from '@mocks/data/freshenersDatas';
@@ -22,7 +22,7 @@ export const productHandlers = [
       {
         product,
         selectProducts: freshFlowersProducts,
-        outerProducts: aromaCandelsProducts,
+        outerProducts: aromaCandlesProducts,
       },
       { status: 200 }
     );
@@ -88,9 +88,9 @@ export const productHandlers = [
     );
   }),
 
-  http.get('/aroma_candels/:id', ({ params }) => {
+  http.get('/aroma_candles/:id', ({ params }) => {
     const { id } = params;
-    const product = aromaCandelsProducts.find(
+    const product = aromaCandlesProducts.find(
       product => product.id === Number(id)
     );
 
@@ -101,7 +101,7 @@ export const productHandlers = [
     return HttpResponse.json(
       {
         product,
-        selectProducts: aromaCandelsProducts,
+        selectProducts: aromaCandlesProducts,
         outerProducts: livePlantsProducts,
       },
       { status: 200 }
