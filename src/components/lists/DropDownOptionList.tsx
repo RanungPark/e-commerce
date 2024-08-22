@@ -11,8 +11,12 @@ interface DropDownOptionListProps {
 const DropDownOptionList = ({ options, onClick }: DropDownOptionListProps) => {
   return (
     <DropDownOptionListWrapper>
-      {options.map(option => (
-        <DropDownOption onClick={onClick} key={uuidv4()}>
+      {options.map((option, index) => (
+        <DropDownOption
+          onClick={onClick}
+          key={uuidv4()}
+          testId={`option${index + 1}`}
+        >
           {option}
         </DropDownOption>
       ))}

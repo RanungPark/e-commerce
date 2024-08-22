@@ -4,10 +4,7 @@ import {
   driedFlowersProducts,
 } from '@mocks/data/driedFlowersDatas';
 import { livePlantsBg, livePlantsProducts } from '@mocks/data/livePlantsDatas';
-import {
-  aromaCandelsBg,
-  aromaCandelsProducts,
-} from '@mocks/data/aromaCandelsDatas';
+
 import {
   freshFlowersBg,
   freshFlowersProducts,
@@ -17,6 +14,10 @@ import {
   designerVasesBg,
   designerVasesProducts,
 } from '@mocks/data/designerVasesDatas';
+import {
+  aromaCandlesBg,
+  aromaCandlesProducts,
+} from '@mocks/data/aromaCandlesDatas';
 
 export const categoryHandlers = [
   http.get('/fresh_flowers', () => {
@@ -87,8 +88,8 @@ export const categoryHandlers = [
     );
   }),
 
-  http.get('/aroma_candels', () => {
-    if (!aromaCandelsProducts) {
+  http.get('/aroma_candles', () => {
+    if (!aromaCandlesProducts) {
       return HttpResponse.json(
         { error: 'aroma candels not found' },
         { status: 404 }
@@ -97,8 +98,8 @@ export const categoryHandlers = [
 
     return HttpResponse.json(
       {
-        products: aromaCandelsProducts,
-        productBg: aromaCandelsBg,
+        products: aromaCandlesProducts,
+        productBg: aromaCandlesBg,
       },
       { status: 200 }
     );

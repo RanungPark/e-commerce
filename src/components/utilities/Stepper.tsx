@@ -24,7 +24,7 @@ const Stepper = ({
         onClick={onClickMinus}
         IconComponent={Minus}
         size="large"
-        ariaLabel="minus"
+        ariaLabel="minusBtn"
         testId="minusBtn"
       />
       <Input
@@ -38,7 +38,7 @@ const Stepper = ({
         onClick={onClickPlus}
         IconComponent={Add}
         size="large"
-        ariaLabel="plus"
+        ariaLabel="plusBtn"
         testId="plusBtn"
       />
     </StepperWrapper>

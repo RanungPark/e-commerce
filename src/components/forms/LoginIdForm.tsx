@@ -70,7 +70,7 @@ const LoginIdForm = ({ onSubmit, setUsername }: LoginIdFormProps) => {
           aria-label="username"
         />
       </DefaultTextField>
-      <PrimaryButton testId="phoneButton" onClick={handleSubmit(onLoginValid)}>
+      <PrimaryButton testId="phoneBtn" onClick={handleSubmit(onLoginValid)}>
         continue
       </PrimaryButton>
     </LoginIdFormWrapper>
