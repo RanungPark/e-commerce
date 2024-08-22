@@ -54,3 +54,10 @@ export const clearCart = () => {
     duration: 3000,
   });
 };
+
+export const removeToCart = (productName: string) => {
+  toast.error(`${productName}이(가) 장바구니에서 제거되었요!`, {
+    icon: '🧹',
+    duration: 3000,
+  });
+};
