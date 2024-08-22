@@ -12,7 +12,6 @@ interface CartItemCardProps {
   hasTextButton?: boolean;
   onClick: (e: React.MouseEvent) => void;
   testId?: string;
-  buttonTestId?: string;
 }
 
 const CartItemCard = ({
@@ -24,7 +23,6 @@ const CartItemCard = ({
   hasTextButton = true,
   onClick,
   testId,
-  buttonTestId,
 }: CartItemCardProps) => {
   return (
     <CartItemCardPropsWrapper data-cy={testId}>
@@ -39,7 +37,7 @@ const CartItemCard = ({
         )}
       </CartItemCardInfosWrapper>
       {hasTextButton ? (
-        <TextButton onClick={onClick} testId={buttonTestId}>
+        <TextButton onClick={onClick} testId="cartItemRemoveBtn">
           Remove
         </TextButton>
       ) : (

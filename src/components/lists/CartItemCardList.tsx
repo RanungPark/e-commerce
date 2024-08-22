@@ -1,4 +1,5 @@
 import CartItemCard from '@components/cards/CartItemCard';
+import { removeToCart } from '@constants/toast';
 import { useCartStore } from '@store/cartStore';
 import { imgOptimization } from '@utils/img';
 import styled from 'styled-components';
@@ -11,6 +12,13 @@ interface CartItemCardListProps {
 const CartItemCardList = ({ hasTextButton = true }: CartItemCardListProps) => {
   const { carts, removeItem } = useCartStore();
 
+  const handleRemoveClick =
+    ({ category, id, name }: { category: string; id: number; name: string }) =>
+    () => {
+      removeItem(`${category}_${id}`);
+      removeToCart(name);
+    };
+
   return (
     <CartItemCardListWrapper>
       {carts.map(({ id, name, imgPath, price, quantity, category }) => (
@@ -20,8 +28,9 @@ const CartItemCardList = ({ hasTextButton = true }: CartItemCardListProps) => {
           alt={name}
           price={price}
           quantity={quantity}
-          onClick={() => removeItem(`${category}_${id}`)}
+          onClick={handleRemoveClick({ category, id, name })}
           hasTextButton={hasTextButton}
+          testId={`cart_${category}_${id}`}
         >
           {name}
         </CartItemCard>

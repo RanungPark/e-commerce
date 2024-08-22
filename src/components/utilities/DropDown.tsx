@@ -12,6 +12,7 @@ interface DropDownProps {
   value: string;
   onChange: (value: string) => void;
   disabled?: boolean;
+  testId?: string;
 }
 
 type DropDownLabelProps = Pick<DropDownProps, 'disabled'>;
@@ -22,6 +23,7 @@ const DropDown = ({
   value,
   onChange,
   disabled = false,
+  testId,
 }: DropDownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,7 +43,7 @@ const DropDown = ({
 
   return (
     <>
-      <DropDownLabel disabled={disabled}>
+      <DropDownLabel disabled={disabled} data-cy={testId}>
         <DropDownInput
           type="text"
           readOnly

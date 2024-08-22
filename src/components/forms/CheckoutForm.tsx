@@ -39,6 +39,7 @@ const CheckoutForm = ({ onSubmit, checkoutFormDatas }: CheckoutFormProps) => {
                       message: rest.pattern.message,
                     },
                   })}
+                  data-cy={`${registerValue}Input`}
                   placeholder={placeholder}
                   aria-label={registerValue}
                 />
@@ -60,13 +61,14 @@ const CheckoutForm = ({ onSubmit, checkoutFormDatas }: CheckoutFormProps) => {
                 onChange={setSelectValue}
                 options={rest.options ? rest.options : []}
                 placeholder={placeholder}
+                testId={`${registerValue}Input`}
                 key={uuidv4()}
               />
             );
           }
         }
       )}
-      <PrimaryButton onClick={handleSubmit(onSubmit)}>
+      <PrimaryButton onClick={handleSubmit(onSubmit)} testId="nextStepBtn">
         Continue to Payment
       </PrimaryButton>
     </CheckoutFormWrapper>

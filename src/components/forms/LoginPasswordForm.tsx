@@ -75,10 +75,7 @@ const LoginPasswordForm = ({
           data-cy="passwordInput"
         />
       </DefaultTextField>
-      <PrimaryButton
-        testId="passwrodButton"
-        onClick={handleSubmit(onJoinValid)}
-      >
+      <PrimaryButton testId="passwrodBtn" onClick={handleSubmit(onJoinValid)}>
         continue
       </PrimaryButton>
     </LoginPasswordFormWrapper>

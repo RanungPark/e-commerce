@@ -10,6 +10,7 @@ interface DatePickerProps {
   placeholder: string;
   value: Date | null;
   onChange: (date: Date) => void;
+  testId?: string;
 }
 
 interface RenderCustomHeaderProps {
@@ -20,9 +21,14 @@ interface RenderCustomHeaderProps {
   nextMonthButtonDisabled: boolean;
 }
 
-const DatePicker = ({ placeholder, value, onChange }: DatePickerProps) => {
+const DatePicker = ({
+  placeholder,
+  value,
+  onChange,
+  testId,
+}: DatePickerProps) => {
   return (
-    <DatePickerWrapper>
+    <DatePickerWrapper data-cy={testId}>
       <DatePickerLabelWrapper>
         <DatePickerLib
           dateFormat="MM.dd.yy"
@@ -112,7 +118,7 @@ const DatePickerLabelWrapper = styled.label`
   padding: 16px;
   cursor: pointer;
 
-  .react-datepicker-popper{
+  .react-datepicker-popper {
     left: 0;
   }
 

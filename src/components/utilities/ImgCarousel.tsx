@@ -68,6 +68,7 @@ const ImgCarousel = ({ products }: ImgCarouselProps) => {
           alt={name}
           onClick={goToProduct({ productId: id, productCategory: category })}
           key={uuidv4()}
+          testId={`${category}_${id}_CarouseBtn`}
         >
           {name}
         </SecondaryImageCard>

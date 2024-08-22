@@ -61,7 +61,7 @@ const Cart = ({ open, setOpen }: CartProps) => {
         <ShippingNote>
           배송비 및 세금은 결제 시 계산됩니다. 오늘의 꽃 내 무료 표준 배송
         </ShippingNote>
-        <PrimaryButton onClick={goToCheckoutPage}>check out</PrimaryButton>
+        <PrimaryButton onClick={goToCheckoutPage} testId='checkOutBtn'>check out</PrimaryButton>
       </CartfooterWrapper>
     </CartWrapper>
   );
