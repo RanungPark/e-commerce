@@ -10,7 +10,7 @@ Cypress.Commands.add('login', ({ username, password }) => {
   cy.get('[data-cy=passwordInput]').as('passwordInput');
   cy.get('@passwordInput').type(password);
 
-  cy.get('[data-cy=passwrodBtn]').should('exist').click();
+  cy.get('[data-cy=passwordBtn]').should('exist').click();
 });
 
 Cypress.Commands.add('addToCart', () => {
