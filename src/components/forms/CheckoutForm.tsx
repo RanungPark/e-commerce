@@ -22,7 +22,9 @@ const CheckoutForm = ({ onSubmit, checkoutFormDatas }: CheckoutFormProps) => {
     setSelectedDate(date);
   };
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState } = useForm();
+
+  const { isValid } = formState;
 
   return (
     <CheckoutFormWrapper onSubmit={handleSubmit(onSubmit)}>
@@ -66,9 +68,14 @@ const CheckoutForm = ({ onSubmit, checkoutFormDatas }: CheckoutFormProps) => {
               />
             );
           }
+          return null; // 기본 return 문을 추가합니다.
         }
       )}
-      <PrimaryButton onClick={handleSubmit(onSubmit)} testId="nextStepBtn">
+      <PrimaryButton
+        onClick={handleSubmit(onSubmit)}
+        testId="nextStepBtn"
+        disabled={!isValid}
+      >
         Continue to Payment
       </PrimaryButton>
     </CheckoutFormWrapper>

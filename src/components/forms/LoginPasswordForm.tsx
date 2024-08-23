@@ -64,7 +64,7 @@ const LoginPasswordForm = ({
         label="비밀번호를 입렵해주세요"
         hasHelpMessage={true}
         helpMessage={join ? undefined : '로그인을 실패 하였습니다.'}
-        helpTestId='passwordHelp'
+        helpTestId="passwordHelp"
       >
         <input
           {...register('password', {
