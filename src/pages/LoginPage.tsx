@@ -50,7 +50,9 @@ const LoginPage = () => {
         </LoginSuccessWrapper>
       ) : (
         <LoginPageWrapper>
-          <LoginMessage loginCurrState={loginCurrState} />
+          <LoginMessageWrapper data-cy="loginHelp">
+            <LoginMessage loginCurrState={loginCurrState} />
+          </LoginMessageWrapper>
           <LoginId
             loginState={loginIdState}
             onClick={handleIdClick}
@@ -86,6 +88,8 @@ const LoginMessage = ({
       return null;
   }
 };
+
+const LoginMessageWrapper = styled.div``;
 
 const LoginSuccessWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', justify: 'space-evenly' })}

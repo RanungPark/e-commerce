@@ -9,6 +9,7 @@ type HelpMessageTheme = 'default' | 'error' | 'success';
 interface HelpMessageProps {
   children: string;
   helpMessageTheme: HelpMessageTheme;
+  testId?: string;
 }
 
 type HelpMessageChildrenWrapperProps = Pick<
@@ -19,6 +20,7 @@ type HelpMessageChildrenWrapperProps = Pick<
 const HelpMessage = ({
   children,
   helpMessageTheme = 'default',
+  testId,
 }: HelpMessageProps) => {
   return (
     <HelpMessageWrapper helpMessageTheme={helpMessageTheme}>
@@ -28,7 +30,7 @@ const HelpMessage = ({
       {helpMessageTheme === 'success' && (
         <CheckCircle aria-label="check circle" />
       )}
-      <p>{children}</p>
+      <Text data-cy={testId}>{children}</Text>
     </HelpMessageWrapper>
   );
 };
@@ -71,5 +73,7 @@ const HelpMessageWrapper = styled.div.withConfig({
     height: 16px;
   }
 `;
+
+const Text = styled.p``;
 
 export default HelpMessage;

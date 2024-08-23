@@ -25,7 +25,7 @@ const LoginId = ({
         <LoginIdForm onSubmit={onSubmit} setUsername={setUsername} />
       )}
       {loginState === 'done' && (
-        <CompleteTextFiled onClick={onClick}>{username}</CompleteTextFiled>
+        <CompleteTextFiled onClick={onClick} buttonTestId='phoneEdit'>{username}</CompleteTextFiled>
       )}
     </LoginIdWrapper>
   );

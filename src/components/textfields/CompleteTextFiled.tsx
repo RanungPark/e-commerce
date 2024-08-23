@@ -8,6 +8,7 @@ interface CompleteTextFiledProps {
   onClick?: (e: React.MouseEvent) => void;
   children: string;
   disabled?: boolean;
+  buttonTestId?: string;
 }
 
 type CompleteTextFiledWrapperProps = Pick<CompleteTextFiledProps, 'disabled'>;
@@ -16,6 +17,7 @@ const CompleteTextFiled = ({
   onClick,
   children,
   disabled = false,
+  buttonTestId,
 }: CompleteTextFiledProps) => {
   return (
     <CompleteTextFiledWrapper disabled={disabled}>
@@ -24,7 +26,12 @@ const CompleteTextFiled = ({
         {children}
       </Contents>
       {!disabled && (
-        <IconButton onClick={onClick} IconComponent={WEdit} ariaLabel="edit" />
+        <IconButton
+          onClick={onClick}
+          IconComponent={WEdit}
+          ariaLabel="edit"
+          testId={buttonTestId}
+        />
       )}
     </CompleteTextFiledWrapper>
   );

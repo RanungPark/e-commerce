@@ -14,6 +14,7 @@ interface DefaultTextFieldProps {
   hasHelpMessage?: boolean;
   helpMessage?: string;
   children: React.ReactElement<HTMLInputElement>;
+  helpTestId?: string;
 }
 
 const DefaultTextField = ({
@@ -24,13 +25,16 @@ const DefaultTextField = ({
   hasHelpMessage = false,
   helpMessage,
   children,
+  helpTestId,
 }: DefaultTextFieldProps) => {
   return (
     <DefaultTextFieldWrapper>
       {hasLabel && <TextFieldLabel htmlFor={htmlFor}>{label}</TextFieldLabel>}
       <InputWrapper inputState={inputState}>{children}</InputWrapper>
       {hasHelpMessage && !!helpMessage && (
-        <HelpMessage helpMessageTheme={inputState}>{helpMessage}</HelpMessage>
+        <HelpMessage testId={helpTestId} helpMessageTheme={inputState}>
+          {helpMessage}
+        </HelpMessage>
       )}
     </DefaultTextFieldWrapper>
   );

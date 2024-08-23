@@ -64,6 +64,7 @@ const LoginPasswordForm = ({
         label="비밀번호를 입렵해주세요"
         hasHelpMessage={true}
         helpMessage={join ? undefined : '로그인을 실패 하였습니다.'}
+        helpTestId='passwordHelp'
       >
         <input
           {...register('password', {
@@ -75,7 +76,7 @@ const LoginPasswordForm = ({
           data-cy="passwordInput"
         />
       </DefaultTextField>
-      <PrimaryButton testId="passwrodBtn" onClick={handleSubmit(onJoinValid)}>
+      <PrimaryButton testId="passwordBtn" onClick={handleSubmit(onJoinValid)}>
         continue
       </PrimaryButton>
     </LoginPasswordFormWrapper>

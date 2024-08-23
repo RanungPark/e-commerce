@@ -56,6 +56,7 @@ const LoginIdForm = ({ onSubmit, setUsername }: LoginIdFormProps) => {
         label="휴대폰 번호를 사용하여 가입 또는 로그인하기"
         hasHelpMessage={true}
         helpMessage={errors.username?.message}
+        helpTestId='phoneHelp'
       >
         <input
           {...register('username', {
