@@ -1,4 +1,4 @@
-name: 'CI Workflow'
+name: 'CI/CD Workflow'
 
 on:
   push:
@@ -74,3 +74,46 @@ jobs:
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006 --silent" \
             "npx wait-on tcp:6006 && yarn test-storybook"
+
+  chromatic:
+    runs-on: ubuntu-latest
+    needs: accessibility-test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
+  deploy-netlify:
+    runs-on: ubuntu-latest
+    needs: chromatic
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to Netlify
+        uses: netlify/actions@v3
+        with:
+          deploy_key: ${{ secrets.NETLIFY_DEPLOY_KEY }}
+          site_id: ${{ secrets.NETLIFY_SITE_ID }}
+          production: true
