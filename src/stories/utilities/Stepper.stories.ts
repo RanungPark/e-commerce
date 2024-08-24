@@ -1,6 +1,7 @@
-import Stepper from '@components/utilities/Stepper';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
+import Stepper from '@components/utilities/Stepper';
 
 const meta = {
   title: 'Utilities/Stepper',

@@ -1,5 +1,6 @@
-import { FooterContactItemType } from '@pages/sections/FooterContact';
 import styled from 'styled-components';
+
+import { FooterContactItemType } from '@pages/sections/FooterContact';
 
 interface FooterContactItemProps extends FooterContactItemType {}
 
@@ -19,8 +20,9 @@ const FooterContactItemWrapper = styled.li`
 
 const Title = styled.h6`
   ${({ theme }) => theme.typography.Caption}
-  color: ${({ theme }) => theme.colors.gray};
   margin-bottom: 8px;
+
+  color: ${({ theme }) => theme.colors.gray};
   text-transform: capitalize;
 `;
 

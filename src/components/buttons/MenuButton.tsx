@@ -18,9 +18,10 @@ const MenuButton = ({ to, onClick, children, testId }: MenuButtonProps) => {
 
 const MenuButtonWrapper = styled(Link)`
   ${({ theme }) => theme.typography.Heading5}
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-  padding: 24px;
   display: block;
+
+  padding: 24px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 export default MenuButton;

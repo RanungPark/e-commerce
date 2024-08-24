@@ -1,6 +1,7 @@
+import styled from 'styled-components';
+
 import { mixins } from '@styles/Mixin';
 import { fetchImgURL, imgOptimization } from '@utils/img';
-import styled from 'styled-components';
 
 const HomeMain = () => {
   return (
@@ -49,11 +50,11 @@ const HomeMainInfo = styled.section`
 `;
 
 const InfoImg = styled.img`
-  margin-top: 32px;
-  border-right: 1px solid ${({ theme }) => theme.colors.black};
-  padding-right: 32px;
   width: 100%;
   height: 256px;
+  margin-top: 32px;
+  padding-right: 32px;
+  border-right: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const InfoSentence = styled.p`

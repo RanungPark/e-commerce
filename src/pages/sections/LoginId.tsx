@@ -1,8 +1,9 @@
+import styled from 'styled-components';
+
 import LoginIdForm from '@components/forms/LoginIdForm';
 import CompleteTextFiled from '@components/textfields/CompleteTextFiled';
 import { loginStateType } from '@pages/LoginPage';
 import { FormStateType } from 'src/@types/state';
-import styled from 'styled-components';
 
 interface LoginIdProps {
   loginState: FormStateType;
@@ -25,7 +26,9 @@ const LoginId = ({
         <LoginIdForm onSubmit={onSubmit} setUsername={setUsername} />
       )}
       {loginState === 'done' && (
-        <CompleteTextFiled onClick={onClick} buttonTestId='phoneEdit'>{username}</CompleteTextFiled>
+        <CompleteTextFiled onClick={onClick} buttonTestId="phoneEdit">
+          {username}
+        </CompleteTextFiled>
       )}
     </LoginIdWrapper>
   );

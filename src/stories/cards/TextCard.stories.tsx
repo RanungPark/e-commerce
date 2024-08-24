@@ -1,5 +1,6 @@
-import TextCard from '@components/cards/TextCard';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import TextCard from '@components/cards/TextCard';
 
 const meta = {
   title: 'Cards/TextCard',
@@ -9,7 +10,7 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '728px' }}>
         <Story />
       </div>

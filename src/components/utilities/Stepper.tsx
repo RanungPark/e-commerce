@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { ReactComponent as Add } from '@assets/icons/wght300/Add.svg';
 import { ReactComponent as Minus } from '@assets/icons/wght300/Minus.svg';
 import IconButton from '@components/buttons/IconButton';
@@ -68,6 +69,7 @@ const Input = styled.input`
   ${({ theme }) => theme.typography.Body};
   width: 59px;
   height: 100%;
+
   text-align: center;
 `;
 

@@ -13,7 +13,7 @@ describe('장바구니 담기 테스트', () => {
       },
       {
         fixture: 'freahFlowerDatas.json',
-      }
+      },
     );
 
     cy.url().should('include', '/categories/fresh_flowers');
@@ -28,7 +28,7 @@ describe('장바구니 담기 테스트', () => {
       },
       {
         fixture: 'freahFlowerDatas.json',
-      }
+      },
     );
 
     cy.get('[data-cy=fresh_flowers_1]').as('freshFlower1');
@@ -41,7 +41,7 @@ describe('장바구니 담기 테스트', () => {
       },
       {
         fixture: 'freshFlowerProduct.json',
-      }
+      },
     );
 
     cy.url().should('include', '/categories/fresh_flowers/products/1');
@@ -57,7 +57,7 @@ describe('장바구니 담기 테스트', () => {
       },
       {
         fixture: 'freshFlowerProduct.json',
-      }
+      },
     );
 
     cy.get('[data-cy=quantityInput]').as('quantityInput');
@@ -86,7 +86,7 @@ describe('장바구니 담기 테스트', () => {
       },
       {
         fixture: 'freshFlowerProduct.json',
-      }
+      },
     );
 
     cy.get('[data-cy=addBtn]').as('addBtn');

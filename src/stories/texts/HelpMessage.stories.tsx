@@ -1,5 +1,6 @@
-import HelpMessage from '@components/texts/HelpMessage';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import HelpMessage from '@components/texts/HelpMessage';
 
 const meta: Meta<typeof HelpMessage> = {
   title: 'Texts/HelpMessage',
@@ -9,7 +10,7 @@ const meta: Meta<typeof HelpMessage> = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ position: 'relative', width: '100px' }}>
         <Story />
       </div>
@@ -47,7 +48,7 @@ export const Success: Story = {
   },
 };
 
-export const Error: Story = {
+export const Fail: Story = {
   args: {
     children: 'Text Helper',
     helpMessageTheme: 'error',

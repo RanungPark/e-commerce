@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { ReactComponent as ArrowLeft } from '@assets/icons/wght300/ArrowLeft.svg';
 import { ReactComponent as ArrowRight } from '@assets/icons/wght300/ArrowRight.svg';
 import { mixins } from '@styles/Mixin';
@@ -26,21 +27,31 @@ const TextButton = ({
 }: TextButtonProps) => {
   const renderIcon = (position: 'left' | 'right') => {
     if (position === 'left') {
-      if (hasLeftIcon) {
-        if (CustomButton && ariaLabel) {
-          return <CustomButton aria-label={ariaLabel} />;
-        } else {
-          return <ArrowLeft aria-label="left arrow" />;
-        }
-      }
+      return renderLeftIcon();
     } else if (position === 'right') {
-      if (hasRightIcon) {
-        if (CustomButton && ariaLabel) {
-          return <CustomButton aria-label={ariaLabel} />;
-        } else {
-          return <ArrowRight aria-label="right arrow" />;
-        }
-      }
+      return renderRightIcon();
+    }
+    return null;
+  };
+
+  const renderLeftIcon = () => {
+    if (hasLeftIcon) {
+      return CustomButton && ariaLabel ? (
+        <CustomButton aria-label={ariaLabel} />
+      ) : (
+        <ArrowLeft aria-label="left arrow" />
+      );
+    }
+    return null;
+  };
+
+  const renderRightIcon = () => {
+    if (hasRightIcon) {
+      return CustomButton && ariaLabel ? (
+        <CustomButton aria-label={ariaLabel} />
+      ) : (
+        <ArrowRight aria-label="right arrow" />
+      );
     }
     return null;
   };
@@ -57,10 +68,11 @@ const TextButton = ({
 const TextButtonWrapper = styled.button`
   ${mixins.flexBox({})}
   ${({ theme }) => theme.typography.Links}
-
-  gap: 4px;
-  background-color: inherit;
   position: relative;
+  gap: 4px;
+
+  background-color: inherit;
+
   cursor: pointer;
 
   &:hover {
@@ -77,13 +89,16 @@ const TextButtonWrapper = styled.button`
 
   &:hover::after,
   &:active::after {
-    content: '';
     position: absolute;
-    left: 0;
     bottom: -1px;
+    left: 0;
+
     width: 100%;
     height: 0.5px;
+
     background-color: ${({ theme }) => theme.colors.black};
+
+    content: '';
   }
 `;
 

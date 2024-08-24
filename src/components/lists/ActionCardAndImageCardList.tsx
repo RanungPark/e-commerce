@@ -1,6 +1,7 @@
+import styled from 'styled-components';
+
 import ActionCard from '@components/cards/ActionCard';
 import PrimaryImageCard from '@components/cards/PrimaryImageCard';
-import styled from 'styled-components';
 
 export interface ActionCardAndImageCardListProps {
   index: number;

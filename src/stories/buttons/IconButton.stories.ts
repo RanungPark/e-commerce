@@ -1,7 +1,8 @@
-import IconButton from '@components/buttons/IconButton';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
 import { ReactComponent as ArrowLeft } from '@assets/icons/wght300/ArrowLeft.svg';
+import IconButton from '@components/buttons/IconButton';
 
 const meta = {
   title: 'Buttons/IconButton',

@@ -1,7 +1,8 @@
+import styled from 'styled-components';
+
+import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import ProductCardInfoList from '@components/lists/ProductCardInfoList';
-import styled from 'styled-components';
-import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
 import { mixins } from '@styles/Mixin';
 
 interface ProductCardProps {
@@ -53,9 +54,9 @@ const Contents = styled.div`
 `;
 
 const Img = styled.img`
-  border-right: 1px solid ${({ theme }) => theme.colors.lightgray};
   width: 50%;
   height: 50%;
+  border-right: 1px solid ${({ theme }) => theme.colors.lightgray};
 `;
 
 export default ProductCard;

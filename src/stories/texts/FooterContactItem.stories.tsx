@@ -1,5 +1,6 @@
-import FooterContactItem from '@components/texts/FooterContactItem';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import FooterContactItem from '@components/texts/FooterContactItem';
 
 const meta: Meta<typeof FooterContactItem> = {
   title: 'Texts/FooterContactItem',
@@ -9,7 +10,7 @@ const meta: Meta<typeof FooterContactItem> = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <ul>
         <Story />
       </ul>

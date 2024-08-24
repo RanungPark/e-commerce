@@ -1,15 +1,16 @@
+import { useMutation } from '@tanstack/react-query';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
+import styled from 'styled-components';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import DefaultTextField from '@components/textfields/DefaultTextField';
 import { loginDone } from '@constants/toast';
 import { loginStateType } from '@pages/LoginPage';
 import { useUserStore } from '@store/userStore';
 import { mixins } from '@styles/Mixin';
-import { useMutation } from '@tanstack/react-query';
 import { fetchJoin } from '@utils/api';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router';
-import styled from 'styled-components';
 
 interface LoginPasswordFormProps {
   onSubmit: (e: loginStateType) => void;
@@ -35,7 +36,7 @@ const LoginPasswordForm = ({
   const LoginPasswordMutation = useMutation({
     mutationFn: (password: string) =>
       fetchJoin(username, password, loginCurrState),
-    onSuccess: data => {
+    onSuccess: (data) => {
       const loginUser = {
         id: data.id,
         username: data.username,
@@ -46,7 +47,7 @@ const LoginPasswordForm = ({
       navigate(-1);
       loginDone();
     },
-    onError: error => {
+    onError: (error) => {
       setJoin(false);
       console.error('Login failed:', error);
     },
@@ -86,6 +87,7 @@ const LoginPasswordForm = ({
 const LoginPasswordFormWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   gap: 32px;
+
   width: 100%;
 `;
 

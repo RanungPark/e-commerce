@@ -10,9 +10,8 @@ const Layout = ({ children }: LayoutProps) => {
 
 const LayoutWrapper = styled.main`
   display: grid;
-  grid-template-rows: auto 1fr auto; /* Header, main content, footer */
-  min-height: 100vh;
   position: relative;
+  grid-template-rows: auto 1fr auto; /* Header, main content, footer */
 
   max-width: 768px;
   min-height: 100vh;

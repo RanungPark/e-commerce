@@ -1,10 +1,11 @@
+import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import TextCard from '@components/cards/TextCard';
 import TitleCard from '@components/cards/TitleCard';
 import { pageWait } from '@constants/toast';
 import { aboutUsData, chooseUsDatas } from '@data/textData';
-import styled from 'styled-components';
-import { v4 as uuidv4 } from 'uuid';
 
 const HomeAbout = () => {
   return (
@@ -38,9 +39,9 @@ const HomeAboutTextCardAndButtonWrapper = styled.div`
   }
 
   & > button {
-    margin-left: 80px;
-    margin-bottom: 80px;
     width: 175px;
+    margin-bottom: 80px;
+    margin-left: 80px;
   }
 `;
 

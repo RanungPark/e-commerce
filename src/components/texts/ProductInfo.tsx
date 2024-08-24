@@ -1,5 +1,6 @@
-import { changeKroeaPrice } from '@utils/price';
 import styled from 'styled-components';
+
+import { changeKroeaPrice } from '@utils/price';
 
 interface ProductInfoProps {
   name: string;

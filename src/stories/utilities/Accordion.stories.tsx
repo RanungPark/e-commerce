@@ -1,5 +1,6 @@
-import Accordion from '@components/utilities/Accordion';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import Accordion from '@components/utilities/Accordion';
 
 const meta = {
   title: 'Utilities/Accordion',
@@ -9,7 +10,7 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '728px' }}>
         <Story />
       </div>

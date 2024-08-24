@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import { ReactComponent as ArrowLeft } from '@assets/icons/wght300/ArrowLeft.svg';
 import { ReactComponent as ArrowRight } from '@assets/icons/wght300/ArrowRight.svg';
 import { mixins } from '@styles/Mixin';
@@ -30,21 +31,31 @@ const PrimaryButton = ({
 }: PrimaryButtonProps) => {
   const renderIcon = (position: 'left' | 'right') => {
     if (position === 'left') {
-      if (hasLeftIcon) {
-        if (CustomButton && ariaLabel) {
-          return <CustomButton aria-label={ariaLabel} />;
-        } else {
-          return <ArrowLeft aria-label="left arrow" />;
-        }
-      }
+      return renderLeftIcon();
     } else if (position === 'right') {
-      if (hasRightIcon) {
-        if (CustomButton && ariaLabel) {
-          return <CustomButton aria-label={ariaLabel} />;
-        } else {
-          return <ArrowRight aria-label="right arrow" />;
-        }
-      }
+      return renderRightIcon();
+    }
+    return null;
+  };
+
+  const renderLeftIcon = () => {
+    if (hasLeftIcon) {
+      return CustomButton && ariaLabel ? (
+        <CustomButton aria-label={ariaLabel} />
+      ) : (
+        <ArrowLeft aria-label="left arrow" />
+      );
+    }
+    return null;
+  };
+
+  const renderRightIcon = () => {
+    if (hasRightIcon) {
+      return CustomButton && ariaLabel ? (
+        <CustomButton aria-label={ariaLabel} />
+      ) : (
+        <ArrowRight aria-label="right arrow" />
+      );
     }
     return null;
   };
@@ -66,6 +77,7 @@ const PrimaryButton = ({
 const buttonStyles = {
   primary: css`
     background-color: ${({ theme }) => theme.colors.black};
+
     color: ${({ theme }) => theme.colors.white};
 
     & path {
@@ -82,6 +94,7 @@ const buttonStyles = {
 
     &:disabled {
       background-color: ${({ theme }) => theme.colors.lightgray};
+
       color: ${({ theme }) => theme.colors.gray};
 
       & path {
@@ -90,9 +103,11 @@ const buttonStyles = {
     }
   `,
   secondary: css`
-    background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.black};
     border: 1px solid ${({ theme }) => theme.colors.black};
+
+    background-color: ${({ theme }) => theme.colors.white};
+
+    color: ${({ theme }) => theme.colors.black};
 
     & path {
       fill: ${({ theme }) => theme.colors.black};
@@ -100,6 +115,7 @@ const buttonStyles = {
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.black};
+
       color: ${({ theme }) => theme.colors.white};
 
       & path {
@@ -108,9 +124,11 @@ const buttonStyles = {
     }
 
     &:active {
-      background-color: ${({ theme }) => theme.colors.white};
-      color: ${({ theme }) => theme.colors.black};
       border: 1px solid ${({ theme }) => theme.colors.black};
+
+      background-color: ${({ theme }) => theme.colors.white};
+
+      color: ${({ theme }) => theme.colors.black};
 
       & path {
         fill: ${({ theme }) => theme.colors.black};
@@ -118,9 +136,11 @@ const buttonStyles = {
     }
 
     &:disabled {
-      background-color: ${({ theme }) => theme.colors.white};
-      color: ${({ theme }) => theme.colors.gray};
       border: 1px solid ${({ theme }) => theme.colors.gray};
+
+      background-color: ${({ theme }) => theme.colors.white};
+
+      color: ${({ theme }) => theme.colors.gray};
 
       & path {
         fill: ${({ theme }) => theme.colors.gray};
@@ -128,9 +148,11 @@ const buttonStyles = {
     }
   `,
   tertiary: css`
-    background-color: inherit;
-    color: ${({ theme }) => theme.colors.white};
     border: 1px solid ${({ theme }) => theme.colors.white};
+
+    background-color: inherit;
+
+    color: ${({ theme }) => theme.colors.white};
 
     & path {
       fill: ${({ theme }) => theme.colors.white};
@@ -138,6 +160,7 @@ const buttonStyles = {
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.white};
+
       color: ${({ theme }) => theme.colors.black};
 
       & path {
@@ -147,6 +170,7 @@ const buttonStyles = {
 
     &:active {
       background-color: ${({ theme }) => theme.colors.white};
+
       color: ${({ theme }) => theme.colors.black};
 
       & path {
@@ -155,9 +179,11 @@ const buttonStyles = {
     }
 
     &:disabled {
-      background-color: inherit;
-      color: ${({ theme }) => theme.colors.gray};
       border: 1px solid ${({ theme }) => theme.colors.lightgray};
+
+      background-color: inherit;
+
+      color: ${({ theme }) => theme.colors.gray};
 
       & path {
         fill: ${({ theme }) => theme.colors.gray};
@@ -167,21 +193,23 @@ const buttonStyles = {
 };
 
 const PrimaryButtonWrapper = styled.button.withConfig({
-  shouldForwardProp: prop => prop !== 'primaryButtontheme',
+  shouldForwardProp: (prop) => prop !== 'primaryButtontheme',
 })<{
   primaryButtontheme: PrimaryButtontheme;
 }>`
-  ${({ primaryButtontheme }) =>
-    buttonStyles[primaryButtontheme] || buttonStyles.primary}
   ${mixins.flexBox({})}
   ${({ theme }) => theme.typography.Button}
-  
-  padding:16px 24px;
+  ${({ primaryButtontheme }) =>
+    buttonStyles[primaryButtontheme] || buttonStyles.primary}
   gap: 8px;
+
   width: 100%;
   height: 56px;
-  cursor: pointer;
+  padding: 16px 24px;
+
   text-transform: uppercase;
+
+  cursor: pointer;
 
   &:disabled {
     pointer-events: none;

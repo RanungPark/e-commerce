@@ -1,5 +1,6 @@
-import ProductInfo from '@components/texts/ProductInfo';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import ProductInfo from '@components/texts/ProductInfo';
 
 const meta: Meta<typeof ProductInfo> = {
   title: 'Texts/ProductInfo',
@@ -9,7 +10,7 @@ const meta: Meta<typeof ProductInfo> = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '600px' }}>
         <Story />
       </div>
@@ -36,8 +37,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children:
-      'Product infos',
+    children: 'Product infos',
     price: 95000,
     name: 'Product Name',
   },

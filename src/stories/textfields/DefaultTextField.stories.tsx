@@ -1,5 +1,6 @@
-import DefaultTextField from '@components/textfields/DefaultTextField';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import DefaultTextField from '@components/textfields/DefaultTextField';
 
 const meta = {
   title: 'TextFields/DefaultTextField',
@@ -9,7 +10,7 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '364px' }}>
         <Story />
       </div>
@@ -122,14 +123,14 @@ export const SuccessWithLabelAndHasHelpMessage: Story = {
   },
 };
 
-export const Error: Story = {
+export const Fail: Story = {
   args: {
     inputState: 'error',
     children: <input aria-label="text field" />,
   },
 };
 
-export const ErrorWithHasHelpMessage: Story = {
+export const FailWithHasHelpMessage: Story = {
   args: {
     inputState: 'error',
     children: <input aria-label="text field" />,
@@ -138,7 +139,7 @@ export const ErrorWithHasHelpMessage: Story = {
   },
 };
 
-export const ErrorWithLabelAndHasHelpMessage: Story = {
+export const FailrWithLabelAndHasHelpMessage: Story = {
   args: {
     inputState: 'error',
     children: <input aria-label="text field" />,

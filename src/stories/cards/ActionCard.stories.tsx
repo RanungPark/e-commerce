@@ -1,6 +1,7 @@
-import ActionCard from '@components/cards/ActionCard';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
+import ActionCard from '@components/cards/ActionCard';
 
 const meta = {
   title: 'Cards/ActionCard',
@@ -10,7 +11,7 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '364px' }}>
         <Story />
       </div>

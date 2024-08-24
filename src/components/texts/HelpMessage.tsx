@@ -1,7 +1,7 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
-import { ReactComponent as CrossCircle } from '@assets/icons/wght300/CrossCircle.svg';
+
 import { ReactComponent as CheckCircle } from '@assets/icons/wght300/CheckCircle.svg';
+import { ReactComponent as CrossCircle } from '@assets/icons/wght300/CrossCircle.svg';
 import { mixins } from '@styles/Mixin';
 
 type HelpMessageTheme = 'default' | 'error' | 'success';
@@ -38,18 +38,21 @@ const HelpMessage = ({
 const helpMessageStyle = {
   default: css`
     color: ${({ theme }) => theme.colors.gray};
+
     & path {
       fill: ${({ theme }) => theme.colors.gray};
     }
   `,
   success: css`
     color: ${({ theme }) => theme.colors.success};
+
     & path {
       fill: ${({ theme }) => theme.colors.success};
     }
   `,
   error: css`
     color: ${({ theme }) => theme.colors.error};
+
     & path {
       fill: ${({ theme }) => theme.colors.error};
     }
@@ -57,15 +60,15 @@ const helpMessageStyle = {
 };
 
 const HelpMessageWrapper = styled.div.withConfig({
-  shouldForwardProp: prop => prop !== 'helpMessageTheme',
+  shouldForwardProp: (prop) => prop !== 'helpMessageTheme',
 })<HelpMessageChildrenWrapperProps>`
-  ${({ theme }) => theme.typography.CaptionSmall};
   ${mixins.flexBox({})};
+  ${({ theme }) => theme.typography.CaptionSmall};
   ${({ helpMessageTheme }) =>
     helpMessageStyle[helpMessageTheme] || helpMessageStyle.default};
-
   position: absolute;
   bottom: -20px;
+
   height: 16px;
 
   & svg {

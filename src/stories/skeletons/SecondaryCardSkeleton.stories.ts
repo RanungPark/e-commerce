@@ -1,5 +1,6 @@
-import SecondaryCardSkeleton from '@components/skeletons/SecondaryCardSkeleton';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import SecondaryCardSkeleton from '@components/skeletons/SecondaryCardSkeleton';
 
 const meta: Meta<typeof SecondaryCardSkeleton> = {
   title: 'Skeletons/SecondaryCardSkeleton',

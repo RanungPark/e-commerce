@@ -1,5 +1,6 @@
-import SNSIconButtonList from '@components/lists/SNSIconButtonList';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import SNSIconButtonList from '@components/lists/SNSIconButtonList';
 
 const meta: Meta<typeof SNSIconButtonList> = {
   title: 'Lists/SNSIconButtonList',
@@ -9,7 +10,7 @@ const meta: Meta<typeof SNSIconButtonList> = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '400px' }}>
         <Story />
       </div>

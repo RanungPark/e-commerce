@@ -1,38 +1,40 @@
+import { useState } from 'react';
+import styled from 'styled-components';
+
+import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
+import { ReactComponent as Menu } from '@assets/icons/wght300/Menu.svg';
 import NavigationButton from '@components/buttons/NavigationButton';
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import TextButton from '@components/buttons/TextButton';
-import DefaultTextField from '@components/textfields/DefaultTextField';
-import { mixins } from '@styles/Mixin';
-import styled from 'styled-components';
-import { ReactComponent as Menu } from '@assets/icons/wght300/Menu.svg';
-import NavigationBar from '@components/utilities/NavigationBar';
-import BreadCrumb from '@components/utilities/BreadCrumb';
-import Stepper from '@components/utilities/Stepper';
-import TextCard from '@components/cards/TextCard';
 import ActionCard from '@components/cards/ActionCard';
 import PrimaryImageCard from '@components/cards/PrimaryImageCard';
-import SecondaryImageCard from '@components/cards/SecondaryImageCard';
-import CompleteTextFiled from '@components/textfields/CompleteTextFiled';
-import Accordion from '@components/utilities/Accordion';
 import ProductCard from '@components/cards/ProductCard';
-import DatePicker from '@components/utilities/DatePicker';
-import ProductCardInfo from '@components/texts/ProductCardInfo';
-import ProductCardInfoList from '@components/lists/ProductCardInfoList';
-import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
-import { useState } from 'react';
+import SecondaryImageCard from '@components/cards/SecondaryImageCard';
+import TextCard from '@components/cards/TextCard';
 import CheckboxGroup from '@components/groups/CheckboxGroup';
 import RadioButtonGroup from '@components/groups/RadioButtonGroup';
-import DropDown from '@components/utilities/DropDown';
-import DropDownOption from '@components/texts/DropDownOption';
 import DropDownOptionList from '@components/lists/DropDownOptionList';
-import Checkbox from '@components/utilities/Checkbox';
-import RadioButton from '@components/utilities/RadioButton';
-import { fetchImgURL } from '@utils/img';
+import ProductCardInfoList from '@components/lists/ProductCardInfoList';
 import PrimaryCardSkeleton from '@components/skeletons/PrimaryCardSkeleton';
-import CategoryLoading from './sections/CategoryLoading';
-import TitleCardSkeleton from '@components/skeletons/TitleCardSkeleton';
-import SecondaryCardSkeleton from '@components/skeletons/SecondaryCardSkeleton';
 import ProductInfoSkeleton from '@components/skeletons/ProductInfoSkeleton';
+import SecondaryCardSkeleton from '@components/skeletons/SecondaryCardSkeleton';
+import TitleCardSkeleton from '@components/skeletons/TitleCardSkeleton';
+import CompleteTextFiled from '@components/textfields/CompleteTextFiled';
+import DefaultTextField from '@components/textfields/DefaultTextField';
+import DropDownOption from '@components/texts/DropDownOption';
+import ProductCardInfo from '@components/texts/ProductCardInfo';
+import Accordion from '@components/utilities/Accordion';
+import BreadCrumb from '@components/utilities/BreadCrumb';
+import Checkbox from '@components/utilities/Checkbox';
+import DatePicker from '@components/utilities/DatePicker';
+import DropDown from '@components/utilities/DropDown';
+import NavigationBar from '@components/utilities/NavigationBar';
+import RadioButton from '@components/utilities/RadioButton';
+import Stepper from '@components/utilities/Stepper';
+import { mixins } from '@styles/Mixin';
+import { fetchImgURL } from '@utils/img';
+
+import CategoryLoading from './sections/CategoryLoading';
 
 const TestPage = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -47,11 +49,11 @@ const TestPage = () => {
     useState('');
 
   const handleMinusClick = () => {
-    setStepperValue(prevValue => Math.max(prevValue - 1, 0));
+    setStepperValue((prevValue) => Math.max(prevValue - 1, 0));
   };
 
   const handlePlusClick = () => {
-    setStepperValue(prevValue => prevValue + 1);
+    setStepperValue((prevValue) => prevValue + 1);
   };
 
   const handleDateChange = (date: Date) => {
@@ -308,6 +310,7 @@ const TestPage = () => {
 const TestPageWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column' })}
   gap: 32px;
+
   width: 100%;
 `;
 

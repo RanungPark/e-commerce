@@ -1,8 +1,9 @@
-import { FooterContactItemType } from '@pages/sections/FooterContact';
-import FooterContactItem from '@components/texts/FooterContactItem';
-import FooterInfoTittle from '@components/texts/FooterInfoTittle';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
+
+import FooterContactItem from '@components/texts/FooterContactItem';
+import FooterInfoTittle from '@components/texts/FooterInfoTittle';
+import { FooterContactItemType } from '@pages/sections/FooterContact';
 
 interface FooterContactListProps {
   children: string;

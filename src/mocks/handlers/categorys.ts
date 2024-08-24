@@ -1,30 +1,30 @@
 import { http, HttpResponse } from 'msw';
-import {
-  driedFlowersBg,
-  driedFlowersProducts,
-} from '@mocks/data/driedFlowersDatas';
-import { livePlantsBg, livePlantsProducts } from '@mocks/data/livePlantsDatas';
 
 import {
-  freshFlowersBg,
-  freshFlowersProducts,
-} from '@mocks/data/freshFlowersDatas';
-import { freshenersBg, freshenersProducts } from '@mocks/data/freshenersDatas';
+  aromaCandlesBg,
+  aromaCandlesProducts,
+} from '@mocks/data/aromaCandlesDatas';
 import {
   designerVasesBg,
   designerVasesProducts,
 } from '@mocks/data/designerVasesDatas';
 import {
-  aromaCandlesBg,
-  aromaCandlesProducts,
-} from '@mocks/data/aromaCandlesDatas';
+  driedFlowersBg,
+  driedFlowersProducts,
+} from '@mocks/data/driedFlowersDatas';
+import { freshenersBg, freshenersProducts } from '@mocks/data/freshenersDatas';
+import {
+  freshFlowersBg,
+  freshFlowersProducts,
+} from '@mocks/data/freshFlowersDatas';
+import { livePlantsBg, livePlantsProducts } from '@mocks/data/livePlantsDatas';
 
 export const categoryHandlers = [
   http.get('/fresh_flowers', () => {
     if (!freshFlowersProducts) {
       return HttpResponse.json(
         { error: 'fresh flowers not found' },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -33,7 +33,7 @@ export const categoryHandlers = [
         products: freshFlowersProducts,
         productBg: freshFlowersBg,
       },
-      { status: 200 }
+      { status: 200 },
     );
   }),
 
@@ -41,7 +41,7 @@ export const categoryHandlers = [
     if (!driedFlowersProducts) {
       return HttpResponse.json(
         { error: 'dried flowers not found' },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -50,7 +50,7 @@ export const categoryHandlers = [
         products: driedFlowersProducts,
         productBg: driedFlowersBg,
       },
-      { status: 200 }
+      { status: 200 },
     );
   }),
 
@@ -58,7 +58,7 @@ export const categoryHandlers = [
     if (!livePlantsProducts) {
       return HttpResponse.json(
         { error: 'live plants not found' },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -67,7 +67,7 @@ export const categoryHandlers = [
         products: livePlantsProducts,
         productBg: livePlantsBg,
       },
-      { status: 200 }
+      { status: 200 },
     );
   }),
 
@@ -75,7 +75,7 @@ export const categoryHandlers = [
     if (!designerVasesProducts) {
       return HttpResponse.json(
         { error: 'designer vases not found' },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -84,7 +84,7 @@ export const categoryHandlers = [
         products: designerVasesProducts,
         productBg: designerVasesBg,
       },
-      { status: 200 }
+      { status: 200 },
     );
   }),
 
@@ -92,7 +92,7 @@ export const categoryHandlers = [
     if (!aromaCandlesProducts) {
       return HttpResponse.json(
         { error: 'aroma candels not found' },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -101,7 +101,7 @@ export const categoryHandlers = [
         products: aromaCandlesProducts,
         productBg: aromaCandlesBg,
       },
-      { status: 200 }
+      { status: 200 },
     );
   }),
 
@@ -109,7 +109,7 @@ export const categoryHandlers = [
     if (!freshenersProducts) {
       return HttpResponse.json(
         { error: 'fresheners not found' },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -118,7 +118,7 @@ export const categoryHandlers = [
         products: freshenersProducts,
         productBg: freshenersBg,
       },
-      { status: 200 }
+      { status: 200 },
     );
   }),
 ];

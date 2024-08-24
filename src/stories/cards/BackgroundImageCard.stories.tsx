@@ -1,5 +1,6 @@
-import BackgroundImageCard from '@components/cards/BackgroundImageCard';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import BackgroundImageCard from '@components/cards/BackgroundImageCard';
 import { fetchImgURL } from '@utils/img';
 
 const meta = {
@@ -10,7 +11,7 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '728px' }}>
         <Story />
       </div>

@@ -1,6 +1,7 @@
-import ActionCardAndImageCardList from '@components/lists/ActionCardAndImageCardList';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
+import ActionCardAndImageCardList from '@components/lists/ActionCardAndImageCardList';
 import { fetchImgURL } from '@utils/img';
 
 const meta: Meta<typeof ActionCardAndImageCardList> = {
@@ -11,7 +12,7 @@ const meta: Meta<typeof ActionCardAndImageCardList> = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '780px' }}>
         <Story />
       </div>

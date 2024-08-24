@@ -50,14 +50,14 @@ export const authorizationHandlers = [
                 headers: {
                   'Set-Cookie': `token=1`,
                 },
-              }
+              },
             );
           } else {
             return HttpResponse.json(
               { message: '로그인 실패' },
               {
                 status: 404,
-              }
+              },
             );
           }
         }
@@ -81,10 +81,10 @@ export const authorizationHandlers = [
             headers: {
               'Set-Cookie': `token=2`,
             },
-          }
+          },
         );
       }
-    }
+    },
   ),
 
   http.post<AddCommentParams, AddLoginRequestBody, undefined, '/login'>(
@@ -98,7 +98,7 @@ export const authorizationHandlers = [
             { message: '로그인 진행' },
             {
               status: 200,
-            }
+            },
           );
         }
       }
@@ -107,8 +107,8 @@ export const authorizationHandlers = [
         { message: '회원가입 진행' },
         {
           status: 202,
-        }
+        },
       );
-    }
+    },
   ),
 ];

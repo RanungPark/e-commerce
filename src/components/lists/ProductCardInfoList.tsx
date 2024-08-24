@@ -1,7 +1,8 @@
-import ProductCardInfo from '@components/texts/ProductCardInfo';
-import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
+
+import ProductCardInfo from '@components/texts/ProductCardInfo';
+import { mixins } from '@styles/Mixin';
 
 interface ProductCardInfoListProps {
   children: string;
@@ -16,7 +17,7 @@ const ProductCardInfoList = ({
     <ProductCardInfoListWrapper>
       {children}
       <Ul>
-        {infoItems.map(infoItem => (
+        {infoItems.map((infoItem) => (
           <ProductCardInfo key={uuidv4()}>{infoItem}</ProductCardInfo>
         ))}
       </Ul>
@@ -27,11 +28,12 @@ const ProductCardInfoList = ({
 const ProductCardInfoListWrapper = styled.div`
   ${({ theme }) => theme.typography.Subtitle}
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
+  gap: 16px;
+
   width: 100%;
   height: 100%;
-  padding: 16px;
   min-height: 225px;
-  gap: 16px;
+  padding: 16px;
 `;
 
 const Ul = styled.ul`

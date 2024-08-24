@@ -1,6 +1,7 @@
-import CompleteTextFiled from '@components/textfields/CompleteTextFiled';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
+import CompleteTextFiled from '@components/textfields/CompleteTextFiled';
 
 const meta = {
   title: 'TextFields/CompleteTextFiled',
@@ -10,7 +11,7 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '364px' }}>
         <Story />
       </div>

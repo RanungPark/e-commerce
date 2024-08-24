@@ -1,19 +1,21 @@
-import { useCartStore } from '@store/cartStore';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
-import { paymentsDone } from '@constants/toast';
-import CheckoutSummary from '@pages/sections/CheckoutSummary';
-import { FormStateType } from 'src/@types/state';
+import { v4 as uuidv4 } from 'uuid';
+
 import BreadCrumb from '@components/utilities/BreadCrumb';
-import { mixins } from '@styles/Mixin';
+import { paymentsDone } from '@constants/toast';
 import {
   checkout1stStepDatas,
   checkout2ndStepDatas,
   checkout3rdStepDatas,
 } from '@data/inputDatas';
+import CheckoutSummary from '@pages/sections/CheckoutSummary';
+import { useCartStore } from '@store/cartStore';
+import { mixins } from '@styles/Mixin';
+import { FormStateType } from 'src/@types/state';
+
 import CheckoutStep from './sections/CheckoutStep';
-import { v4 as uuidv4 } from 'uuid';
 
 type CheckoutStepsState = {
   first: FormStateType;
@@ -32,7 +34,7 @@ const CheckoutPage = () => {
   const { clearCart } = useCartStore();
 
   const updateStepsState = (updatedState: Partial<CheckoutStepsState>) => {
-    setStepsState(prevState => ({ ...prevState, ...updatedState }));
+    setStepsState((prevState) => ({ ...prevState, ...updatedState }));
   };
 
   const handle1stSubmit = () => {
@@ -65,20 +67,20 @@ const CheckoutPage = () => {
     {
       children: 'information',
       onClick: handle1stClick,
-      focus: stepsState.first === 'curr' ? true : false,
-      disabled: stepsState.first === 'yet' ? true : false,
+      focus: stepsState.first === 'curr',
+      disabled: stepsState.first === 'yet',
     },
     {
       children: 'shipping',
       onClick: handle2ndClick,
-      focus: stepsState.second === 'curr' ? true : false,
-      disabled: stepsState.second === 'yet' ? true : false,
+      focus: stepsState.second === 'curr',
+      disabled: stepsState.second === 'yet',
     },
     {
       children: 'payment',
       onClick: handle3rdClick,
-      focus: stepsState.third === 'curr' ? true : false,
-      disabled: stepsState.third === 'yet' ? true : false,
+      focus: stepsState.third === 'curr',
+      disabled: stepsState.third === 'yet',
     },
   ];
 
@@ -122,15 +124,16 @@ const CheckoutPage = () => {
 };
 
 const CheckoutPagetWrapper = styled.section`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   padding-bottom: 80px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const BreadCrumbWrapper = styled.div`
   ${mixins.flexBox({ justify: 'start' })}
-  padding: 40px 0 0 80px;
-  width: 100%;
   gap: 16px;
+
+  width: 100%;
+  padding: 40px 0 0 80px;
 `;
 
 export default CheckoutPage;

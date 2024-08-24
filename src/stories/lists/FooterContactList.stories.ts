@@ -1,5 +1,6 @@
-import FooterContactList from '@components/lists/FooterContactList';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import FooterContactList from '@components/lists/FooterContactList';
 
 const meta: Meta<typeof FooterContactList> = {
   title: 'Lists/FooterContactList',

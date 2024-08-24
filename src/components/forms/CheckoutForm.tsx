@@ -1,13 +1,14 @@
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import DefaultTextField from '@components/textfields/DefaultTextField';
 import DatePicker from '@components/utilities/DatePicker';
 import DropDown from '@components/utilities/DropDown';
 import { InputTextsType } from '@data/inputDatas';
 import { mixins } from '@styles/Mixin';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
-import { v4 as uuidv4 } from 'uuid';
 
 interface CheckoutFormProps {
   onSubmit: () => void;
@@ -22,9 +23,7 @@ const CheckoutForm = ({ onSubmit, checkoutFormDatas }: CheckoutFormProps) => {
     setSelectedDate(date);
   };
 
-  const { register, handleSubmit, formState } = useForm();
-
-  const { isValid } = formState;
+  const { register, handleSubmit } = useForm();
 
   return (
     <CheckoutFormWrapper onSubmit={handleSubmit(onSubmit)}>
@@ -68,14 +67,10 @@ const CheckoutForm = ({ onSubmit, checkoutFormDatas }: CheckoutFormProps) => {
               />
             );
           }
-          return null; // 기본 return 문을 추가합니다.
-        }
+          return null;
+        },
       )}
-      <PrimaryButton
-        onClick={handleSubmit(onSubmit)}
-        testId="nextStepBtn"
-        disabled={!isValid}
-      >
+      <PrimaryButton onClick={handleSubmit(onSubmit)} testId="nextStepBtn">
         Continue to Payment
       </PrimaryButton>
     </CheckoutFormWrapper>
@@ -84,8 +79,8 @@ const CheckoutForm = ({ onSubmit, checkoutFormDatas }: CheckoutFormProps) => {
 
 const CheckoutFormWrapper = styled.form`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
-
   gap: 16px;
+
   width: 100%;
 `;
 

@@ -1,5 +1,6 @@
-import { mixins } from '@styles/Mixin';
 import styled, { css } from 'styled-components';
+
+import { mixins } from '@styles/Mixin';
 
 interface NavigationButtonProps {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -36,9 +37,10 @@ const NavigationButton = ({
 };
 
 const NavigationButtonWrapper = styled.button.withConfig({
-  shouldForwardProp: prop => prop !== 'hasIcon',
+  shouldForwardProp: (prop) => prop !== 'hasIcon',
 })<NavigationButtonWrapperProps>`
   ${mixins.flexBox({})};
+  ${({ theme }) => theme.typography.Links};
   ${({ hasIcon }) =>
     hasIcon
       ? css`
@@ -47,7 +49,6 @@ const NavigationButtonWrapper = styled.button.withConfig({
       : css`
           padding: 32px 72px;
         `}
-  ${({ theme }) => theme.typography.Links};
 `;
 
 export default NavigationButton;

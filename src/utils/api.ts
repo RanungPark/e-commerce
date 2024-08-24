@@ -17,7 +17,7 @@ export const fetchProduct = async (categoryName: string, id: string) => {
 export const fetchJoin = async (
   username: string,
   password: string,
-  type: string
+  type: string,
 ) => {
   const response = await fetch(`/join`, {
     method: 'POST',

@@ -18,10 +18,10 @@ const TextCard = ({ title, children, label = '' }: TextCardProps) => {
 
 const TextCardWrapper = styled.div`
   ${({ theme }) => theme.typography.Body}
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   width: 100%;
   height: auto;
   padding: 80px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const Label = styled.p`

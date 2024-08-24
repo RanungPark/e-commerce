@@ -7,12 +7,13 @@ module.exports = {
     'prettier',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:storybook/recommended',
+    'plugin:import/recommended',
   ],
   //소스 코드를 분석하여 AST(Abstract Syntax Tree)를 생성할 때 사용할 파서를 지정
   //@typescript-eslint/parser: TypeScript 코드를 분석하기 위해 사용하는 파서
   parser: '@typescript-eslint/parser',
   //@typescript-eslint: TypeScript 관련 규칙을 추가할 때 사용하는 플러그인
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import'],
   //코드가 실행될 환경을 지정
   env: {
     node: true,
@@ -41,5 +42,35 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error'],
     //require를 사용할 수 있도록 허용
     '@typescript-eslint/no-var-requires': 0,
+
+    // import/order 규칙 추가
+    'import/order': [
+      'error',
+      {
+        groups: [
+          ['builtin', 'external'], // 외부 라이브러리
+          'internal', // 내부 모듈
+          ['parent', 'sibling'], // 상위 및 형제 모듈
+          'index', // 인덱스 파일
+        ],
+        'newlines-between': 'always', // 그룹 간에 빈 줄을 추가
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'internal',
+            position: 'after',
+          },
+        ],
+        alphabetize: {
+          order: 'asc', // 오름차순으로 정렬
+          caseInsensitive: true, // 대소문자 구분 없음
+        },
+      },
+    ],
+  },
+  settings: {
+    'import/resolver': {
+      typescript: {},
+    },
   },
 };

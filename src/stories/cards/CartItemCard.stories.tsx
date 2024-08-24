@@ -1,6 +1,7 @@
-import CartItemCard from '@components/cards/CartItemCard';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
+import CartItemCard from '@components/cards/CartItemCard';
 import { fetchImgURL } from '@utils/img';
 
 const meta = {
@@ -11,7 +12,7 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <ul style={{ width: '600px' }}>
         <Story />
       </ul>

@@ -1,9 +1,10 @@
+import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
+
 import PrimaryCardSkeleton from '@components/skeletons/PrimaryCardSkeleton';
 import ProductInfoSkeleton from '@components/skeletons/ProductInfoSkeleton';
 import { LoadingAnimation, LongLoadingAnimation } from '@styles/animation';
 import { mixins } from '@styles/Mixin';
-import styled from 'styled-components';
-import { v4 as uuidv4 } from 'uuid';
 
 const ProductsLoading = () => {
   return (
@@ -28,32 +29,36 @@ const ProductsLoadingWrapper = styled.div``;
 
 const MainSkeletonWrapper = styled.div`
   ${mixins.flexBox({})}
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   padding: 24px 0;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const MainSkeleton = styled.p`
+  ${LongLoadingAnimation}
+  overflow: hidden;
+  position: relative;
+
   width: 500px;
   height: 500px;
+
   background-color: ${({ theme }) => theme.colors.extralight};
-  position: relative;
-  overflow: hidden;
-  ${LongLoadingAnimation}
 `;
 
 const SubSkeletonWrapper = styled.div`
   ${mixins.flexBox({})}
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   padding: 64px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const SubSkeleton = styled.p`
+  ${LoadingAnimation}
+  overflow: hidden;
+  position: relative;
+
   width: 300px;
   height: 45px;
+
   background-color: ${({ theme }) => theme.colors.extralight};
-  position: relative;
-  overflow: hidden;
-  ${LoadingAnimation}
 `;
 
 const LoadingCardList = styled.div`

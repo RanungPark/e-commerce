@@ -1,5 +1,6 @@
-import FooterInfoTittle from '@components/texts/FooterInfoTittle';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import FooterInfoTittle from '@components/texts/FooterInfoTittle';
 
 const meta: Meta<typeof FooterInfoTittle> = {
   title: 'Texts/FooterInfoTittle',

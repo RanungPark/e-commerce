@@ -1,10 +1,11 @@
+import { useForm } from 'react-hook-form';
+import styled from 'styled-components';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import DefaultTextField from '@components/textfields/DefaultTextField';
 import { REG_EMAIL } from '@constants/reg';
 import { subscriptionDone, subscriptionFail } from '@constants/toast';
 import { useUserStore } from '@store/userStore';
-import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
 
 interface FooterRemindForm {
   remind: string;
@@ -58,11 +59,12 @@ const FooterRemind = () => {
 
 const FooterRemindWrapper = styled.div`
   ${({ theme }) => theme.typography.Body}
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-  padding: 40px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  padding: 40px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const FooterRemindForm = styled.form`

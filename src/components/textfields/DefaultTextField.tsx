@@ -1,8 +1,10 @@
-import HelpMessage from '@components/texts/HelpMessage';
 import React from 'react';
 import styled, { css } from 'styled-components';
-import TextFieldLabel from '../texts/TextFieldLabel';
+
+import HelpMessage from '@components/texts/HelpMessage';
 import { zIndex } from '@constants/zIndex';
+
+import TextFieldLabel from '../texts/TextFieldLabel';
 
 type InputState = 'default' | 'error' | 'success';
 
@@ -42,8 +44,9 @@ const DefaultTextField = ({
 
 const DefaultTextFieldWrapper = styled.div`
   position: relative;
-  width: 100%;
   z-index: ${zIndex.textField};
+
+  width: 100%;
 `;
 
 const TextFieldStyle = {
@@ -52,13 +55,15 @@ const TextFieldStyle = {
       const { colors } = theme;
       return css`
         border: 1px solid ${colors.lightgray};
+
         &:hover {
           border: 1px solid ${colors.gray};
         }
 
         &:focus {
-          outline: none;
           box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.gray};
+
+          outline: none;
 
           &::placeholder {
             color: ${colors.lightgray};
@@ -66,8 +71,10 @@ const TextFieldStyle = {
         }
 
         &:disabled {
-          background-color: ${colors.extralight};
           border: 1px solid ${colors.lightgray};
+
+          background-color: ${colors.extralight};
+
           pointer-events: none;
 
           &::placeholder {
@@ -85,32 +92,36 @@ const TextFieldStyle = {
     border: 1px solid ${({ theme }) => theme.colors.success};
 
     &:focus {
-      color: ${({ theme }) => theme.colors.success};
       box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.success};
+
+      color: ${({ theme }) => theme.colors.success};
     }
   `,
   error: css`
     border: 1px solid ${({ theme }) => theme.colors.error};
 
     &:focus {
-      color: ${({ theme }) => theme.colors.error};
       box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.error};
+
+      color: ${({ theme }) => theme.colors.error};
     }
   `,
 };
 
 const InputWrapper = styled.div.withConfig({
-  shouldForwardProp: prop => prop !== 'inputState',
+  shouldForwardProp: (prop) => prop !== 'inputState',
 })<{ inputState: InputState }>`
   & input {
     ${({ theme }) => theme.typography.Caption};
     ${({ inputState }) => TextFieldStyle[inputState] || TextFieldStyle.default};
-
     display: block;
+
     width: 100%;
     height: 56px;
     padding: 16px;
+
     background-color: ${({ theme }) => theme.colors.white};
+
     cursor: text;
 
     &::placeholder {

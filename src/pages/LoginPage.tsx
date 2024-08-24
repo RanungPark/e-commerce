@@ -1,12 +1,13 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
+import styled from 'styled-components';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import LoginId from '@pages/sections/LoginId';
 import LoginPassword from '@pages/sections/LoginPassword';
 import { useUserStore } from '@store/userStore';
 import { mixins } from '@styles/Mixin';
-import { useState } from 'react';
-import { useNavigate } from 'react-router';
 import { FormStateType } from 'src/@types/state';
-import styled from 'styled-components';
 
 export type loginStateType = 'signin' | 'join' | 'signup' | 'done';
 
@@ -106,8 +107,9 @@ const LoginPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10vh;
+
+  padding: 100px 40px 20vh;
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-  padding: 100px 40px 20vh 40px;
 `;
 
 export default LoginPage;

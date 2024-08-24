@@ -1,6 +1,8 @@
+import { useMemo } from 'react';
+import styled from 'styled-components';
+
 import { RadioButtonContext } from '@contexts/RadioButtonContext';
 import { mixins } from '@styles/Mixin';
-import styled from 'styled-components';
 
 interface RadioButtonGroupProps {
   label: string;
@@ -15,10 +17,12 @@ const RadioButtonGroup = ({
   value,
   onChange,
 }: RadioButtonGroupProps) => {
+  const contextValue = useMemo(() => ({ value, onChange }), [value, onChange]);
+
   return (
     <RadioButtonGroupWrapper>
       <Legend>{label}</Legend>
-      <RadioButtonContext.Provider value={{ value, onChange }}>
+      <RadioButtonContext.Provider value={contextValue}>
         {children}
       </RadioButtonContext.Provider>
     </RadioButtonGroupWrapper>

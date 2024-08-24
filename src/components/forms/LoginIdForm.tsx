@@ -1,12 +1,13 @@
+import { useMutation } from '@tanstack/react-query';
+import { useForm } from 'react-hook-form';
+import styled from 'styled-components';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import DefaultTextField from '@components/textfields/DefaultTextField';
 import { REG_PHONE } from '@constants/reg';
 import { loginStateType } from '@pages/LoginPage';
 import { mixins } from '@styles/Mixin';
-import { useMutation } from '@tanstack/react-query';
 import { fetchLogin } from '@utils/api';
-import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
 
 interface LoginIdFormProps {
   onSubmit: (e: loginStateType) => void;
@@ -27,7 +28,7 @@ const LoginIdForm = ({ onSubmit, setUsername }: LoginIdFormProps) => {
 
   const LoginIdMutation = useMutation({
     mutationFn: (username: string) => fetchLogin(username),
-    onSuccess: data => {
+    onSuccess: (data) => {
       const { message } = data;
       const username = getValues().username;
 
@@ -39,7 +40,7 @@ const LoginIdForm = ({ onSubmit, setUsername }: LoginIdFormProps) => {
         onSubmit('signup');
       }
     },
-    onError: error => {
+    onError: (error) => {
       console.error('Login failed:', error);
     },
   });
@@ -81,6 +82,7 @@ const LoginIdForm = ({ onSubmit, setUsername }: LoginIdFormProps) => {
 const LoginIdFormWrapper = styled.form`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   gap: 32px;
+
   width: 100%;
 `;
 

@@ -1,18 +1,20 @@
-import OuterProducts from '@pages/sections/OuterProducts';
 import { useQuery } from '@tanstack/react-query';
-import { fetchProduct } from '@utils/api';
-import { useNavigate, useParams } from 'react-router';
-import { ProductType } from 'src/@types/product';
-import styled from 'styled-components';
-import ProductInfo from '@components/texts/ProductInfo';
-import Stepper from '@components/utilities/Stepper';
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router';
+import styled from 'styled-components';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
-import { mixins } from '@styles/Mixin';
+import ProductInfo from '@components/texts/ProductInfo';
 import ImgCarousel from '@components/utilities/ImgCarousel';
-import { useCartStore } from '@store/cartStore';
+import Stepper from '@components/utilities/Stepper';
 import { addToCart } from '@constants/toast';
+import OuterProducts from '@pages/sections/OuterProducts';
+import { useCartStore } from '@store/cartStore';
+import { mixins } from '@styles/Mixin';
+import { fetchProduct } from '@utils/api';
 import { imgOptimization } from '@utils/img';
+import { ProductType } from 'src/@types/product';
+
 import ProductsLoading from './sections/ProductsLoading';
 
 interface IProduct {
@@ -49,11 +51,11 @@ const ProductsPage = () => {
   const { id, name, price, imgPath, info, category } = product;
 
   const handleMinusClick = () => {
-    setQuantity(prevValue => Math.max(prevValue - 1, 0));
+    setQuantity((prevValue) => Math.max(prevValue - 1, 0));
   };
 
   const handlePlusClick = () => {
-    setQuantity(prevValue => prevValue + 1);
+    setQuantity((prevValue) => prevValue + 1);
   };
 
   const handleAddItem = (e: React.MouseEvent) => {
@@ -103,7 +105,9 @@ const ProductsPage = () => {
             <ImgCarousel products={selectProducts} />
           </CarouselWrapper>
 
-          <PrimaryButton onClick={handleAddItem} testId='addBtn'>Add to basket</PrimaryButton>
+          <PrimaryButton onClick={handleAddItem} testId="addBtn">
+            Add to basket
+          </PrimaryButton>
         </ProductInfosWrapper>
       </ProductsPageWrapper>
       <OuterProducts outerProducts={outerProducts} />
@@ -114,9 +118,10 @@ const ProductsPage = () => {
 const ProductsPageWrapper = styled.main``;
 
 const ProductImgWrapper = styled.section`
-  text-align: center;
   padding: 24px 0;
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+
+  text-align: center;
 `;
 
 const ProductImg = styled.img`
@@ -128,10 +133,10 @@ const ProductImg = styled.img`
 const ProductInfosWrapper = styled.section`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   ${({ theme }) => theme.typography.Subtitle}
+  gap: 24px;
+
   padding: 40px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-
-  gap: 24px;
 `;
 
 const QuantityWrapper = styled.div`
@@ -141,8 +146,9 @@ const QuantityWrapper = styled.div`
 
 const CarouselWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
-  width: 100%;
   gap: 16px;
+
+  width: 100%;
 `;
 
 export default ProductsPage;

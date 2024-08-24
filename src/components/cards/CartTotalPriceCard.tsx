@@ -1,6 +1,7 @@
+import styled from 'styled-components';
+
 import { mixins } from '@styles/Mixin';
 import { changeKroeaPrice, totalPriceCalc } from '@utils/price';
-import styled from 'styled-components';
 
 interface CartTotalPriceCardProps {
   children: React.ReactNode;
@@ -18,8 +19,8 @@ const CartTotalPriceCard = ({ children }: CartTotalPriceCardProps) => {
 };
 
 const CartTotalPriceCardWrapper = styled.div`
-  ${({ theme }) => theme.typography.Subtitle}
   ${mixins.flexBox({ justify: 'space-between' })}
+  ${({ theme }) => theme.typography.Subtitle}
 `;
 
 const TotalPrice = styled.span`

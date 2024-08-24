@@ -1,9 +1,10 @@
+import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
+
 import CartItemCard from '@components/cards/CartItemCard';
 import { removeToCart } from '@constants/toast';
 import { useCartStore } from '@store/cartStore';
 import { imgOptimization } from '@utils/img';
-import styled from 'styled-components';
-import { v4 as uuidv4 } from 'uuid';
 
 interface CartItemCardListProps {
   hasTextButton?: boolean;

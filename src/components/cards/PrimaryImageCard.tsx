@@ -1,6 +1,7 @@
+import styled from 'styled-components';
+
 import { mixins } from '@styles/Mixin';
 import { changeKroeaPrice } from '@utils/price';
-import styled from 'styled-components';
 
 interface PrimaryImageCardProps {
   imgPath: string;
@@ -34,26 +35,30 @@ const PrimaryImageCard = ({
 
 const PrimaryImageCardWrapper = styled.div`
   ${mixins.flexBox({})}
+  position: relative;
+
   width: 100%;
   height: ${768 / 2}px;
-  position: relative;
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+
   cursor: pointer;
 `;
 
 const Img = styled.img`
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 `;
 
 const Contents = styled.div`
-  position: absolute;
   ${mixins.flexBox({ direction: 'column' })}
   ${({ theme }) => theme.typography.Heading6}
-  background-color: transparent;
-  gap: 4px;
+  position: absolute;
   bottom: 24px;
+  gap: 4px;
+
+  background-color: transparent;
 `;
 
 const Price = styled.p`

@@ -1,7 +1,8 @@
+import styled from 'styled-components';
+
 import TextButton from '@components/buttons/TextButton';
 import { mixins } from '@styles/Mixin';
 import { changeKroeaPrice } from '@utils/price';
-import styled from 'styled-components';
 
 interface CartItemCardProps {
   children: string;
@@ -64,6 +65,7 @@ const Img = styled.img`
 const Name = styled.p``;
 const Quantity = styled.p``;
 const Price = styled.p``;
+
 const Unit = styled.span`
   ${({ theme }) => theme.typography.Body}
 `;
@@ -72,6 +74,7 @@ const CartItemCardInfosWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   flex: 1;
   gap: 8px;
+
   margin-left: 16px;
 
   & > p:nth-child(2) {

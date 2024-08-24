@@ -1,8 +1,8 @@
+import { ReactComponent as Facebook } from '@assets/icons/wght300/Brands/Facebook.svg';
 import { ReactComponent as Instagram } from '@assets/icons/wght300/Brands/Instagram.svg';
 import { ReactComponent as Pinterest } from '@assets/icons/wght300/Brands/Pinterest.svg';
-import { ReactComponent as Facebook } from '@assets/icons/wght300/Brands/Facebook.svg';
-import { ReactComponent as Twitter } from '@assets/icons/wght300/Brands/Twitter.svg';
 import { ReactComponent as Telegram } from '@assets/icons/wght300/Brands/Telegram.svg';
+import { ReactComponent as Twitter } from '@assets/icons/wght300/Brands/Twitter.svg';
 
 export const SNSIconDatas = [
   { IconComponent: Instagram, SNSName: 'Instagram' },

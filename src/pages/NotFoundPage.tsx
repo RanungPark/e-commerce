@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router';
-import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
+import { mixins } from '@styles/Mixin';
 
 const NotFoundPage = () => {
   const navigate = useNavigate();
@@ -19,7 +20,6 @@ const NotFoundPage = () => {
 const NotFoundPageWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', justify: 'space-evenly' })}
   ${({ theme }) => theme.typography.Heading5}
-
   width: 30%;
   height: 70vh;
   margin: 0 auto;

@@ -1,11 +1,12 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import ActionCardAndImageCardList from '@components/lists/ActionCardAndImageCardList';
 import { useNavigate } from 'react-router';
-import HomeMain from '@pages/sections/HomeMain';
+import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
+
+import ActionCardAndImageCardList from '@components/lists/ActionCardAndImageCardList';
 import { shopDatas } from '@data/shopDatas';
 import HomeAbout from '@pages/sections/HomeAbout';
-import styled from 'styled-components';
+import HomeMain from '@pages/sections/HomeMain';
 
 const HomePage = () => {
   const navigate = useNavigate();

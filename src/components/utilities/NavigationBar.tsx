@@ -1,9 +1,10 @@
-import NavigationButton from '@components/buttons/NavigationButton';
-import { mixins } from '@styles/Mixin';
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as WMenu } from '@assets/icons/wght400/WMenu.svg';
+
 import { ReactComponent as ShoppingBag } from '@assets/icons/wght300/ShoppingBag.svg';
+import { ReactComponent as WMenu } from '@assets/icons/wght400/WMenu.svg';
+import NavigationButton from '@components/buttons/NavigationButton';
+import { mixins } from '@styles/Mixin';
 
 interface NavigationBarProps {
   onMenuClick: (e: React.MouseEvent) => void;

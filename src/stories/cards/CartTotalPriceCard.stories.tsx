@@ -1,5 +1,6 @@
-import CartTotalPriceCard from '@components/cards/CartTotalPriceCard';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import CartTotalPriceCard from '@components/cards/CartTotalPriceCard';
 
 const meta = {
   title: 'Cards/CartTotalPriceCard',
@@ -9,7 +10,7 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '600px' }}>
         <Story />
       </div>

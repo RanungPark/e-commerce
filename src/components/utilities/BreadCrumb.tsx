@@ -1,6 +1,7 @@
-import { mixins } from '@styles/Mixin';
 import styled, { css } from 'styled-components';
+
 import { ReactComponent as WChevronRight } from '@assets/icons/wght400/WChevronRight.svg';
+import { mixins } from '@styles/Mixin';
 interface BreadCrumbProps {
   children: string;
   onClick: (e: React.MouseEvent) => void;
@@ -54,6 +55,7 @@ const notFocusStyle = css`
 
 const disabledStyle = css`
   color: ${({ theme }) => theme.colors.gray};
+
   pointer-events: none;
 
   path {
@@ -62,14 +64,14 @@ const disabledStyle = css`
 `;
 
 const BreadCrumbWrapper = styled.div.withConfig({
-  shouldForwardProp: prop => prop !== 'focus',
+  shouldForwardProp: (prop) => prop !== 'focus',
 })<BreadCrumbWrapperProps>`
   ${mixins.flexBox({})};
   ${({ theme }) => theme.typography.Overline}
-  text-transform: uppercase;
-  font-weight: 700;
   ${({ focus }) => (focus ? focusStyle : notFocusStyle)}
   ${({ disabled }) => (disabled ? disabledStyle : baseStyle)}
+  font-weight: 700;
+  text-transform: uppercase;
 `;
 
 export default BreadCrumb;

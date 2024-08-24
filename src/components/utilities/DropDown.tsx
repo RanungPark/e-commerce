@@ -1,10 +1,11 @@
-import IconButton from '@components/buttons/IconButton';
-import { ReactComponent as CaretDown } from '@assets/icons/wght300/CaretDown.svg';
-import { ReactComponent as CaretUp } from '@assets/icons/wght300/CaretUp.svg';
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
-import { mixins } from '@styles/Mixin';
+
+import { ReactComponent as CaretDown } from '@assets/icons/wght300/CaretDown.svg';
+import { ReactComponent as CaretUp } from '@assets/icons/wght300/CaretUp.svg';
+import IconButton from '@components/buttons/IconButton';
 import DropDownOptionList from '@components/lists/DropDownOptionList';
+import { mixins } from '@styles/Mixin';
 
 interface DropDownProps {
   options: string[];
@@ -29,7 +30,7 @@ const DropDown = ({
 
   const handleIsOpen = () => {
     if (!disabled) {
-      setIsOpen(prev => !prev);
+      setIsOpen((prev) => !prev);
     }
   };
 
@@ -54,13 +55,13 @@ const DropDown = ({
         />
         {isOpen ? (
           <IconButton
-            onClick={e => e.preventDefault()}
+            onClick={(e) => e.preventDefault()}
             IconComponent={CaretUp}
             ariaLabel="caret up"
           />
         ) : (
           <IconButton
-            onClick={e => e.preventDefault()}
+            onClick={(e) => e.preventDefault()}
             IconComponent={CaretDown}
             ariaLabel="caret down"
           />
@@ -77,16 +78,21 @@ const DropDown = ({
 
 const defalutStyle = css`
   background-color: ${({ theme }) => theme.colors.white};
+
+  cursor: pointer;
+
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.gray};
   }
+
   &:focus-within {
     box-shadow: ${({ theme }) => `0 0 0 1px ${theme.colors.gray}`};
   }
+
   & path {
     fill: ${({ theme }) => theme.colors.black};
   }
-  cursor: pointer;
+
   & button {
     cursor: pointer;
   }
@@ -94,27 +100,31 @@ const defalutStyle = css`
 
 const disabledStyle = css`
   background-color: ${({ theme }) => theme.colors.extralight};
+
+  pointer-events: none;
+
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.lightgray};
   }
+
   &:focus-within {
     box-shadow: 0 0 0;
   }
+
   & path {
     fill: ${({ theme }) => theme.colors.lightgray};
   }
-  pointer-events: none;
+
   & button {
     pointer-events: none;
   }
 `;
 
 const DropDownLabel = styled.label.withConfig({
-  shouldForwardProp: prop => prop !== 'disabled',
+  shouldForwardProp: (prop) => prop !== 'disabled',
 })<DropDownLabelProps>`
   ${mixins.flexBox({ justify: 'space-between' })}
   ${({ disabled }) => (!disabled ? defalutStyle : disabledStyle)}
-  
   width: 100%;
   max-height: 56px;
   padding: 16px;
@@ -124,6 +134,7 @@ const DropDownLabel = styled.label.withConfig({
 const DropDownInput = styled.input`
   ${({ theme }) => theme.typography.Caption};
   flex: 1;
+
   cursor: pointer;
 
   &:disabled {

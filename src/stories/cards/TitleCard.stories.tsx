@@ -1,5 +1,6 @@
-import TitleCard from '@components/cards/TitleCard';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import TitleCard from '@components/cards/TitleCard';
 
 const meta = {
   title: 'Cards/TitleCard',
@@ -9,7 +10,7 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '728px' }}>
         <Story />
       </div>
