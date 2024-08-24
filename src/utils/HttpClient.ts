@@ -68,7 +68,7 @@ export interface ApiConfig<SecurityDataType = unknown> {
   baseUrl?: string;
   baseApiParams?: Omit<RequestParams, 'baseUrl' | 'cancelToken' | 'signal'>;
   securityWorker?: (
-    securityData: SecurityDataType | null
+    securityData: SecurityDataType | null,
   ) => Promise<RequestParams | void> | RequestParams | void;
   customFetch?: typeof fetch;
 }
@@ -127,7 +127,7 @@ export class HttpClient<SecurityDataType = unknown> {
 
   /**
    * HTTPClient인스턴스를 초기화한다.
-   * @param apiConfig 
+   * @param apiConfig
    * -> baseURL, baseAPIParams, securityWorker, customFetch
    */
   constructor(apiConfig: ApiConfig<SecurityDataType> = {}) {
@@ -151,7 +151,7 @@ export class HttpClient<SecurityDataType = unknown> {
   protected encodeQueryParam(key: string, value: any) {
     const encodedKey = encodeURIComponent(key);
     return `${encodedKey}=${encodeURIComponent(
-      typeof value === 'number' ? value : `${value}`
+      typeof value === 'number' ? value : `${value}`,
     )}`;
   }
 
@@ -169,7 +169,7 @@ export class HttpClient<SecurityDataType = unknown> {
    * 배얄 형식의 쿼리 매개변수를 추가한다.
    * @param query 쿼리 매개변수의 객체
    * @param key 추가할 매개변수의 키
-   * @returns 배열을 map을 통해 인코딩 된 매개변수로 아루어진 새로운 배열로 반환후 join을 통해 &으로 연결한다. 
+   * @returns 배열을 map을 통해 인코딩 된 매개변수로 아루어진 새로운 배열로 반환후 join을 통해 &으로 연결한다.
    */
   protected addArrayQueryParam(query: QueryParamsType, key: string) {
     const value = query[key];
@@ -179,20 +179,20 @@ export class HttpClient<SecurityDataType = unknown> {
   /**
    * 쿼리 매개변수 객체를 쿼리 문자열로 반환
    * 쿼리는 빈 객체일 수도 있음
-   * 쿼리 매개변수 객체가 입력이 되었다면 
+   * 쿼리 매개변수 객체가 입력이 되었다면
    * @param rawQuery
    * @returns
    */
   protected toQueryString(rawQuery?: QueryParamsType): string {
     const query = rawQuery || {};
     const keys = Object.keys(query).filter(
-      key => 'undefined' !== typeof query[key]
+      (key) => 'undefined' !== typeof query[key],
     );
     return keys
-      .map(key =>
+      .map((key) =>
         Array.isArray(query[key])
           ? this.addArrayQueryParam(query, key)
-          : this.addQueryParam(query, key)
+          : this.addQueryParam(query, key),
       )
       .join('&');
   }
@@ -208,7 +208,7 @@ export class HttpClient<SecurityDataType = unknown> {
   }
 
   /**
-   * 
+   *
    */
   private contentFormatters: Record<ContentType, (input: any) => any> = {
     [ContentType.Json]: (input: any) =>
@@ -223,22 +223,22 @@ export class HttpClient<SecurityDataType = unknown> {
           property instanceof Blob
             ? property
             : typeof property === 'object' && property !== null
-              ? JSON.stringify(property) 
-              : `${property}`
+              ? JSON.stringify(property)
+              : `${property}`,
         );
         return formData;
       }, new FormData()),
   };
 
   /**
-   * 두개의 요청 매개변수를 병합한다.      
+   * 두개의 요청 매개변수를 병합한다.
    * @param params1 첫 번째 요청 매개변수
    * @param params2 두 번째 요청 매개변수 선택사항
-   * @returns 
+   * @returns
    */
   protected mergeRequestParams(
     params1: RequestParams,
-    params2?: RequestParams
+    params2?: RequestParams,
   ): RequestParams {
     return {
       ...this.baseApiParams,
@@ -254,8 +254,8 @@ export class HttpClient<SecurityDataType = unknown> {
 
   /**
    * HTTP 요청을 수행
-   * @param param0 
-   * @returns 
+   * @param param0
+   * @returns
    */
   public request = async <T = any, E = any>({
     body,
@@ -273,14 +273,14 @@ export class HttpClient<SecurityDataType = unknown> {
         this.securityWorker &&
         (await this.securityWorker(this.securityData))) ||
       {};
-      
-      /**
-       * 매개변수 병합한 값
-       */
+
+    /**
+     * 매개변수 병합한 값
+     */
     const requestParams = this.mergeRequestParams(params, secureParams);
-      /**
-       * 쿼리 매개변수 값
-       */
+    /**
+     * 쿼리 매개변수 값
+     */
     const queryString = query && this.toQueryString(query);
     const payloadFormatter = this.contentFormatters[type || ContentType.Json];
     /**
@@ -306,11 +306,11 @@ export class HttpClient<SecurityDataType = unknown> {
             : {}),
         },
         body: typeof body == 'undefined' ? null : payloadFormatter(body),
-      }
+      },
       /**
-       * 
+       *
        */
-    ).then(async response => {
+    ).then(async (response) => {
       const res = response as HttpResponse<T, E>;
       res.data = null as unknown as T;
       res.error = null as unknown as E;
@@ -318,7 +318,7 @@ export class HttpClient<SecurityDataType = unknown> {
       const data = !responseFormat
         ? res
         : await response[responseFormat]()
-            .then(data => {
+            .then((data) => {
               if (res.ok) {
                 res.data = data;
               } else {
@@ -326,7 +326,7 @@ export class HttpClient<SecurityDataType = unknown> {
               }
               return res;
             })
-            .catch(e => {
+            .catch((e) => {
               res.error = e;
               return res;
             });

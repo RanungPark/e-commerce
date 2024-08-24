@@ -37,7 +37,7 @@ const NavigationButton = ({
 };
 
 const NavigationButtonWrapper = styled.button.withConfig({
-  shouldForwardProp: prop => prop !== 'hasIcon',
+  shouldForwardProp: (prop) => prop !== 'hasIcon',
 })<NavigationButtonWrapperProps>`
   ${mixins.flexBox({})};
   ${({ theme }) => theme.typography.Links};

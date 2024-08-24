@@ -21,14 +21,15 @@ interface GoToProductProps {
 
 const ImgCarousel = ({ products }: ImgCarouselProps) => {
   const [viewProducts, setViewProducts] = useState(
-    products.filter(({ id }) => id <= 5)
+    products.filter(({ id }) => id <= 5),
   );
 
   const handleLeftButton = () => {
     if (viewProducts[0].id === 1) return;
     else {
       const newViewProducts = products.filter(
-        ({ id }) => viewProducts[0].id - 1 <= id && id <= viewProducts[4].id - 1
+        ({ id }) =>
+          viewProducts[0].id - 1 <= id && id <= viewProducts[4].id - 1,
       );
       setViewProducts(newViewProducts);
     }
@@ -38,7 +39,8 @@ const ImgCarousel = ({ products }: ImgCarouselProps) => {
     if (viewProducts[4].id === products.length) return;
     else {
       const newViewProducts = products.filter(
-        ({ id }) => viewProducts[0].id + 1 <= id && id <= viewProducts[4].id + 1
+        ({ id }) =>
+          viewProducts[0].id + 1 <= id && id <= viewProducts[4].id + 1,
       );
       setViewProducts(newViewProducts);
     }

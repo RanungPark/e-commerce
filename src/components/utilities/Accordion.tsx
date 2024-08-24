@@ -40,9 +40,9 @@ const AccordionWrapper = styled.div`
   width: 100%;
   padding: 24px 0;
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-  
+
   cursor: pointer;
-  
+
   opacity: 0.9;
 `;
 
@@ -50,7 +50,7 @@ const TitleWrapper = styled.div`
   ${mixins.flexBox({ justify: 'space-between' })}
   ${({ theme }) => theme.typography.Heading4}
   width: 100%;
-  
+
   opacity: 1;
 `;
 

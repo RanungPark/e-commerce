@@ -28,7 +28,7 @@ const LoginIdForm = ({ onSubmit, setUsername }: LoginIdFormProps) => {
 
   const LoginIdMutation = useMutation({
     mutationFn: (username: string) => fetchLogin(username),
-    onSuccess: data => {
+    onSuccess: (data) => {
       const { message } = data;
       const username = getValues().username;
 
@@ -40,7 +40,7 @@ const LoginIdForm = ({ onSubmit, setUsername }: LoginIdFormProps) => {
         onSubmit('signup');
       }
     },
-    onError: error => {
+    onError: (error) => {
       console.error('Login failed:', error);
     },
   });
@@ -82,7 +82,7 @@ const LoginIdForm = ({ onSubmit, setUsername }: LoginIdFormProps) => {
 const LoginIdFormWrapper = styled.form`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   gap: 32px;
-  
+
   width: 100%;
 `;
 

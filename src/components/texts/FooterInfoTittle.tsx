@@ -11,7 +11,7 @@ const FooterInfoTittle = ({ children }: FooterInfoTittleProps) => {
 const FooterInfoTittleWrapper = styled.h5`
   ${({ theme }) => theme.typography.Heading5}
   margin-bottom: 24px;
-  
+
   color: ${({ theme }) => theme.colors.gray};
   text-transform: capitalize;
 `;

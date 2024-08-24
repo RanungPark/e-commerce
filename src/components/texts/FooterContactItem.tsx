@@ -21,7 +21,7 @@ const FooterContactItemWrapper = styled.li`
 const Title = styled.h6`
   ${({ theme }) => theme.typography.Caption}
   margin-bottom: 8px;
-  
+
   color: ${({ theme }) => theme.colors.gray};
   text-transform: capitalize;
 `;

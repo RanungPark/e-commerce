@@ -30,7 +30,7 @@ const DropDown = ({
 
   const handleIsOpen = () => {
     if (!disabled) {
-      setIsOpen(prev => !prev);
+      setIsOpen((prev) => !prev);
     }
   };
 
@@ -55,13 +55,13 @@ const DropDown = ({
         />
         {isOpen ? (
           <IconButton
-            onClick={e => e.preventDefault()}
+            onClick={(e) => e.preventDefault()}
             IconComponent={CaretUp}
             ariaLabel="caret up"
           />
         ) : (
           <IconButton
-            onClick={e => e.preventDefault()}
+            onClick={(e) => e.preventDefault()}
             IconComponent={CaretDown}
             ariaLabel="caret down"
           />
@@ -121,7 +121,7 @@ const disabledStyle = css`
 `;
 
 const DropDownLabel = styled.label.withConfig({
-  shouldForwardProp: prop => prop !== 'disabled',
+  shouldForwardProp: (prop) => prop !== 'disabled',
 })<DropDownLabelProps>`
   ${mixins.flexBox({ justify: 'space-between' })}
   ${({ disabled }) => (!disabled ? defalutStyle : disabledStyle)}

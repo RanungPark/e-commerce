@@ -21,16 +21,16 @@ export interface CartState {
 export const useCartStore = create<CartState>()(
   devtools(
     persist(
-      set => ({
+      (set) => ({
         carts: [],
-        addItem: item =>
-          set(state => {
+        addItem: (item) =>
+          set((state) => {
             const existingItem = state.carts.find(
-              cart => cart.key === item.key
+              (cart) => cart.key === item.key,
             );
             if (existingItem) {
               return {
-                carts: state.carts.map(cart => {
+                carts: state.carts.map((cart) => {
                   if (cart.key === existingItem.key) {
                     return cart.quantity
                       ? {
@@ -45,13 +45,13 @@ export const useCartStore = create<CartState>()(
             }
             return { carts: [...state.carts, { ...item }] };
           }),
-        removeItem: key =>
-          set(state => ({
-            carts: state.carts.filter(cart => cart.key !== key),
+        removeItem: (key) =>
+          set((state) => ({
+            carts: state.carts.filter((cart) => cart.key !== key),
           })),
         clearCart: () => set({ carts: [] }),
       }),
-      { name: 'cartStore', getStorage: () => sessionStorage }
-    )
-  )
+      { name: 'cartStore', getStorage: () => sessionStorage },
+    ),
+  ),
 );

@@ -43,7 +43,7 @@ const Checkbox = ({
                 toggleGroupValue!({ checked, value: value ?? children })
             : handleChange
         }
-        onClick={() => !isGrop && setChecked(prev => !prev)}
+        onClick={() => !isGrop && setChecked((prev) => !prev)}
       />
       <Check />
       <Value>{children}</Value>

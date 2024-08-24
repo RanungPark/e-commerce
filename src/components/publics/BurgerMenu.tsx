@@ -32,7 +32,7 @@ const BurgerMenu = ({ open, setOpen }: BurgerMenuProps) => {
           </MenuButton>
         ))}
         <TextButtonList>
-          {aboutDatas.map(children => (
+          {aboutDatas.map((children) => (
             <TextButton key={uuidv4()} onClick={pageWait}>
               {children}
             </TextButton>

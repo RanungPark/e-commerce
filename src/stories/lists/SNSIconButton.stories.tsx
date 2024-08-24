@@ -10,7 +10,7 @@ const meta: Meta<typeof SNSIconButtonList> = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '400px' }}>
         <Story />
       </div>

@@ -36,7 +36,7 @@ const LoginPasswordForm = ({
   const LoginPasswordMutation = useMutation({
     mutationFn: (password: string) =>
       fetchJoin(username, password, loginCurrState),
-    onSuccess: data => {
+    onSuccess: (data) => {
       const loginUser = {
         id: data.id,
         username: data.username,
@@ -47,7 +47,7 @@ const LoginPasswordForm = ({
       navigate(-1);
       loginDone();
     },
-    onError: error => {
+    onError: (error) => {
       setJoin(false);
       console.error('Login failed:', error);
     },
@@ -87,7 +87,7 @@ const LoginPasswordForm = ({
 const LoginPasswordFormWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   gap: 32px;
-  
+
   width: 100%;
 `;
 

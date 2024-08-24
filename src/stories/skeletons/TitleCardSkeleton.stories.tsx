@@ -10,7 +10,7 @@ const meta: Meta<typeof TitleCardSkeleton> = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '784px' }}>
         <Story />
       </div>

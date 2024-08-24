@@ -10,7 +10,7 @@ const meta: Meta<typeof FooterContactItem> = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <ul>
         <Story />
       </ul>

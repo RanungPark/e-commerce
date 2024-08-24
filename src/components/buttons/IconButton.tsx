@@ -53,7 +53,7 @@ const sizeStyles = {
 };
 
 const IconButtonWrapper = styled.button.withConfig({
-  shouldForwardProp: prop => prop !== 'size',
+  shouldForwardProp: (prop) => prop !== 'size',
 })<IconButtonWrapperProps>`
   ${mixins.flexBox({})}
   ${({ size }) => sizeStyles[size]}

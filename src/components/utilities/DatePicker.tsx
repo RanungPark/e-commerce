@@ -102,7 +102,7 @@ const DatePickerWrapper = styled.div`
 
   width: 100%;
   max-height: 56px;
-  `;
+`;
 
 const DatePickerLabelWrapper = styled.label`
   ${mixins.flexBox({ justify: 'space-between' })}
@@ -143,7 +143,7 @@ const DatePickerLabelWrapper = styled.label`
 
     background-color: ${({ theme }) => theme.colors.white};
   }
-  
+
   .react-datepicker__aria-live {
     display: none;
   }

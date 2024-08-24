@@ -34,7 +34,7 @@ const CheckoutPage = () => {
   const { clearCart } = useCartStore();
 
   const updateStepsState = (updatedState: Partial<CheckoutStepsState>) => {
-    setStepsState(prevState => ({ ...prevState, ...updatedState }));
+    setStepsState((prevState) => ({ ...prevState, ...updatedState }));
   };
 
   const handle1stSubmit = () => {

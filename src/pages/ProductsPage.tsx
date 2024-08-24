@@ -51,11 +51,11 @@ const ProductsPage = () => {
   const { id, name, price, imgPath, info, category } = product;
 
   const handleMinusClick = () => {
-    setQuantity(prevValue => Math.max(prevValue - 1, 0));
+    setQuantity((prevValue) => Math.max(prevValue - 1, 0));
   };
 
   const handlePlusClick = () => {
-    setQuantity(prevValue => prevValue + 1);
+    setQuantity((prevValue) => prevValue + 1);
   };
 
   const handleAddItem = (e: React.MouseEvent) => {

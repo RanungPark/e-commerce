@@ -60,7 +60,7 @@ const helpMessageStyle = {
 };
 
 const HelpMessageWrapper = styled.div.withConfig({
-  shouldForwardProp: prop => prop !== 'helpMessageTheme',
+  shouldForwardProp: (prop) => prop !== 'helpMessageTheme',
 })<HelpMessageChildrenWrapperProps>`
   ${mixins.flexBox({})};
   ${({ theme }) => theme.typography.CaptionSmall};
@@ -68,7 +68,7 @@ const HelpMessageWrapper = styled.div.withConfig({
     helpMessageStyle[helpMessageTheme] || helpMessageStyle.default};
   position: absolute;
   bottom: -20px;
-  
+
   height: 16px;
 
   & svg {

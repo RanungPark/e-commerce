@@ -24,7 +24,7 @@ const BackgroundImageCard = ({
 };
 
 const BackgroundImageCardWrapper = styled.div.withConfig({
-  shouldForwardProp: prop => prop !== 'imgPath',
+  shouldForwardProp: (prop) => prop !== 'imgPath',
 })<BackgroundImageCardWrapperProps>`
   ${mixins.flexBox({})}
   ${({ theme }) => theme.typography.Heading1}

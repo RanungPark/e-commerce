@@ -11,7 +11,7 @@ const meta: Meta<typeof DropDownOption> = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <ul>
         <Story />
       </ul>

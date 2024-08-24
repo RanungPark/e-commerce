@@ -10,7 +10,7 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '600px' }}>
         <Story />
       </div>

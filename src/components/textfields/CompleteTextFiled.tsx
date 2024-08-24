@@ -47,7 +47,7 @@ const baseStyle = css`
 
 const enabledStyle = css`
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-  
+
   color: ${({ theme }) => theme.colors.black};
 
   & button path {
@@ -57,12 +57,12 @@ const enabledStyle = css`
 
 const disabledStyle = css`
   border-bottom: 1px solid ${({ theme }) => theme.colors.lightgray};
-  
+
   color: ${({ theme }) => theme.colors.gray};
 `;
 
 const CompleteTextFiledWrapper = styled.div.withConfig({
-  shouldForwardProp: prop => prop !== 'disabled',
+  shouldForwardProp: (prop) => prop !== 'disabled',
 })<CompleteTextFiledWrapperProps>`
   ${({ disabled }) => (disabled ? disabledStyle : enabledStyle)}
   ${baseStyle}

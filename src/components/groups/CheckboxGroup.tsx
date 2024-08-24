@@ -29,13 +29,13 @@ const CheckboxGroup = ({
     if (checked) {
       onChange(values.concat(value));
     } else {
-      onChange(values.filter(v => v !== value));
+      onChange(values.filter((v) => v !== value));
     }
   };
 
   const contextValue = useMemo(
     () => ({ isChecked, toggleValue }),
-    [isChecked, toggleValue]
+    [isChecked, toggleValue],
   );
 
   return (

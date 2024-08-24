@@ -25,12 +25,12 @@ const DropDownOptionWrapper = styled.li`
   ${({ theme }) => theme.typography.CaptionBold}
   max-height: 56px;
   padding: 16px;
-  
+
   cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.gray};
-  
+
     color: ${({ theme }) => theme.colors.white};
   }
 `;

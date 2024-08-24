@@ -19,7 +19,7 @@ export const subscriptionFail = (Reasons: string) => {
     {
       icon: '🥲',
       duration: 3000,
-    }
+    },
   );
 };
 

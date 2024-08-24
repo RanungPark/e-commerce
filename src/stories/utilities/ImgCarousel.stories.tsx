@@ -12,7 +12,7 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <BrowserRouter>
         <div style={{ width: '728px' }}>
           <Story />

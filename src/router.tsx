@@ -20,8 +20,8 @@ const routeElement: RouteElement[] = [
 ];
 
 const router = createBrowserRouter(
-  routeElement.map(route => {
-    const childs = route.children?.map(childRoute => {
+  routeElement.map((route) => {
+    const childs = route.children?.map((childRoute) => {
       return {
         path: childRoute.path,
         element: childRoute.element,
@@ -31,7 +31,7 @@ const router = createBrowserRouter(
       ...route,
       children: childs,
     };
-  })
+  }),
 );
 
 export default router;

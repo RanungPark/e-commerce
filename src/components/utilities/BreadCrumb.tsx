@@ -64,7 +64,7 @@ const disabledStyle = css`
 `;
 
 const BreadCrumbWrapper = styled.div.withConfig({
-  shouldForwardProp: prop => prop !== 'focus',
+  shouldForwardProp: (prop) => prop !== 'focus',
 })<BreadCrumbWrapperProps>`
   ${mixins.flexBox({})};
   ${({ theme }) => theme.typography.Overline}

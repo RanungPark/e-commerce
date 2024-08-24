@@ -12,7 +12,7 @@ import { mixins } from '@styles/Mixin';
 const CheckoutSummary = () => {
   const [isOrderOpen, setIsOrderOpen] = useState(false);
 
-  const handleClick = () => setIsOrderOpen(prev => !prev);
+  const handleClick = () => setIsOrderOpen((prev) => !prev);
 
   return (
     <CheckoutSummaryWrapper>
@@ -52,7 +52,7 @@ const CheckoutSummary = () => {
 
 const CheckoutSummaryWrapper = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-  
+
   background-color: ${({ theme }) => theme.colors.extralight};
 `;
 

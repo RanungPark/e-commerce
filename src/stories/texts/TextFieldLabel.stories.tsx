@@ -10,7 +10,7 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ position: 'relative', width: '100px' }}>
         <Story />
       </div>
@@ -24,7 +24,7 @@ const meta = {
     htmlFor: {
       control: 'text',
       description: 'TextFieldLabel htmlFor',
-    }
+    },
   },
 } satisfies Meta<typeof TextFieldLabel>;
 

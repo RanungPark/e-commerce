@@ -12,7 +12,7 @@ const FooterAbout = () => {
     <FooterAboutWrapper>
       <FooterInfoTittle>service</FooterInfoTittle>
       <FooterTextButtonList>
-        {aboutDatas.map(children => (
+        {aboutDatas.map((children) => (
           <TextButton key={uuidv4()} onClick={pageWait}>
             {children}
           </TextButton>

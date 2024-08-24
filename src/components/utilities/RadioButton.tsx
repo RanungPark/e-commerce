@@ -28,7 +28,7 @@ const RadioButton = ({
     checked ? onChange(value ?? children) : onChange('');
   };
 
-  const handleClick = () => setChecked(prev => !prev);
+  const handleClick = () => setChecked((prev) => !prev);
 
   const isGroupChecked =
     isGrop && context.value !== undefined

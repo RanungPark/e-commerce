@@ -37,10 +37,10 @@ const MainSkeleton = styled.p`
   ${LongLoadingAnimation}
   overflow: hidden;
   position: relative;
-  
+
   width: 500px;
   height: 500px;
-  
+
   background-color: ${({ theme }) => theme.colors.extralight};
 `;
 
@@ -54,10 +54,10 @@ const SubSkeleton = styled.p`
   ${LoadingAnimation}
   overflow: hidden;
   position: relative;
-  
+
   width: 300px;
   height: 45px;
-  
+
   background-color: ${({ theme }) => theme.colors.extralight};
 `;
 

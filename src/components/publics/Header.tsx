@@ -10,8 +10,8 @@ const Header = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
-  const handleBurgerMenuOpen = () => setBurgerOpen(prev => !prev);
-  const handleCartOpen = () => setCartOpen(prev => !prev);
+  const handleBurgerMenuOpen = () => setBurgerOpen((prev) => !prev);
+  const handleCartOpen = () => setCartOpen((prev) => !prev);
 
   return (
     <HeaderWrapper>

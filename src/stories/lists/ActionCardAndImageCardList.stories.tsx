@@ -12,7 +12,7 @@ const meta: Meta<typeof ActionCardAndImageCardList> = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ width: '780px' }}>
         <Story />
       </div>

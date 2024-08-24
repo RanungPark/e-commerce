@@ -15,7 +15,7 @@ const TextFieldLabelWrapper = styled.label`
   ${({ theme }) => theme.typography.Heading6}
   position: absolute;
   top: -30px;
-  
+
   width: 100%;
 `;
 

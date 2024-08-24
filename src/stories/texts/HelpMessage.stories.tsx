@@ -10,7 +10,7 @@ const meta: Meta<typeof HelpMessage> = {
   },
   tags: ['autodocs'],
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ position: 'relative', width: '100px' }}>
         <Story />
       </div>

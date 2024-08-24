@@ -40,14 +40,14 @@ const PrimaryImageCardWrapper = styled.div`
   width: 100%;
   height: ${768 / 2}px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-  
+
   cursor: pointer;
 `;
 
 const Img = styled.img`
   width: 100%;
   height: 100%;
-  
+
   object-fit: cover;
 `;
 
@@ -57,7 +57,7 @@ const Contents = styled.div`
   position: absolute;
   bottom: 24px;
   gap: 4px;
-  
+
   background-color: transparent;
 `;
 

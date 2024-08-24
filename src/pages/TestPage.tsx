@@ -49,11 +49,11 @@ const TestPage = () => {
     useState('');
 
   const handleMinusClick = () => {
-    setStepperValue(prevValue => Math.max(prevValue - 1, 0));
+    setStepperValue((prevValue) => Math.max(prevValue - 1, 0));
   };
 
   const handlePlusClick = () => {
-    setStepperValue(prevValue => prevValue + 1);
+    setStepperValue((prevValue) => prevValue + 1);
   };
 
   const handleDateChange = (date: Date) => {

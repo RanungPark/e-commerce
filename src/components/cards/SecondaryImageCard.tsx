@@ -35,7 +35,7 @@ const SecondaryImageCardWrapper = styled.div`
   width: 100px;
 
   background-color: ${({ theme }) => theme.colors.white};
-  
+
   cursor: pointer;
 `;
 
@@ -60,7 +60,7 @@ const Contents = styled.div`
   gap: 4px;
 
   margin-top: 8px;
-  
+
   white-space: nowrap;
   text-overflow: ellipsis;
 `;

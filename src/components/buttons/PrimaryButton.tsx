@@ -193,7 +193,7 @@ const buttonStyles = {
 };
 
 const PrimaryButtonWrapper = styled.button.withConfig({
-  shouldForwardProp: prop => prop !== 'primaryButtontheme',
+  shouldForwardProp: (prop) => prop !== 'primaryButtontheme',
 })<{
   primaryButtontheme: PrimaryButtontheme;
 }>`

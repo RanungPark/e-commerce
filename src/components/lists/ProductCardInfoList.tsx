@@ -17,7 +17,7 @@ const ProductCardInfoList = ({
     <ProductCardInfoListWrapper>
       {children}
       <Ul>
-        {infoItems.map(infoItem => (
+        {infoItems.map((infoItem) => (
           <ProductCardInfo key={uuidv4()}>{infoItem}</ProductCardInfo>
         ))}
       </Ul>
@@ -29,7 +29,7 @@ const ProductCardInfoListWrapper = styled.div`
   ${({ theme }) => theme.typography.Subtitle}
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   gap: 16px;
-  
+
   width: 100%;
   height: 100%;
   min-height: 225px;

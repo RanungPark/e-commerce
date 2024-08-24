@@ -33,7 +33,7 @@ const FooterShopAndService = () => {
       </FooterTextButtonList>
       <FooterInfoTittle>service</FooterInfoTittle>
       <FooterTextButtonList>
-        {serviceDatas.map(children => (
+        {serviceDatas.map((children) => (
           <TextButton key={uuidv4()} onClick={pageWait}>
             {children}
           </TextButton>

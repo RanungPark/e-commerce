@@ -88,6 +88,6 @@ export function box() {
         &.pl-half {
           padding-left: 4px;
         }
-      `
+      `,
     );
 }

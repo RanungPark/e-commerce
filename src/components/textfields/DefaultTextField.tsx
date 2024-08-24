@@ -45,7 +45,7 @@ const DefaultTextField = ({
 const DefaultTextFieldWrapper = styled.div`
   position: relative;
   z-index: ${zIndex.textField};
-  
+
   width: 100%;
 `;
 
@@ -109,7 +109,7 @@ const TextFieldStyle = {
 };
 
 const InputWrapper = styled.div.withConfig({
-  shouldForwardProp: prop => prop !== 'inputState',
+  shouldForwardProp: (prop) => prop !== 'inputState',
 })<{ inputState: InputState }>`
   & input {
     ${({ theme }) => theme.typography.Caption};
