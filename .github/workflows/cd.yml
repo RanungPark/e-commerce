@@ -17,8 +17,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Install dependencies
         run: npm ci
+        
       - name: Run Chromatic
         uses: chromaui/action@latest
         with:
@@ -33,10 +35,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Install dependencies
         run: npm ci
+
       - name: Build project
         run: npm run build
+        
       - name: Deploy to Netlify
         uses: netlify/actions@v3
         with:
