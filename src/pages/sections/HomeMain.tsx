@@ -7,7 +7,7 @@ const HomeMain = () => {
   return (
     <HomeMainWrapper>
       <HomeMainTitle>
-        <TitleText>오늘의 꽃</TitleText>
+        <TitleText>오늘의 꽃이에용</TitleText>
         어떤 상황에도 어울리는 독특하게 제작된 부케와 선물을 찾아보세요. 온라인
         꽃배달 서비스로 기쁨을 전하세요.
       </HomeMainTitle>
