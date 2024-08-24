@@ -124,15 +124,16 @@ const CheckoutPage = () => {
 };
 
 const CheckoutPagetWrapper = styled.section`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   padding-bottom: 80px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const BreadCrumbWrapper = styled.div`
   ${mixins.flexBox({ justify: 'start' })}
-  padding: 40px 0 0 80px;
-  width: 100%;
   gap: 16px;
+
+  width: 100%;
+  padding: 40px 0 0 80px;
 `;
 
 export default CheckoutPage;

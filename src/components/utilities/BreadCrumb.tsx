@@ -55,6 +55,7 @@ const notFocusStyle = css`
 
 const disabledStyle = css`
   color: ${({ theme }) => theme.colors.gray};
+
   pointer-events: none;
 
   path {
@@ -67,10 +68,10 @@ const BreadCrumbWrapper = styled.div.withConfig({
 })<BreadCrumbWrapperProps>`
   ${mixins.flexBox({})};
   ${({ theme }) => theme.typography.Overline}
-  text-transform: uppercase;
-  font-weight: 700;
   ${({ focus }) => (focus ? focusStyle : notFocusStyle)}
   ${({ disabled }) => (disabled ? disabledStyle : baseStyle)}
+  font-weight: 700;
+  text-transform: uppercase;
 `;
 
 export default BreadCrumb;

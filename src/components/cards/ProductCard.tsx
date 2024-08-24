@@ -54,9 +54,9 @@ const Contents = styled.div`
 `;
 
 const Img = styled.img`
-  border-right: 1px solid ${({ theme }) => theme.colors.lightgray};
   width: 50%;
   height: 50%;
+  border-right: 1px solid ${({ theme }) => theme.colors.lightgray};
 `;
 
 export default ProductCard;

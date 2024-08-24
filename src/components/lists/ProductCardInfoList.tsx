@@ -28,11 +28,12 @@ const ProductCardInfoList = ({
 const ProductCardInfoListWrapper = styled.div`
   ${({ theme }) => theme.typography.Subtitle}
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
+  gap: 16px;
+  
   width: 100%;
   height: 100%;
-  padding: 16px;
   min-height: 225px;
-  gap: 16px;
+  padding: 16px;
 `;
 
 const Ul = styled.ul`

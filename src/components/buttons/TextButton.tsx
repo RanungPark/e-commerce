@@ -68,10 +68,11 @@ const TextButton = ({
 const TextButtonWrapper = styled.button`
   ${mixins.flexBox({})}
   ${({ theme }) => theme.typography.Links}
-
-  gap: 4px;
-  background-color: inherit;
   position: relative;
+  gap: 4px;
+
+  background-color: inherit;
+
   cursor: pointer;
 
   &:hover {
@@ -88,13 +89,16 @@ const TextButtonWrapper = styled.button`
 
   &:hover::after,
   &:active::after {
-    content: '';
     position: absolute;
-    left: 0;
     bottom: -1px;
+    left: 0;
+
     width: 100%;
     height: 0.5px;
+
     background-color: ${({ theme }) => theme.colors.black};
+
+    content: '';
   }
 `;
 

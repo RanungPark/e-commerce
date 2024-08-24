@@ -107,8 +107,9 @@ const LoginPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10vh;
+
+  padding: 100px 40px 20vh;
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-  padding: 100px 40px 20vh 40px;
 `;
 
 export default LoginPage;

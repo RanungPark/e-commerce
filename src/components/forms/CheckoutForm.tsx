@@ -79,8 +79,8 @@ const CheckoutForm = ({ onSubmit, checkoutFormDatas }: CheckoutFormProps) => {
 
 const CheckoutFormWrapper = styled.form`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
-
   gap: 16px;
+  
   width: 100%;
 `;
 

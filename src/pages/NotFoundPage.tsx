@@ -20,7 +20,6 @@ const NotFoundPage = () => {
 const NotFoundPageWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', justify: 'space-evenly' })}
   ${({ theme }) => theme.typography.Heading5}
-
   width: 30%;
   height: 70vh;
   margin: 0 auto;

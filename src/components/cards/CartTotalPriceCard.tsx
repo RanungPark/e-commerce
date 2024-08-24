@@ -19,8 +19,8 @@ const CartTotalPriceCard = ({ children }: CartTotalPriceCardProps) => {
 };
 
 const CartTotalPriceCardWrapper = styled.div`
-  ${({ theme }) => theme.typography.Subtitle}
   ${mixins.flexBox({ justify: 'space-between' })}
+  ${({ theme }) => theme.typography.Subtitle}
 `;
 
 const TotalPrice = styled.span`

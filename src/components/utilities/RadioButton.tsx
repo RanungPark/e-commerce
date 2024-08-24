@@ -57,11 +57,8 @@ const RadioButton = ({
 const RadioButtonWrapper = styled.label`
   width: auto;
   height: auto;
-  cursor: pointer;
 
-  &:active {
-    color: ${({ theme }) => theme.colors.gray};
-  }
+  cursor: pointer;
 
   & input,
   p {
@@ -69,6 +66,8 @@ const RadioButtonWrapper = styled.label`
   }
 
   &:active {
+    color: ${({ theme }) => theme.colors.gray};
+
     & input {
       border: 1px solid ${({ theme }) => theme.colors.gray};
 
@@ -80,27 +79,35 @@ const RadioButtonWrapper = styled.label`
 `;
 
 const Input = styled.input`
-  appearance: none;
-  background-color: ${({ theme }) => theme.colors.lightgray};
-  border: 1px solid ${({ theme }) => theme.colors.black};
+  position: relative;
+
   width: 24px;
   height: 24px;
   margin-right: 12px;
-  cursor: pointer;
+  border: 1px solid ${({ theme }) => theme.colors.black};
   border-radius: 50%;
-  position: relative;
+
+  background-color: ${({ theme }) => theme.colors.lightgray};
+
+  cursor: pointer;
+
+  appearance: none;
 
   &:checked {
     &::before {
-      content: '';
-      border-radius: 50%;
-      width: 14px;
-      height: 14px;
       position: absolute;
-      background-color: ${({ theme }) => theme.colors.black};
       top: 50%;
       left: 50%;
+
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+
+      background-color: ${({ theme }) => theme.colors.black};
+
       transform: translate(-50%, -50%);
+
+      content: '';
     }
   }
 `;

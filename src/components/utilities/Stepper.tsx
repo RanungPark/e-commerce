@@ -69,6 +69,7 @@ const Input = styled.input`
   ${({ theme }) => theme.typography.Body};
   width: 59px;
   height: 100%;
+  
   text-align: center;
 `;
 

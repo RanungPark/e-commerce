@@ -87,6 +87,7 @@ const LoginPasswordForm = ({
 const LoginPasswordFormWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   gap: 32px;
+  
   width: 100%;
 `;
 

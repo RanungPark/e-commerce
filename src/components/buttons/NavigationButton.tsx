@@ -40,6 +40,7 @@ const NavigationButtonWrapper = styled.button.withConfig({
   shouldForwardProp: prop => prop !== 'hasIcon',
 })<NavigationButtonWrapperProps>`
   ${mixins.flexBox({})};
+  ${({ theme }) => theme.typography.Links};
   ${({ hasIcon }) =>
     hasIcon
       ? css`
@@ -48,7 +49,6 @@ const NavigationButtonWrapper = styled.button.withConfig({
       : css`
           padding: 32px 72px;
         `}
-  ${({ theme }) => theme.typography.Links};
 `;
 
 export default NavigationButton;

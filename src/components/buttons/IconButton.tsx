@@ -40,10 +40,12 @@ const sizeStyles = {
     width: 24px;
     height: 24px;
   `,
+
   medium: css`
     width: 32px;
     height: 32px;
   `,
+
   large: css`
     width: 44px;
     height: 44px;

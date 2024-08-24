@@ -71,27 +71,30 @@ const Cart = ({ open, setOpen }: CartProps) => {
 };
 
 const CartWrapper = styled.div`
-  width: 768px;
-  height: 100vh;
+  display: flex;
   overflow-y: auto;
-  background-color: ${({ theme }) => theme.colors.white};
   position: fixed;
   z-index: ${zIndex.cart};
-  display: flex;
   flex-direction: column;
+
+  width: 768px;
+  height: 100vh;
   border: 1px solid ${({ theme }) => theme.colors.black};
+
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 const CartHeaderWrapper = styled.div`
-  ${({ theme }) => theme.typography.Heading6}
   ${mixins.flexBox({ justify: 'space-between' })}
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+  ${({ theme }) => theme.typography.Heading6}
   padding: 16px 40px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const CartMainWrapper = styled.ul`
-  flex: 1;
   overflow-y: auto;
+  flex: 1;
+
   & li {
     padding: 40px;
     border-bottom: 1px solid ${({ theme }) => theme.colors.black};
@@ -110,15 +113,16 @@ const EmptyCartMessage = styled.p`
 
 const CartfooterWrapper = styled.div`
   & > div {
-    border-top: 1px solid ${({ theme }) => theme.colors.black};
     padding: 40px;
+    border-top: 1px solid ${({ theme }) => theme.colors.black};
   }
 `;
 
 const ShippingNote = styled.p`
   ${({ theme }) => theme.typography.Caption}
-  border-top: 1px solid ${({ theme }) => theme.colors.black};
   padding: 20px;
+  border-top: 1px solid ${({ theme }) => theme.colors.black};
+
   text-align: center;
 `;
 

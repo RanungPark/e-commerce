@@ -43,11 +43,11 @@ const CheckoutStep = ({
 };
 
 const CheckoutStepWrapper = styled.div`
-  padding: 80px;
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   ${({ theme }) => theme.typography.Subtitle}
- 
   gap: 16px;
+
+  padding: 80px;
 `;
 
 export default CheckoutStep;

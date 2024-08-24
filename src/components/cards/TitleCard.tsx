@@ -10,8 +10,8 @@ const TitleCard = ({ children }: TitleCardProps) => {
 
 const TitleCardWrapper = styled.h2`
   ${({ theme }) => theme.typography.Heading2}
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   padding: 80px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 export default TitleCard;

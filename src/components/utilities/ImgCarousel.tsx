@@ -84,8 +84,8 @@ const ImgCarousel = ({ products }: ImgCarouselProps) => {
 };
 
 const ImgCarouselWrapper = styled.div`
-  width: 100%;
   ${mixins.flexBox({ justify: 'space-between' })}
+  width: 100%;
 `;
 
 export default ImgCarousel;

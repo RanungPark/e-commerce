@@ -51,8 +51,8 @@ const OuterProductsWrapper = styled.article``;
 const OuterProductsTitle = styled.div`
   ${({ theme }) => theme.typography.Heading4}
   ${mixins.flexBox({})}
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   padding: 64px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const OuterProductsList = styled.div`

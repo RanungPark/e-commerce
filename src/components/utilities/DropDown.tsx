@@ -78,16 +78,21 @@ const DropDown = ({
 
 const defalutStyle = css`
   background-color: ${({ theme }) => theme.colors.white};
+
+  cursor: pointer;
+
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.gray};
   }
+
   &:focus-within {
     box-shadow: ${({ theme }) => `0 0 0 1px ${theme.colors.gray}`};
   }
+
   & path {
     fill: ${({ theme }) => theme.colors.black};
   }
-  cursor: pointer;
+
   & button {
     cursor: pointer;
   }
@@ -95,16 +100,21 @@ const defalutStyle = css`
 
 const disabledStyle = css`
   background-color: ${({ theme }) => theme.colors.extralight};
+
+  pointer-events: none;
+
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.lightgray};
   }
+
   &:focus-within {
     box-shadow: 0 0 0;
   }
+
   & path {
     fill: ${({ theme }) => theme.colors.lightgray};
   }
-  pointer-events: none;
+
   & button {
     pointer-events: none;
   }
@@ -115,7 +125,6 @@ const DropDownLabel = styled.label.withConfig({
 })<DropDownLabelProps>`
   ${mixins.flexBox({ justify: 'space-between' })}
   ${({ disabled }) => (!disabled ? defalutStyle : disabledStyle)}
-  
   width: 100%;
   max-height: 56px;
   padding: 16px;
@@ -125,6 +134,7 @@ const DropDownLabel = styled.label.withConfig({
 const DropDownInput = styled.input`
   ${({ theme }) => theme.typography.Caption};
   flex: 1;
+
   cursor: pointer;
 
   &:disabled {

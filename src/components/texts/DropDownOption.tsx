@@ -23,12 +23,14 @@ const DropDownOption = ({ children, onClick, testId }: DropDownOptionProps) => {
 const DropDownOptionWrapper = styled.li`
   ${mixins.flexBox({ justify: 'start' })}
   ${({ theme }) => theme.typography.CaptionBold}
-  cursor: pointer;
   max-height: 56px;
   padding: 16px;
+  
+  cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.gray};
+  
     color: ${({ theme }) => theme.colors.white};
   }
 `;

@@ -97,16 +97,21 @@ const CustomHeader = ({
 };
 
 const DatePickerWrapper = styled.div`
-  width: 100%;
-  max-height: 56px;
   position: relative;
   z-index: ${zIndex.datePicker};
-`;
+
+  width: 100%;
+  max-height: 56px;
+  `;
 
 const DatePickerLabelWrapper = styled.label`
   ${mixins.flexBox({ justify: 'space-between' })}
-  background-color: ${({ theme }) => theme.colors.white};
+  padding: 16px;
   border: 1px solid ${({ theme }) => theme.colors.lightgray};
+
+  background-color: ${({ theme }) => theme.colors.white};
+
+  cursor: pointer;
 
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.gray};
@@ -116,29 +121,29 @@ const DatePickerLabelWrapper = styled.label`
     box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.gray};
   }
 
-  padding: 16px;
-  cursor: pointer;
-
   .react-datepicker-popper {
     left: 0;
   }
 
   .react-datepicker {
-    border: 1px solid ${({ theme }) => theme.colors.black};
-    border-radius: 0;
     position: absolute;
     top: 16px;
     left: auto;
+
     padding: 24px;
+    border: 1px solid ${({ theme }) => theme.colors.black};
+    border-radius: 0;
   }
 
   .react-datepicker__header {
-    background-color: ${({ theme }) => theme.colors.white};
+    width: 180px;
+    padding: 0;
     border-bottom: none;
     border-radius: 0;
-    padding: 0;
-    width: 180px;
+
+    background-color: ${({ theme }) => theme.colors.white};
   }
+  
   .react-datepicker__aria-live {
     display: none;
   }
@@ -146,16 +151,16 @@ const DatePickerLabelWrapper = styled.label`
   .react-datepicker__day-names {
     ${({ theme }) => theme.typography.CaptionBold}
     ${mixins.flexBox({ justify: 'space-between' })}
-    padding: 0;
     margin-top: 16px;
+    padding: 0;
 
     .react-datepicker__day-name {
       ${mixins.flexBox({})}
       width: 24px;
       height: 24px;
+      margin: 0;
 
       color: ${({ theme }) => theme.colors.gray};
-      margin: 0;
     }
   }
 
@@ -164,6 +169,7 @@ const DatePickerLabelWrapper = styled.label`
     display: flex;
     flex-direction: column;
     gap: 8px;
+
     margin-top: 16px;
   }
 
@@ -174,21 +180,25 @@ const DatePickerLabelWrapper = styled.label`
 
   .react-datepicker__day {
     ${mixins.flexBox({})}
-    margin: 0;
     width: 24px;
     height: 24px;
+    margin: 0;
 
     &:hover {
-      color: ${({ theme }) => theme.colors.black};
-      background-color: ${({ theme }) => theme.colors.lightgray};
       border-radius: 0;
+
+      background-color: ${({ theme }) => theme.colors.lightgray};
+
+      color: ${({ theme }) => theme.colors.black};
     }
   }
 
   .react-datepicker__day--selected {
-    color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.black};
     border-radius: 0;
+
+    background-color: ${({ theme }) => theme.colors.black};
+
+    color: ${({ theme }) => theme.colors.white};
   }
 
   .react-datepicker__day--outside-month {
@@ -205,12 +215,15 @@ const DatePickerLabelWrapper = styled.label`
 `;
 
 const CustomInput = styled.input`
+  ${({ theme }) => theme.typography.Caption}
   width: 100%;
   height: 100%;
   border: none;
+
   background-color: inherit;
+
   color: ${({ theme }) => theme.colors.black};
-  ${({ theme }) => theme.typography.Caption}
+
   cursor: pointer;
 
   &:focus {
@@ -221,8 +234,9 @@ const CustomInput = styled.input`
 const CustomHeaderWrapper = styled.div`
   ${mixins.flexBox({})}
   ${({ theme }) => theme.typography.Heading6};
-  background-color: ${({ theme }) => theme.colors.white};
   gap: 16.5px;
+
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export default DatePicker;

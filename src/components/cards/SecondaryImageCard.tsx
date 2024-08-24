@@ -33,14 +33,16 @@ const SecondaryImageCard = ({
 
 const SecondaryImageCardWrapper = styled.div`
   width: 100px;
-  cursor: pointer;
+
   background-color: ${({ theme }) => theme.colors.white};
+  
+  cursor: pointer;
 `;
 
 const Img = styled.img`
-  border: 1px solid ${({ theme }) => theme.colors.lightgray};
   width: 100px;
   height: 100px;
+  border: 1px solid ${({ theme }) => theme.colors.lightgray};
 
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.gray};
@@ -55,10 +57,12 @@ const Contents = styled.div`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   ${({ theme }) => theme.typography.Caption}
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin-top: 8px;
   gap: 4px;
+
+  margin-top: 8px;
+  
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 const Price = styled.p`

@@ -29,6 +29,7 @@ const DropDownOptionListWrapper = styled.ul`
   width: 100%;
   margin-top: 8px;
   border: 1px solid ${({ theme }) => theme.colors.darkgray};
+  
   & > li {
     border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   }

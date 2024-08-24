@@ -18,8 +18,8 @@ const Footer = () => {
 
 const FooterWrapper = styled.footer`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto;
+  grid-template-columns: repeat(2, 1fr);
 
   & > div:nth-child(odd) {
     border-right: 1px solid ${({ theme }) => theme.colors.black};

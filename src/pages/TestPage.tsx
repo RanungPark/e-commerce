@@ -310,6 +310,7 @@ const TestPage = () => {
 const TestPageWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column' })}
   gap: 32px;
+
   width: 100%;
 `;
 

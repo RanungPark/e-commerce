@@ -52,14 +52,12 @@ const Checkbox = ({
 };
 
 const CheckboxWrapper = styled.label`
+  position: relative;
+
   width: auto;
   height: auto;
-  position: relative;
-  cursor: pointer;
 
-  &:active {
-    color: ${({ theme }) => theme.colors.gray};
-  }
+  cursor: pointer;
 
   & svg {
     display: none;
@@ -71,6 +69,8 @@ const CheckboxWrapper = styled.label`
   }
 
   &:active {
+    color: ${({ theme }) => theme.colors.gray};
+
     & input {
       border: 1px solid ${({ theme }) => theme.colors.darkgray};
     }
@@ -82,13 +82,16 @@ const CheckboxWrapper = styled.label`
 `;
 
 const Input = styled.input`
-  appearance: none;
-  background-color: ${({ theme }) => theme.colors.lightgray};
-  border: 1px solid ${({ theme }) => theme.colors.black};
   width: 24px;
   height: 24px;
   margin-right: 12px;
+  border: 1px solid ${({ theme }) => theme.colors.black};
+
+  background-color: ${({ theme }) => theme.colors.lightgray};
+
   cursor: pointer;
+
+  appearance: none;
 
   &:checked {
     & + svg {

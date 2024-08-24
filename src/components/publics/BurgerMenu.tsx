@@ -47,41 +47,47 @@ const BurgerMenu = ({ open, setOpen }: BurgerMenuProps) => {
 };
 
 const BurgerMenuBackGround = styled.div`
-  width: 768px;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
   position: fixed;
   z-index: ${zIndex.bugerMenuBackGround};
+
+  width: 768px;
+  height: 100vh;
   border: 1px solid ${({ theme }) => theme.colors.black};
+
+  background-color: rgb(0 0 0 / 20%);
 `;
 
 const BurgerMenuWrapper = styled.div`
-  width: 385px;
-  background-color: ${({ theme }) => theme.colors.white};
-  height: 100vh;
   position: fixed;
   z-index: ${zIndex.bugerMenu};
+
+  width: 385px;
+  height: 100vh;
   border: 1px solid ${({ theme }) => theme.colors.black};
+
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 const TextButtonList = styled.ul`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-  padding: 24px;
   gap: 16px;
+
+  padding: 24px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const BurgerMenuCloseButtonWrapper = styled.button`
   ${mixins.flexBox({ justify: 'start' })}
   width: 100%;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-  cursor: pointer;
   padding: 16px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+
+  cursor: pointer;
 `;
 
 const SMSIconButtonWrapper = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   padding: 24px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 export default BurgerMenu;

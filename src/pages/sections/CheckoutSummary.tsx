@@ -51,8 +51,9 @@ const CheckoutSummary = () => {
 };
 
 const CheckoutSummaryWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.extralight};
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+  
+  background-color: ${({ theme }) => theme.colors.extralight};
 `;
 
 const CheckoutSummaryContent = styled.div`
@@ -72,6 +73,7 @@ const ButtonWrapper = styled.div`
   ${({ theme }) => theme.typography.Heading6}
   ${mixins.flexBox({ justify: 'start' })}
   gap: 8px;
+
   cursor: pointer;
 `;
 

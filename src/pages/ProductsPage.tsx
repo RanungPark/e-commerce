@@ -118,9 +118,10 @@ const ProductsPage = () => {
 const ProductsPageWrapper = styled.main``;
 
 const ProductImgWrapper = styled.section`
-  text-align: center;
   padding: 24px 0;
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
+
+  text-align: center;
 `;
 
 const ProductImg = styled.img`
@@ -132,10 +133,10 @@ const ProductImg = styled.img`
 const ProductInfosWrapper = styled.section`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   ${({ theme }) => theme.typography.Subtitle}
+  gap: 24px;
+
   padding: 40px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-
-  gap: 24px;
 `;
 
 const QuantityWrapper = styled.div`
@@ -145,8 +146,9 @@ const QuantityWrapper = styled.div`
 
 const CarouselWrapper = styled.div`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
-  width: 100%;
   gap: 16px;
+
+  width: 100%;
 `;
 
 export default ProductsPage;

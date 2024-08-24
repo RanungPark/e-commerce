@@ -59,11 +59,12 @@ const FooterRemind = () => {
 
 const FooterRemindWrapper = styled.div`
   ${({ theme }) => theme.typography.Body}
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
-  padding: 40px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  padding: 40px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const FooterRemindForm = styled.form`

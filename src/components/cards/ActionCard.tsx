@@ -40,13 +40,14 @@ const ActionCard = ({
 };
 
 const ActionCardWrapper = styled.div`
-  ${({ theme }) => theme.typography.Heading3}
   ${mixins.flexBox({})}
+  ${({ theme }) => theme.typography.Heading3}
   position: relative;
+
   width: 100%;
   height: 384px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   padding: 32px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 `;
 
 const ButtonWrapper = styled.div`

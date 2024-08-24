@@ -82,6 +82,7 @@ const LoginIdForm = ({ onSubmit, setUsername }: LoginIdFormProps) => {
 const LoginIdFormWrapper = styled.form`
   ${mixins.flexBox({ direction: 'column', align: 'start' })}
   gap: 32px;
+  
   width: 100%;
 `;
 

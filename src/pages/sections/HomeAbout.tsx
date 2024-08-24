@@ -39,9 +39,9 @@ const HomeAboutTextCardAndButtonWrapper = styled.div`
   }
 
   & > button {
-    margin-left: 80px;
-    margin-bottom: 80px;
     width: 175px;
+    margin-bottom: 80px;
+    margin-left: 80px;
   }
 `;
 
