@@ -17,13 +17,13 @@ jobs:
         run: npm install
 
       - name: Lint check
-        run: npm lint:eslint
+        run: npm run lint:eslint
 
       - name: StyleLint check
-        run: npm lint:styled
+        run: npm run lint:styled
 
       - name: Prettier check
-        run: npm prettier:check
+        run: npm run prettier:check
 
   cypress-run:
     runs-on: ubuntu-latest
