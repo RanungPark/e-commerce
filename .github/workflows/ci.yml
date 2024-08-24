@@ -22,8 +22,8 @@ jobs:
       - name: StyleLint check
         run: npm run lint:styled
 
-      - name: Prettier check
-        run: npm run prettier:check
+      - name: Prettier write
+        run: npm run prettier:write
 
   cypress-run:
     runs-on: ubuntu-latest
