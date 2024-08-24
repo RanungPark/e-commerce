@@ -1,7 +1,8 @@
+import styled from 'styled-components';
+
+import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import ProductCardInfoList from '@components/lists/ProductCardInfoList';
-import styled from 'styled-components';
-import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
 import { mixins } from '@styles/Mixin';
 
 interface ProductCardProps {

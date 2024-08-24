@@ -1,5 +1,6 @@
-import TitleCard from '@components/cards/TitleCard';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import TitleCard from '@components/cards/TitleCard';
 
 const meta = {
   title: 'Cards/TitleCard',

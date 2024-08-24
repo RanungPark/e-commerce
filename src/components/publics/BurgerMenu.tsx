@@ -1,14 +1,15 @@
+import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
+
+import { ReactComponent as WClose } from '@assets/icons/wght400/WClose.svg';
 import IconButton from '@components/buttons/IconButton';
 import MenuButton from '@components/buttons/MenuButton';
-import { zIndex } from '@constants/zIndex';
-import styled from 'styled-components';
-import { ReactComponent as WClose } from '@assets/icons/wght400/WClose.svg';
-import { mixins } from '@styles/Mixin';
-import { v4 as uuidv4 } from 'uuid';
-import SNSIconButtonList from '@components/lists/SNSIconButtonList';
-import { aboutDatas, menuDatas } from '@data/buttonDatas';
 import TextButton from '@components/buttons/TextButton';
+import SNSIconButtonList from '@components/lists/SNSIconButtonList';
 import { pageWait } from '@constants/toast';
+import { zIndex } from '@constants/zIndex';
+import { aboutDatas, menuDatas } from '@data/buttonDatas';
+import { mixins } from '@styles/Mixin';
 
 type BurgerMenuProps = {
   open: boolean;

@@ -1,7 +1,8 @@
+import styled from 'styled-components';
+
 import TextButton from '@components/buttons/TextButton';
 import { mixins } from '@styles/Mixin';
 import { changeKroeaPrice } from '@utils/price';
-import styled from 'styled-components';
 
 interface CartItemCardProps {
   children: string;

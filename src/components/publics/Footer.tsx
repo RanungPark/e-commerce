@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import FooterRemind from '@pages/sections/FooterRemind';
-import FooterContact from '@pages/sections/FooterContact';
+
 import FooterAbout from '@pages/sections/FooterAbout';
+import FooterContact from '@pages/sections/FooterContact';
+import FooterRemind from '@pages/sections/FooterRemind';
 import FooterShopAndService from '@pages/sections/FooterShopAndService';
 
 const Footer = () => {

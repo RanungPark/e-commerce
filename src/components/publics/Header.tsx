@@ -1,8 +1,10 @@
-import BurgerMenu from '@components/publics/BurgerMenu';
-import NavigationBar from '@components/utilities/NavigationBar';
-import Cart from './Cart';
 import { useState } from 'react';
 import styled from 'styled-components';
+
+import BurgerMenu from '@components/publics/BurgerMenu';
+import NavigationBar from '@components/utilities/NavigationBar';
+
+import Cart from './Cart';
 
 const Header = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);

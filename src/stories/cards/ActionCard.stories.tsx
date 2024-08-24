@@ -1,6 +1,7 @@
-import ActionCard from '@components/cards/ActionCard';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
+import ActionCard from '@components/cards/ActionCard';
 
 const meta = {
   title: 'Cards/ActionCard',

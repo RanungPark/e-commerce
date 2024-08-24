@@ -1,9 +1,10 @@
-import CategoryPage from './CategoryPage';
-import HomePage from './HomePage';
-import ProductsPage from './ProductsPage';
 import { ReactNode } from 'react';
-import LoginPage from './LoginPage';
+
+import CategoryPage from './CategoryPage';
 import CheckoutPage from './CheckoutPage';
+import HomePage from './HomePage';
+import LoginPage from './LoginPage';
+import ProductsPage from './ProductsPage';
 import TestPage from './TestPage';
 
 export interface Routes {

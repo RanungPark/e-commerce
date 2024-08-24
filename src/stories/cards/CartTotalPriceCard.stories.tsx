@@ -1,5 +1,6 @@
-import CartTotalPriceCard from '@components/cards/CartTotalPriceCard';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import CartTotalPriceCard from '@components/cards/CartTotalPriceCard';
 
 const meta = {
   title: 'Cards/CartTotalPriceCard',

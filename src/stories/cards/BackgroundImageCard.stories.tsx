@@ -1,5 +1,6 @@
-import BackgroundImageCard from '@components/cards/BackgroundImageCard';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import BackgroundImageCard from '@components/cards/BackgroundImageCard';
 import { fetchImgURL } from '@utils/img';
 
 const meta = {

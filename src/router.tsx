@@ -1,7 +1,8 @@
+import { ReactNode } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+
 import App from './App';
 import NotFoundPage from './pages/NotFoundPage';
-import { ReactNode } from 'react';
 import { Routes, routes } from './pages/routes';
 
 interface RouteElement extends Routes {

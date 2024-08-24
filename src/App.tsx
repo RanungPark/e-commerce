@@ -1,9 +1,10 @@
-import { Outlet } from 'react-router';
 import { Toaster } from 'react-hot-toast';
-import Header from '@components/publics/Header';
+import { Outlet } from 'react-router';
+
 import Footer from '@components/publics/Footer';
-import useScrollToTop from '@hooks/useScrollToTop';
+import Header from '@components/publics/Header';
 import Layout from '@components/publics/Layout';
+import useScrollToTop from '@hooks/useScrollToTop';
 
 const App = () => {
   useScrollToTop();

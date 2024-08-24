@@ -1,7 +1,8 @@
-import IconButton from '@components/buttons/IconButton';
 import styled, { css } from 'styled-components';
+
 import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
 import { ReactComponent as WEdit } from '@assets/icons/wght400/WEdit.svg';
+import IconButton from '@components/buttons/IconButton';
 import { mixins } from '@styles/Mixin';
 
 interface CompleteTextFiledProps {

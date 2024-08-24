@@ -1,7 +1,8 @@
-import ProductCardInfo from '@components/texts/ProductCardInfo';
-import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
+
+import ProductCardInfo from '@components/texts/ProductCardInfo';
+import { mixins } from '@styles/Mixin';
 
 interface ProductCardInfoListProps {
   children: string;

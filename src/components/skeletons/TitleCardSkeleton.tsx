@@ -1,6 +1,7 @@
+import styled from 'styled-components';
+
 import { LoadingAnimation } from '@styles/animation';
 import { mixins } from '@styles/Mixin';
-import styled from 'styled-components';
 
 const TitleCardSkeleton = () => {
   return (

@@ -1,7 +1,8 @@
-import ImgCarousel from '@components/utilities/ImgCarousel';
 import type { Meta, StoryObj } from '@storybook/react';
-import { fetchImgURL } from '@utils/img';
 import { BrowserRouter } from 'react-router-dom';
+
+import ImgCarousel from '@components/utilities/ImgCarousel';
+import { fetchImgURL } from '@utils/img';
 
 const meta = {
   title: 'Utilities/ImgCarousel',

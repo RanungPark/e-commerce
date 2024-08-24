@@ -1,10 +1,11 @@
-import styled from 'styled-components';
-import { mixins } from '@styles/Mixin';
-import { ProductType } from 'src/@types/product';
-import PrimaryImageCard from '@components/cards/PrimaryImageCard';
 import { useNavigate } from 'react-router';
+import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
+
+import PrimaryImageCard from '@components/cards/PrimaryImageCard';
+import { mixins } from '@styles/Mixin';
 import { imgOptimization } from '@utils/img';
+import { ProductType } from 'src/@types/product';
 
 interface OuterProductsProps {
   outerProducts: ProductType[];

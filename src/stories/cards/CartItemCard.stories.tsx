@@ -1,6 +1,7 @@
-import CartItemCard from '@components/cards/CartItemCard';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
+import CartItemCard from '@components/cards/CartItemCard';
 import { fetchImgURL } from '@utils/img';
 
 const meta = {

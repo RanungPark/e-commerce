@@ -1,7 +1,8 @@
-import NavigationButton from '@components/buttons/NavigationButton';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
 import { ReactComponent as WMenu } from '@assets/icons/wght400/WMenu.svg';
+import NavigationButton from '@components/buttons/NavigationButton';
 
 const meta = {
   title: 'Buttons/NavigationButton',
@@ -44,7 +45,7 @@ export const Default: Story = {
   },
 };
 
-export const hasIcon: Story = {
+export const HasIcon: Story = {
   args: {
     hasIcon: true,
     IconComponent: WMenu,

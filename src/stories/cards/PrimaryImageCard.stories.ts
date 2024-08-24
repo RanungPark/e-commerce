@@ -1,6 +1,7 @@
-import PrimaryImageCard from '@components/cards/PrimaryImageCard';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
+import PrimaryImageCard from '@components/cards/PrimaryImageCard';
 import { fetchImgURL } from '@utils/img';
 
 const meta = {

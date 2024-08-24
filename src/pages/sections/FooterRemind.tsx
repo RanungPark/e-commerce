@@ -1,10 +1,11 @@
+import { useForm } from 'react-hook-form';
+import styled from 'styled-components';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import DefaultTextField from '@components/textfields/DefaultTextField';
 import { REG_EMAIL } from '@constants/reg';
 import { subscriptionDone, subscriptionFail } from '@constants/toast';
 import { useUserStore } from '@store/userStore';
-import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
 
 interface FooterRemindForm {
   remind: string;

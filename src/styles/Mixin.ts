@@ -1,8 +1,7 @@
-import {
-  OptionalButtonProps,
-} from 'src/@types/mixin/nodeToColor';
-import { OptionalFromFlexBoxProps } from 'src/@types/mixin/flexbox';
 import { css } from 'styled-components';
+
+import { OptionalFromFlexBoxProps } from 'src/@types/mixin/flexbox';
+import { OptionalButtonProps } from 'src/@types/mixin/nodeToColor';
 
 export const mixins = {
   flexBox: ({

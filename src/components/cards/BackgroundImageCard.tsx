@@ -1,5 +1,6 @@
-import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
+
+import { mixins } from '@styles/Mixin';
 
 interface BackgroundImageCardProps {
   imgPath: string;

@@ -1,7 +1,8 @@
-import styled from 'styled-components';
-import { ReactComponent as ArrowTopRight } from '@assets/icons/wght300/ArrowTopRight.svg';
-import { ReactComponent as ArrowDownRight } from '@assets/icons/wght300/ArrowDownRight.svg';
 import { useState } from 'react';
+import styled from 'styled-components';
+
+import { ReactComponent as ArrowDownRight } from '@assets/icons/wght300/ArrowDownRight.svg';
+import { ReactComponent as ArrowTopRight } from '@assets/icons/wght300/ArrowTopRight.svg';
 import { mixins } from '@styles/Mixin';
 
 interface AccordionProps {

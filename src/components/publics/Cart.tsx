@@ -1,15 +1,16 @@
+import { useNavigate } from 'react-router';
+import styled from 'styled-components';
+
+import { ReactComponent as WClose } from '@assets/icons/wght400/WClose.svg';
 import IconButton from '@components/buttons/IconButton';
+import PrimaryButton from '@components/buttons/PrimaryButton';
+import CartTotalPriceCard from '@components/cards/CartTotalPriceCard';
+import CartItemCardList from '@components/lists/CartItemCardList';
+import { clearCart, loginFail } from '@constants/toast';
 import { zIndex } from '@constants/zIndex';
 import { useCartStore } from '@store/cartStore';
 import { useUserStore } from '@store/userStore';
-import styled from 'styled-components';
-import { ReactComponent as WClose } from '@assets/icons/wght400/WClose.svg';
 import { mixins } from '@styles/Mixin';
-import PrimaryButton from '@components/buttons/PrimaryButton';
-import { clearCart, loginFail } from '@constants/toast';
-import { useNavigate } from 'react-router';
-import CartItemCardList from '@components/lists/CartItemCardList';
-import CartTotalPriceCard from '@components/cards/CartTotalPriceCard';
 
 type CartProps = {
   open: boolean;
@@ -61,7 +62,9 @@ const Cart = ({ open, setOpen }: CartProps) => {
         <ShippingNote>
           배송비 및 세금은 결제 시 계산됩니다. 오늘의 꽃 내 무료 표준 배송
         </ShippingNote>
-        <PrimaryButton onClick={goToCheckoutPage} testId='checkOutBtn'>check out</PrimaryButton>
+        <PrimaryButton onClick={goToCheckoutPage} testId="checkOutBtn">
+          check out
+        </PrimaryButton>
       </CartfooterWrapper>
     </CartWrapper>
   );

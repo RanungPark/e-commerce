@@ -1,6 +1,7 @@
+import styled from 'styled-components';
+
 import { mixins } from '@styles/Mixin';
 import { fetchImgURL, imgOptimization } from '@utils/img';
-import styled from 'styled-components';
 
 const HomeMain = () => {
   return (

@@ -1,12 +1,14 @@
-import ReactDOM from 'react-dom/client';
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { RouterProvider } from 'react-router-dom';
-import { theme } from '@styles/theme';
-import GlobalStyles from '@styles/GlobalStyles';
-import router from './router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+
 import { worker } from '@mocks/browser';
+import GlobalStyles from '@styles/GlobalStyles';
+import { theme } from '@styles/theme';
+
+import router from './router';
 
 if (
   process.env.NODE_ENV === 'development' ||

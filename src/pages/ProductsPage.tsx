@@ -1,18 +1,20 @@
-import OuterProducts from '@pages/sections/OuterProducts';
 import { useQuery } from '@tanstack/react-query';
-import { fetchProduct } from '@utils/api';
-import { useNavigate, useParams } from 'react-router';
-import { ProductType } from 'src/@types/product';
-import styled from 'styled-components';
-import ProductInfo from '@components/texts/ProductInfo';
-import Stepper from '@components/utilities/Stepper';
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router';
+import styled from 'styled-components';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
-import { mixins } from '@styles/Mixin';
+import ProductInfo from '@components/texts/ProductInfo';
 import ImgCarousel from '@components/utilities/ImgCarousel';
-import { useCartStore } from '@store/cartStore';
+import Stepper from '@components/utilities/Stepper';
 import { addToCart } from '@constants/toast';
+import OuterProducts from '@pages/sections/OuterProducts';
+import { useCartStore } from '@store/cartStore';
+import { mixins } from '@styles/Mixin';
+import { fetchProduct } from '@utils/api';
 import { imgOptimization } from '@utils/img';
+import { ProductType } from 'src/@types/product';
+
 import ProductsLoading from './sections/ProductsLoading';
 
 interface IProduct {
@@ -103,7 +105,9 @@ const ProductsPage = () => {
             <ImgCarousel products={selectProducts} />
           </CarouselWrapper>
 
-          <PrimaryButton onClick={handleAddItem} testId='addBtn'>Add to basket</PrimaryButton>
+          <PrimaryButton onClick={handleAddItem} testId="addBtn">
+            Add to basket
+          </PrimaryButton>
         </ProductInfosWrapper>
       </ProductsPageWrapper>
       <OuterProducts outerProducts={outerProducts} />

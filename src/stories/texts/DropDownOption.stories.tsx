@@ -1,6 +1,7 @@
-import DropDownOption from '@components/texts/DropDownOption';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
+import DropDownOption from '@components/texts/DropDownOption';
 
 const meta: Meta<typeof DropDownOption> = {
   title: 'Texts/DropDownOption',

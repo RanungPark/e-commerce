@@ -1,7 +1,8 @@
-import PrimaryButton from '@components/buttons/PrimaryButton';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
 import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
+import PrimaryButton from '@components/buttons/PrimaryButton';
 
 const meta = {
   title: 'Buttons/PrimaryButton',

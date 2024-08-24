@@ -1,9 +1,10 @@
-import React from 'react';
 import styled from 'styled-components';
-import SecondaryCardSkeleton from './SecondaryCardSkeleton';
-import { mixins } from '@styles/Mixin';
-import { LoadingAnimation, LongLoadingAnimation } from '@styles/animation';
 import { v4 as uuidv4 } from 'uuid';
+
+import { LoadingAnimation, LongLoadingAnimation } from '@styles/animation';
+import { mixins } from '@styles/Mixin';
+
+import SecondaryCardSkeleton from './SecondaryCardSkeleton';
 
 const ProductInfoSkeleton = () => {
   return (

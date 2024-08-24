@@ -1,5 +1,6 @@
-import ProductInfoSkeleton from '@components/skeletons/ProductInfoSkeleton';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import ProductInfoSkeleton from '@components/skeletons/ProductInfoSkeleton';
 
 const meta: Meta<typeof ProductInfoSkeleton> = {
   title: 'Skeletons/ProductInfoSkeleton',

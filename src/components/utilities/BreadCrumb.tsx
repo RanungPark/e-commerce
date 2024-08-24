@@ -1,6 +1,7 @@
-import { mixins } from '@styles/Mixin';
 import styled, { css } from 'styled-components';
+
 import { ReactComponent as WChevronRight } from '@assets/icons/wght400/WChevronRight.svg';
+import { mixins } from '@styles/Mixin';
 interface BreadCrumbProps {
   children: string;
   onClick: (e: React.MouseEvent) => void;

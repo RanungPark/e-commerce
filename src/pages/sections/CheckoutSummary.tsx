@@ -1,12 +1,13 @@
-import { mixins } from '@styles/Mixin';
-import { ReactComponent as WShoppingCart } from '@assets/icons/wght400/WShoppingCart.svg';
+import { useState } from 'react';
+import styled from 'styled-components';
+
 import { ReactComponent as ChevronDown } from '@assets/icons/wght300/ChevronDown.svg';
 import { ReactComponent as ChevronUp } from '@assets/icons/wght300/ChevronUp.svg';
-import styled from 'styled-components';
+import { ReactComponent as WShoppingCart } from '@assets/icons/wght400/WShoppingCart.svg';
 import IconButton from '@components/buttons/IconButton';
-import { useState } from 'react';
 import CartTotalPriceCard from '@components/cards/CartTotalPriceCard';
 import CartItemCardList from '@components/lists/CartItemCardList';
+import { mixins } from '@styles/Mixin';
 
 const CheckoutSummary = () => {
   const [isOrderOpen, setIsOrderOpen] = useState(false);

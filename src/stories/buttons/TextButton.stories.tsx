@@ -1,7 +1,8 @@
-import TextButton from '@components/buttons/TextButton';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
 import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
+import TextButton from '@components/buttons/TextButton';
 
 const meta = {
   title: 'Buttons/TextButton',

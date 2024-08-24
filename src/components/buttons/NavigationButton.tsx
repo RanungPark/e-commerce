@@ -1,5 +1,6 @@
-import { mixins } from '@styles/Mixin';
 import styled, { css } from 'styled-components';
+
+import { mixins } from '@styles/Mixin';
 
 interface NavigationButtonProps {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;

@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router';
-import { mixins } from '@styles/Mixin';
 import styled from 'styled-components';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
+import { mixins } from '@styles/Mixin';
 
 const NotFoundPage = () => {
   const navigate = useNavigate();

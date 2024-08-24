@@ -1,10 +1,11 @@
-import { mixins } from '@styles/Mixin';
+import { default as DatePickerLib } from 'react-datepicker';
 import styled from 'styled-components';
+
+import { ReactComponent as WCalendar } from '@assets/icons/wght400/WCalendar.svg';
 import { ReactComponent as WChevronLeft } from '@assets/icons/wght400/WChevronLeft.svg';
 import { ReactComponent as WChevronRight } from '@assets/icons/wght400/WChevronRight.svg';
-import { ReactComponent as WCalendar } from '@assets/icons/wght400/WCalendar.svg';
-import { default as DatePickerLib } from 'react-datepicker';
 import { zIndex } from '@constants/zIndex';
+import { mixins } from '@styles/Mixin';
 
 interface DatePickerProps {
   placeholder: string;

@@ -1,12 +1,13 @@
+import { useMutation } from '@tanstack/react-query';
+import { useForm } from 'react-hook-form';
+import styled from 'styled-components';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import DefaultTextField from '@components/textfields/DefaultTextField';
 import { REG_PHONE } from '@constants/reg';
 import { loginStateType } from '@pages/LoginPage';
 import { mixins } from '@styles/Mixin';
-import { useMutation } from '@tanstack/react-query';
 import { fetchLogin } from '@utils/api';
-import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
 
 interface LoginIdFormProps {
   onSubmit: (e: loginStateType) => void;

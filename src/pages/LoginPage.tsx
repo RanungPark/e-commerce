@@ -1,12 +1,13 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
+import styled from 'styled-components';
+
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import LoginId from '@pages/sections/LoginId';
 import LoginPassword from '@pages/sections/LoginPassword';
 import { useUserStore } from '@store/userStore';
 import { mixins } from '@styles/Mixin';
-import { useState } from 'react';
-import { useNavigate } from 'react-router';
 import { FormStateType } from 'src/@types/state';
-import styled from 'styled-components';
 
 export type loginStateType = 'signin' | 'join' | 'signup' | 'done';
 

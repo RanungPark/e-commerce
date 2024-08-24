@@ -1,19 +1,21 @@
-import { useCartStore } from '@store/cartStore';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
-import { paymentsDone } from '@constants/toast';
-import CheckoutSummary from '@pages/sections/CheckoutSummary';
-import { FormStateType } from 'src/@types/state';
+import { v4 as uuidv4 } from 'uuid';
+
 import BreadCrumb from '@components/utilities/BreadCrumb';
-import { mixins } from '@styles/Mixin';
+import { paymentsDone } from '@constants/toast';
 import {
   checkout1stStepDatas,
   checkout2ndStepDatas,
   checkout3rdStepDatas,
 } from '@data/inputDatas';
+import CheckoutSummary from '@pages/sections/CheckoutSummary';
+import { useCartStore } from '@store/cartStore';
+import { mixins } from '@styles/Mixin';
+import { FormStateType } from 'src/@types/state';
+
 import CheckoutStep from './sections/CheckoutStep';
-import { v4 as uuidv4 } from 'uuid';
 
 type CheckoutStepsState = {
   first: FormStateType;
@@ -65,20 +67,20 @@ const CheckoutPage = () => {
     {
       children: 'information',
       onClick: handle1stClick,
-      focus: stepsState.first === 'curr' ? true : false,
-      disabled: stepsState.first === 'yet' ? true : false,
+      focus: stepsState.first === 'curr',
+      disabled: stepsState.first === 'yet',
     },
     {
       children: 'shipping',
       onClick: handle2ndClick,
-      focus: stepsState.second === 'curr' ? true : false,
-      disabled: stepsState.second === 'yet' ? true : false,
+      focus: stepsState.second === 'curr',
+      disabled: stepsState.second === 'yet',
     },
     {
       children: 'payment',
       onClick: handle3rdClick,
-      focus: stepsState.third === 'curr' ? true : false,
-      disabled: stepsState.third === 'yet' ? true : false,
+      focus: stepsState.third === 'curr',
+      disabled: stepsState.third === 'yet',
     },
   ];
 

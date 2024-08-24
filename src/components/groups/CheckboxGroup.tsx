@@ -1,6 +1,8 @@
+import { useMemo } from 'react';
+import styled from 'styled-components';
+
 import { CheckboxContext } from '@contexts/CheckboxContext';
 import { mixins } from '@styles/Mixin';
-import styled from 'styled-components';
 
 interface CheckboxGroupProps {
   label: string;
@@ -31,10 +33,15 @@ const CheckboxGroup = ({
     }
   };
 
+  const contextValue = useMemo(
+    () => ({ isChecked, toggleValue }),
+    [isChecked, toggleValue]
+  );
+
   return (
     <CheckboxGroupWrapper>
       <Legend>{label}</Legend>
-      <CheckboxContext.Provider value={{ isChecked, toggleValue }}>
+      <CheckboxContext.Provider value={contextValue}>
         {children}
       </CheckboxContext.Provider>
     </CheckboxGroupWrapper>

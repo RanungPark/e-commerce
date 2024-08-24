@@ -1,9 +1,10 @@
+import styled from 'styled-components';
+
 import CheckoutForm from '@components/forms/CheckoutForm';
 import CompleteTextFiled from '@components/textfields/CompleteTextFiled';
 import { InputTextsType } from '@data/inputDatas';
 import { mixins } from '@styles/Mixin';
 import { FormStateType } from 'src/@types/state';
-import styled from 'styled-components';
 
 interface CheckoutStepProps {
   stepState: FormStateType;

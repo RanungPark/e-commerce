@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
-import reset from './reset';
+
 import base from './base';
 import { box } from './box';
+import reset from './reset';
 
 const GlobalStyles = createGlobalStyle`
 ${reset}

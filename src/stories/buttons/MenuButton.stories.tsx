@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import MenuButton from '@components/buttons/MenuButton';
 import { BrowserRouter } from 'react-router-dom';
+
+import MenuButton from '@components/buttons/MenuButton';
 
 const meta = {
   title: 'Buttons/MenuButton',

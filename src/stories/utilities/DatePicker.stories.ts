@@ -1,6 +1,7 @@
-import DatePicker from '@components/utilities/DatePicker';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
+import DatePicker from '@components/utilities/DatePicker';
 
 const meta = {
   title: 'Utilities/DatePicker',

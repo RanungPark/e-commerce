@@ -1,10 +1,11 @@
-import IconButton from '@components/buttons/IconButton';
-import { ReactComponent as CaretDown } from '@assets/icons/wght300/CaretDown.svg';
-import { ReactComponent as CaretUp } from '@assets/icons/wght300/CaretUp.svg';
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
-import { mixins } from '@styles/Mixin';
+
+import { ReactComponent as CaretDown } from '@assets/icons/wght300/CaretDown.svg';
+import { ReactComponent as CaretUp } from '@assets/icons/wght300/CaretUp.svg';
+import IconButton from '@components/buttons/IconButton';
 import DropDownOptionList from '@components/lists/DropDownOptionList';
+import { mixins } from '@styles/Mixin';
 
 interface DropDownProps {
   options: string[];

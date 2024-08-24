@@ -1,6 +1,7 @@
-import styled from 'styled-components';
-import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
 import { useContext, useState } from 'react';
+import styled from 'styled-components';
+
+import { ReactComponent as Check } from '@assets/icons/wght300/Check.svg';
 import { CheckboxContext } from '@contexts/CheckboxContext';
 
 interface CheckboxProps {

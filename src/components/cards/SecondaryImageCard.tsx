@@ -1,6 +1,7 @@
+import styled from 'styled-components';
+
 import { mixins } from '@styles/Mixin';
 import { changeKroeaPrice } from '@utils/price';
-import styled from 'styled-components';
 
 interface SecondaryImageCardProps {
   imgPath: string;

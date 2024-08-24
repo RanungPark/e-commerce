@@ -1,6 +1,7 @@
-import DropDown from '@components/utilities/DropDown';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+
+import DropDown from '@components/utilities/DropDown';
 
 const meta = {
   title: 'Utilities/DropDown',

@@ -1,7 +1,7 @@
+import styled from 'styled-components';
+
 import { LoadingAnimation } from '@styles/animation';
 import { mixins } from '@styles/Mixin';
-import React from 'react';
-import styled from 'styled-components';
 
 const SecondaryCardSkeleton = () => {
   return (

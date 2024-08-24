@@ -1,6 +1,7 @@
+import styled from 'styled-components';
+
 import TextButton from '@components/buttons/TextButton';
 import { mixins } from '@styles/Mixin';
-import styled from 'styled-components';
 
 interface ActionCardProps {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;

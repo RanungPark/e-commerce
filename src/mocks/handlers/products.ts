@@ -1,11 +1,11 @@
-import { aromaCandlesProducts } from './../data/aromaCandlesDatas';
+import { http, HttpResponse } from 'msw';
+
+import { aromaCandlesProducts } from '@mocks/data/aromaCandlesDatas';
 import { designerVasesProducts } from '@mocks/data/designerVasesDatas';
 import { driedFlowersProducts } from '@mocks/data/driedFlowersDatas';
 import { freshenersProducts } from '@mocks/data/freshenersDatas';
 import { freshFlowersProducts } from '@mocks/data/freshFlowersDatas';
 import { livePlantsProducts } from '@mocks/data/livePlantsDatas';
-
-import { http, HttpResponse } from 'msw';
 
 export const productHandlers = [
   http.get('/fresh_flowers/:id', ({ params }) => {

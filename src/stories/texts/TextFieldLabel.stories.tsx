@@ -1,5 +1,6 @@
-import TextFieldLabel from '@components/texts/TextFieldLabel';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import TextFieldLabel from '@components/texts/TextFieldLabel';
 
 const meta = {
   title: 'Texts/TextFieldLabel',

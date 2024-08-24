@@ -1,12 +1,14 @@
-import BackgroundImageCard from '@components/cards/BackgroundImageCard';
-import PrimaryImageCard from '@components/cards/PrimaryImageCard';
 import { useQuery } from '@tanstack/react-query';
-import { fetchCategory } from '@utils/api';
-import { imgOptimization } from '@utils/img';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ProductType, ProductBgType } from 'src/@types/product';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
+
+import BackgroundImageCard from '@components/cards/BackgroundImageCard';
+import PrimaryImageCard from '@components/cards/PrimaryImageCard';
+import { fetchCategory } from '@utils/api';
+import { imgOptimization } from '@utils/img';
+import { ProductType, ProductBgType } from 'src/@types/product';
+
 import CategoryLoading from './sections/CategoryLoading';
 
 interface ICategory {

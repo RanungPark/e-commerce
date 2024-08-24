@@ -1,14 +1,15 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
+import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
+
+import { ReactComponent as WChevronLeft } from '@assets/icons/wght400/WChevronLeft.svg';
+import { ReactComponent as WChevronRight } from '@assets/icons/wght400/WChevronRight.svg';
 import IconButton from '@components/buttons/IconButton';
 import SecondaryImageCard from '@components/cards/SecondaryImageCard';
-import { useNavigate } from 'react-router';
-import { ProductType } from 'src/@types/product';
-import styled from 'styled-components';
-import { ReactComponent as WChevronRight } from '@assets/icons/wght400/WChevronRight.svg';
-import { ReactComponent as WChevronLeft } from '@assets/icons/wght400/WChevronLeft.svg';
 import { mixins } from '@styles/Mixin';
-import { useState } from 'react';
 import { imgOptimization } from '@utils/img';
-import { v4 as uuidv4 } from 'uuid';
+import { ProductType } from 'src/@types/product';
 interface ImgCarouselProps {
   products: ProductType[];
 }
