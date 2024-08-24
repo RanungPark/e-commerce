@@ -33,7 +33,7 @@
     "chromatic": "chromatic --exit-zero-on-changes",
     "test-storybook": "test-storybook",
     "analyze": "webpack-bundle-analyzer ./dist/bundle-report.json --default-sizes gzip",
-    "cypress": "npx cypress open",
+    "cypress": "npx cypress run",
     "lint:styled": "stylelint '**/*.tsx'  && echo 'styleLinting completed successfully!'",
     "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-pattern dist/  && echo 'esLinting completed successfully!'",
     "prettier:check": "prettier --check '**/*.{js,jsx,ts,tsx}' && echo 'Prettier check completed successfully!'",
